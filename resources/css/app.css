@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    @apply bg-background text-white;
+    font-family: 'Inter', sans-serif;
+
+}
+
+.btn {
+    @apply py-3 font-semibold leading-none relative hover:opacity-80;
+    border-radius: 8px;
+    color: #FFF7E8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: #298AFF;
+    box-shadow: 0px 4px 4px 0px rgba(41, 138, 255, 0.25), 0px 0px 10px 0px rgba(255, 255, 255, 0.25) inset;
+}
+.nav-element:hover::before{
+    opacity: 100;
+}
+.nav-element::before{
+    content: '';
+    transition: opacity 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    opacity: 0;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 16px;
+    filter: blur(25px);
+    background: #298AFF;
+}
+a:hover svg {
+    @apply fill-primary opacity-100 ;
+}
+
+a svg {
+    opacity: 0.5;
+}
+
+a {
+    @apply text-secondary-light/50 transition-all hover:text-white cursor-pointer font-semibold;
+}
+
+.nav-element svg {
+    @apply w-6 h-6 fill-secondary-light/50;
+}
+
+.nav-element.active svg {
+    @apply fill-white opacity-100;
+}
+.nav-element.active {
+    @apply text-white;
+}
+.nav-element {
+    @apply flex items-center gap-2 h-full w-fit font-semibold text-lg text-secondary-light/50 relative;
+}
+
+.btn-orange {
+    background: #FF9429;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.25) inset, 0px 4px 4px 0px rgba(255, 166, 41, 0.25);
+
+}
+
+header {
+    @apply h-[100px] bg-background px-5 flex items-center overflow-hidden;
+    border-bottom: 1px solid rgba(199, 211, 255, 0.05);
+}
+
+aside {
+    @apply bg-secondary-sidebar max-w-[250px] w-full flex flex-col h-screen;
+}
+
+.aside {
+    @apply bg-secondary-sidebar fixed max-w-[250px] w-full flex flex-col h-screen;
+}
+
+.logo-container {
+    @apply flex items-center justify-center h-[100px] flex-shrink-0 text-xl font-extrabold gap-2.5;
+    background-image: url('/assets/images/aside/bg-logo.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.aside-info-container {
+    @apply px-5
+}
+
+.aside-items-container {
+    @apply flex flex-col gap-5;
+}
+
+.aside-items {
+    @apply flex flex-col;
+}
+
+.aside-item {
+    @apply flex flex-col gap-3.5;
+}
+
+.aside-item-title {
+    @apply flex justify-between items-center font-extrabold px-5 cursor-pointer text-secondary-light/50;
+}
+
+.aside-item-icon-container:before {
+    @apply absolute bottom-0 left-0 w-full h-full;
+    content: '';
+    background-image: url('/assets/images/aside/bg-item-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.aside-item-icon-container.active img {
+    transform: rotate(180deg);
+}
+
+.aside-item-icon-container {
+    @apply flex items-center justify-center p-1.5 rounded-lg relative w-[26px] h-[26px];
+    fill: linear-gradient(180deg, rgba(199, 211, 255, 0.05) 0%, rgba(199, 211, 255, 0.20) 100%);
+    stroke-width: 1px;
+    stroke: rgba(199, 211, 255, 0.25);
+}
+
+
+.aside-item-content {
+    @apply pl-5 mr-5 text-secondary-light/50 fill-primary border-l-2 border-transparent transition-all font-semibold py-4 cursor-pointer relative overflow-hidden;
+    position: relative;
+
+}
+
+.aside-item-content:before {
+    @apply absolute inset-0 -z-10;
+    content: '';
+    background: transparent;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.aside-item-content:hover:not(.active):before,
+.aside-item-content.active:before {
+    background: linear-gradient(90deg, rgba(41, 138, 255, 0.10) 0%, rgba(41, 138, 255, 0.00) 100%);
+    opacity: 1;
+}
+
+.aside-item-content:hover:not(.active),
+.aside-item-content.active {
+    @apply text-white fill-primary border-l-2 border-primary rounded-r-xl;
+}
+
+.aside-item-content.active svg {
+    @apply fill-primary text-primary
+}
+
+.aside-item-content:hover:not(.active):after,
+.aside-item-content.active:after {
+    @apply absolute top-1/2 left-0 w-4 h-4 -translate-y-1/2;
+    content: '';
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: var(--primary, #298AFF);
+    filter: blur(15px);
+    background-position: center;
+}
+
+.bg-main-container-1 {
+    background-image: url('/assets/images/main/container1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
