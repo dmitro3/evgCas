@@ -28,6 +28,7 @@ export default {
                 'secondary-sidebar-light': '#27376C',
                 'background': '#141B35',
                 'orange': '#FF9429',
+                'secondary-sidebar-dark': '#171F3D',
             },
         },
     },

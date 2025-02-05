@@ -2,6 +2,9 @@
 import TakeBonus from "./Header/TakeBonus.vue";
 import { Link } from "@inertiajs/vue3";
 import GameIcon from "@/icons/Header/Nav/game.vue";
+import { ref } from "vue";
+
+const isAuth = ref(true);
 </script>
 
 <template>
@@ -106,7 +109,7 @@ import GameIcon from "@/icons/Header/Nav/game.vue";
             </div>
             <div class="flex gap-4 items-center">
                 <Link href="/login">Sign in</Link>
-                <Link href="/register" class="btn btn-primary px-3"
+                <Link href="/register" class="btn btn-primary px-6"
                     >Register</Link
                 >
             </div>

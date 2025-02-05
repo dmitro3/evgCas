@@ -4,13 +4,13 @@
 
 
 body {
-    @apply bg-background text-white;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-white overflow-x-hidden;
+    font-family: 'Inter', sans-serif !important;
 
 }
 
 .btn {
-    @apply py-3 font-semibold leading-none relative hover:opacity-80;
+    @apply py-3 flex items-center gap-2 font-semibold leading-none relative hover:opacity-80;
     border-radius: 8px;
     color: #FFF7E8;
     cursor: pointer;
@@ -81,7 +81,7 @@ aside {
 }
 
 .aside {
-    @apply bg-secondary-sidebar fixed max-w-[250px] w-full flex flex-col h-screen;
+    @apply bg-secondary-sidebar fixed max-w-[250px] w-full flex flex-col h-screen z-50;
 }
 
 .logo-container {
