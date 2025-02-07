@@ -23,7 +23,7 @@ for (let i = 0; i < 40; i++) {
 </script>
 <template>
     <div class="relative min-h-[210px] mt-7">
-        <div class="container mx-auto">
+        <div class="container px-5 mx-auto">
             <div class="absolute h-full -top-6 z-50">
                 <div
                     class="rounded-full py-4 px-6 bg-secondary-sidebar  w-fit backdrop-blur-sm font-bold flex items-center justify-center z-10 gap-2.5">

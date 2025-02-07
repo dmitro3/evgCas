@@ -19,14 +19,83 @@ body {
     overflow: hidden;
 }
 
+input {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 16px;
+    padding: 0 !important;
+    font-weight: 500;
+}
+
+.main-input-wrapper {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.main-input {
+    @apply bg-secondary-sidebar-dark-1 rounded-xl p-4;
+    border-radius: 10px;
+    background: #171F3D;
+    border: 1px solid #212B50;
+    position: relative;
+    z-index: 1;
+}
+
+.main-input-wrapper:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #47F260, #47F260);
+    animation: slide 2s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.btn-green::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 37px;
+    height: 20px;
+    filter: blur(25px);
+    background: #47F260;
+}
+
+.btn-green {
+    border-radius: 8px;
+    border: 1px solid rgba(93, 223, 89, 0.00);
+    background: rgba(93, 223, 89, 0.10);
+    color: #47F260;
+}
+
 .btn-primary {
     background: #298AFF;
     box-shadow: 0px 4px 4px 0px rgba(41, 138, 255, 0.25), 0px 0px 10px 0px rgba(255, 255, 255, 0.25) inset;
 }
-.nav-element:hover::before{
+
+.nav-element:hover::before {
     opacity: 100;
 }
-.nav-element::before{
+
+.nav-element::before {
     content: '';
     transition: opacity 0.3s ease;
     position: absolute;
@@ -39,8 +108,9 @@ body {
     filter: blur(25px);
     background: #298AFF;
 }
+
 a:hover svg {
-    @apply fill-primary opacity-100 ;
+    @apply fill-primary opacity-100;
 }
 
 a svg {
@@ -58,9 +128,11 @@ a {
 .nav-element.active svg {
     @apply fill-white opacity-100;
 }
+
 .nav-element.active {
     @apply text-white;
 }
+
 .nav-element {
     @apply flex items-center gap-2 h-full w-fit font-semibold text-lg text-secondary-light/50 relative;
 }

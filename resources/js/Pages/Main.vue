@@ -41,8 +41,8 @@ const faqItems = [
 
 <template>
     <MainLayout>
-        <section class="flex flex-col gap-12">
-            <div class="flex flex-col gap-2.5">
+        <section class="flex  flex-col gap-12">
+            <div class="flex px-5 flex-col gap-2.5">
                 <div class="bg-main-container-1 bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
                     <div class="flex flex-col gap-5 max-w-[290px]">
                         <div class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center">
@@ -73,7 +73,7 @@ const faqItems = [
                         <TakeBonus background="bg-secondary-sidebar-light" />
                     </div>
                 </div>
-                <div class="flex grid-cols-2 gap-2.5 container mx-auto">
+                <div class=" grid-cols-2 grid gap-2.5 container mx-auto w-full">
                     <InfoCard title="Licensed Slots" description="Experience top-tier gaming with licensed casino slots"
                         image=" /assets/images/main/container2.png" link="/" />
                     <InfoCard title="Highest RTP" description="Play with the best odds and with a RTP up to 99.5%"
@@ -81,7 +81,7 @@ const faqItems = [
                 </div>
             </div>
             <LiveWin />
-            <div class="flex flex-col gap-6 container mx-auto">
+            <div class="flex  px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Statistics</h2>
                 <div class="grid grid-cols-3 gap-2.5">
                     <StatisticCard description="Total players online on Domain" amount="64,000"
@@ -92,7 +92,7 @@ const faqItems = [
                         icon="/assets/images/icons/graph.svg" />
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container mx-auto">
+            <div class="flex px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Secure Deposit</h2>
                 <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl deposit-image">
                     <div class="flex flex-col gap-10 flex-shrink-0">
@@ -108,7 +108,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container mx-auto">
+            <div class="flex px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">VIP Club</h2>
                 <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl vip-image">
                     <div class="flex flex-col gap-10 flex-shrink-0">
@@ -135,7 +135,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container mx-auto">
+            <div class="flex px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Support</h2>
                 <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl support-image">
                     <div class="flex flex-col gap-10 flex-shrink-0">
@@ -163,7 +163,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container mx-auto">
+            <div class="flex px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Original Games</h2>
                 <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl games-image">
                     <div class="flex flex-col gap-10 flex-shrink-0">
@@ -179,7 +179,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container mx-auto">
+            <div class="flex px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
                 <div class="flex flex-col gap-3">
                     <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />
