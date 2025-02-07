@@ -8,10 +8,31 @@ body {
     font-family: 'Inter', sans-serif !important;
 
 }
-
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    z-index: 50;
+    border-radius: 7px;
+    background: linear-gradient(180deg, #E8EDFF 0%, rgba(232, 237, 255, 0) 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+}
 .btn {
     @apply py-3 flex items-center gap-2 font-semibold leading-none relative hover:opacity-80;
+    position: relative;
+    overflow: hidden;
     border-radius: 8px;
+
+    
+
     color: #FFF7E8;
     cursor: pointer;
     transition: all 0.3s ease;

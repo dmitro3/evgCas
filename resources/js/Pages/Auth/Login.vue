@@ -30,7 +30,7 @@ import MainLayout from "@/Layouts/MainLayout.vue";
                         </h1>
                     </div>
                 </div>
-                <div class="py-8 flex flex-col gap-6">
+                <div class="py-8 flex flex-col w-full gap-6">
                     <div class="flex flex-col gap-2">
                         <h2 class="text-2xl font-bold">Login</h2>
                         <p class="text-secondary-light/50">
@@ -49,20 +49,25 @@ import MainLayout from "@/Layouts/MainLayout.vue";
                             />
                         </div>
                     </div>
-                    <!-- <div class="flex flex-col gap-2">
-                        <label for="password" class="text-sm font-bold">PASSWORD</label>
-                        <div class="main-input-wrapper flex">
-                            <div class="p-0.5 bg-transparent m-0.5 w-full z-10">
-                                <div class="main-input m-2">
-                                    <input
-                                        type="password"
-                                        class="w-full"
-                                        placeholder="Password"
-                                    />
-                                </div>
-                            </div>
+                    <div class="flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <label for="email" class="text-sm font-bold"
+                            >PASSWORD</label>
+                            <Link href="/auth/forgot-password" class="text-secondary-light/50 text-sm">RESET PASSWORD</Link>
                         </div>
-                    </div> -->
+                        <div class="main-input">
+                            <input
+                                type="email"
+                                class="w-full"
+                                placeholder="Email"
+                            />
+                        </div>
+                    </div>
+                    <button class="btn btn-primary flex justify-center">Sign in!</button>
+                    <div class="flex gap-2.5 items-center justify-center text-secondary-light/50">
+                        <span>Don`t have an account?</span>
+                        <Link href="/auth/register" class="text-primary">Sign up</Link>
+                    </div>
                 </div>
             </div>
         </section>
