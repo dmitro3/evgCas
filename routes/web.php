@@ -8,6 +8,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
   return Inertia::render('Main');
 });
+Route::get('/games', function () {
+  return Inertia::render('PlayPage');
+});
 
 
 include __DIR__ . '/auth.php';

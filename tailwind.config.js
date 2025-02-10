@@ -26,13 +26,17 @@ export default {
                 'secondary-light': '#C7D3FF',
                 'secondary-sidebar': '#1A2446',
                 'secondary-sidebar-light': '#27376C',
+                'secondary-sidebar-light-2': '#202C55',
                 'background': '#141B35',
                 'orange': '#FF9429',
                 'green': '#5DDF59',
                 'green-light': '#47F260',
                 'secondary-sidebar-dark': '#171F3D',
                 'secondary-sidebar-dark-1': '#1E2A52',
+                'dark-text': '#1C4F8C',
+                'red-primary': '#FF5353',
             },
+        
         },
     },
 

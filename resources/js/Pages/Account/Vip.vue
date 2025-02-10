@@ -1,172 +1,624 @@
 <script setup>
 import MainLayout from "../../Layouts/MainLayout.vue";
-import TakeBonus from "../../Components/Main/Header/TakeBonus.vue";
-import InfoCard from "../../Components/Main/MainPage/InfoCard.vue";
-import LiveWin from "../../Components/Main/MainPage/LiveWin.vue";
-import StatisticCard from "../../Components/Main/MainPage/StatisticCard.vue";
+import { Link } from "@inertiajs/vue3";
+import { ref, onMounted } from "vue";
 import FaqItem from "../../Components/Main/Global/FaqItem.vue";
+import ProgressBar from "../../Components/Main/Global/ProgressBar.vue";
 
+const faqTab = ref("main");
 
-const faqItems = [
-    {
-        question: "Who is Domain?",
-        answer: `Since 2019, Domen has been a leader in the online gambling industry, offering players around the world a wide range of original games and slots. Our platform, characterized by reliability, security and a decentralized structure, provides unique opportunities for betting on cryptocurrency in online slots and exclusive Domain Originals games. We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club. Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets. `
-    },
-    {
-        question: "What promotions and bonuses does Domain offer?",
-        answer: "We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club."
-    },
-    {
-        question: "What makes Domain's platform secure and fair?",
-        answer: "Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets."
-    },
-    {
-        question: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-        question: "Duis aut voluptate velit esse cillum dolore eu fugiat nulla?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-        question: "Duis aute irure dolor in reprehenderit dolore eu fugiat nulla?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    },
-    {
-        question: "Duis aute irure  dolor in reprehende dolor in reprehenderit dolore eu fugiat nulla?",
-        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    }
-]
+const faqItems = {
+    main: [
+        {
+            question: "Who is Domain?",
+            answer: `Since 2019, Domen has been a leader in the online gambling industry, offering players around the world a wide range of original games and slots. Our platform, characterized by reliability, security and a decentralized structure, provides unique opportunities for betting on cryptocurrency in online slots and exclusive Domain Originals games. We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club. Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets. `,
+        },
+        {
+            question: "What promotions and bonuses does Domain offer?",
+            answer: "We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club.",
+        },
+        {
+            question: "What makes Domain's platform secure and fair?",
+            answer: "Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets.",
+        },
+    ],
 
+    privileges: [
+        {
+            question: "Who is Domain?1",
+            answer: `Since 2019, Domen has been a leader in the online gambling industry, offering players around the world a wide range of original games and slots. Our platform, characterized by reliability, security and a decentralized structure, provides unique opportunities for betting on cryptocurrency in online slots and exclusive Domain Originals games. We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club. Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets. `,
+        },
+        {
+            question: "What promotions and bonuses does Domain offer?1",
+            answer: "We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club.",
+        },
+        {
+            question: "What makes Domain's platform secure and fair?1",
+            answer: "Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets.",
+        },
+    ],
+};
 </script>
 
 <template>
     <MainLayout>
-        <section class="flex  flex-col gap-12">
+        <section class="flex flex-col gap-12">
             <div class="flex px-5 flex-col gap-2.5">
-              
-                <div class=" grid-cols-2 grid gap-2.5 container mx-auto w-full">
-                    
-                    <InfoCard title="Highest RTP" description="Play with the best odds and with a RTP up to 99.5%"
-                        image="/assets/images/main/container3.png" link="/" />
-                </div>
-            </div>
-        
-            <div class="flex  px-5 flex-col gap-6 container mx-auto">
-                <h2 class="text-lg font-bold">Statistics</h2>
-                <div class="grid grid-cols-3 gap-2.5">
-                    <StatisticCard description="Total players online on Domain" amount="64,000"
-                        icon="/assets/images/icons/people.svg" />
-                    <StatisticCard description="Total paid to players for all time" amount="$24M+"
-                        icon="/assets/images/icons/money.svg" top />
-                    <StatisticCard description="Total registered players for all time" amount="48M+"
-                        icon="/assets/images/icons/graph.svg" />
-                </div>
-            </div>
-            <div class="flex px-5 flex-col gap-6 container mx-auto">
-                <h2 class="text-lg font-bold">Secure Deposit</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl deposit-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
-                        <div class="flex flex-col  max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">Reliable deposit of crypto
-                                and local currencies</h3>
-                            <p class="text-secondary-light/50 ">
-                                Safety and speed are our priorities. We offer a reliable withdraw system
-                            </p>
+                <div
+                    class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full"
+                >
+                    <div class="bg-main-container-1 rounded-2xl p-8">
+                        <div class="flex flex-col gap-5 max-w-[290px]">
+                            <div
+                                class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
+                            >
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <g clip-path="url(#clip0_102_4036)">
+                                        <path
+                                            d="M6.85023 11.4535V13.4031C6.12417 13.4031 5.64014 13.8905 5.64014 14.6215C5.64014 15.3526 6.12417 15.84 6.85023 15.84H9.27039C9.99644 15.84 10.4805 15.3526 10.4805 14.6215C10.4805 13.8905 9.99644 13.4031 9.27039 13.4031V11.4535C9.87544 11.9409 10.7225 12.1846 11.4485 12.1846C12.4166 12.1846 13.3847 11.8191 14.1107 11.088C14.8368 10.3569 15.1998 9.38215 15.1998 8.40738C15.1998 7.43261 14.8368 6.45785 14.1107 5.72677L8.90737 0.365538C8.42333 -0.121846 7.69728 -0.121846 7.21325 0.365538L1.88888 5.60492C1.16283 6.336 0.799805 7.31077 0.799805 8.28554C0.799805 9.26031 1.16283 10.2351 1.88888 10.9662C3.21997 12.4283 5.39812 12.5502 6.85023 11.4535Z"
+                                            fill="#C7D3FF"
+                                            fill-opacity="0.5"
+                                        ></path>
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_102_4036">
+                                            <rect
+                                                width="16"
+                                                height="16"
+                                                fill="white"
+                                            ></rect>
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                DOMAIN
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h1
+                                    class="text-4xl max-w-[200px] font-bold text-white"
+                                >
+                                    Welcome to VIP Club!
+                                </h1>
+                                <p class="text-secondary-light/50 text-lg">
+                                    Ut enim ad minim veniam, quis nostrud
+                                    exercitation
+                                </p>
+                            </div>
+                            <button class="btn btn-primary w-fit px-6">
+                                Deposit
+                            </button>
                         </div>
-                        <button class="btn btn-primary w-fit px-6">Deposit</button>
                     </div>
-
-                </div>
-            </div>
-            <div class="flex px-5 flex-col gap-6 container mx-auto">
-                <h2 class="text-lg font-bold">VIP Club</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl vip-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
-                        <div class="flex flex-col  max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">See your rewards grow
-                                as a Domain VIP</h3>
-                            <p class="text-secondary-light/50 ">
-                                Become a part of the VIP CLUB and get access to unique benefits
-                            </p>
+                    <div class="bg-main-container-2 rounded-2xl p-8">
+                        <div class="flex flex-col gap-5 max-w-[290px]">
+                            <div
+                                class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
+                            >
+                                <svg
+                                    width="126"
+                                    height="14"
+                                    viewBox="0 0 126 14"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M22.2426 3.81556V10.1772H5.62596V3.81556L0 0V10.17L5.63266 13.9856H22.2493L27.882 10.17V0L22.2426 3.81556ZM87.1757 3.81556V10.1772H70.5657V3.81556L64.933 0V10.17L70.5657 13.9856H87.1757L92.8083 10.17V0L87.1757 3.81556ZM60.2917 5.09961L54.659 8.91517H54.6724L61.2561 14.0002H53.6008L47.0171 8.91517H32.4097L38.0423 5.09961H60.2917ZM54.659 0.0147236H32.4097L38.0423 3.83027H60.2917L54.659 0.0147236ZM125.284 0.0144396H125.332L125.305 0L125.284 0.0144396ZM125.284 0.0144396H103.083L97.4233 3.81556H119.673L125.284 0.0144396ZM103.063 8.86451L97.43 5.04894H119.679L125.312 8.86451H103.063ZM97.4972 13.9495H97.43L97.4233 14L97.4972 13.9495ZM97.4972 13.9495H119.679L125.312 10.134H103.083L97.4972 13.9495Z"
+                                        fill="#E8EDFF"
+                                        fill-opacity="0.6"
+                                    />
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h1
+                                    class="text-4xl max-w-[300px] font-bold text-white"
+                                >
+                                    Lamborgini Urus official partner
+                                </h1>
+                                <p class="text-secondary-light/50 text-lg">
+                                    Ut enim ad minim veniam, quis nostrud
+                                    exercitation
+                                </p>
+                            </div>
+                            <Link href="/" class="flex gap-1 items-center">
+                                Read more
+                                <svg
+                                    width="13"
+                                    height="15"
+                                    viewBox="0 0 13 15"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M12.7071 8.20711C13.0976 7.81658 13.0976 7.18342 12.7071 6.79289L6.34315 0.428933C5.95262 0.0384083 5.31946 0.0384083 4.92893 0.428933C4.53841 0.819457 4.53841 1.45262 4.92893 1.84315L10.5858 7.5L4.92893 13.1569C4.53841 13.5474 4.53841 14.1805 4.92893 14.5711C5.31946 14.9616 5.95262 14.9616 6.34315 14.5711L12.7071 8.20711ZM-8.74228e-08 8.5L12 8.5L12 6.5L8.74228e-08 6.5L-8.74228e-08 8.5Z"
+                                        fill="#C7D3FF"
+                                    />
+                                </svg>
+                            </Link>
                         </div>
-                        <button class="btn btn-orange w-fit px-6">
-                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M18.3329 5.25857V13.2419C18.3329 15.5419 16.4663 17.4086 14.1663 17.4086H5.83294C5.44961 17.4086 5.08294 17.3586 4.72461 17.2586C4.20794 17.1169 4.04128 16.4586 4.42461 16.0752L13.2829 7.21691C13.4663 7.03357 13.7413 6.99191 13.9996 7.04191C14.2663 7.09191 14.5579 7.01691 14.7663 6.81691L16.9079 4.66691C17.6913 3.88357 18.3329 4.14191 18.3329 5.25857Z"
-                                    fill="#FFF5ED" />
-                                <path
-                                    d="M12.1998 6.63262L3.47484 15.3576C3.07484 15.7576 2.40817 15.6576 2.1415 15.1576C1.83317 14.5909 1.6665 13.9326 1.6665 13.2409V5.25762C1.6665 4.14095 2.30817 3.88262 3.0915 4.66595L5.2415 6.82428C5.5665 7.14095 6.09984 7.14095 6.42484 6.82428L9.40817 3.83262C9.73317 3.50762 10.2665 3.50762 10.5915 3.83262L12.2082 5.44928C12.5248 5.77428 12.5248 6.30762 12.1998 6.63262Z"
-                                    fill="#FFF5ED" />
-                            </svg>
-
-                            VIP Club</button>
                     </div>
-
                 </div>
             </div>
+
             <div class="flex px-5 flex-col gap-6 container mx-auto">
-                <h2 class="text-lg font-bold">Support</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl support-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
-                        <div class="flex flex-col  max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">Get 24/7 online help
-                                from our support team</h3>
-                            <p class="text-secondary-light/50 ">
-                                Ask a question in a language that is convenient for you
-                            </p>
+                <h2 class="text-lg font-bold">VIP Progress</h2>
+                <div class="flex gap-2 items-stretch">
+                    <div class="flex gap-2 items-center rank-bg w-fit">
+                        <img
+                            src="/assets/images/account/vip/ranks/silver1.png"
+                            alt="rank"
+                            class="h-7 w-6"
+                        />
+                    </div>
+                    <ProgressBar :isShowRank="true" />
+
+                    <div class="flex gap-2 items-center rank-bg w-fit">
+                        <img
+                            src="/assets/images/account/vip/ranks/silver1.png"
+                            alt="rank"
+                            class="h-7 w-6"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex px-5 flex-col gap-6 container mx-auto">
+                <h2 class="text-lg font-bold">Characters</h2>
+                <div class="grid grid-cols-4 gap-2.5 items-stretch">
+                    <div
+                        class="bg-secondary-sidebar rounded-2xl p-4 flex h-full flex-col justify-between"
+                    >
+                        <div class="flex flex-col gap-6 h-full">
+                            <img
+                                src="/assets/images/account/vip/characters/silver.png"
+                                alt="character"
+                                class="w-full flex-shrink-0 character"
+                            />
+                            <div class="flex flex-col gap-2">
+                                <p class="font-bold text-2xl leading-normal">
+                                    50$
+                                </p>
+                                <p class="text-secondary-light/50 leading-none">
+                                    Silver Reward
+                                </p>
+                            </div>
+                            <div class="flex flex-col h-full gap-5">
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        COMMON STOCKS
+                                    </p>
+                                </div>
+
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        DAILY RAKEBACK 0.1%
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        LEVEL-UP BONUS
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-primary w-fit px-6">
-                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15.3913 14.5253L15.7163 17.1587C15.7997 17.8503 15.058 18.3337 14.4663 17.9753L11.583 16.2587C11.383 16.142 11.333 15.892 11.4413 15.692C11.858 14.9253 12.083 14.0587 12.083 13.192C12.083 10.142 9.46633 7.65866 6.24967 7.65866C5.59133 7.65866 4.94967 7.75866 4.34967 7.95866C4.04133 8.05866 3.74133 7.77533 3.81633 7.45866C4.57467 4.42533 7.49133 2.16699 10.9747 2.16699C15.0413 2.16699 18.333 5.24199 18.333 9.03366C18.333 11.2837 17.1747 13.2753 15.3913 14.5253Z"
-                                    fill="#E8EDFF" />
-                                <path
-                                    d="M10.8332 13.1915C10.8332 14.1832 10.4665 15.0999 9.84984 15.8249C9.02484 16.8249 7.7165 17.4665 6.24984 17.4665L4.07484 18.7582C3.70817 18.9832 3.2415 18.6749 3.2915 18.2499L3.49984 16.6082C2.38317 15.8332 1.6665 14.5915 1.6665 13.1915C1.6665 11.7249 2.44984 10.4332 3.64984 9.66654C4.3915 9.1832 5.28317 8.9082 6.24984 8.9082C8.78317 8.9082 10.8332 10.8249 10.8332 13.1915Z"
-                                    fill="#E8EDFF" />
-                            </svg>
-
-
-                            Register & Write to Us</button>
+                        <ProgressBar  />
                     </div>
+                    <div
+                        class="bg-secondary-sidebar rounded-2xl p-4 flex flex-col h-full justify-between"
+                    >
+                        <div class="flex flex-col gap-6 h-full">
+                            <img
+                                src="/assets/images/account/vip/characters/copper.png"
+                                alt="character"
+                                class="w-full character"
+                            />
+                            <div class="flex flex-col gap-2">
+                                <p class="font-bold text-2xl leading-normal">
+                                    150$
+                                </p>
+                                <p class="text-secondary-light/50 leading-none">
+                                    Copper Reward
+                                </p>
+                            </div>
+                            <div class="flex flex-col h-full gap-5">
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        GENERAL PROMOTIONS
+                                    </p>
+                                </div>
 
-                </div>
-            </div>
-            <div class="flex px-5 flex-col gap-6 container mx-auto">
-                <h2 class="text-lg font-bold">Original Games</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl games-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
-                        <div class="flex flex-col  max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">Enjoy the original
-                                games from Domain</h3>
-                            <p class="text-secondary-light/50 ">
-                                Discover the world of original  Domain casino games!
-                            </p>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        DAILY RAKEBACK 0.2%
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        MONTHLY BONUSES
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        LEVEL-UP BONUS
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        BONUS GROWTH
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <TakeBonus background="bg-secondary-sidebar-light" />
+                        <ProgressBar :isShowRank="false" />
                     </div>
+                    <div
+                        class="bg-secondary-sidebar rounded-2xl h-full p-4 gap-6 flex flex-col justify-between"
+                    >
+                        <div class="flex flex-col gap-6 h-full">
+                            <img
+                                src="/assets/images/account/vip/characters/magican.png"
+                                alt="character"
+                                class="w-full character"
+                            />
+                            <div class="flex flex-col gap-2">
+                                <p class="font-bold text-2xl leading-normal">
+                                    250$
+                                </p>
+                                <p class="text-secondary-light/50 leading-none">
+                                    Silver Reward
+                                </p>
+                            </div>
+                            <div class="flex flex-col h-full gap-5">
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        GENERAL PROMOTIONS
+                                    </p>
+                                </div>
 
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        DAILY RAKEBACK 0.25%
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        MONTHLY BONUSES
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        LEVEL-UP BONUS
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        BONUS GROWTH
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <ProgressBar    />
+                    </div>
+                    <div
+                        class="bg-secondary-sidebar rounded-2xl p-4 flex flex-col justify-between"
+                    >
+                        <div class="flex flex-col gap-6">
+                            <img
+                                src="/assets/images/account/vip/characters/zues.png"
+                                alt="character"
+                                class="w-full character"
+                            />
+                            <div class="flex flex-col gap-2">
+                                <p class="font-bold text-2xl leading-normal">
+                                    500$
+                                </p>
+                                <p class="text-secondary-light/50 leading-none">
+                                    Zeus Reward
+                                </p>
+                            </div>
+                            <div class="flex flex-col gap-5">
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        GENERAL PROMOTIONS
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        VIP PROMOTIONS (LEVEL V)
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        WEEKLY BONUSES (LEVEL V)
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        DAILY RAKEBACK 0.3%
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        MONTHLY BONUSES
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        DAILY BONUSES/RELOAD
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        LEVEL-UP BONUS
+                                    </p>
+                                </div>
+                                <div class="flex gap-2.5 items-center">
+                                    <img
+                                        src="/assets/images/other/checkbox.svg"
+                                        alt="checkbox"
+                                        class="w-6 h-6"
+                                    />
+                                    <p class="font-extrabold leading-none">
+                                        BONUS GROWTH
+                                    </p>
+                                </div>
+                            </div>
+                            <ProgressBar  />
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="flex px-5 flex-col gap-6 container mx-auto">
+
+            <div class="flex px-5 flex-col gap-6 w-full container mx-auto">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
-                <div class="flex flex-col gap-3">
-                    <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />
+                <div class="flex gap-2.5">
+                    <div class="flex flex-col max-w-[230px] w-full">
+                        <div
+                            @click="faqTab = 'main'"
+                            :class="{ active: faqTab === 'main' }"
+                            class="aside-item-content"
+                        >
+                            <div class="flex items-center gap-2">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M13.1658 1.84207C12.8241 1.5004 12.2324 1.73373 12.2324 2.20873V5.11707C12.2324 6.33373 13.2658 7.34207 14.5241 7.34207C15.3158 7.3504 16.4158 7.3504 17.3574 7.3504C17.8324 7.3504 18.0824 6.79207 17.7491 6.45873C16.5491 5.2504 14.3991 3.0754 13.1658 1.84207Z"
+                                    />
+                                    <path
+                                        d="M17.084 8.49199H14.6757C12.7007 8.49199 11.0923 6.88366 11.0923 4.90866V2.50033C11.0923 2.04199 10.7173 1.66699 10.259 1.66699H6.72565C4.15898 1.66699 2.08398 3.33366 2.08398 6.30866V13.692C2.08398 16.667 4.15898 18.3337 6.72565 18.3337H13.2757C15.8423 18.3337 17.9173 16.667 17.9173 13.692V9.32533C17.9173 8.86699 17.5423 8.49199 17.084 8.49199ZM9.58398 14.792H6.25065C5.90898 14.792 5.62565 14.5087 5.62565 14.167C5.62565 13.8253 5.90898 13.542 6.25065 13.542H9.58398C9.92565 13.542 10.209 13.8253 10.209 14.167C10.209 14.5087 9.92565 14.792 9.58398 14.792ZM11.2507 11.4587H6.25065C5.90898 11.4587 5.62565 11.1753 5.62565 10.8337C5.62565 10.492 5.90898 10.2087 6.25065 10.2087H11.2507C11.5923 10.2087 11.8757 10.492 11.8757 10.8337C11.8757 11.1753 11.5923 11.4587 11.2507 11.4587Z"
+                                    />
+                                </svg>
+                                Main
+                            </div>
+                        </div>
+                        <div
+                            @click="faqTab = 'privileges'"
+                            :class="{ active: faqTab === 'privileges' }"
+                            class="aside-item-content"
+                        >
+                            <div class="flex items-center gap-2">
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M18.3329 4.75857V12.7419C18.3329 15.0419 16.4663 16.9086 14.1663 16.9086H5.83294C5.44961 16.9086 5.08294 16.8586 4.72461 16.7586C4.20794 16.6169 4.04128 15.9586 4.42461 15.5752L13.2829 6.71691C13.4663 6.53357 13.7413 6.49191 13.9996 6.54191C14.2663 6.59191 14.5579 6.51691 14.7663 6.31691L16.9079 4.16691C17.6913 3.38357 18.3329 3.64191 18.3329 4.75857Z"
+                                        fill="currentColor"
+                                    />
+                                    <path
+                                        d="M12.1993 6.13262L3.47435 14.8576C3.07435 15.2576 2.40768 15.1576 2.14102 14.6576C1.83268 14.091 1.66602 13.4326 1.66602 12.741V4.75762C1.66602 3.64095 2.30768 3.38262 3.09102 4.16595L5.24102 6.32428C5.56602 6.64095 6.09935 6.64095 6.42435 6.32428L9.40768 3.33262C9.73268 3.00762 10.266 3.00762 10.591 3.33262L12.2077 4.94928C12.5243 5.27428 12.5243 5.80762 12.1993 6.13262Z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
 
+                                Privileges
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 w-full">
+                        <FaqItem
+                            v-for="item in faqItems.main"
+                            v-if="faqTab === 'main'"
+                            :key="item.id"
+                            :question="item.question"
+                            :answer="item.answer"
+                        />
+                        <FaqItem
+                            v-for="item in faqItems.privileges"
+                            v-if="faqTab === 'privileges'"
+                            :key="item.id"
+                            :question="item.question"
+                            :answer="item.answer"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="px-5 container mx-auto">
+                <div
+                    class="questions-bg flex justify-between items-center w-full rounded-2xl bg-secondary-sidebar p-6"
+                >
+                    <div class="flex flex-col gap-1">
+                        <p class="leading-normal font-bold text-lg">
+                            Do you have an questions?
+                        </p>
+                        <p class="leading-normal text-secondary-light/50">
+                            Lorem ipsum odor amet, consectetuer adipiscing elit
+                        </p>
+                    </div>
+                    <button class="btn btn-primary-light px-6">
+                        <svg
+                            width="20"
+                            height="21"
+                            viewBox="0 0 20 21"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M15.3913 14.5253L15.7163 17.1587C15.7997 17.8503 15.058 18.3337 14.4663 17.9753L11.583 16.2587C11.383 16.142 11.333 15.892 11.4413 15.692C11.858 14.9253 12.083 14.0587 12.083 13.192C12.083 10.142 9.46633 7.65866 6.24967 7.65866C5.59133 7.65866 4.94967 7.75866 4.34967 7.95866C4.04133 8.05866 3.74133 7.77533 3.81633 7.45866C4.57467 4.42533 7.49133 2.16699 10.9747 2.16699C15.0413 2.16699 18.333 5.24199 18.333 9.03366C18.333 11.2837 17.1747 13.2753 15.3913 14.5253Z"
+                                fill="#E8EDFF"
+                            />
+                            <path
+                                d="M10.8346 13.1915C10.8346 14.1832 10.468 15.0999 9.8513 15.8249C9.0263 16.8249 7.71797 17.4665 6.2513 17.4665L4.0763 18.7582C3.70964 18.9832 3.24297 18.6749 3.29297 18.2499L3.5013 16.6082C2.38464 15.8332 1.66797 14.5915 1.66797 13.1915C1.66797 11.7249 2.4513 10.4332 3.6513 9.66654C4.39297 9.1832 5.28464 8.9082 6.2513 8.9082C8.78463 8.9082 10.8346 10.8249 10.8346 13.1915Z"
+                                fill="#E8EDFF"
+                            />
+                        </svg>
+
+                        Support
+                    </button>
                 </div>
             </div>
         </section>
     </MainLayout>
 </template>
 
-
 <style>
-
-.bg-main-container-1 {
-    background-image: url('/assets/images/account/bg_container1.png');
+.questions-bg {
+    background-image: url("/assets/images/account/vip/questions-bg.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+p {
+    line-height: normal;
+}
+.rank-bg::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    background: #a3ceff;
+    filter: blur(25px);
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.rank-bg {
+    @apply py-8 px-6 rounded-2xl bg-secondary-sidebar overflow-hidden relative;
+}
+.bg-main-container-1 {
+    background-image: url("/assets/images/account/vip/bg_container1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.bg-main-container-2 {
+    background-image: url("/assets/images/account/vip/bg_container2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.character {
+    height: 225px;
+    @apply rounded-2xl;
 }
 </style>
