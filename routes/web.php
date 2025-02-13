@@ -11,7 +11,10 @@ Route::get('/', function () {
 Route::get('/games', function () {
   return Inertia::render('PlayPage');
 });
-
+Route::get('/vip', function () {
+  return Inertia::render('Account/Vip');
+});
 
 include __DIR__ . '/auth.php';
 include __DIR__ . '/account.php';
+include __DIR__ . '/news.php';

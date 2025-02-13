@@ -6,9 +6,14 @@ const isMounted = ref(false);
 
 onMounted(() => {
     isMounted.value = true;
-    setTimeout(() => {
+    if (props.isAnimated) {
+        setTimeout(() => {
+            progress.value = 50;
+        }, 10);
+    }
+    else{
         progress.value = 50;
-    }, 10);
+    }
 });
 
 const props = defineProps({
@@ -21,6 +26,10 @@ const props = defineProps({
         default: true,
     },
     isPadding: {
+        type: Boolean,
+        default: true,
+    },
+    isAnimated: {
         type: Boolean,
         default: true,
     },

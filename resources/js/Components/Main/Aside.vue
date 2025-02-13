@@ -87,7 +87,7 @@ const toggleCategory = (category) => {
 </script>
 
 <template>
-    <aside>
+    <aside class="hidden md:block">
         <div class="aside">
             <div class="logo-container">
                 <div class="flex items-center justify-center gap-2.5">
@@ -109,7 +109,7 @@ const toggleCategory = (category) => {
                                     alt="arrow">
                             </div>
                         </div>
-                        <transition name="slide" @enter="enter" @leave="leave">
+                        <transition name="slide">
                             <div class="aside-items" v-show="category.isOpen">
                                 <div class="aside-item-content" v-for="item in category.items" :key="item.name">
                                     <div class="flex items-center gap-2">

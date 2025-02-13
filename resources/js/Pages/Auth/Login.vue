@@ -5,10 +5,10 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 
 <template>
     <MainLayout>
-        <section class="max-w-[700px] rounded-2xl bg-secondary-sidebar mx-auto">
+        <section class="max-w-[700px] rounded-2xl max-md:container mx-auto bg-secondary-sidebar">
             <div class="flex gap-6 p-6">
                 <div
-                    class="bg-secondary-sidebar-dark-1 bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl"
+                    class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl"
                 >
                     <div
                         class="flex items-center font-extrabold text-xl gap-2.5"

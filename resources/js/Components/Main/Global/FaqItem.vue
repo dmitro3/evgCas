@@ -40,27 +40,4 @@ function toggleOpen() {
 </template>
 
 <style scoped>
-.faq-item__question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.expand-enter-active,
-.expand-leave-active {
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    overflow: hidden;
-}
-
-.expand-enter-from,
-.expand-leave-to {
-    max-height: 0;
-    opacity: 0;
-}
-
-.expand-enter-to,
-.expand-leave-from {
-    max-height: 500px;
-}
 </style>

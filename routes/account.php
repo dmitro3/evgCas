@@ -4,11 +4,15 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'account'], function () {
-    Route::get('/vip', function () {
-        return Inertia::render('Account/Vip');
+    Route::get('/', function () {
+        return Inertia::render('Account/Account', [
+            'activeTab' => 'wallet'
+        ]);
     });
-    Route::get('/wallet', function () {
-        return Inertia::render('Account/Wallet');
+    Route::get('/{tab}', function ($tab) {
+        return Inertia::render('Account/Account', [
+            'activeTab' => $tab
+        ]);
     });
 });
 

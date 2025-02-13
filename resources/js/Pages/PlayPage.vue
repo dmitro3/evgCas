@@ -118,7 +118,7 @@ const originalGames = [
 
             <LiveWin />
 
-            <div class="flex flex-col gap-6 container px-5 mx-auto">
+            <div class="flex flex-col gap-6 container md:px-5 mx-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold  text-white">
                         Recommended games
@@ -132,7 +132,7 @@ const originalGames = [
                     <GameCard v-for="game in games" :key="game.id" :game="game" />
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container px-5 mx-auto">
+            <div class="flex flex-col gap-6 container md:px-5 mx-auto">
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold  text-white">
                         Original games

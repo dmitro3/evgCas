@@ -21,6 +21,7 @@ import { Link } from "@inertiajs/vue3";
                     :isShowRank="true"
                     :isShowBg="false"
                     :isPadding="false"
+                    :isAnimated="false"
                 />
                 <div class="flex items-center justify-between">
                     <img

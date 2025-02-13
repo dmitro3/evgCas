@@ -34,6 +34,7 @@ export default {
                 'secondary-sidebar-dark': '#171F3D',
                 'secondary-sidebar-dark-1': '#1E2A52',
                 'dark-text': '#1C4F8C',
+                'dark-text-2': '#243267',
                 'red-primary': '#FF5353',
             },
         

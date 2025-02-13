@@ -10,7 +10,10 @@ const isAuth = ref(false);
 <template>
     <header>
         <div class="container flex justify-between h-full items-center mx-auto">
-            <TakeBonus />
+            <div class="max-md:hidden">
+                <TakeBonus />
+            </div>
+            <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" class="md:hidden">
             <div class="flex max-xl:hidden gap-10 h-full">
                 <Link href="/" class="nav-element">
                     <svg
