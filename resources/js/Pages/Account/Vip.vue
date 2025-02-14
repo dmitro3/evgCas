@@ -47,7 +47,7 @@ const faqItems = {
                 <div
                     class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
-                    <div class="bg-main-container-1 rounded-2xl p-8">
+                    <div class="bg-main-container-1 max-md:min-h-[364px] rounded-2xl p-8">
                         <div class="flex flex-col gap-5 max-w-[290px]">
                             <div
                                 class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
@@ -170,7 +170,7 @@ const faqItems = {
 
             <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Characters</h2>
-                <div class="grid grid-cols-4 max-md:grid-cols-1 gap-2.5 items-stretch">
+                <div class="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
                     <div
                         class="bg-secondary-sidebar rounded-2xl p-4 flex h-full flex-col justify-between"
                     >
@@ -582,6 +582,6 @@ p {
 }
 .character {
     height: 225px;
-    @apply rounded-2xl;
+    @apply rounded-2xl md:h-[225px] min-h-[305px];
 }
 </style>

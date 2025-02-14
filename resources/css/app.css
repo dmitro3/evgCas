@@ -357,7 +357,7 @@ aside {
     background-position: center;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 760px) {
     .bg-main-container-1 {
         background-image: url('/assets/images/main/container1_mobile.png');
         min-height: 600px;

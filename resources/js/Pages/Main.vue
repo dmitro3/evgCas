@@ -95,8 +95,8 @@ const faqItems = [
             </div>
             <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Secure Deposit</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl deposit-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
+                <div class="p-8 flex justify-between max-md:min-h-[600px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl deposit-image">
+                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">Reliable deposit of crypto
                                 and local currencies</h3>
@@ -111,8 +111,8 @@ const faqItems = [
             </div>
             <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">VIP Club</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl vip-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
+                <div class="p-8 flex justify-between max-md:min-h-[900px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl vip-image">
+                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">See your rewards grow
                                 as a Domain VIP</h3>
@@ -138,8 +138,8 @@ const faqItems = [
             </div>
             <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Support</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl support-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
+                <div class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl support-image">
+                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">Get 24/7 online help
                                 from our support team</h3>
@@ -166,8 +166,8 @@ const faqItems = [
             </div>
             <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Original Games</h2>
-                <div class="p-8 flex justify-between items-center bg-secondary-sidebar rounded-2xl games-image">
-                    <div class="flex flex-col gap-10 flex-shrink-0">
+                <div class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl games-image">
+                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">Enjoy the original
                                 games from Domain</h3>
@@ -218,4 +218,25 @@ const faqItems = [
     background-repeat: no-repeat;
 }
 
+
+@media (max-width: 760px) {
+    .deposit-image {
+        background-image: url('/assets/images/main/deposit_mobile.png');
+        background-position: bottom;
+    }
+    .support-image {
+        background-image: url('/assets/images/main/support_mobile.png');
+        background-position: bottom;
+    }
+    .vip-image {
+        background-image: url('/assets/images/main/vip_mobile.png');
+        background-position: bottom;
+        background-size: cover;
+    }
+    .games-image {
+        background-image: url('/assets/images/main/games_mobile.png');
+        background-position: bottom;
+        background-size: cover;
+    }
+}
 </style>
