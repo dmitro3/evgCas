@@ -356,3 +356,12 @@ aside {
     background-size: cover;
     background-position: center;
 }
+
+@media screen and (max-width: 480px) {
+    .bg-main-container-1 {
+        background-image: url('/assets/images/main/container1_mobile.png');
+        min-height: 600px;
+        background-size: contain;
+        background-position: bottom;
+    }
+}

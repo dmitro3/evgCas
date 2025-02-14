@@ -43,7 +43,7 @@ const faqItems = [
     <MainLayout>
         <section class="flex  flex-col gap-12">
             <div class="flex px-5 flex-col gap-2.5">
-                <div class="bg-main-container-1 bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
+                <div class="bg-main-container-1 bg-secondary-sidebar md: container flex-col mx-auto p-8 rounded-2xl ">
                     <div class="flex flex-col gap-5 max-w-[290px]">
                         <div class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -62,7 +62,7 @@ const faqItems = [
                             DOMAIN
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h1 class="text-4xl max-w-[190px] font-bold text-white">
+                            <h1 class="md:text-4xl text-xl md:max-w-[190px] font-bold text-white">
                                 Welcome to Domain!
                             </h1>
                             <p class="text-secondary-light/50 text-lg">
@@ -72,6 +72,7 @@ const faqItems = [
                         </div>
                         <TakeBonus background="bg-secondary-sidebar-light" />
                     </div>
+
                 </div>
                 <div class=" grid-cols-2 max-md:grid-cols-1 grid gap-2.5 container mx-auto w-full">
                     <InfoCard title="Licensed Slots" description="Experience top-tier gaming with licensed casino slots"
