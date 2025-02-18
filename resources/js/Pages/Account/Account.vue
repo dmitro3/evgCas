@@ -23,7 +23,7 @@ const activeTab = ref(props.activeTab);
 </script>
 <template>
     <MainLayout>
-        <div class="flex container mx-auto flex-col gap-6 max-xl:px-4">
+        <div class="flex container mx-auto flex-col gap-6 px-5">
             <ProfileBanner v-if="activeTab !== 'bonus'"/>
             <div v-else
                  class="bonus_banner bg-secondary-sidebar max-md:min-h-[605px] container flex-col mx-auto p-8 rounded-2xl">

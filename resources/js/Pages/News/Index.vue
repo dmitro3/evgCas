@@ -58,7 +58,7 @@ const news = [
 <template>
 
     <MainLayout>
-        <div class="flex flex-col gap-12">
+        <div class="flex flex-col gap-12 px-5">
             <div class="bonus_banner bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
                 <div class="flex flex-col gap-5 max-w-[290px]">
                     <div class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center">

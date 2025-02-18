@@ -5,13 +5,13 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 
 <template>
     <MainLayout>
-        <div class="container md:px-5 w-full mx-auto flex flex-col  ">
-            <div class="overflow-hidden rounded-2xl">
+        <div class="container md:px-5  w-full mx-auto flex flex-col  ">
+            <div class="overflow-hidden rounded-2xl flex flex-col">
 
 
-                <div class="flex items-stretch ">
+                <div class="flex max-md:flex-col-reverse items-stretch ">
                     <div
-                        class="p-6 flex border-r border-blue_dark bg-secondary-sidebar flex-col items-center justify-start max-w-[360px] w-full">
+                        class="p-6 flex border-r border-blue_dark bg-secondary-sidebar flex-col items-center justify-start max-w-[320px] xl:max-w-[360px] w-full">
                         <div class="flex flex-col gap-5 items-center justify-center w-full h-full">
                             <div class="flex flex-col gap-5 h-full">
                                 <div class="flex flex-col gap-2 ">
@@ -52,21 +52,21 @@ import MainLayout from "@/Layouts/MainLayout.vue";
                         </div>
                     </div>
                     <div class="w-full bg-mines py-14">
-                        <div class="flex items-stretch gap-4 max-w-[850px] w-full mx-auto">
+                        <div class="flex items-stretch max-md:flex-col-reverse  gap-4 max-w-[850px] w-full mx-auto">
                             <div class="h-full items-center justify-center flex">
-                                <div class="flex flex-col h-full  gap-2 ">
-                                    <div v-for="index in 5" class="py-7 px-7 flex flex-col gap-1 items-center justify-center bg-secondary-sidebar rounded-xl">
-                                        <p class="text-xl font-bold leading-none">
+                                <div class="flex md:flex-col h-full  gap-2 ">
+                                    <div v-for="index in 5" class="py-0.5 md:py-7 px-7 flex flex-col gap-1 items-center justify-center max-md:max-w-[130px] flex-shrink-0 w-full bg-secondary-sidebar rounded-xl">
+                                        <p class="md:text-xl font-bold leading-none">
                                             2.75×
                                         </p>
-                                        <p class="text-secondary-light/50 font-bold leading-none">
+                                        <p class="max-md:text-sm text-secondary-light/50 font-bold leading-none">
                                             5 gems
                                         </p>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="grid grid-cols-5 gap-2 ">
+                            <div class="grid flex-1 grid-cols-5 gap-2 ">
                                 <div class="field  mine" v-for="index in 25" >
                                     <div class="h-full w-full rounded-xl">
                                         <div class="shadow-field-top-right ">
@@ -78,8 +78,8 @@ import MainLayout from "@/Layouts/MainLayout.vue";
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col gap-2">
-                                <div class="counter-container gems">
+                            <div class="flex md:flex-col gap-2">
+                                <div class="counter-container  gems">
                                     <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2.06738 24.719L11.0805 11.0498L18.0621 19.0265L2.06738 24.719Z" fill="#02AB07"/>
                                         <path d="M22.7439 35.1964L2.06738 24.7189L18.0621 19.0264L22.7439 35.1964Z" fill="#07BC05"/>
@@ -140,26 +140,26 @@ import MainLayout from "@/Layouts/MainLayout.vue";
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="bg-secondary-sidebar-dark border-blue_dark border-t p-6 flex justify-between items-center">
-                <div class="flex gap-1 items-center font-extrabold uppercase">
+                <div class="bg-secondary-sidebar-dark border-blue_dark border-t p-6 flex justify-between items-center">
+                    <div class="flex gap-1 items-center font-extrabold uppercase">
                     <span class="text-dark-text-2">
 The dog house muttle crew
                     </span>
-                    <span class="text-dark-text-3">
+                        <span class="text-dark-text-3">
 Pragmatic play
                     </span>
-                </div>
-                <div class="rounded-full py-1 pl-1 pr-4 bg-blue_light/5 flex gap-2 items-center">
-                    <img src="/assets/images/header/default_avatar.png" alt="avatar" class="rounded-full w-7 h-7">
-                    <span class="text-blue_dark_2">
+                    </div>
+                    <div class="rounded-full py-1 pl-1 pr-4 bg-blue_light/5 flex gap-2 items-center">
+                        <img src="/assets/images/header/default_avatar.png" alt="avatar" class="rounded-full w-7 h-7">
+                        <span class="text-blue_dark_2">
                         Gamer305
                     </span>
-                    <span class="text-blue_light font-bold">25,000×</span>
+                        <span class="text-blue_light font-bold">25,000×</span>
+                    </div>
                 </div>
+
             </div>
-        </div>
+           </div>
     </MainLayout>
 </template>
 
@@ -238,7 +238,7 @@ Pragmatic play
     position: relative;
     background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
     linear-gradient(210deg, #298AFF 0%, transparent 30%) border-box;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 12px;
     --bg-color: #1E2B5E;
     pointer-events: none;
@@ -247,13 +247,13 @@ Pragmatic play
     position: relative;
     background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
     linear-gradient(210deg, #FB5D5D 0%, transparent 30%) border-box;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 12px;
     --bg-color: #1E2B5E;
     pointer-events: none;
 }
 .field {
-    @apply bg-secondary w-[100px] h-[100px] rounded-xl transition-all duration-300 cursor-pointer relative overflow-hidden;
+    @apply bg-secondary max-w-[100px] w-full h-full max-h-[100px] rounded-xl transition-all duration-300 cursor-pointer relative overflow-hidden;
 
 }
 </style>
