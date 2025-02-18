@@ -190,7 +190,6 @@ Pragmatic play
 }
 .shadow-field-bottom{
     border-radius: 500px;
-
     filter: blur(20px);
     width: 60px;
     height: 12px;
@@ -238,7 +237,7 @@ Pragmatic play
     position: relative;
     background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
     linear-gradient(210deg, #298AFF 0%, transparent 30%) border-box;
-    border: 1px solid transparent;
+    border: 0.5px solid transparent;
     border-radius: 12px;
     --bg-color: #1E2B5E;
     pointer-events: none;
@@ -247,7 +246,7 @@ Pragmatic play
     position: relative;
     background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
     linear-gradient(210deg, #FB5D5D 0%, transparent 30%) border-box;
-    border: 1px solid transparent;
+    border: 0.5px solid transparent;
     border-radius: 12px;
     --bg-color: #1E2B5E;
     pointer-events: none;

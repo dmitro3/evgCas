@@ -87,6 +87,15 @@ input {
     position: relative;
     z-index: 1;
 }
+.border_angle{
+    background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
+    linear-gradient(245deg, #298AFF 0%, transparent 20%) border-box;
+    --bg-color: #1A2446;
+    border: 0.5px solid transparent;
+}
+.image_partner{
+    @apply rounded-lg w-full h-full max-w-[400px];
+}
 .main-input {
     @apply bg-secondary-sidebar-dark-1 rounded-xl p-4;
     border-radius: 10px;
