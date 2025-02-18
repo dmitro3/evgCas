@@ -16,7 +16,7 @@ watch(stepVerification, (newVal) => {
 });
 
 function nextStep() {
-   
+
     stepVerification.value++;
 }
 onMounted(() => {
@@ -26,13 +26,15 @@ onMounted(() => {
     }, 5);
 });
 
+const isMobile = ref(window.innerWidth < 768);
+
 </script>
 
 
 <template>
     <div class="flex flex-col gap-12">
 
-        <div class="flex gap-2.5 items-start">
+        <div class="flex max-md:flex-col gap-2.5 items-start">
             <div class="flex flex-col max-w-[460px] gap-6">
                 <div
                     class="bg-secondary-sidebar flex flex-col gap-10 flex-shrink-0 p-6  w-full justify-center items-center rounded-2xl kyc-bg">
@@ -101,7 +103,7 @@ onMounted(() => {
                     <div class="relative h-2 rounded-full overflow-hidden w-full ">
                         <div class="w-full h-full bg-secondary-sidebar-dark"></div>
                         <div class="absolute w-full top-0 left-0 rounded-full h-full bg-primary"
-                            :style="`width: calc(${progress}% - 128px)`" :class="{ 'progress-animation': isMounted }">
+                            :style="`width: calc(${progress}% - ${isMobile ? 35 : 128}px)`" :class="{ 'progress-animation': isMounted }">
                             <div class="absolute inset-0 animate-pulse"></div>
                         </div>
                     </div>

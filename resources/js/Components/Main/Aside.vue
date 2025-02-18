@@ -39,7 +39,7 @@ const categories = ref([
                 href: '/profile/account',
             },
             {
-                name: 'VIP Club', 
+                name: 'VIP Club',
                 icon: 'vip.svg',
                 href: '/profile/vip',
             }
@@ -56,12 +56,12 @@ const categories = ref([
                 href: '/profile/account',
             },
             {
-                name: 'Promotions', 
+                name: 'Promotions',
                 icon: 'vip.svg',
                 href: '/profile/vip',
             },
             {
-                name: 'Sponsorships', 
+                name: 'Sponsorships',
                 icon: 'sponsor.svg',
                 href: '/more/sponsorships',
             },
@@ -78,7 +78,7 @@ const categories = ref([
         ]
 
     }
-    
+
 ]);
 
 const toggleCategory = (category) => {
@@ -87,7 +87,7 @@ const toggleCategory = (category) => {
 </script>
 
 <template>
-    <aside class="hidden md:block">
+    <aside class="hidden lg:block">
         <div class="aside">
             <div class="logo-container">
                 <div class="flex items-center justify-center gap-2.5">

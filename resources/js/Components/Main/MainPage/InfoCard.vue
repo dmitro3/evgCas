@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
     <div class="rounded-2xl flex flex-col gap-6 bg-secondary-sidebar p-6">
         <img :src="image" :alt="title" class="h-[260px] object-cover rounded-2xl" />
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between max-md:flex-col max-md:items-start max-md:gap-3 items-center">
             <div class="flex max-w-[290px] flex-col gap-2">
                 <h2 class="text-2xl font-bold">{{ title }}</h2>
                 <p class=" text-secondary-light/50">{{ description }}</p>

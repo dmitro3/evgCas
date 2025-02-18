@@ -2,13 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --swiper-pagination-bottom: 0px;
+}
+
 
 body {
     @apply bg-background text-white overflow-x-hidden;
     font-family: 'Inter', sans-serif !important;
 
 }
-
+.deposit_card_eth {
+    background-image: url('/assets/images/account/bg/cards/deposit_card_eth.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.deposit_card_usdt {
+    background-image: url('/assets/images/account/bg/cards/deposit_card_usdt.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.deposit_card_btc {
+    background-image: url('/assets/images/account/bg/cards/deposit_card_btc.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .btn:before {
     content: '';
     position: absolute;
@@ -303,7 +324,7 @@ aside {
 }
 
 .aside-item-icon-container {
-    @apply flex items-center justify-center p-1.5 rounded-lg relative w-[26px] h-[26px];
+    @apply flex items-center justify-center p-1.5 rounded-lg relative w-[26px] h-[26px] flex-shrink-0;
     fill: linear-gradient(180deg, rgba(199, 211, 255, 0.05) 0%, rgba(199, 211, 255, 0.20) 100%);
     stroke-width: 1px;
     stroke: rgba(199, 211, 255, 0.25);

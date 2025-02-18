@@ -13,8 +13,8 @@ export default {
     theme: {
         extend: {
             screens: {
-                'sm': '358px',
-                'md': '768px',
+                'sm': '365px',
+                'md': '976px',
                 'lg': '1024px',
                 'xl': '1180px',
                 '2xl': '1510px',
@@ -35,9 +35,13 @@ export default {
                 'secondary-sidebar-dark-1': '#1E2A52',
                 'dark-text': '#1C4F8C',
                 'dark-text-2': '#243267',
+                'dark-text-3': '#1D2850',
+                'blue_dark': '#222F5B',
+                'blue_dark_2': '#3D57AA',
+                'blue_light': '#4577E7',
                 'red-primary': '#FF5353',
             },
-        
+
         },
     },
 

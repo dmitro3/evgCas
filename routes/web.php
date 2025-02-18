@@ -18,3 +18,4 @@ Route::get('/vip', function () {
 include __DIR__ . '/auth.php';
 include __DIR__ . '/account.php';
 include __DIR__ . '/news.php';
+include __DIR__ . '/play.php';

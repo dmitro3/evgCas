@@ -37,7 +37,7 @@ const originalGames = [
                     class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
                     <div class="bg-main-container-1 rounded-2xl p-8">
-                        <div class="flex flex-col gap-5 max-w-[290px]">
+                        <div class="flex flex-col max-md:text-center max-md:items-center max-md:justify-center gap-5 max-w-[290px]">
                             <div
                                 class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
                             >
@@ -69,11 +69,11 @@ const originalGames = [
                             </div>
                             <div class="flex flex-col gap-2">
                                 <h1
-                                    class="text-4xl max-w-[290px] font-bold text-white"
+                                    class="text-2xl md:text-4xl max-w-[290px] font-bold text-white"
                                 >
                                     Licensed slots by Pragmatic Play
                                 </h1>
-                                <p class="text-secondary-light/50 text-lg">
+                                <p class="text-secondary-light/50 md:text-lg">
                                     Let’s play in best casino games by Pragmatic
                                     Play
                                 </p>
@@ -84,14 +84,14 @@ const originalGames = [
                         </div>
                     </div>
                     <div class="bg-main-container-2 rounded-2xl p-8">
-                        <div class="flex flex-col gap-5 max-w-[290px]">
-                            <div class="flex flex-col gap-2">
+                        <div class="flex flex-col gap-5 max-w-[290px] max-md:items-center max-md:justify-center max-md:text-center">
+                            <div class="flex flex-col  gap-2">
                                 <h1
-                                    class="text-4xl max-w-[300px] font-bold text-white"
+                                    class="text-2xl md:text-4xl max-w-[300px] font-bold text-white"
                                 >
                                     Official football partnerships
                                 </h1>
-                                <p class="text-secondary-light/50 text-lg">
+                                <p class="text-secondary-light/50 md:text-lg">
                                     Ut enim ad minim veniam, quis nostrud
                                     exercitation
                                 </p>
@@ -125,7 +125,7 @@ const originalGames = [
                     </h2>
                     <Link href="/" class="flex gap-1 items-center">
                         View all
-                      
+
                     </Link>
                 </div>
                 <div class="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:grid-cols-6 gap-2.5">
@@ -137,7 +137,7 @@ const originalGames = [
                     <h2 class="text-lg font-bold  text-white">
                         Original games
                     </h2>
-                 
+
                 </div>
                 <div class="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:grid-cols-6 gap-2.5">
                     <GameCard v-for="game in originalGames" :key="game.id" :game="game" />
@@ -158,4 +158,17 @@ const originalGames = [
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+@media (max-width: 768px) {
+    .bg-main-container-1 {
+        background-image: url("/assets/images/account/playPage/bg_container1_mobile.png");
+        min-height: 500px !important;
+
+    }
+    .bg-main-container-2 {
+        background-image: url("/assets/images/account/playPage/bg_container2_mobile.png");
+        min-height: 500px !important;
+    }
+}
 </style>
+

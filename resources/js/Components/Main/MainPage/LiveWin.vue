@@ -41,6 +41,8 @@ for (let i = 0; i < 40; i++) {
         <div class="flex bg-secondary-sidebar py-6  gap-2.5 items-center overflow-hidden  w-full absolute top-0 ">
             <LastWinItem v-for="lastWin in lastWins" :key="lastWin.title" :title="lastWin.title"
                 :amount="lastWin.amount" :image="lastWin.image" />
+            <img src="/assets/images/account/bg/left_shadow.png" alt="left_shadow" srcset="" class="h-full absolute left-0 z-10">
+            <img src="/assets/images/account/bg/right_shadow.png" alt="right_shadow" srcset="" class="h-full absolute z-10 right-0">
         </div>
     </div>
 </template>

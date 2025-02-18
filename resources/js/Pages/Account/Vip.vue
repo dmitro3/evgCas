@@ -5,6 +5,7 @@ import { ref, onMounted } from "vue";
 import FaqItem from "../../Components/Main/Global/FaqItem.vue";
 import ProgressBar from "../../Components/Main/Global/ProgressBar.vue";
 import SupportBanner from "../../Components/Main/Global/SupportBanner.vue";
+import CharactersSlider from "../../Components/Sliders/CharactersSlider.vue";
 const faqTab = ref("main");
 
 const faqItems = {
@@ -47,8 +48,8 @@ const faqItems = {
                 <div
                     class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
-                    <div class="bg-main-container-1 max-md:min-h-[364px] rounded-2xl p-8">
-                        <div class="flex flex-col gap-5 max-w-[290px]">
+                    <div class="bg-main-container-1  max-md:min-h-[380px] rounded-2xl p-8">
+                        <div class="flex flex-col gap-5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]">
                             <div
                                 class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
                             >
@@ -80,11 +81,11 @@ const faqItems = {
                             </div>
                             <div class="flex flex-col gap-2">
                                 <h1
-                                    class="text-4xl max-w-[200px] font-bold text-white"
+                                    class="text-2xl md:text-4xl md:max-w-[200px] font-bold text-white"
                                 >
                                     Welcome to VIP Club!
                                 </h1>
-                                <p class="text-secondary-light/50 text-lg">
+                                <p class="text-secondary-light/50 md:text-lg">
                                     Ut enim ad minim veniam, quis nostrud
                                     exercitation
                                 </p>
@@ -95,7 +96,7 @@ const faqItems = {
                         </div>
                     </div>
                     <div class="bg-main-container-2 rounded-2xl p-8">
-                        <div class="flex flex-col gap-5 max-w-[290px]">
+                        <div class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[380px] gap-5 max-w-[290px]">
                             <div
                                 class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
                             >
@@ -115,13 +116,13 @@ const faqItems = {
                                     />
                                 </svg>
                             </div>
-                            <div class="flex flex-col gap-2">
+                            <div class="flex h-full flex-col gap-2">
                                 <h1
-                                    class="text-4xl max-w-[300px] font-bold text-white"
+                                    class="text-2xl md:text-4xl md:max-w-[300px] font-bold text-white"
                                 >
                                     Lamborgini Urus official partner
                                 </h1>
-                                <p class="text-secondary-light/50 text-lg">
+                                <p class="text-secondary-light/50 md:text-lg">
                                     Ut enim ad minim veniam, quis nostrud
                                     exercitation
                                 </p>
@@ -170,7 +171,7 @@ const faqItems = {
 
             <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Characters</h2>
-                <div class="grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
+                <div class="grid  max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
                     <div
                         class="bg-secondary-sidebar rounded-2xl p-4 flex h-full flex-col justify-between"
                     >
@@ -473,6 +474,7 @@ const faqItems = {
                         </div>
                     </div>
                 </div>
+                <CharactersSlider />
             </div>
 
             <div class="flex md:px-5 flex-col gap-6 w-full container mx-auto">
@@ -584,4 +586,18 @@ p {
     height: 225px;
     @apply rounded-2xl md:h-[225px] min-h-[305px];
 }
+
+@media (max-width: 760px) {
+    .bg-main-container-1 {
+        background-image: url("/assets/images/account/vip/bg_container1_mobile.png");
+        background-size: cover;
+        background-position: bottom;
+    }
+    .bg-main-container-2 {
+        background-image: url("/assets/images/account/vip/bg_container2_mobile.png");
+        background-size: cover;
+        background-position: bottom;
+    }
+}
+
 </style>

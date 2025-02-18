@@ -12,8 +12,8 @@ const openAffiliateTab = ref(false)
             <h2 class="text-lg font-bold">Rakeback</h2>
 
             <div class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full">
-                <div class="bg-secondary-sidebar rounded-2xl flex items-center justify-center  ">
-                    <div class="flex flex-col gap-5 p-6 h-full max-w-[230px]">
+                <div class="bg-secondary-sidebar rounded-2xl flex  md:items-center md:justify-center  bonus-bg-mobile w-full ">
+                    <div class="flex flex-col gap-5 p-6 h-full max-w-[230px] w-full">
                         <div class="flex flex-col h-full gap-4">
                             <div
                                 class="px-3 py-2 uppercase text-sm font-extrabold w-fit rounded-lg flex items-center gap-2 bg-primary/10">
@@ -41,13 +41,13 @@ const openAffiliateTab = ref(false)
                             </button>
                         </div>
                     </div>
-                    <div class="bonus-bg w-full h-full rounded-r-2xl">
+                    <div class="max-md:hidden  bonus-bg w-full h-full rounded-r-2xl">
 
                     </div>
                 </div>
                 <div
-                    class="bg-secondary-sidebar bonus-bg-container2 rounded-2xl flex items-center justify-between  p-6">
-                    <div class="flex flex-col max-w-[290px] gap-10">
+                    class="bg-secondary-sidebar bonus-bg-container2 rounded-2xl flex max-md:gap-4 max-md:flex-col items-center justify-between  p-6">
+                    <div class="flex flex-col md:max-w-[290px] gap-10">
                         <div class="flex flex-col gap-2">
                             <h2 class="text-2xl font-bold">
                                 Rakeback
@@ -68,7 +68,7 @@ const openAffiliateTab = ref(false)
                             </div>
                         </div>
                     </div>
-                    <div class="flex  flex-col uppercase max-w-[200px] w-full gap-4">
+                    <div class="flex  flex-col uppercase md:max-w-[200px] w-full gap-4">
                         <div class="flex flex-col gap-2">
                             <label class="text-sm font-bold">
                                 Bets in 24h
@@ -107,8 +107,8 @@ const openAffiliateTab = ref(false)
             </div>
             <div class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full">
 
-                <div class="bg-secondary-sidebar  rounded-2xl flex items-center gap-6  p-4">
-                    <div class="max-w-[160px] w-full ticket-bg py-4  flex items-start justify-center h-full">
+                <div class="bg-secondary-sidebar  rounded-2xl max-md:flex-col flex md:items-center gap-6  p-4">
+                    <div class="max-w-[160px] w-full ticket-bg py-4 min-h-[208px] flex items-start justify-center h-full">
                         <p class="text-lg font-bold">3500$</p>
                     </div>
                     <div class="flex  flex-col   w-full gap-8">
@@ -147,8 +147,8 @@ const openAffiliateTab = ref(false)
 
         <div class="flex px-5 flex-col gap-6 w-full container mx-auto">
 
-            <div class="flex gap-2.5">
-                <div class="flex flex-col max-w-[230px] w-full">
+            <div class="flex max-md:flex-col gap-2.5">
+                <div class="grid grid-cols-2 md:flex flex-col md:max-w-[230px] w-full">
                     <div @click="faqTab = 'main'" :class="{ active: faqTab === 'main' }" class="aside-item-content">
                         <div class="flex items-center gap-2">
 
@@ -179,7 +179,7 @@ const openAffiliateTab = ref(false)
                                 <div class="faq-item__answer pt-5 text-secondary-light/50 border-t border-secondary-sidebar-light/50 mt-4"
                                     v-if="openAffiliateTab">
                                     <div class="flex flex-col gap-6">
-                                        <div class="grid grid-cols-2 gap-4 ">
+                                        <div class="grid md:grid-cols-2 gap-4 ">
                                             <div class="flex flex-col gap-2 text-white ">
                                                 <span class="text-sm font-bold uppercase">
                                                     earnings per week
@@ -269,5 +269,20 @@ const openAffiliateTab = ref(false)
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+@media screen and (max-width: 768px) {
+    .bonus-bg-mobile {
+        background-image: url('/assets/images/account/bg/bonus_bg_mobile.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bonus-bg-container2  {
+
+        background-size: contain;
+
+        background-position: left -40px bottom -20px;
+        background-repeat: no-repeat;
+    }
 }
 </style>

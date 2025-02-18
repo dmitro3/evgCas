@@ -7,42 +7,50 @@ const news = [
     {
         title: "24M Users!",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news1.png"
+        image: "/assets/images/news/news1.png",
+        link: "/news/football"
     },
     {
         title: "Weekly Rakeback",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news2.png"
+        image: "/assets/images/news/news2.png",
+        link: "/news/percent"
     },
     {
         title: "Conquer the Casino!",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news3.png"
+        image: "/assets/images/news/news3.png",
+        link: "/news/up"
     },
     {
         title: "Pragmatic Reel Rumble!",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news4.png"
+        image: "/assets/images/news/news4.png",
+        link: "/news/crown"
     },
     {
         title: "Weekly Rakeback",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news5.png"
+        image: "/assets/images/news/news5.png",
+        link: "/news/darts"
     },
     {
         title: "Lucky shot - $9,000",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news6.png"
+        image: "/assets/images/news/news6.png",
+        link: "/news/ball"
     },
     {
         title: "Weekly giveaway from Domain",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news7.png"
+        image: "/assets/images/news/news7.png",
+        link: "/news/promo"
     },
     {
         title: "Weekly Race",
         description: "13 dec - 16 dec",
-        image: "/assets/images/news/news8.png"
+        image: "/assets/images/news/news8.png",
+        link: "/news/race"
     }
 ];
 </script>
@@ -85,8 +93,8 @@ const news = [
                 </h1>
                 <div class="flex flex-col gap-6 w-full ">
 
-                    <div class="flex gap-2.5">
-                        <div class="flex flex-col max-w-[230px] w-full">
+                    <div class="flex gap-2.5 max-md:flex-col">
+                        <div class="grid grid-cols-2 md:flex  md:flex-col  md:max-w-[230px] w-full">
                             <div class="aside-item-content active">
                                 <div class="flex items-center gap-2">
                                     <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
@@ -126,8 +134,8 @@ const news = [
                                 </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-4 gap-2.5">
-                            <NewsCard v-for="item in news" :key="item.title" :title="item.title" :description="item.description" :image="item.image" />
+                        <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                            <NewsCard :link="item.link" v-for="item in news" :key="item.title" :title="item.title" :description="item.description" :image="item.image" />
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 <template>
     <div class="flex flex-col gap-5">
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid md:grid-cols-2 gap-2">
 
             <div class="flex flex-col gap-2">
                 <span class="text-sm font-bold">
@@ -29,7 +29,7 @@ const props = defineProps({
 
             </div>
         </div>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid md:grid-cols-2 gap-2">
 
             <div class="flex flex-col gap-2">
                 <span class="text-sm font-bold">

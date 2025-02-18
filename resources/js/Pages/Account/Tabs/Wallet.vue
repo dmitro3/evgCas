@@ -7,8 +7,8 @@ const activeTabDeposit = ref('deposit');
 
 <template>
         <div class="flex flex-col gap-12">
-             
-                <div class="flex gap-2.5 items-start">
+
+                <div class="flex gap-2.5 max-xl:flex-col items-start">
                     <div class="bg-secondary-sidebar flex-shrink-0 p-6 max-w-[460px] w-full rounded-2xl">
                         <div class=" flex flex-col gap-4 ">
                             <div class="grid grid-cols-2 ">
@@ -45,7 +45,7 @@ const activeTabDeposit = ref('deposit');
                                 History
                             </Link>
                         </div>
-                        <div class="flex gap-6  items-start ">
+                        <div class="flex gap-6 max-md:flex-col  items-center md:items-start ">
                             <div class="p-5 bg-white rounded-2xl">
                                 <img src="/assets/images/other/qr.png" alt="qr" class="h-[160px] max-w-[160px]">
                             </div>
@@ -80,15 +80,15 @@ const activeTabDeposit = ref('deposit');
 }
 
 .btn-switch {
-    @apply text-secondary-light/50 font-extrabold;
+    @apply text-secondary-light/50 font-extrabold relative;
 }
 
 .btn-switch.active {
     @apply text-primary;
 }
 
-.btn-switch.active:before {
-    content: '';
+.btn-switch.active::before {
+    content: '' !important;
     position: absolute;
     bottom: -13px;
     left: 50%;

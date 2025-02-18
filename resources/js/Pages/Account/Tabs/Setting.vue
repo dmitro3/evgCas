@@ -8,7 +8,7 @@ const activeTabDeposit = ref('deposit');
 <template>
     <div class="flex flex-col gap-12">
 
-        <div class="grid grid-cols-2 gap-2.5 ">
+        <div class="grid md:grid-cols-2 gap-2.5 ">
             <div class="bg-secondary-sidebar h-fit flex-shrink-0 p-6 w-full rounded-2xl">
                 <div class=" flex flex-col gap-6 items-center justify-center">
                     <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
