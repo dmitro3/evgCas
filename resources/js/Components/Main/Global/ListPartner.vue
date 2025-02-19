@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex items-center gap-2 ">
+    <div class="flex items-center flex-wrap gap-2 ">
         <Link href="/partner/huobi" :class="{active: active === 'huobi'}" class="list_partner">
             <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_102_10295)">

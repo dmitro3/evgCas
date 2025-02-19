@@ -1,23 +1,33 @@
 <script setup>
 import Aside from '../Components/Main/Aside.vue';
 import Header from '../Components/Main/Header.vue';
+import Chat from "@/Components/Main/Global/Chat.vue";
+import {Link} from "@inertiajs/vue3";
+import Footer from "@/Components/Main/Footer.vue";
+
 </script>
 
 <template>
     <main class="flex">
         <Aside />
-        <div class="flex-col flex-1">
+        <div class="flex flex-col flex-1">
             <Header />
             <div class="py-14 max-sm:px-3 relative">
                 <div class="page-wrapper">
                     <slot />
+                    <Chat />
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     </main>
 </template>
 
 <style>
+.line{
+    background: rgba(199, 211, 255, 0.05);
+    height: 1px;
+}
 .page-wrapper {
     position: relative;
     width: 100%;

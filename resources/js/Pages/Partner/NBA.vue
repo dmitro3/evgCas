@@ -37,7 +37,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                 <ListPartner :active="`nba`"></ListPartner>
             </div>
             <div class="flex flex-col gap-8 p-6 bg-secondary-sidebar rounded-xl">
-                <div class="flex items-start gap-6">
+                <div class="flex max-md:flex-col items-start gap-6">
                     <div class="flex flex-col gap-2 ">
                         <h1 class="text-xl font-bold">
                             Demotopg and Bitget signed a cooperation agreement
@@ -56,7 +56,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                     </div>
                     <img src="/assets/images/partner/nba_image1.png" alt="nba_image1" class="image_partner">
                 </div>
-                <div class="flex items-start gap-6">
+                <div class="flex max-md:flex-col items-start gap-6">
                     <img src="/assets/images/partner/nba_image2.png" alt="nba_image2" class="image_partner">
                     <div class="flex flex-col gap-2 ">
                         <h1 class="text-xl font-bold">
@@ -85,7 +85,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                     </div>
 
                 </div>
-                <div class="flex items-start gap-6">
+                <div class="flex max-md:flex-col items-start gap-6">
                     <div class="flex flex-col gap-2 ">
                         <h1 class="text-xl font-bold">
                             Demotopg and Bitget signed a cooperation agreement
@@ -116,5 +116,11 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
+}
+@media (max-width: 768px) {
+    .bg_football {
+        background-image: url('/assets/images/partner/nba_bg_mobile.png');
+        background-position: center;
+    }
 }
 </style>

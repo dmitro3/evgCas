@@ -15,8 +15,12 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                     <div
                         class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px]">
                         <svg width="33" height="51" viewBox="0 0 33 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21.6772 15.6531C21.6772 8.36282 18.1354 2.07853 15.4342 0.0251165C15.4342 0.0251165 15.2275 -0.0989154 15.2551 0.204274C15.007 14.3577 7.82694 18.12 3.87171 23.2604C-2.15073 30.6748 -1.02066 41.5482 6.37991 47.5569C8.0061 48.8799 9.86658 49.8997 11.8649 50.5474C16.7021 51.898 10.7348 48.1771 9.97683 40.3079C9.05348 30.7437 21.6772 23.5361 21.6772 15.6531Z" fill="#E8EDFF"/>
-                            <path d="M26.419 20.5043C26.3777 20.4492 26.3088 20.4354 26.2536 20.463C26.2399 20.4768 26.2261 20.4906 26.2123 20.5043C25.3027 23.7843 23.7592 26.8713 21.6645 29.5587C13.3543 41.3693 18.1089 47.0609 20.7687 50.0377C22.2984 51.8155 20.7687 50.0377 24.6412 48.2186C29.2993 45.6139 32.4001 40.9145 32.9514 35.6087C33.3786 29.8067 30.9393 24.1702 26.419 20.5043Z" fill="#E8EDFF"/>
+                            <path
+                                d="M21.6772 15.6531C21.6772 8.36282 18.1354 2.07853 15.4342 0.0251165C15.4342 0.0251165 15.2275 -0.0989154 15.2551 0.204274C15.007 14.3577 7.82694 18.12 3.87171 23.2604C-2.15073 30.6748 -1.02066 41.5482 6.37991 47.5569C8.0061 48.8799 9.86658 49.8997 11.8649 50.5474C16.7021 51.898 10.7348 48.1771 9.97683 40.3079C9.05348 30.7437 21.6772 23.5361 21.6772 15.6531Z"
+                                fill="#E8EDFF"/>
+                            <path
+                                d="M26.419 20.5043C26.3777 20.4492 26.3088 20.4354 26.2536 20.463C26.2399 20.4768 26.2261 20.4906 26.2123 20.5043C25.3027 23.7843 23.7592 26.8713 21.6645 29.5587C13.3543 41.3693 18.1089 47.0609 20.7687 50.0377C22.2984 51.8155 20.7687 50.0377 24.6412 48.2186C29.2993 45.6139 32.4001 40.9145 32.9514 35.6087C33.3786 29.8067 30.9393 24.1702 26.419 20.5043Z"
+                                fill="#E8EDFF"/>
                         </svg>
 
                         <div class="flex flex-col gap-2">
@@ -34,7 +38,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                 <ListPartner :active="`huobi`"></ListPartner>
             </div>
             <div class="flex flex-col gap-8 p-6 bg-secondary-sidebar rounded-xl">
-                <div class="flex items-start gap-6">
+                <div class="flex max-md:flex-col items-start gap-6">
                     <div class="flex flex-col gap-2 ">
                         <h1 class="text-xl font-bold">
                             Demotopg and Bitget signed a cooperation agreement
@@ -53,7 +57,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                     </div>
                     <img src="/assets/images/partner/huobi_image1.png" alt="huobi_image1" class="image_partner">
                 </div>
-                <div class="flex items-start gap-6">
+                <div class="flex max-md:flex-col items-start gap-6">
                     <img src="/assets/images/partner/huobi_image2.png" alt="huobi_image2" class="image_partner">
                     <div class="flex flex-col gap-2 ">
                         <h1 class="text-xl font-bold">
@@ -82,7 +86,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                     </div>
 
                 </div>
-                <div class="flex items-start gap-6">
+                <div class="flex max-md:flex-col items-start gap-6">
                     <div class="flex flex-col gap-2 ">
                         <h1 class="text-xl font-bold">
                             Demotopg and Bitget signed a cooperation agreement
@@ -93,7 +97,7 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                             praesent sagittis pulvinar viverra imperdiet amet. Mattis morbi massa sed, risus rutrum erat
                             pellentesque aliquet. Lobortis est lectus leo ad platea ullamcorper nascetur. Elementum leo
                             class facilisis libero massa. Viverra class posuere, mollis penatibus tempus lacus?
-<br><br>
+                            <br><br>
                             Inceptos class libero sollicitudin nisl faucibus pulvinar in habitant. Purus curae taciti
                             magnis amet ex finibus primis. Elit fermentum himenaeos in feugiat, eu pharetra luctus ad
                             elit. Maecenas class arcu quam molestie auctor fermentum dolor
@@ -113,5 +117,12 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
+}
+
+@media (max-width: 768px) {
+    .bg_football {
+        background-image: url('/assets/images/partner/huobi_bg_mobile.png');
+        background-position: center;
+    }
 }
 </style>

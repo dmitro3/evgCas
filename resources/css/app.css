@@ -5,6 +5,15 @@
 :root {
     --swiper-pagination-bottom: 0px;
 }
+.hide-scroll {
+    -ms-overflow-style: none; /* для IE и Edge */
+    scrollbar-width: none; /* для Firefox */
+}
+
+.hide-scroll::-webkit-scrollbar {
+    display: none; /* для Chrome, Safari и Opera */
+}
+
 
 
 body {
