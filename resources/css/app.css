@@ -401,11 +401,11 @@ aside {
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1000px) {
-    .bg-main-container-1 {
+    /* .bg-main-container-1 {
         background-image: url('/assets/images/main/container1_laptop.png');
         background-size: cover;
         background-position: center right;
-    }
+    } */
 
     .vip-image {
         background-image: url('/assets/images/main/vip_laptop.png') !important;
