@@ -5,7 +5,7 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 
 <template>
     <MainLayout>
-        <section class="max-w-[700px] rounded-2xl max-md:container mx-auto border_angle bg-secondary-sidebar  relative">
+        <section class="max-w-[700px] overflow-hidden rounded-2xl max-md:container mx-auto border_angle bg-secondary-sidebar  relative">
             <div class="flex gap-6 p-6">
                 <div
                     class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl">

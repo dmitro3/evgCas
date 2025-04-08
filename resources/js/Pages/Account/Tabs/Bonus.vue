@@ -11,7 +11,7 @@ const openAffiliateTab = ref(false)
         <div class="flex flex-col gap-6">
             <h2 class="text-lg font-bold">Rakeback</h2>
 
-            <div class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2.5 container mx-auto w-full">
                 <div class="bg-secondary-sidebar rounded-2xl flex  md:items-center md:justify-center  bonus-bg-mobile w-full ">
                     <div class="flex flex-col gap-5 p-6 h-full max-w-[230px] w-full">
                         <div class="flex flex-col h-full gap-4">

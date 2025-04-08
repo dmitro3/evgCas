@@ -14,7 +14,7 @@ const closeChat = () => {
 </script>
 
 <template>
-    <div class="fixed right-0 max-md:mx-2 md:right-10 lg:right-24 flex justify-end bottom-12 ">
+    <div class="fixed right-0 max-md:mx-2 md:right-10 lg:right-8 flex justify-end bottom-12 ">
         <Transition name="fade">
 
         <div v-if="!isOpen" class="flex gap-2 absolute bottom-0  items-center">

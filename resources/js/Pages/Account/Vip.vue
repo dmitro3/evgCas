@@ -46,7 +46,7 @@ const faqItems = {
         <section class="flex flex-col gap-12">
             <div class="flex md:px-5 flex-col gap-2.5">
                 <div
-                    class="grid grid-cols-1 2xl:grid-cols-2 gap-2.5 container mx-auto w-full"
+                    class="grid grid-cols-1 xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
                     <div class="bg-main-container-1  max-md:min-h-[380px] rounded-2xl p-8">
                         <div class="flex flex-col gap-5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]">
@@ -147,7 +147,7 @@ const faqItems = {
                 </div>
             </div>
 
-            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
+            <div class="flex  flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">VIP Progress</h2>
                 <div class="flex gap-2 items-stretch">
                     <div class="flex gap-2 items-center rank-bg w-fit">
@@ -169,9 +169,9 @@ const faqItems = {
                 </div>
             </div>
 
-            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
+            <div class="flex  flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Characters</h2>
-                <div class="grid  max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
+                <div class="grid charters max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
                     <div
                         class="bg-secondary-sidebar rounded-2xl p-4 flex h-full flex-col justify-between"
                     >
@@ -179,7 +179,7 @@ const faqItems = {
                             <img
                                 src="/assets/images/account/vip/characters/silver.png"
                                 alt="character"
-                                class="w-full flex-shrink-0 character"
+                                class="w-full ] flex-shrink-0 character"
                             />
                             <div class="flex flex-col gap-2">
                                 <p class="font-bold text-2xl leading-normal">

@@ -17,7 +17,7 @@ export default {
                 'md': '976px',
                 'lg': '1024px',
                 'xl': '1180px',
-                '2xl': '1510px',
+                '2xl': '1610px',
             },
             colors: {
                 'white': '#E8EDFF',

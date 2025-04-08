@@ -95,11 +95,11 @@ const toggleCategory = (category) => {
                     MEDIUM
                 </div>
             </div>
-            <div class="flex flex-col gap-8 py-5">
+            <div class="flex flex-col gap-8  py-5">
                 <div class="aside-info-container">
                     <img src="/assets/images/aside/info-image1.png" height="160" alt="info-image">
                 </div>
-                <div class="aside-items-container">
+                <div class="aside-items-container max-h-[calc(100vh-300px)] overflow-y-auto">
                     <div class="aside-item" v-for="category in categories" :key="category.name">
                         <div class="aside-item-title" @click="toggleCategory(category)">
                             <span>{{ category.name }}</span>

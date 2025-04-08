@@ -3,10 +3,10 @@
 </script>
 
 <template>
-    <div class="w-full h-full relative flex-1 flex-shrink-0 z-40 hidden md:flex justify-end items-center ">
+    <div class="w-full h-full relative flex-1 flex-shrink-0 z-40 hidden md:flex max-2xl:left-24 justify-end items-center ">
 
         <div class=" w-full flex min-h-[260px] justify-end h-full  lg:px-16">
-            <img src="/assets/images/account/bg/bottom_shadow.png" alt="bottom_shadow" class="absolute -bottom-8 left-0 w-full max-h-20 h-full z-50">
+            <img src="/assets/images/account/bg/bottom_shadow.png" alt="bottom_shadow" class="absolute -bottom-8 left-0 max-2xl:hidden w-full max-h-20 h-full z-50">
             <img src="/assets/images/account/bg/top_shadow.png" alt="bottom_shadow" class="absolute -top-1 left-0 w-full max-h-8 z-50">
             <div class="relative h-full min-h-[260px] z-20 w-full flex-shrink-0 max-w-[390px]">
                 <div

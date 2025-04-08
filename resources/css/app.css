@@ -88,8 +88,11 @@ input {
     overflow: hidden;
     border: 1px solid transparent;
 }
+.main-input-small input{
+    @apply flex-1 w-full;
+}
 .main-input-small {
-    @apply bg-secondary-sidebar-dark-1 rounded-xl p-2;
+    @apply bg-secondary-sidebar-dark-1 rounded-xl p-2 flex gap-2 items-center w-full justify-between;
     border-radius: 10px;
     background: #171F3D;
     border: 1px solid #212B50;
@@ -395,7 +398,40 @@ aside {
     background-size: cover;
     background-position: center;
 }
+@media screen and (max-width: 1600px) and (min-width: 1000px) {
+    .bg-main-container-1 {
+        background-image: url('/assets/images/main/container1_laptop.png');
+        background-size: cover;
+        background-position: center right;
+    }
 
+    .vip-image {
+        background-image: url('/assets/images/main/vip_laptop.png') !important;
+        background-position: bottom !important;
+        background-size: contain !important;
+    }
+
+    .support-image{
+        background-position: top !important;
+    }
+    .games-image{
+        background-image: url('/assets/images/main/games_laptop.png') !important;
+        background-position: bottom !important;
+        background-size: contain !important;
+    }
+    .character{
+        min-height: 250px !important;
+    }
+    .charters > div:first-child .character {
+       @apply pt-2
+    }
+
+    .bonus_banner{
+        background-image: url('/assets/images/account/bg/bonus_banner_laptop.png') !important;
+        background-size: contain !important;
+        background-position: bottom !important;
+    }
+}
 @media screen and (max-width: 760px) {
     .bg-main-container-1 {
         background-image: url('/assets/images/main/container1_mobile.png');

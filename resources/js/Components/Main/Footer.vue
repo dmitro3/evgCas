@@ -8,7 +8,7 @@ import {Link} from "@inertiajs/vue3";
 <template>
     <div class="container mx-auto px-3 md:px-5 py-24">
         <div class="flex flex-col gap-16">
-            <div class="flex items-center max-md:flex-wrap justify-between ">
+            <div class="flex items-center max-md:flex-wrap justify-between opacity-50">
                 <img src="/assets/images/footer/huobi.svg" alt="huobi" srcset="">
                 <img src="/assets/images/footer/nba.svg" alt="nba" srcset="">
                 <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="">

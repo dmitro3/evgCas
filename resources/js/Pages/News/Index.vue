@@ -153,4 +153,5 @@ const news = [
     background-position: right;
     background-size: cover;
 }
+
 </style>
