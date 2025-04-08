@@ -30,11 +30,11 @@ const isAuth = ref(false);
 
                     Home
                 </Link>
-                <Link href="/games" class="nav-element max-2xl:hidden">
+                <Link href="/games" class="nav-element max-xl:hidden">
                     <GameIcon />
                     Games
                 </Link>
-                <Link href="/slots" class="nav-element max-2xl:hidden">
+                <Link href="/slots" class="nav-element max-xl:hidden">
                     <svg
                         width="24"
                         height="24"
