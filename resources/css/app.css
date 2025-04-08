@@ -297,11 +297,11 @@ header {
 }
 
 aside {
-    @apply bg-secondary-sidebar max-w-[180px] w-full flex flex-col h-screen;
+    @apply bg-secondary-sidebar max-w-[200px] w-full flex flex-col h-screen;
 }
 
 .aside {
-    @apply bg-secondary-sidebar fixed max-w-[180px] w-full flex flex-col h-screen z-50;
+    @apply bg-secondary-sidebar fixed max-w-[200px] w-full flex flex-col h-screen z-50;
 }
 
 .logo-container {
