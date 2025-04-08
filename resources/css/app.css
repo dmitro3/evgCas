@@ -39,6 +39,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+.aside{
+    transform: scale(0.8);
+    transform-origin: top left;
+    min-height: 125vh;
+}
 .btn:before {
     content: '';
     position: absolute;
@@ -296,11 +301,11 @@ header {
 }
 
 aside {
-    @apply bg-secondary-sidebar max-w-[220px] w-full flex flex-col h-screen;
+    @apply bg-secondary-sidebar max-w-[160px] w-full flex flex-col h-screen;
 }
 
 .aside {
-    @apply bg-secondary-sidebar fixed max-w-[220px] w-full flex flex-col h-screen z-50;
+    @apply bg-secondary-sidebar fixed max-w-[200px] w-full flex flex-col h-screen z-50;
 }
 
 .logo-container {

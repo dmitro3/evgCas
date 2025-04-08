@@ -24,5 +24,8 @@
 <body class="font-sans antialiased">
     @inertia
 </body>
+<script>
+    
+</script>
 
 </html>
