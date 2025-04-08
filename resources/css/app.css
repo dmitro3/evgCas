@@ -399,6 +399,7 @@ aside {
     background-size: cover;
     background-position: center;
 }
+/* 
 @media screen and (max-width: 1600px) and (min-width: 1000px) {
     .bg-main-container-1 {
         background-image: url('/assets/images/main/container1_laptop.png');
@@ -432,7 +433,7 @@ aside {
         background-size: contain !important;
         background-position: bottom !important;
     }
-}
+} */
 @media screen and (max-width: 760px) {
     .bg-main-container-1 {
         background-image: url('/assets/images/main/container1_mobile.png');
