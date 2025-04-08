@@ -16,7 +16,7 @@ export default {
                 'sm': '365px',
                 'md': '976px',
                 'lg': '1024px',
-                'xl': '1180px',
+                'xl': '1380px',
                 '2xl': '1610px',
             },
             colors: {
