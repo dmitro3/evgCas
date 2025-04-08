@@ -45,7 +45,7 @@ const faqItems = [
     <MainLayout>
         <section class="flex  flex-col gap-12">
             <div class="flex px-5 flex-col gap-2.5">
-                <div class="bg-main-container-1 bg-secondary-sidebar  w-full flex-col mx-auto p-8 rounded-2xl ">
+                <div class="bg-main-container-1 bg-secondary-sidebar md: container flex-col mx-auto p-8 rounded-2xl ">
                     <div class="flex flex-col gap-5 max-w-[290px]">
                         <div class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
@@ -76,7 +76,7 @@ const faqItems = [
                     </div>
 
                 </div>
-                <div class=" grid-cols-2 max-md:grid-cols-1 grid gap-2.5 w-full mx-auto w-full">
+                <div class=" grid-cols-2 max-md:grid-cols-1 grid gap-2.5 container mx-auto w-full">
                     <InfoCard title="Licensed Slots" description="Experience top-tier gaming with licensed casino slots"
                               image=" /assets/images/main/container2.png" link="/"/>
                     <InfoCard title="Highest RTP" description="Play with the best odds and with a RTP up to 99.5%"
@@ -84,7 +84,7 @@ const faqItems = [
                 </div>
             </div>
             <LiveWin/>
-            <div class="flex md:px-5 flex-col gap-6 w-full  mx-auto">
+            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Statistics</h2>
                 <div class="grid grid-cols-3 max-md:grid-cols-1 gap-2.5">
                     <StatisticCard description="Total players online on Domain" amount="64,000"
@@ -95,7 +95,7 @@ const faqItems = [
                                    icon="/assets/images/icons/graph.svg"/>
                 </div>
             </div>
-            <div class="flex md:px-5 flex-col gap-6 w-full mx-auto">
+            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Secure Deposit</h2>
                 <div
                     class=" flex h-full max-md:flex-col items-center justify-between overflow-hidden max-md:min-h-[600px] max-md:items-start max-md:justify-center relative  bg-secondary-sidebar rounded-2xl w-full">
@@ -117,7 +117,7 @@ const faqItems = [
                     <CardContainerPC></CardContainerPC>
                 </div>
             </div>
-            <div class="flex md:px-5 flex-col gap-6 w-full mx-auto">
+            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">VIP Club</h2>
                 <div
                     class="p-8 flex justify-between max-md:min-h-[900px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl vip-image">
@@ -146,7 +146,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex md:px-5 flex-col gap-6 w-full mx-auto">
+            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Support</h2>
                 <div
                     class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl support-image">
@@ -176,7 +176,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex md:px-5 flex-col gap-6 w-full mx-auto">
+            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Original Games</h2>
                 <div
                     class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl games-image">
@@ -193,7 +193,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex md:px-5 flex-col gap-6 w-full mx-auto">
+            <div class="flex md:px-5 flex-col gap-6 container mx-auto">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
                 <div class="flex flex-col gap-3">
                     <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question"
