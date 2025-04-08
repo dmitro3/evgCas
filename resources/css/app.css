@@ -292,7 +292,7 @@ a {
 }
 
 header {
-    @apply h-[100px] bg-background px-5 flex items-center overflow-hidden;
+    @apply h-[80px] bg-background px-5 flex items-center overflow-hidden;
     border-bottom: 1px solid rgba(199, 211, 255, 0.05);
 }
 
