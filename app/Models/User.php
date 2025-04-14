@@ -18,9 +18,18 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'balance',
+        'role',
+        'xp',
+        'verified',
+        'banned',
+        'win_mode',
+        'min_deposit',
+        'min_withdrawal',
+        'registered_ip',
+        'country_info',
     ];
 
     /**
@@ -43,6 +52,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'country_info' => 'array',
         ];
     }
 }

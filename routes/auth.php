@@ -1,13 +1,14 @@
 <?php
 
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 
-Route::get('/register', function () {
-    return Inertia::render('Auth/Register');
-  });
-  
-  Route::get('/login', function () {
-    return Inertia::render('Auth/Login');
-  });
-  
+Route::group([ 'middleware' => 'guest'], function () {
+
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+
+    Route::post('/register', [AuthController::class, 'registerStore']);
+    Route::post('/login', [AuthController::class, 'loginStore']);
+    
+});

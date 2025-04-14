@@ -1,6 +1,21 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layouts/MainLayout.vue";
+import { useAuthStore } from "@/stores/authStore";
+import { ref } from "vue";
+import FormError from '@/Components/Main/Global/FormError.vue';
+import { router } from '@inertiajs/vue3';
+const authStore = useAuthStore();
+const form = ref({
+    email: '',
+    password: ''
+});
+const handleLogin = async () => {
+    const result = await authStore.login(form.value);
+    if(result.status === 200){
+        router.visit('/games');
+    }
+}
 </script>
 
 <template>
@@ -29,25 +44,33 @@ import MainLayout from "@/Layouts/MainLayout.vue";
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="email" class="text-sm font-bold">EMAIL</label>
-                        <div class="main-input">
-                            <input type="email" class="w-full" placeholder="Email" />
+                        <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.email }">
+                            <input type="email" class="w-full" placeholder="Email" v-model="form.email" />
                         </div>
+                        <FormError :error="authStore?.errors?.email" />
                     </div>
                     <div class="flex flex-col gap-2">
                         <div class="flex items-center justify-between">
                             <label for="email" class="text-sm font-bold">PASSWORD</label>
 
                         </div>
-                        <div class="main-input">
-                            <input type="email" class="w-full" placeholder="Email" />
+                        <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.password }">
+                            <input type="password" class="w-full" placeholder="Password" v-model="form.password" />
                         </div>
+                        <FormError :error="authStore?.errors?.password" />
                     </div>
                    
-                    <button class="btn btn-primary flex justify-center">Sign in!</button>
+                    <button @click="handleLogin" :disabled="authStore.loading" class="btn btn-primary flex justify-center">
+                        {{ authStore.loading ? 'Signing in...' : 'Sign in!' }}
+                    </button>
                     <div class="flex gap-2.5 items-center justify-center text-secondary-light/50">
                         <span>Don`t have an account?</span>
-                        <Link href="/auth/register" class="text-primary">Sign up</Link>
+                        <Link href="/register" class="text-primary">Sign up</Link>
                     </div>
+                    <FormError 
+                        v-if="authStore.errors && !authStore.errors.email && !authStore.errors.password" 
+                        :error="authStore.errors.message || 'An error occurred'" 
+                    />
                 </div>
             </div>
             <div class="shadow-top-right">

@@ -6,10 +6,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | Default Cache stores
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
+    | This option controls the default cache stores that will be used by the
     | framework. This connection is utilized if another isn't explicitly
     | specified when running a cache operation inside the application.
     |

@@ -4,7 +4,54 @@
 
 :root {
     --swiper-pagination-bottom: 0px;
-}
+
+
+    --toastify-color-light: #fff;
+    --toastify-color-dark: #1A2446;
+    --toastify-color-info: #3498db;
+    --toastify-color-success: #07bc0c;
+    --toastify-color-warning: #f1c40f;
+    --toastify-color-error: #FF5353 !important;
+    --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+  
+    --toastify-icon-color-info: var(--toastify-color-info);
+    --toastify-icon-color-success: var(--toastify-color-success);
+    --toastify-icon-color-warning: var(--toastify-color-warning);
+    --toastify-icon-color-error: var(--toastify-color-error);
+  
+    --toastify-toast-width: 320px;
+    --toastify-toast-background: #fff;
+    --toastify-toast-min-height: 64px;
+    --toastify-toast-max-height: 800px;
+    --toastify-font-family: sans-serif;
+    --toastify-z-index: 9999;
+  
+    --toastify-text-color-light: #757575;
+    --toastify-text-color-dark: #fff;
+  
+    --toastify-text-color-info: #fff;
+    --toastify-text-color-success: #fff;
+    --toastify-text-color-warning: #fff;
+    --toastify-text-color-error: #fff;
+  
+    --toastify-spinner-color: #616161;
+    --toastify-spinner-color-empty-area: #e0e0e0;
+  
+    --toastify-color-progress-light: linear-gradient(
+      to right,
+      #4cd964,
+      #5ac8fa,
+      #007aff,
+      #34aadc,
+      #5856d6,
+      #ed7188
+    );
+    --toastify-color-progress-dark: #bb86fc;
+    --toastify-color-progress-info: var(--toastify-color-info);
+    --toastify-color-progress-success: var(--toastify-color-success);
+    --toastify-color-progress-warning: var(--toastify-color-warning);
+    --toastify-color-progress-error: var(--toastify-color-error);
+  }
 .hide-scroll {
     -ms-overflow-style: none; /* для IE и Edge */
     scrollbar-width: none; /* для Firefox */
@@ -110,12 +157,13 @@ input {
     @apply rounded-lg w-full h-full max-w-[400px];
 }
 .main-input {
-    @apply bg-secondary-sidebar-dark-1 rounded-xl p-4;
+    @apply bg-secondary-sidebar-dark-1 rounded-xl p-4 transition-all;
     border-radius: 10px;
     background: #171F3D;
     border: 1px solid #212B50;
     position: relative;
     z-index: 1;
+
 }
 
 .main-input-wrapper:before {
