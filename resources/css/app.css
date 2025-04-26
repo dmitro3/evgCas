@@ -360,7 +360,7 @@ a {
 }
 
 header {
-    @apply h-[80px] bg-background px-5 flex items-center overflow-hidden;
+    @apply h-[90px] bg-background px-5 flex items-center overflow-hidden;
     border-bottom: 1px solid rgba(199, 211, 255, 0.05);
 }
 
@@ -373,7 +373,7 @@ aside {
 }
 
 .logo-container {
-    @apply flex items-center justify-center h-[80px] flex-shrink-0 text-xl font-extrabold gap-2.5;
+    @apply flex items-center justify-center h-[90px] flex-shrink-0 text-xl font-extrabold gap-2.5;
     background-image: url("/assets/images/aside/bg-logo.svg");
     background-repeat: no-repeat;
     background-size: cover;

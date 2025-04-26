@@ -14,5 +14,6 @@ Route::group(['prefix' => 'account'], function () {
             'activeTab' => $tab
         ]);
     });
+
 });
 
