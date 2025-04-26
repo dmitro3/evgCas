@@ -64,7 +64,7 @@ const faqItems = [
                             DOMAIN
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h1 class="text-4xl text-xl md:max-w-[190px] font-bold text-white">
+                            <h1 class="md:text-4xl text-xl md:max-w-[190px] font-bold text-white">
                                 Welcome to Domain!
                             </h1>
                             <p class="text-secondary-light/50 text-lg">
