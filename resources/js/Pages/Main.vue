@@ -76,7 +76,7 @@ const faqItems = [
                     </div>
 
                 </div>
-                <div class=" grid-cols-2 px-5 max-md:grid-cols-1 grid gap-2.5 container mx-auto w-full">
+                <div class=" grid-cols-2  max-md:grid-cols-1 grid gap-2.5 container mx-auto w-full">
                     <InfoCard title="Licensed Slots" description="Experience top-tier gaming with licensed casino slots"
                               image=" /assets/images/main/container2.png" link="/"/>
                     <InfoCard title="Highest RTP" description="Play with the best odds and with a RTP up to 99.5%"

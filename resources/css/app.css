@@ -360,16 +360,16 @@ a {
 }
 
 header {
-    @apply h-[100px] bg-background px-5 flex items-center overflow-hidden;
+    @apply h-[80px] bg-background px-5 flex items-center overflow-hidden;
     border-bottom: 1px solid rgba(199, 211, 255, 0.05);
 }
 
 aside {
-    @apply bg-secondary-sidebar lg:max-w-[100px] 2xl:max-w-[220px] w-full flex flex-col h-screen;
+    @apply bg-secondary-sidebar lg:max-w-[80px] 2xl:max-w-[220px] w-full flex flex-col h-screen;
 }
 
 .aside {
-    @apply bg-secondary-sidebar fixed max-w-[100px] 2xl:max-w-[220px] w-full flex flex-col h-screen z-50;
+    @apply bg-secondary-sidebar fixed max-w-[80px] 2xl:max-w-[220px] w-full flex flex-col h-screen z-50;
 }
 
 .logo-container {
