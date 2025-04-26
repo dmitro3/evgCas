@@ -9,7 +9,7 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div class="rounded-2xl flex flex-col gap-6 bg-secondary-sidebar p-6 px-8 ">
+    <div class="rounded-2xl flex flex-col gap-4 bg-secondary-sidebar p-6 px-8 ">
         <img :src="image" :alt="title" class="h-[260px] object-cover rounded-2xl" />
         <div class="flex justify-between max-md:flex-col max-md:items-start max-md:gap-3 items-center">
             <div class="flex max-w-[290px] flex-col gap-2">
