@@ -12,7 +12,7 @@ import Footer from "@/Components/Main/Footer.vue";
         <Aside />
         <div class="flex flex-col flex-1">
             <Header />
-            <div class="py-14 max-sm:px-3  relative">
+            <div class="py-10 max-sm:px-3  relative">
                 <div class="page-wrapper">
                     <slot />
                     <Chat />
