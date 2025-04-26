@@ -350,7 +350,7 @@ a {
     @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300 bg-[#242F57] cursor-pointer;
 }
 .nav-element {
-    @apply flex text-sm items-center gap-2 h-full w-fit font-semibold  text-secondary-light/50 relative;
+    @apply flex text-[15px] items-center gap-2 h-full w-fit font-semibold  text-secondary-light/50 relative;
 }
 
 .btn-orange {
