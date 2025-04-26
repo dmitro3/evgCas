@@ -44,7 +44,7 @@ const faqItems = [
 <template>
     <MainLayout>
         <section class="flex  flex-col gap-12">
-            <div class="flex px-5 flex-col gap-2.5">
+            <div class="flex px-10 flex-col gap-2.5">
                 <div class="bg-main-container-1 bg-secondary-sidebar md: container flex-col mx-auto p-8 rounded-2xl ">
                     <div class="flex flex-col gap-5 max-w-[290px]">
                         <div class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center">
@@ -64,7 +64,7 @@ const faqItems = [
                             DOMAIN
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h1 class="md:text-4xl text-xl md:max-w-[190px] font-bold text-white">
+                            <h1 class="md:text-3xl text-xl md:max-w-[190px] font-bold text-white">
                                 Welcome to Domain!
                             </h1>
                             <p class="text-secondary-light/50 text-lg">
