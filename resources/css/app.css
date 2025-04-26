@@ -59,6 +59,12 @@
 .hide-scroll::-webkit-scrollbar {
     display: none; /* для Chrome, Safari и Opera */
 }
+.hide-scroll::-webkit-scrollbar-thumb {
+    display: none;
+}
+.hide-scroll::-webkit-scrollbar-track {
+    display: none;
+}
 
 body {
     @apply bg-background text-white overflow-x-hidden;

@@ -141,7 +141,7 @@ const toggleCategory = (category) => {
                 <!-- <div class="aside-info-container">
                     <img src="/assets/images/aside/info-image1.png" height="160" alt="info-image">
                 </div> -->
-                <div class="aside-items-container max-h-[calc(100vh-300px)] overflow-y-auto">
+                <div class="aside-items-container hide-scroll max-h-[calc(100vh-180px)] overflow-y-auto">
                     <div class="aside-item " v-for="category in categories" :key="category.name">
                         <div class="aside-item-title text-center justify-center" @click="toggleCategory(category)">
                             <span>{{ category.name }}</span>
