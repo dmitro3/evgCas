@@ -365,11 +365,11 @@ header {
 }
 
 aside {
-    @apply bg-secondary-sidebar lg:max-w-[80px] 2xl:max-w-[220px] w-full flex flex-col h-screen;
+    @apply bg-secondary-sidebar lg:max-w-[90px] 2xl:max-w-[220px] w-full flex flex-col h-screen;
 }
 
 .aside {
-    @apply bg-secondary-sidebar fixed max-w-[80px] 2xl:max-w-[220px] w-full flex flex-col h-screen z-50;
+    @apply bg-secondary-sidebar fixed max-w-[90px] 2xl:max-w-[220px] w-full flex flex-col h-screen z-50;
 }
 
 .logo-container {
