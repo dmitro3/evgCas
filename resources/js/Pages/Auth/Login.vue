@@ -12,7 +12,7 @@ const form = ref({
 });
 const handleLogin = async () => {
     const result = await authStore.login(form.value);
-    if(result.status === 200){
+    if(result.status === 201){
         router.visit('/games');
     }
 }

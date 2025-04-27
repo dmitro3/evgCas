@@ -20,6 +20,7 @@ Route::group(['prefix' => 'account', 'middleware' => 'auth'], function () {
     });
 
 
+
     Route::get('/profile/get', function () {
         return (new GetUser())->getUser();
     });

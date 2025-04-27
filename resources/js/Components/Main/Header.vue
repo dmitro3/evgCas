@@ -108,8 +108,8 @@ onMounted(() => {
                 </Link>
             </div>
             <div v-if="!userStore.isAuth" class="flex gap-4 items-center">
-                <Link href="/login">Sign in</Link>
-                <Link href="/register" class="btn btn-primary px-6"
+                <Link class="text-sm" href="/login">Sign in</Link>
+                <Link href="/register" class="btn btn-primary text-sm px-4 py-2"
                     >Register</Link
                 >
             </div>
