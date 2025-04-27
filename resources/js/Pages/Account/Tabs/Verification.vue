@@ -102,7 +102,7 @@ const isMobile = ref(window.innerWidth < 768);
                     </div>
                     <div class="relative h-2 rounded-full overflow-hidden w-full ">
                         <div class="w-full h-full bg-secondary-sidebar-dark"></div>
-                        <div class="absolute w-full top-0 left-0 rounded-full h-full bg-primary"
+                        <div class="absolute  top-0 left-0 rounded-full h-full bg-primary"
                             :style="`width: calc(${progress}% - ${isMobile ? 35 : 128}px)`" :class="{ 'progress-animation': isMounted }">
                             <div class="absolute inset-0 animate-pulse"></div>
                         </div>

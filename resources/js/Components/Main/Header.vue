@@ -2,9 +2,17 @@
 import TakeBonus from "./Header/TakeBonus.vue";
 import { Link } from "@inertiajs/vue3";
 import GameIcon from "@/icons/Header/Nav/game.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useUserStore } from "@/stores/userStore";
 
-const isAuth = ref(false);
+
+const userStore = useUserStore();
+
+onMounted(() => {
+    if (localStorage.getItem('token')) {
+        userStore.fetchUser();
+    }
+});
 </script>
 
 <template>
@@ -99,7 +107,7 @@ const isAuth = ref(false);
                     VIP Club
                 </Link>
             </div>
-            <div v-if="!isAuth" class="flex gap-4 items-center">
+            <div v-if="!userStore.isAuth" class="flex gap-4 items-center">
                 <Link href="/login">Sign in</Link>
                 <Link href="/register" class="btn btn-primary px-6"
                     >Register</Link
@@ -107,9 +115,9 @@ const isAuth = ref(false);
             </div>
             <div v-else class="flex  items-center gap-2">
                 <div
-                    class="flex p-2 rounded-lg bg-secondary-sidebar gap-4 items-center"
+                    class="flex p-2 rounded-lg border_angle bg-secondary-sidebar gap-4 items-center"
                 >
-                    <button class="btn btn-green px-6">Deposit</button>
+                    <Link href="/account/wallet" class="btn btn-green px-6">Deposit</Link>
                     <div class="flex gap-3 items-center">
                         <div class="flex flex-col gap-1 items-end">
                             <p
@@ -120,7 +128,7 @@ const isAuth = ref(false);
                             <p
                                 class="text-base font-semibold leading-none text-nowrap"
                             >
-                                In play
+                                $ {{ userStore.currentUser.balance }}
                             </p>
                         </div>
                         <div class="relative">

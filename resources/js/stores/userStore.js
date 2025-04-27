@@ -11,6 +11,7 @@ export const useUserStore = defineStore("user", {
     getters: {
         currentUser: (state) => state.user,
         isLoading: (state) => state.loading,
+        isAuth: (state) => state.user !== null,
     },
 
     actions: {
@@ -22,11 +23,11 @@ export const useUserStore = defineStore("user", {
             this.user = null;
         },
 
-        async fetchCurrentUser() {
+        async fetchUser() {
             try {
                 this.loading = true;
-                const response = await axiosClient.get("/account/profile");
-                this.setUser(response.data);
+                const response = await axiosClient.get("/account/profile/get");
+                this.setUser(response.data.user);
                 return response;
             } catch (error) {
                 const authStore = useAuthStore();
