@@ -131,13 +131,13 @@ onMounted(() => {
                                 $ {{ userStore.currentUser.balance }}
                             </p>
                         </div>
-                        <div class="relative">
+                        <Link href="/account/wallet" class="relative">
                             <img
                                 src="/assets/images/header/default_avatar.png"
                                 alt="avatar"
                                 class="w-10 h-10 rounded-lg"
                             />
-                            <div
+                            <!-- <div
                                 class="absolute -bottom-1 -right-1 gap-0.5 rounded-full bg-primary flex items-center justify-center w-4 h-4"
                             >
                                 <img
@@ -145,8 +145,8 @@ onMounted(() => {
                                     alt="arrow"
                                     class="w-2.5 h-2.5"
                                 />
-                            </div>
-                        </div>
+                            </div> -->
+                        </Link>
                     </div>
                 </div>
                 <div class="px-4 py-3.5 rounded-xl notify-container">

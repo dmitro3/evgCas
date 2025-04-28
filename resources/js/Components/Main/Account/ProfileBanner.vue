@@ -1,6 +1,14 @@
 <script setup>
 import ProgressBar from "@/Components/Main/Global/ProgressBar.vue";
 import { Link } from "@inertiajs/vue3";
+import { useUserStore } from "@/stores/userStore";
+import { router } from "@inertiajs/vue3";
+const userStore = useUserStore();
+
+const handleLogout = () => {
+    userStore.clearUser();
+    router.visit('/logout');
+}
 </script>
 
 <template>
@@ -46,11 +54,11 @@ import { Link } from "@inertiajs/vue3";
                         alt="avatar"
                     />
                     <div class="flex flex-col gap-1">
-                        <p class="text-white font-bold text-lg">John Doe</p>
-                        <div class="tag tag-danger">UNVERIFIED</div>
+                        <p class="text-white font-bold text-lg">{{ userStore?.user?.email }}</p>
+                        <div class="tag tag-danger w-fit">UNVERIFIED</div>
                     </div>
                 </div>
-                <Link href="/logout" class="flex gap-2 hover:text-red-primary items-center text-sm text-red-primary font-bold">
+                <div @click="handleLogout" class="flex gap-2 cursor-pointer hover:text-red-primary items-center text-sm text-red-primary font-bold">
                     <svg
                         width="16"
                         height="17"
@@ -68,7 +76,7 @@ import { Link } from "@inertiajs/vue3";
                         />
                     </svg>
                     LOGOUT
-                </Link>
+                </div>
             </div>
 
             <div class="flex flex-col gap-1">
@@ -77,7 +85,7 @@ import { Link } from "@inertiajs/vue3";
                 >
                     Balance
                 </p>
-                <p class="text-white font-bold leading-none">$0.00</p>
+                <p class="text-white font-bold leading-none">${{ userStore?.user?.balance }}</p>
             </div>
         </div>
     </div>
@@ -87,7 +95,7 @@ import { Link } from "@inertiajs/vue3";
                 <div class="flex  flex-col gap-5 items-center ">
                     <img src="/assets/images/header/default_avatar.png" alt="avatar" class="rounded-full w-20 h-20">
                     <div class="flex flex-col gap-2 items-center ">
-                        <h2 class=" font-bold text-2xl">Bra***lok@gmail.com</h2>
+                        <h2 class=" font-bold text-2xl">{{ userStore?.user?.email }}</h2>
                         <div class="tag tag-danger w-fit">Unveriefed</div>
                     </div>
                 </div>

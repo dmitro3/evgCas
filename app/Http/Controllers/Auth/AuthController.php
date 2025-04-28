@@ -33,4 +33,9 @@ class AuthController extends Controller
     {
         return (new LoginService())->login($request);
     }
+
+    public function logout(Request $request)
+    {
+        return (new LoginService())->logout($request);
+    }
 }

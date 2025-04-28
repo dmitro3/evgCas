@@ -1,8 +1,11 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, computed } from 'vue';
 import VerificationForm from './VerificationTabs/Form.vue';
 import VerificationChecking from './VerificationTabs/Checking.vue';
 import VerificationActivation from './VerificationTabs/Activation.vue';
+import { useUserStore } from '@/stores/userStore';
+import { usePage } from '@inertiajs/vue3';
+const userStore = useUserStore();
 const stepVerification = ref(1);
 const totalSteps = 4;
 const progress = ref(0);
@@ -15,15 +18,19 @@ watch(stepVerification, (newVal) => {
     }, 5);
 });
 
+
 function nextStep() {
 
     stepVerification.value++;
 }
+
 onMounted(() => {
     setTimeout(() => {
         progress.value = stepVerification.value * (100 / (totalSteps - 1));
         isMounted.value = true;
     }, 5);
+    const user = computed(() => usePage().props.auth.user);
+    stepVerification.value = user.value.kyc_step;
 });
 
 const isMobile = ref(window.innerWidth < 768);
@@ -103,7 +110,8 @@ const isMobile = ref(window.innerWidth < 768);
                     <div class="relative h-2 rounded-full overflow-hidden w-full ">
                         <div class="w-full h-full bg-secondary-sidebar-dark"></div>
                         <div class="absolute  top-0 left-0 rounded-full h-full bg-primary"
-                            :style="`width: calc(${progress}% - ${isMobile ? 35 : 128}px)`" :class="{ 'progress-animation': isMounted }">
+                            :style="`width: calc(${progress}% - ${isMobile ? 35 : 128}px)`"
+                            :class="{ 'progress-animation': isMounted }">
                             <div class="absolute inset-0 animate-pulse"></div>
                         </div>
                     </div>

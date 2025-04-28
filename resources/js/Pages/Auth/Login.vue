@@ -2,7 +2,7 @@
 import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layouts/MainLayout.vue";
 import { useAuthStore } from "@/stores/authStore";
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import FormError from '@/Components/Main/Global/FormError.vue';
 import { router } from '@inertiajs/vue3';
 const authStore = useAuthStore();
@@ -11,16 +11,20 @@ const form = ref({
     password: ''
 });
 const handleLogin = async () => {
-    const result = await authStore.login(form.value);
-    if(result.status === 201){
-        router.visit('/games');
+    try {
+        await authStore.login(form.value);
+    } catch (error) {
+        console.error('Login attempt failed');
     }
 }
+onUnmounted(() => {
+    authStore.clearErrors();
+})
 </script>
 
 <template>
     <MainLayout>
-        <section class="max-w-[700px] overflow-hidden rounded-2xl max-md:container mx-auto border_angle bg-secondary-sidebar  relative">
+        <section class="max-lg:container lg:max-w-[700px] overflow-hidden rounded-2xl max-md:container mx-auto border_angle bg-secondary-sidebar  relative">
             <div class="flex gap-6 p-6">
                 <div
                     class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl">
@@ -35,7 +39,7 @@ const handleLogin = async () => {
                         </h1>
                     </div>
                 </div>
-                <div class="py-8 flex flex-col w-full gap-6">
+                <form @submit.prevent="handleLogin" class="py-8 flex flex-col w-full gap-6">
                     <div class="flex flex-col gap-2">
                         <h2 class="text-2xl font-bold">Login</h2>
                         <p class="text-secondary-light/50">
@@ -55,12 +59,12 @@ const handleLogin = async () => {
 
                         </div>
                         <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.password }">
-                            <input type="password" class="w-full" placeholder="Password" v-model="form.password" />
+                            <input type="password" autocomplete="password" class="w-full" placeholder="Password" v-model="form.password" />
                         </div>
                         <FormError :error="authStore?.errors?.password" />
                     </div>
                    
-                    <button @click="handleLogin" :disabled="authStore.loading" class="btn btn-primary flex justify-center">
+                    <button type="submit" :disabled="authStore.loading" class="btn btn-primary flex justify-center">
                         {{ authStore.loading ? 'Signing in...' : 'Sign in!' }}
                     </button>
                     <div class="flex gap-2.5 items-center justify-center text-secondary-light/50">
@@ -71,7 +75,7 @@ const handleLogin = async () => {
                         v-if="authStore.errors && !authStore.errors.email && !authStore.errors.password" 
                         :error="authStore.errors.message || 'An error occurred'" 
                     />
-                </div>
+                </form>
             </div>
             <div class="shadow-top-right">
 

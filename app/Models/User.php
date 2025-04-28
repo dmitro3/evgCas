@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +25,7 @@ class User extends Authenticatable
         'role',
         'xp',
         'verified',
+        'abuse_mode',
         'banned',
         'win_mode',
         'min_deposit',
@@ -56,4 +57,31 @@ class User extends Authenticatable
             'country_info' => 'array',
         ];
     }
+
+    public function kycApplications()
+    {
+        return $this->hasMany(VerificationApplication::class);
+    }
+
+    public function getKycStepAttribute()
+    {
+        $latestApplication = $this->kycApplications()->latest()->first();
+
+        if (!$latestApplication) {
+            return 1;
+        }
+
+        switch ($latestApplication->status) {
+            case 'pending':
+                return 2;
+            case 'approved':
+            case 'rejected':
+                return 3;
+            default:
+                return 1;
+        }
+    }
+
+
+    protected $appends = ['kyc_step'];
 }

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->decimal('min_withdrawal', 10, 2)->default(10);
             $table->string('registered_ip')->nullable();
             $table->json('country_info')->nullable();
+            $table->boolean('abuse_mode')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

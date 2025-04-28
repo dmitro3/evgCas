@@ -1,36 +1,33 @@
 <?php
-
 namespace App\Http\Service\System;
-
-use Illuminate\Support\Facades\Http;
 
 class GetUserCountry
 {
     public function getUserCountry($ip = null)
-    {   
-        if(!$ip){
+    {
+        if (! $ip) {
 
             $cfIp = request()->header('CF-Connecting-IP');
 
             if ($cfIp) {
                 return $cfIp;
             }
-    
+
             $forwardedIp = request()->header('X-Forwarded-For');
             if ($forwardedIp) {
                 $ips = explode(',', $forwardedIp);
                 return trim($ips[0]);
             }
-    
+
             $ip = request()->ip();
-    
+
             $localIps = [
                 '127.0.0.1',
                 '::1',
                 'localhost',
-                '0.0.0.0'
+                '0.0.0.0',
             ];
-    
+
             if (in_array($ip, $localIps)) {
                 return null;
             }
@@ -47,33 +44,51 @@ class GetUserCountry
 
     private function getIpInfo($ip)
     {
+        // Используем локальную базу данных MaxMind GeoIP2
+        try {
+            // Путь к базе данных GeoLite2-Country.mmdb, которую нужно скачать
+            $databasePath = storage_path('app/geoip/GeoLite2-City.mmdb');
 
-        $response = Http::get("http://ip-api.com/json/{$ip}");
+            // Создаем ридер для работы с базой данных
+            $reader = new \GeoIp2\Database\Reader($databasePath);
 
-        if ($response->successful()) {
-            $data = $response->json();
+            // Получаем информацию о городе
+            $record = $reader->city($ip);
 
-            $flag = $this->getCountryFlag($data['countryCode'] ?? null);
-
-
+            $countryCode = $record->country->isoCode;
+            $flag        = $this->getCountryFlag($countryCode);
 
             return [
-                'country' => $data['country'] ?? null,
-                'city' => $data['city'] ?? null,
-                'region' => $data['regionName'] ?? null,
-                'ip' => $ip,
-                'flag' => $flag
+                'country' => $record->country->name,
+                'city'    => $record->city->name,
+                'region'  => $record->mostSpecificSubdivision->name,
+                'ip'      => $ip,
+                'flag'    => $flag,
+            ];
+        } catch (\Exception $e) {
+            // Если не удалось определить местоположение, возвращаем базовые данные
+            return response()->json([
+                'message' => 'Error getting IP info',
+                'error'   => $e->getMessage(),
+            ], 500);
+            return [
+                'country' => 'Unknown',
+                'city'    => 'Unknown',
+                'region'  => 'Unknown',
+                'ip'      => $ip,
+                'flag'    => null,
             ];
         }
-        return null;
     }
 
     private function getCountryFlag($countryCode)
     {
-        if (!$countryCode) return null;
+        if (! $countryCode) {
+            return null;
+        }
 
         $countryCode = strtoupper($countryCode);
-        $flag = '';
+        $flag        = '';
 
         for ($i = 0; $i < 2; $i++) {
             $flag .= mb_chr(ord($countryCode[$i]) + 127397);

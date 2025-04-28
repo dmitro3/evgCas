@@ -2,7 +2,7 @@
 import { formatNumber } from '@/utils/text';
 const props = defineProps({
     title: String,
-    amount: String,
+    amount: String | Number,
     image: String,
 });
 
