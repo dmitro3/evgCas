@@ -43,11 +43,11 @@ const faqItems = [
 
 <template>
     <MainLayout>
-        <section class="flex  flex-col gap-12">
+        <section class="flex flex-col gap-12">
             <div class="flex px-10 flex-col gap-2.5">
-                <div class="bg-main-container-1 bg-secondary-sidebar md: container flex-col mx-auto p-8 rounded-2xl ">
+                <div class="bg-main-container-1 bg-secondary-sidebar md: rounded-2xl container flex-col p-8 mx-auto">
                     <div class="flex flex-col gap-5 max-w-[290px]">
-                        <div class="flex gap-2 text-base font-extrabold text-secondary-light/50 items-center">
+                        <div class="text-secondary-light/50 flex items-center gap-2 text-base font-extrabold">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_102_4036)">
                                     <path d="M6.85023 11.4535V13.4031C6.12417 13.4031 5.64014 13.8905 5.64014 14.6215C5.64014 15.3526 6.12417 15.84 6.85023 15.84H9.27039C9.99644 15.84 10.4805 15.3526 10.4805 14.6215C10.4805 13.8905 9.99644 13.4031 9.27039 13.4031V11.4535C9.87544 11.9409 10.7225 12.1846 11.4485 12.1846C12.4166 12.1846 13.3847 11.8191 14.1107 11.088C14.8368 10.3569 15.1998 9.38215 15.1998 8.40738C15.1998 7.43261 14.8368 6.45785 14.1107 5.72677L8.90737 0.365538C8.42333 -0.121846 7.69728 -0.121846 7.21325 0.365538L1.88888 5.60492C1.16283 6.336 0.799805 7.31077 0.799805 8.28554C0.799805 9.26031 1.16283 10.2351 1.88888 10.9662C3.21997 12.4283 5.39812 12.5502 6.85023 11.4535Z" fill="#C7D3FF" fill-opacity="0.5" />
@@ -79,7 +79,7 @@ const faqItems = [
                 </div>
             </div>
             <LiveWin />
-            <div class="flex md:px-10 flex-col gap-6 container mx-auto">
+            <div class="md:px-10 container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Statistics</h2>
                 <div class="grid grid-cols-3 max-md:grid-cols-1 gap-2.5">
                     <StatisticCard description="Total players online on Domain" amount="64,000" icon="/assets/images/icons/people.svg" />
@@ -87,13 +87,13 @@ const faqItems = [
                     <StatisticCard description="Total registered players for all time" amount="48M+" icon="/assets/images/icons/graph.svg" />
                 </div>
             </div>
-            <div class="flex md:px-10 flex-col gap-6 container mx-auto">
+            <div class="md:px-10 container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Secure Deposit</h2>
                 <div class=" flex h-full max-md:flex-col items-center justify-between overflow-hidden max-md:min-h-[600px] max-md:items-start max-md:justify-center relative  bg-secondary-sidebar rounded-2xl w-full">
                     <div class="p-8">
 
 
-                        <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
+                        <div class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10">
                             <div class="flex flex-col  max-w-[300px] gap-2">
                                 <h3 class="text-2xl font-bold">Reliable deposit of crypto
                                     and local currencies</h3>
@@ -108,10 +108,10 @@ const faqItems = [
                     <CardContainerPC></CardContainerPC>
                 </div>
             </div>
-            <div class="flex md:px-10 flex-col gap-6 container mx-auto">
+            <div class="md:px-10 container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">VIP Club</h2>
                 <div class="p-8 flex justify-between max-md:min-h-[900px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl vip-image">
-                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
+                    <div class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">See your rewards grow
                                 as a Domain VIP</h3>
@@ -131,10 +131,10 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex md:px-10 flex-col gap-6 container mx-auto">
+            <div class="md:px-10 container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Support</h2>
                 <div class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl support-image">
-                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
+                    <div class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">Get 24/7 online help
                                 from our support team</h3>
@@ -155,10 +155,10 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex md:px-10 flex-col gap-6 container mx-auto">
+            <div class="md:px-10 container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Original Games</h2>
                 <div class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl games-image">
-                    <div class="flex max-md:items-center max-md:text-center flex-col gap-10 flex-shrink-0">
+                    <div class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10">
                         <div class="flex flex-col  max-w-[300px] gap-2">
                             <h3 class="text-2xl font-bold">Enjoy the original
                                 games from Domain</h3>
@@ -171,7 +171,7 @@ const faqItems = [
 
                 </div>
             </div>
-            <div class="flex md:px-10 flex-col gap-6 container mx-auto">
+            <div class="md:px-10 container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
                 <div class="flex flex-col gap-3">
                     <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />

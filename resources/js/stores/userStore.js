@@ -101,5 +101,22 @@ export const useUserStore = defineStore("user", {
                 return error;
             }
         },
+
+        async getNotifications() {
+            try {
+                const response = await axiosClient.get("/account/notifications/get");
+                return response.data.notifications;
+            } catch (error) {
+                return error;
+            }
+        },
+        async readNotifications() {
+            try {
+                const response = await axiosClient.post("/account/notifications/read");
+                return response;
+            } catch (error) {
+                return error;
+            }
+        },
     },
 });

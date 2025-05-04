@@ -18,15 +18,15 @@ export const useAuthStore = defineStore('auth', {
             try {
                 this.loading = true;
                 this.errors = null;
-                
+
                 const response = await axiosClient.post('/login', credentials);
-                
+
                 if (response.status === 201) {
                     const userStore = useUserStore();
                     userStore.setUser(response.data.user);
                     router.visit('/games');
                 }
-                
+
                 return response;
             } catch (error) {
                 this.errors = error.response?.data?.errors || {
@@ -37,18 +37,18 @@ export const useAuthStore = defineStore('auth', {
                 this.loading = false;
             }
         },
-        
+
         async register(credentials) {
             try {
                 this.loading = true;
                 this.errors = null;
-                
+
                 const response = await axiosClient.post('/register', credentials);
-                
+
                 if (response.status === 201) {
                     router.visit('/login');
                 }
-                
+
                 return response;
             } catch (error) {
                 this.errors = error.response?.data?.errors || {

@@ -4,3 +4,7 @@ export function formatNumber(number) {
     }
     return number.toString();
 }
+
+export function copyText(text) {
+    navigator.clipboard.writeText(text);
+}

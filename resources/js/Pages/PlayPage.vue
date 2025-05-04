@@ -39,7 +39,7 @@ const originalGames = [
                     <div class="bg-main-container-1 rounded-2xl p-8">
                         <div class="flex flex-col max-md:text-center max-md:items-center max-md:justify-center gap-5 max-w-[290px]">
                             <div
-                                class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
+                                class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
                             >
                                 <svg
                                     width="16"
@@ -85,7 +85,7 @@ const originalGames = [
                     </div>
                     <div class="bg-main-container-2 rounded-2xl p-8">
                         <div class="flex flex-col gap-5 max-w-[290px] max-md:items-center max-md:justify-center max-md:text-center">
-                            <div class="flex flex-col  gap-2">
+                            <div class="flex flex-col gap-2">
                                 <h1
                                     class="text-2xl md:text-4xl max-w-[300px] font-bold text-white"
                                 >
@@ -96,7 +96,7 @@ const originalGames = [
                                     exercitation
                                 </p>
                             </div>
-                            <Link href="/" class="flex gap-1 items-center">
+                            <Link href="/" class="flex items-center gap-1">
                                 Read more
                                 <svg
                                     width="13"
@@ -118,12 +118,12 @@ const originalGames = [
 
             <LiveWin />
 
-            <div class="flex flex-col gap-6 container md:px-5 mx-auto">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-lg font-bold  text-white">
+            <div class="md:px-5 container flex flex-col gap-6 mx-auto">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-bold text-white">
                         Recommended games
                     </h2>
-                    <Link href="/" class="flex gap-1 items-center">
+                    <Link href="/" class="flex items-center gap-1">
                         View all
 
                     </Link>
@@ -132,9 +132,9 @@ const originalGames = [
                     <GameCard v-for="game in games" :key="game.id" :game="game" />
                 </div>
             </div>
-            <div class="flex flex-col gap-6 container md:px-5 mx-auto">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-lg font-bold  text-white">
+            <div class="md:px-5 container flex flex-col gap-6 mx-auto">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-bold text-white">
                         Original games
                     </h2>
 

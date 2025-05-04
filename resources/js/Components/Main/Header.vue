@@ -4,25 +4,29 @@ import { Link } from "@inertiajs/vue3";
 import GameIcon from "@/icons/Header/Nav/game.vue";
 import { ref, onMounted } from "vue";
 import { useUserStore } from "@/stores/userStore";
-
+import NotifyList from "./Header/NotifyList.vue";
 
 const userStore = useUserStore();
-
-onMounted(() => {
-    if (localStorage.getItem('token')) {
-        userStore.fetchUser();
-    }
-});
+const isOpenNotify = ref(false);
+const toggleNotify = () => {
+    isOpenNotify.value = !isOpenNotify.value;
+};
 </script>
 
 <template>
     <header>
-        <div class="container flex justify-between h-full items-center mx-auto">
+        <div class="container flex items-center justify-between h-full mx-auto">
             <div class="max-md:hidden">
                 <TakeBonus />
             </div>
-            <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" class="md:hidden">
-            <div class="flex max-xl:hidden gap-10 h-full">
+            <img
+                height="30"
+                width="30"
+                alt="logo"
+                src="/assets/images/aside/test-logo.svg"
+                class="md:hidden"
+            />
+            <div class="max-xl:hidden flex h-full gap-10">
                 <Link href="/" class="nav-element">
                     <svg
                         width="24"
@@ -107,26 +111,28 @@ onMounted(() => {
                     VIP Club
                 </Link>
             </div>
-            <div v-if="!userStore.isAuth" class="flex gap-4 items-center">
-                <Link class="text-sm" href="/login">Sign in</Link>
-                <Link href="/register" class="btn btn-primary text-sm px-4 py-2"
+            <div v-if="!userStore.isAuth" class="flex items-center gap-4">
+                <Link class="text-[15px]" href="/login">Sign in</Link>
+                <Link href="/register" class="btn btn-primary px-4 py-2 text-[15px]"
                     >Register</Link
                 >
             </div>
-            <div v-else class="flex  items-center gap-2">
+            <div v-else class="relative flex items-center gap-2">
                 <div
-                    class="flex p-2 rounded-lg border_angle bg-secondary-sidebar gap-4 items-center"
+                    class="border_angle bg-secondary-sidebar flex items-center gap-4 p-2 rounded-lg"
                 >
-                    <Link href="/account/wallet" class="btn btn-green px-6">Deposit</Link>
-                    <div class="flex gap-3 items-center">
-                        <div class="flex flex-col gap-1 items-end">
+                    <Link href="/account/wallet" class="btn btn-green px-6"
+                        >Deposit</Link
+                    >
+                    <div class="flex items-center gap-3">
+                        <div class="flex flex-col items-end gap-1">
                             <p
-                                class="text-sm text-secondary-light/50 leading-none text-nowrap"
+                                class="text-secondary-light/50 text-nowrap text-sm leading-none"
                             >
                                 Your balance
                             </p>
                             <p
-                                class="text-base font-semibold leading-none text-nowrap"
+                                class="text-nowrap text-base font-semibold leading-none"
                             >
                                 $ {{ userStore.currentUser.balance }}
                             </p>
@@ -137,20 +143,16 @@ onMounted(() => {
                                 alt="avatar"
                                 class="w-10 h-10 rounded-lg"
                             />
-                            <!-- <div
-                                class="absolute -bottom-1 -right-1 gap-0.5 rounded-full bg-primary flex items-center justify-center w-4 h-4"
-                            >
-                                <img
-                                    src="/assets/images/icons/arrow.svg"
-                                    alt="arrow"
-                                    class="w-2.5 h-2.5"
-                                />
-                            </div> -->
                         </Link>
                     </div>
                 </div>
-                <div class="px-4 py-3.5 rounded-xl notify-container">
+                <div
+                    @click="toggleNotify"
+                    class="px-4 py-3.5 flex-shrink-0 rounded-xl notify-container-icon"
+                >
+
                     <svg
+                        v-if="userStore.user?.notifications_count > 0"
                         width="22"
                         height="27"
                         viewBox="0 0 22 27"
@@ -168,14 +170,37 @@ onMounted(() => {
                             fill="#2C3D7D"
                         />
                     </svg>
+                    <svg
+                        v-else
+                        width="22"
+                        height="27"
+                        viewBox="0 0 22 27"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M16.7419 9.16315C15.9958 9.16315 15.3157 8.97548 14.7016 8.60013C14.0954 8.22478 13.6096 7.72166 13.2443 7.09076C12.879 6.45985 12.6963 5.76506 12.6963 5.00638C12.6963 4.2477 12.879 3.55291 13.2443 2.92201C13.6096 2.2911 14.0954 1.78798 14.7016 1.41263C15.3157 1.03728 15.9958 0.849609 16.7419 0.849609C17.4725 0.849609 18.1449 1.03728 18.7589 1.41263C19.3729 1.78798 19.8626 2.2911 20.2279 2.92201C20.5932 3.55291 20.7758 4.2477 20.7758 5.00638C20.7758 5.76506 20.5932 6.45985 20.2279 7.09076C19.8626 7.72166 19.3729 8.22478 18.7589 8.60013C18.1449 8.97548 17.4725 9.16315 16.7419 9.16315Z"
+                            fill="#47F260"
+                        />
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M0.466349 20.9505C0.777248 21.2141 1.20862 21.3458 1.76047 21.3458H20.2395C20.7914 21.3458 21.2228 21.2141 21.5337 20.9505C21.8446 20.687 22 20.3356 22 19.8964C22 19.4971 21.8873 19.1097 21.6619 18.7344C21.4365 18.359 21.1528 17.9917 20.8108 17.6323L19.8082 16.5542C19.5517 16.2827 19.3496 15.9273 19.2019 15.488C19.062 15.0488 18.9571 14.5816 18.8871 14.0865C18.8172 13.5913 18.7667 13.1122 18.7356 12.649C18.7278 12.2577 18.7122 11.8783 18.6889 11.511C18.6734 11.1356 18.6462 10.7722 18.6073 10.4208C18.312 10.5406 18.0088 10.6325 17.6979 10.6964C17.387 10.7603 17.0645 10.7922 16.7303 10.7922C15.6965 10.7922 14.7522 10.5327 13.8972 10.0136C13.05 9.48647 12.3699 8.7837 11.8569 7.90522C11.3517 7.02675 11.0991 6.06043 11.0991 5.00627C11.0991 4.2955 11.2196 3.62068 11.4605 2.98179C11.7015 2.3429 12.0279 1.77189 12.4399 1.26877C12.0046 1.04516 11.5227 0.93335 10.9942 0.93335C10.1392 0.93335 9.42024 1.20488 8.83731 1.74793C8.25437 2.29099 7.85409 2.95384 7.63646 3.73647C6.60272 4.11981 5.76718 4.71877 5.12984 5.53335C4.50027 6.34793 4.0378 7.35418 3.74245 8.5521C3.44709 9.75002 3.28776 11.1156 3.26444 12.649C3.23335 13.1122 3.18283 13.5913 3.11288 14.0865C3.04293 14.5816 2.93411 15.0488 2.78643 15.488C2.64653 15.9273 2.44833 16.2827 2.19184 16.5542C1.85762 16.9136 1.51952 17.2729 1.17753 17.6323C0.843314 17.9917 0.563505 18.359 0.338103 18.7344C0.112701 19.1097 0 19.4971 0 19.8964C0 20.3356 0.15545 20.687 0.466349 20.9505ZM9.2337 25.7063C9.75446 26.0018 10.3413 26.1495 10.9942 26.1495C11.6548 26.1495 12.2455 26.0018 12.7663 25.7063C13.2871 25.4108 13.7029 25.0235 14.0138 24.5443C14.3325 24.0651 14.519 23.546 14.5734 22.987H7.4266C7.47324 23.546 7.65589 24.0651 7.97456 24.5443C8.29323 25.0235 8.71295 25.4108 9.2337 25.7063Z"
+                            fill="#2C3D7D"
+                        />
+                    </svg>
                 </div>
+                <NotifyList
+                    :toggleNotify="toggleNotify"
+                    :isOpenNotify="isOpenNotify"
+                />
             </div>
         </div>
     </header>
 </template>
 
-<style>
-.notify-container::before {
+<style scoped>
+.notify-container-icon::before {
     content: "";
     position: absolute;
     bottom: -20px;
@@ -186,10 +211,8 @@ onMounted(() => {
     filter: blur(25px);
     background: #298aff;
 }
-.notify-container {
-    @apply h-full overflow-hidden relative;
-
-
+.notify-container-icon {
+    @apply h-full overflow-hidden relative cursor-pointer;
     border: 1px solid rgba(41, 138, 255, 0.25);
     backdrop-filter: blur(10px);
 }

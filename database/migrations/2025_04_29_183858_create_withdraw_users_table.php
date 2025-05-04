@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_wallets', function (Blueprint $table) {
+        Schema::create('withdraw_users', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('currency');
+            $table->integer('user_id')->index();
+            $table->integer('currency_id')->index();
+            $table->enum('type', ['crypto', 'fiat']);
             $table->string('address');
+            $table->string('comment')->nullable();
+            $table->decimal('amount', 15, 8);
+            $table->enum('status', ['pending', 'completed', 'failed'])->default('pending');
             $table->timestamps();
         });
     }
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_wallets');
+        Schema::dropIfExists('withdraw_users');
     }
 };

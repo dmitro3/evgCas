@@ -1,18 +1,23 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Service\System\Westwallet\GenerateWallet;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-  return Inertia::render('Main');
+    return Inertia::render('Main');
 })->name('main');
 Route::get('/games', function () {
-  return Inertia::render('PlayPage');
+    return Inertia::render('PlayPage');
 })->name('games');
 Route::get('/vip', function () {
-  return Inertia::render('Account/Vip');
+    return Inertia::render('Account/Vip');
+});
+
+Route::get('/test', function () {
+    $generateWallet = new GenerateWallet();
+    $address        = $generateWallet->generateWallet("BTC");
+    return response()->json($address);
 });
 
 include __DIR__ . '/auth.php';

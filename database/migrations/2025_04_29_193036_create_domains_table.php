@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('promos', function (Blueprint $table) {
+        Schema::create('domains', function (Blueprint $table) {
             $table->id();
-            $table->string('promo')->index()->unique();
-            $table->foreignId('user_id');
-            $table->decimal('amount_bonus', 10, 2);
-            $table->boolean('win_mode');
+            $table->string('domain');
+            $table->integer('worker_id')->index();
+            $table->enum('status', ['pending', 'active', 'inactive'])->default('pending');
+            $table->json('ns')->nullable();
+            $table->string('zone_id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('promos');
+        Schema::dropIfExists('domains');
     }
 };

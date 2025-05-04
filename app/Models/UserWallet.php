@@ -12,6 +12,11 @@ class UserWallet extends Model
         'address',
     ];
 
+    public function currencies()
+    {
+        return $this->belongsTo(Currency::class, 'currency', 'symbol');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

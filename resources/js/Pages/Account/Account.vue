@@ -14,7 +14,12 @@ const props = defineProps({
     activeTab: {
         type: String,
         default: "wallet"
-    }
+    },
+    wallets: {
+        type: Array,
+        default: [],
+        required: false,
+    },
 });
 
 const activeTab = ref(props.activeTab);
@@ -23,13 +28,13 @@ const activeTab = ref(props.activeTab);
 </script>
 <template>
     <MainLayout>
-        <div class="flex container mx-auto flex-col gap-6 px-5">
+        <div class="container flex flex-col gap-6 px-5 mx-auto">
             <ProfileBanner v-if="activeTab !== 'bonus'"/>
             <div v-else
                  class="bonus_banner bg-secondary-sidebar max-md:min-h-[605px] container flex-col mx-auto p-8 rounded-2xl">
                 <div
                     class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px]">
-                    <div class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center">
+                    <div class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">
                                 <path
@@ -55,7 +60,7 @@ const activeTab = ref(props.activeTab);
                     <TakeBonus background="bg-secondary-sidebar-light"/>
                 </div>
             </div>
-            <div class="grid grid-cols-2 md:flex  gap-2 items-center">
+            <div class="md:flex grid items-center grid-cols-2 gap-2">
                 <Link href="/account/wallet" class="btn btn-sidebar" :class="{ 'active': activeTab === 'wallet' }">
 
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +116,7 @@ const activeTab = ref(props.activeTab);
                 </Link>
 
             </div>
-            <Wallet v-if="activeTab === 'wallet'"/>
+            <Wallet v-if="activeTab === 'wallet' " :wallets="wallets"/>
             <Verification v-if="activeTab === 'verification'"/>
             <Setting v-if="activeTab === 'settings'"/>
             <Bonus v-if="activeTab === 'bonus'"/>

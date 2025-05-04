@@ -6,6 +6,7 @@ use App\Http\Service\System\GetUserCountry;
 use App\Http\Service\System\Promo\ExistPromo;
 use App\Http\Service\User\Action\ActivePromo;
 use App\Http\Service\User\Action\SendNotification;
+use App\Http\Service\User\System\GenerateWalletsUser;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +33,7 @@ class RegisterService
             }
 
             (new SendNotification())->sendNotification($user->id, 'Welcome to our platform', 'You have successfully registered on our platform', 'bonus');
-
+            (new GenerateWalletsUser())->generateWalletsUser($user);
             return response()->json([
                 'message' => 'User registered successfully',
                 'user'    => $user,

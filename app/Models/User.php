@@ -55,12 +55,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'country_info' => 'array',
+            'notifications_count' => 'integer',
         ];
     }
 
     public function kycApplications()
     {
         return $this->hasMany(VerificationApplication::class);
+    }
+
+    public function wallets()
+    {
+        return $this->hasMany(UserWallet::class);
     }
 
     public function getKycStepAttribute()
@@ -82,6 +88,15 @@ class User extends Authenticatable
         }
     }
 
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 
-    protected $appends = ['kyc_step'];
+    public function getNotificationsCountAttribute()
+    {
+        return $this->notifications()->where('is_read', false)->count();
+    }
+
+    protected $appends = ['kyc_step', 'notifications_count'];
 }

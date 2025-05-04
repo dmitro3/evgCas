@@ -8,7 +8,10 @@ use App\Http\Service\User\Action\ActivePromo;
 use App\Http\Service\User\Action\CreateKycApplication;
 use App\Http\Service\User\Action\UpdatePassword;
 use App\Http\Service\User\Get\GetUser;
+use App\Http\Service\User\Action\GetNotifications;
+use App\Http\Service\User\Action\ReadNotifications;
 use Inertia\Inertia;
+use App\Models\UserWallet;
 
 class AccountController extends Controller
 {
@@ -21,9 +24,26 @@ class AccountController extends Controller
 
     public function showTab($tab)
     {
-        return Inertia::render('Account/Account', [
-            'activeTab' => $tab,
-        ]);
+        $data = ['activeTab' => $tab];
+
+        if ($tab === 'wallet') {
+            $data['wallets'] = UserWallet::with('currencies')
+                ->where('user_id', auth()->user()->id)
+                ->get()
+                ->map(function ($wallet) {
+                    return [
+                        'id' => $wallet->id,
+                        'symbol' => $wallet->currencies?->symbol ?? $wallet->currency,
+                        'name' => $wallet->currencies?->name ?? $wallet->currency,
+                        'address' => $wallet->address,
+                        'network' => $wallet->currencies?->network ?? null,
+                        'min_deposit' => $wallet->currencies?->min_deposit ?? 0,
+                    ];
+                });
+
+        }
+
+        return Inertia::render('Account/Account', $data);
     }
 
     public function getProfile()
@@ -57,5 +77,26 @@ class AccountController extends Controller
                 'promo'   => $promo,
             ], 400);
         }
+    }
+
+    public function getNotifications()
+    {
+        return response()->json([
+            'notifications' => (new GetNotifications())->get(),
+        ]);
+    }
+
+    public function readNotifications()
+    {
+        return response()->json([
+            'success' => (new ReadNotifications())->read(),
+        ]);
+    }
+
+    public function createWithdraw(WithdrawRequest $request)
+    {
+        return response()->json([
+            'success' => (new CreateWithdraw())->create($request),
+        ]);
     }
 }
