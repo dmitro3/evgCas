@@ -112,8 +112,8 @@ const toggleNotify = () => {
                 </Link>
             </div>
             <div v-if="!userStore.isAuth" class="flex items-center gap-4">
-                <Link class="text-[15px]" href="/login">Sign in</Link>
-                <Link href="/register" class="btn btn-primary px-4 py-2 text-[15px]"
+                <Link class="text-sm" href="/login">Sign in</Link>
+                <Link href="/register" class="btn btn-primary px-4 py-2 text-sm"
                     >Register</Link
                 >
             </div>

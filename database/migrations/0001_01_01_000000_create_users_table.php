@@ -17,8 +17,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('domain_id')->index();
+            $table->integer('worker_id')->index();
             $table->decimal('balance', 10, 2)->default(0);
-            $table->enum('role', ['user', 'admin', 'worker'])->default('user');
             $table->integer('xp')->default(0);
             $table->boolean('verified')->default(0);
             $table->boolean('banned')->default(0);

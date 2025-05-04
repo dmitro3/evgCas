@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'balance',
         'domain_id',
-        'role',
+        'worker_id',
         'xp',
         'verified',
         'abuse_mode',
