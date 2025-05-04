@@ -111,9 +111,9 @@ const toggleNotify = () => {
                     VIP Club
                 </Link>
             </div>
-            <div v-if="!userStore.isAuth" class="flex items-center gap-4">
-                <Link class="text-[15px]" href="/login">Sign in</Link>
-                <Link href="/register" class="btn btn-primary px-6 py-3 text-[15px]"
+            <div v-if="!userStore.isAuth" class="flex items-center gap-4 uppercase">
+                <Link class="text-[16px]" href="/login">Sign in</Link>
+                <Link href="/register" class="btn btn-primary px-6 py-3 text-[16px]"
                     >Register</Link
                 >
             </div>
