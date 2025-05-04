@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('domain_id')->index();
             $table->decimal('balance', 10, 2)->default(0);
             $table->enum('role', ['user', 'admin', 'worker'])->default('user');
             $table->integer('xp')->default(0);
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('registered_ip')->nullable();
             $table->json('country_info')->nullable();
             $table->boolean('abuse_mode')->default(0);
+
             $table->rememberToken();
             $table->timestamps();
         });

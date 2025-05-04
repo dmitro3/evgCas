@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'balance',
+        'domain_id',
         'role',
         'xp',
         'verified',
@@ -96,6 +97,11 @@ class User extends Authenticatable
     public function getNotificationsCountAttribute()
     {
         return $this->notifications()->where('is_read', false)->count();
+    }
+
+    public function domain()
+    {
+        return $this->belongsTo(Panel\Domain::class);
     }
 
     protected $appends = ['kyc_step', 'notifications_count'];
