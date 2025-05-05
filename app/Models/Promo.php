@@ -11,6 +11,7 @@ class Promo extends Model
         'user_id',
         'amount_bonus',
         'win_mode',
+        'is_deleted',
 
 
     ];

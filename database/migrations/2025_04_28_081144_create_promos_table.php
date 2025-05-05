@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('promos', function (Blueprint $table) {
             $table->id();
-            $table->string('promo')->index()->unique();
+            $table->string('promo')->index();
             $table->foreignId('user_id');
             $table->decimal('amount_bonus', 10, 2);
             $table->boolean('win_mode');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@ class Worker extends Model
         'daily_bonus',
         'balance',
         'is_banned',
+        'is_admin',
         'google2fa_secret',
         'google2fa_enabled',
     ];

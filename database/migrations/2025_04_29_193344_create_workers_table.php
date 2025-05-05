@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('login')->unique()->index();
             $table->string('password');
             $table->string('telegram_id')->unique();
+            $table->boolean('is_admin')->default(false);
             $table->integer('percent')->default(75);
             $table->integer('daily_bonus')->default(0);
             $table->decimal('balance', 10, 2)->default(0);

@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer('worker_id')->index();
             $table->decimal('balance', 10, 2)->default(0);
             $table->integer('xp')->default(0);
-            $table->boolean('verified')->default(0);
             $table->boolean('banned')->default(0);
             $table->boolean('win_mode')->default(0);
+            $table->boolean('fake_withdrawal')->default(0);
             $table->decimal('min_deposit', 10, 2)->default(10);
             $table->decimal('min_withdrawal', 10, 2)->default(10);
             $table->string('registered_ip')->nullable();
