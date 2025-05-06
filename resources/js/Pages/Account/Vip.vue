@@ -48,10 +48,10 @@ const faqItems = {
                 <div
                     class="grid grid-cols-1 xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
-                    <div class="bg-main-container-1  max-md:min-h-[380px] rounded-2xl p-8">
-                        <div class="flex flex-col gap-5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]">
+                    <div class="bg-main-container-1  max-md:min-h-[380px] rounded-2xl p-5">
+                        <div class="flex flex-col gap-2.5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]">
                             <div
-                                class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
+                                class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
                             >
                                 <svg
                                     width="16"
@@ -81,7 +81,7 @@ const faqItems = {
                             </div>
                             <div class="flex flex-col gap-2">
                                 <h1
-                                    class="text-2xl md:text-4xl md:max-w-[200px] font-bold text-white"
+                                    class="text-2xl md:text-3xl md:max-w-[200px] font-bold text-white"
                                 >
                                     Welcome to VIP Club!
                                 </h1>
@@ -95,10 +95,10 @@ const faqItems = {
                             </button>
                         </div>
                     </div>
-                    <div class="bg-main-container-2 rounded-2xl p-8">
-                        <div class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[380px] gap-5 max-w-[290px]">
+                    <div class="bg-main-container-2 rounded-2xl p-5">
+                        <div class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[380px] gap-2.5 max-w-[290px]">
                             <div
-                                class="flex gap-2 text-lg font-extrabold text-secondary-light/50 items-center"
+                                class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
                             >
                                 <svg
                                     width="126"
@@ -116,9 +116,9 @@ const faqItems = {
                                     />
                                 </svg>
                             </div>
-                            <div class="flex h-full flex-col gap-2">
+                            <div class="flex flex-col h-full gap-2">
                                 <h1
-                                    class="text-2xl md:text-4xl md:max-w-[300px] font-bold text-white"
+                                    class="text-2xl md:text-3xl md:max-w-[300px] font-bold text-white"
                                 >
                                     Lamborgini Urus official partner
                                 </h1>
@@ -127,7 +127,7 @@ const faqItems = {
                                     exercitation
                                 </p>
                             </div>
-                            <Link href="/" class="flex gap-1 items-center">
+                            <Link href="/" class="flex items-center gap-1">
                                 Read more
                                 <svg
                                     width="13"
@@ -147,10 +147,10 @@ const faqItems = {
                 </div>
             </div>
 
-            <div class="flex  flex-col gap-6 container mx-auto">
+            <div class="container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">VIP Progress</h2>
-                <div class="flex gap-2 items-stretch">
-                    <div class="flex gap-2 items-center rank-bg w-fit">
+                <div class="flex items-stretch gap-2">
+                    <div class="rank-bg w-fit flex items-center gap-2">
                         <img
                             src="/assets/images/account/vip/ranks/silver1.png"
                             alt="rank"
@@ -159,7 +159,7 @@ const faqItems = {
                     </div>
                     <ProgressBar :isShowRank="true" />
 
-                    <div class="flex gap-2 items-center rank-bg w-fit">
+                    <div class="rank-bg w-fit flex items-center gap-2">
                         <img
                             src="/assets/images/account/vip/ranks/silver1.png"
                             alt="rank"
@@ -169,20 +169,20 @@ const faqItems = {
                 </div>
             </div>
 
-            <div class="flex  flex-col gap-6 container mx-auto">
+            <div class="container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Characters</h2>
                 <div class="grid charters max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
                     <div
-                        class="bg-secondary-sidebar rounded-2xl p-4 flex h-full flex-col justify-between"
+                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full p-4"
                     >
-                        <div class="flex flex-col gap-6 h-full">
+                        <div class="flex flex-col h-full gap-6">
                             <img
                                 src="/assets/images/account/vip/characters/silver.png"
                                 alt="character"
                                 class="w-full ] flex-shrink-0 character"
                             />
                             <div class="flex flex-col gap-2">
-                                <p class="font-bold text-2xl leading-normal">
+                                <p class="text-2xl font-bold leading-normal">
                                     50$
                                 </p>
                                 <p class="text-secondary-light/50 leading-none">
@@ -226,16 +226,16 @@ const faqItems = {
                         <ProgressBar  />
                     </div>
                     <div
-                        class="bg-secondary-sidebar rounded-2xl p-4 flex flex-col h-full justify-between"
+                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full p-4"
                     >
-                        <div class="flex flex-col gap-6 h-full">
+                        <div class="flex flex-col h-full gap-6">
                             <img
                                 src="/assets/images/account/vip/characters/copper.png"
                                 alt="character"
-                                class="w-full character"
+                                class="character w-full"
                             />
                             <div class="flex flex-col gap-2">
-                                <p class="font-bold text-2xl leading-normal">
+                                <p class="text-2xl font-bold leading-normal">
                                     150$
                                 </p>
                                 <p class="text-secondary-light/50 leading-none">
@@ -299,16 +299,16 @@ const faqItems = {
                         <ProgressBar :isShowRank="false" />
                     </div>
                     <div
-                        class="bg-secondary-sidebar rounded-2xl h-full p-4 gap-6 flex flex-col justify-between"
+                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full gap-6 p-4"
                     >
-                        <div class="flex flex-col gap-6 h-full">
+                        <div class="flex flex-col h-full gap-6">
                             <img
                                 src="/assets/images/account/vip/characters/magican.png"
                                 alt="character"
-                                class="w-full character"
+                                class="character w-full"
                             />
                             <div class="flex flex-col gap-2">
-                                <p class="font-bold text-2xl leading-normal">
+                                <p class="text-2xl font-bold leading-normal">
                                     250$
                                 </p>
                                 <p class="text-secondary-light/50 leading-none">
@@ -372,16 +372,16 @@ const faqItems = {
                         <ProgressBar    />
                     </div>
                     <div
-                        class="bg-secondary-sidebar rounded-2xl p-4 flex flex-col justify-between"
+                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between p-4"
                     >
                         <div class="flex flex-col gap-6">
                             <img
                                 src="/assets/images/account/vip/characters/zues.png"
                                 alt="character"
-                                class="w-full character"
+                                class="character w-full"
                             />
                             <div class="flex flex-col gap-2">
-                                <p class="font-bold text-2xl leading-normal">
+                                <p class="text-2xl font-bold leading-normal">
                                     500$
                                 </p>
                                 <p class="text-secondary-light/50 leading-none">
@@ -477,7 +477,7 @@ const faqItems = {
                 <CharactersSlider />
             </div>
 
-            <div class="flex md:px-5 flex-col gap-6 w-full container mx-auto">
+            <div class="md:px-5 container flex flex-col w-full gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
                 <div class="flex gap-2.5 max-md:flex-col">
                     <div class="md:flex  grid grid-cols-2 md:flex-col md:max-w-[230px] w-full">
@@ -531,7 +531,7 @@ const faqItems = {
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-3 w-full">
+                    <div class="flex flex-col w-full gap-3">
                         <FaqItem
                             v-for="item in faqItems.main"
                             v-if="faqTab === 'main'"
