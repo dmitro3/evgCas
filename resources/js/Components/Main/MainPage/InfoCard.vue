@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 <template>
     <div class="rounded-2xl bg-secondary-sidebar flex flex-col gap-4 p-6">
-        <img :src="image" :alt="title" class="h-[240px] object-cover rounded-2xl" />
+        <img :src="image" :alt="title" class="h-[220px] object-cover rounded-2xl" />
         <div class="max-md:flex-col max-md:items-start max-md:gap-3 flex items-center justify-between">
             <div class="flex max-w-[290px] flex-col gap-2">
                 <h2 class="text-[22px] font-bold">{{ title }}</h2>

@@ -44,9 +44,9 @@ const faqItems = [
 <template>
     <MainLayout>
         <section class="flex flex-col gap-12">
-            <div class="flex px-10 flex-col gap-2.5">
+            <div class="flex px-12 flex-col gap-2.5">
                 <div class="bg-main-container-1 bg-secondary-sidebar md: rounded-2xl container flex-col p-8 py-3.5 mx-auto">
-                    <div class="flex flex-col gap-5 max-w-[290px]">
+                    <div class="flex flex-col gap-2.5 max-w-[290px]">
                         <div class="text-secondary-light/50 flex items-center gap-2 text-base font-extrabold">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_102_4036)">
