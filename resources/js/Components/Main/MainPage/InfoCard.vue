@@ -9,15 +9,15 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div class="rounded-2xl flex flex-col gap-4 bg-secondary-sidebar p-6 px-8 ">
+    <div class="rounded-2xl bg-secondary-sidebar  flex flex-col gap-4 p-6">
         <img :src="image" :alt="title" class="h-[260px] object-cover rounded-2xl" />
-        <div class="flex justify-between max-md:flex-col max-md:items-start max-md:gap-3 items-center">
+        <div class="max-md:flex-col max-md:items-start max-md:gap-3 flex items-center justify-between">
             <div class="flex max-w-[290px] flex-col gap-2">
                 <h2 class="text-[22px] font-bold">{{ title }}</h2>
-                <p class=" text-secondary-light/50 ">{{ description }}</p>
+                <p class=" text-secondary-light/50">{{ description }}</p>
             </div>
             <div class="flex items-end h-full">
-                <Link :href="link" class="flex gap-1 items-center">
+                <Link :href="link" class="flex items-center gap-1">
                     Read more
                     <svg
                         width="13"
