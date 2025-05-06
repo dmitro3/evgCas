@@ -43,8 +43,8 @@ const faqItems = {
 
 <template>
     <MainLayout>
-        <section class="flex flex-col gap-12">
-            <div class="flex md:px-5 flex-col gap-2.5">
+        <section class="md:px-12 flex flex-col gap-12">
+            <div class="flex  flex-col gap-2.5">
                 <div
                     class="grid grid-cols-1 xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
