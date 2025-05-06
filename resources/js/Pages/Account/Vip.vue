@@ -81,11 +81,11 @@ const faqItems = {
                             </div>
                             <div class="flex flex-col gap-2">
                                 <h1
-                                    class="text-2xl md:text-3xl md:max-w-[200px] font-bold text-white"
+                                    class="text-xl md:text-2xl md:max-w-[170px] font-bold text-white"
                                 >
                                     Welcome to VIP Club!
                                 </h1>
-                                <p class="text-secondary-light/50 md:text-lg">
+                                <p class="text-secondary-light/50 md:text-base">
                                     Ut enim ad minim veniam, quis nostrud
                                     exercitation
                                 </p>
@@ -118,11 +118,11 @@ const faqItems = {
                             </div>
                             <div class="flex flex-col h-full gap-2">
                                 <h1
-                                    class="text-2xl md:text-3xl md:max-w-[300px] font-bold text-white"
+                                    class="text-xl md:text-2xl md:max-w-[260px] font-bold text-white"
                                 >
                                     Lamborgini Urus official partner
                                 </h1>
-                                <p class="text-secondary-light/50 md:text-lg">
+                                <p class="text-secondary-light/50 md:text-base">
                                     Ut enim ad minim veniam, quis nostrud
                                     exercitation
                                 </p>
