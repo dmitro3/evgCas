@@ -1,7 +1,19 @@
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted, nextTick} from "vue";
+import { useChat } from '@/stores/chatStore';
+import { useUserStore } from '@/stores/userStore';
+
+const userStore = useUserStore();
+const chatStore = useChat();
 
 const isOpen = ref(false)
+
+onMounted(async () => {
+    nextTick(() => {
+        chatStore.selectChat(userStore.user.chat_id);
+        chatStore.initializeEcho();
+    })
+})
 
 const openChat = () => {
     isOpen.value = true
@@ -14,11 +26,11 @@ const closeChat = () => {
 </script>
 
 <template>
-    <div class="fixed right-0 max-md:mx-2 md:right-10 lg:right-8 flex justify-end bottom-12 ">
+    <div class="max-md:mx-2 md:right-10 lg:right-8 bottom-12 fixed right-0 flex justify-end">
         <Transition name="fade">
 
-        <div v-if="!isOpen" class="flex gap-2 absolute bottom-0  items-center">
-            <div class="px-4 py-3 bg_live_msg text-lg leading-none font-semibold text-nowrap rounded-lg">
+        <div v-if="!isOpen" class="absolute bottom-0 flex items-center gap-2">
+            <div class="bg_live_msg text-nowrap px-4 py-3 text-lg font-semibold leading-none rounded-lg">
                 Live Support
             </div>
             <div @click="openChat" class="chat-container cursor-pointer">
@@ -39,10 +51,10 @@ const closeChat = () => {
 
         <div v-if="isOpen"
              class="rounded-xl bg-secondary-sidebar p-6 z-50 max-w-[470px] w-full">
-            <div class="flex flex-col gap-6 ">
+            <div class=" flex flex-col gap-6">
                 <div class="flex items-center gap-4">
-                    <div class="flex items-center gap-4 ">
-                        <img src="/assets/images/chat/support_avatars.png" alt="support_avatars" class="h-12 ">
+                    <div class=" flex items-center gap-4">
+                        <img src="/assets/images/chat/support_avatars.png" alt="support_avatars" class=" h-12">
                         <div class="flex flex-col gap-1.5">
                             <p class="text-lg font-bold">
                                 Live Support
@@ -62,80 +74,80 @@ const closeChat = () => {
                 <div class="flex flex-col gap-4">
                     <div class="messages-container hide-scroll">
                         <div class="message support">
-                            <img src="/assets/images/chat/support_avatar.png" alt="support_avatar" class="h-10 w-10 rounded-full ">
-                            <div class="flex flex-col gap-2 ">
-                                <div class="p-3 bg-secondary rounded-lg">
+                            <img src="/assets/images/chat/support_avatar.png" alt="support_avatar" class=" w-10 h-10 rounded-full">
+                            <div class=" flex flex-col gap-2">
+                                <div class="bg-secondary p-3 rounded-lg">
                                     Hello! How can we help you?
                                 </div>
-                                <div class="text-xs text-secondary-light/50">
+                                <div class="text-secondary-light/50 text-xs">
                                     BOT. JUST NOW
                                 </div>
                             </div>
                         </div>
                         <div class="message person">
 
-                            <div class="flex flex-col items-end gap-2 ">
-                                <div class="p-3 bg-secondary rounded-lg">
+                            <div class=" flex flex-col items-end gap-2">
+                                <div class="bg-secondary p-3 rounded-lg">
                                     Hello! How can we help you?
                                 </div>
-                                <div class="text-xs text-secondary-light/50">
+                                <div class="text-secondary-light/50 text-xs">
                                     BOT. JUST NOW
                                 </div>
                             </div>
-                            <img src="/assets/images/header/default_avatar.png" alt="support_avatar" class="h-10 w-10 rounded-full ">
+                            <img src="/assets/images/header/default_avatar.png" alt="support_avatar" class=" w-10 h-10 rounded-full">
                         </div>
                         <div class="message support">
-                            <img src="/assets/images/chat/support_avatar.png" alt="support_avatar" class="h-10 w-10 rounded-full ">
-                            <div class="flex flex-col gap-2 ">
-                                <div class="p-3 bg-secondary rounded-lg">
+                            <img src="/assets/images/chat/support_avatar.png" alt="support_avatar" class=" w-10 h-10 rounded-full">
+                            <div class=" flex flex-col gap-2">
+                                <div class="bg-secondary p-3 rounded-lg">
                                     Hello! How can we help you?
                                 </div>
-                                <div class="text-xs text-secondary-light/50">
+                                <div class="text-secondary-light/50 text-xs">
                                     BOT. JUST NOW
                                 </div>
                             </div>
                         </div>
                         <div class="message person">
 
-                            <div class="flex flex-col items-end gap-2 ">
-                                <div class="p-3 bg-secondary rounded-lg">
+                            <div class=" flex flex-col items-end gap-2">
+                                <div class="bg-secondary p-3 rounded-lg">
                                     Hello! How can we help you?
                                 </div>
-                                <div class="text-xs text-secondary-light/50">
+                                <div class="text-secondary-light/50 text-xs">
                                     BOT. JUST NOW
                                 </div>
                             </div>
-                            <img src="/assets/images/header/default_avatar.png" alt="support_avatar" class="h-10 w-10 rounded-full ">
+                            <img src="/assets/images/header/default_avatar.png" alt="support_avatar" class=" w-10 h-10 rounded-full">
                         </div>
                         <div class="message support">
-                            <img src="/assets/images/chat/support_avatar.png" alt="support_avatar" class="h-10 w-10 rounded-full ">
-                            <div class="flex flex-col gap-2 ">
-                                <div class="p-3 bg-secondary rounded-lg">
+                            <img src="/assets/images/chat/support_avatar.png" alt="support_avatar" class=" w-10 h-10 rounded-full">
+                            <div class=" flex flex-col gap-2">
+                                <div class="bg-secondary p-3 rounded-lg">
                                     Hello! How can we help you?
                                 </div>
-                                <div class="text-xs text-secondary-light/50">
+                                <div class="text-secondary-light/50 text-xs">
                                     BOT. JUST NOW
                                 </div>
                             </div>
                         </div>
                         <div class="message person">
 
-                            <div class="flex flex-col items-end gap-2 ">
-                                <div class="p-3 bg-secondary rounded-lg">
+                            <div class=" flex flex-col items-end gap-2">
+                                <div class="bg-secondary p-3 rounded-lg">
                                     Hello! How can we help you?
                                 </div>
-                                <div class="text-xs text-secondary-light/50">
+                                <div class="text-secondary-light/50 text-xs">
                                     BOT. JUST NOW
                                 </div>
                             </div>
-                            <img src="/assets/images/header/default_avatar.png" alt="support_avatar" class="h-10 w-10 rounded-full ">
+                            <img src="/assets/images/header/default_avatar.png" alt="support_avatar" class=" w-10 h-10 rounded-full">
                         </div>
                     </div>
                     <div class="flex items-stretch w-full gap-2">
                         <div class="main-input-small flex-1">
                             <input placeholder="Type text">
                         </div>
-                        <div class="btn btn-primary w-11 h-11 flex justify-center items-center rounded-full">
+                        <div class="btn btn-primary w-11 h-11 flex items-center justify-center rounded-full">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18.07 8.51062L9.51002 4.23062C3.76002 1.35062 1.40002 3.71062 4.28002 9.46062L5.15002 11.2006C5.40002 11.7106 5.40002 12.3006 5.15002 12.8106L4.28002 14.5406C1.40002 20.2906 3.75002 22.6506 9.51002 19.7706L18.07 15.4906C21.91 13.5706 21.91 10.4306 18.07 8.51062ZM14.84 12.7506H9.44002C9.03002 12.7506 8.69002 12.4106 8.69002 12.0006C8.69002 11.5906 9.03002 11.2506 9.44002 11.2506H14.84C15.25 11.2506 15.59 11.5906 15.59 12.0006C15.59 12.4106 15.25 12.7506 14.84 12.7506Z" fill="#E8EDFF"/>
                             </svg>

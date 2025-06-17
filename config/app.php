@@ -53,6 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'url_slot' => env('APP_URL_SLOT', 'http://localhost:3000'),
 
     /*
     |--------------------------------------------------------------------------

@@ -3,12 +3,16 @@
 use App\Http\Service\System\Westwallet\GenerateWallet;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Models\Slot;
 
 Route::get('/', function () {
     return Inertia::render('Main');
 })->name('main');
 Route::get('/games', function () {
-    return Inertia::render('PlayPage');
+    $slots = Slot::all();
+    return Inertia::render('PlayPage', [
+        'slots' => $slots
+    ]);
 })->name('games');
 Route::get('/vip', function () {
     return Inertia::render('Account/Vip');
@@ -25,4 +29,6 @@ include __DIR__ . '/account.php';
 include __DIR__ . '/news.php';
 include __DIR__ . '/partner.php';
 include __DIR__ . '/play.php';
+include __DIR__ . '/slot.php';
+include __DIR__ . '/chat.php';
 include __DIR__ . '/system.php';

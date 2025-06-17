@@ -60,6 +60,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function slotSessions()
+    {
+        return $this->hasMany(SlotSession::class);
+    }
+
     public function kycApplications()
     {
         return $this->hasMany(VerificationApplication::class);
@@ -104,5 +109,10 @@ class User extends Authenticatable
         return $this->belongsTo(Panel\Domain::class);
     }
 
-    protected $appends = ['kyc_step', 'notifications_count'];
+    protected $appends = ['kyc_step', 'notifications_count', 'chat_id'];
+
+    public function getChatIdAttribute()
+    {
+        return Chat::where('user_id', $this->id)->first()->id;
+    }
 }

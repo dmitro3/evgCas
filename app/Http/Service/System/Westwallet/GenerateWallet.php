@@ -4,6 +4,7 @@ namespace App\Http\Service\System\Westwallet;
 
 use WestWallet\WestWallet\Client;
 use WestWallet\WestWallet\CurrencyNotFoundException;
+use Illuminate\Support\Facades\Log;
 
 class GenerateWallet
 {
@@ -15,6 +16,7 @@ class GenerateWallet
             $address = $client->generateAddress($currency);
             return $address['address'];
         } catch(CurrencyNotFoundException $e) {
+            Log::error($e->getMessage());
             return null;
         }
     }

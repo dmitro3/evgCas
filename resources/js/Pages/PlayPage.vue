@@ -4,7 +4,12 @@ import LiveWin from "../Components/Main/MainPage/LiveWin.vue";
 import { Link } from "@inertiajs/vue3";
 import GameCard from "../Components/Main/Games/GameCard.vue";
 
+const props = defineProps({
+    slots: Array,
+});
+
 const games = [
+    ...props.slots,
     { id: 1, name: "Bonny", image: "/assets/images/games/bonny.png", rtp: 96.5 },
     { id: 2, name: "Drunken", image: "/assets/images/games/drunken.png", rtp: 96.5 },
     { id: 3, name: "Duel at Dawn", image: "/assets/images/games/duel_at_dawn.png", rtp: 96.5 },
@@ -140,7 +145,7 @@ const originalGames = [
 
                 </div>
                 <div class="grid  xl:grid-cols-4 md:grid-cols-3 grid-cols-2 2xl:grid-cols-6 gap-2.5">
-                    <GameCard v-for="game in originalGames" :key="game.id" :game="game" />
+                    <GameCard v-for="game in originalGames" :key="game.id" :game="game"  />
                 </div>
             </div>
         </div>

@@ -7,14 +7,14 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="relative max-h-[350px] hover:translate-y-[-5px] cursor-pointer transition-all duration-300 rounded-2xl overflow-hidden">
+    <Link :href="`/play/slot/${game.id}`" class="relative max-h-[350px] hover:translate-y-[-5px] cursor-pointer transition-all duration-300 rounded-2xl overflow-hidden">
         <img
             :src="game.image"
             :alt="game.name"
             srcset=""
-            class="w-full h-full object-cover"
+            class="object-cover w-full h-full"
         />
-        <div class="absolute  top-2 right-2">
+        <div class="top-2 right-2 absolute">
             <div class="rtp-percentage">
                 <svg
                 width="17"
@@ -31,7 +31,7 @@ const props = defineProps({
             {{ game.rtp }} %
             </div>
         </div>
-    </div>
+    </Link>
 </template>
 
 <style>
