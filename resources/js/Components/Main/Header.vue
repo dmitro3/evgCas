@@ -2,20 +2,36 @@
 import TakeBonus from "./Header/TakeBonus.vue";
 import { Link } from "@inertiajs/vue3";
 import GameIcon from "@/icons/Header/Nav/game.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useUserStore } from "@/stores/userStore";
 import NotifyList from "./Header/NotifyList.vue";
 
 const userStore = useUserStore();
 const isOpenNotify = ref(false);
+const previousBalance = ref(0);
+const isBalanceChanged = ref(false);
+
 const toggleNotify = () => {
     isOpenNotify.value = !isOpenNotify.value;
 };
+
+// Watch for balance changes with animation
+watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
+    if (oldBalance !== undefined && newBalance !== oldBalance && oldBalance !== null) {
+        previousBalance.value = oldBalance;
+        isBalanceChanged.value = true;
+
+        // Reset animation after duration
+        setTimeout(() => {
+            isBalanceChanged.value = false;
+        }, 1000);
+    }
+}, { immediate: true });
 </script>
 
 <template>
     <header>
-        <div class="container flex items-center justify-between h-full mx-auto">
+        <div class="container flex justify-between items-center mx-auto h-full">
             <div class="max-md:hidden">
                 <TakeBonus />
             </div>
@@ -26,7 +42,7 @@ const toggleNotify = () => {
                 src="/assets/images/aside/test-logo.svg"
                 class="md:hidden"
             />
-            <div class="max-xl:hidden flex h-full gap-10">
+            <div class="max-xl:hidden flex gap-10 h-full">
                 <Link href="/" class="nav-element">
                     <svg
                         width="24"
@@ -111,30 +127,34 @@ const toggleNotify = () => {
                     VIP Club
                 </Link>
             </div>
-            <div v-if="!userStore.isAuth" class="flex items-center gap-4 uppercase">
+            <div v-if="!userStore.isAuth" class="flex gap-4 items-center uppercase">
                 <Link class="text-[16px]" href="/login">Sign in</Link>
                 <Link href="/register" class="btn btn-primary px-6 py-3 text-[16px]"
                     >Register</Link
                 >
             </div>
-            <div v-else class="relative flex items-center gap-2">
+            <div v-else class="flex relative gap-2 items-center">
                 <div
-                    class="border_angle bg-secondary-sidebar flex items-center gap-4 p-2 rounded-lg"
+                    class="border_angle bg-secondary-sidebar flex gap-4 items-center p-2 rounded-lg"
                 >
                     <Link href="/account/wallet" class="btn btn-green px-6"
                         >Deposit</Link
                     >
-                    <div class="flex items-center gap-3">
-                        <div class="flex flex-col items-end gap-1">
+                    <div class="flex gap-3 items-center">
+                        <div class="flex flex-col gap-1 items-end">
                             <p
                                 class="text-secondary-light/50 text-nowrap text-sm leading-none"
                             >
                                 Your balance
                             </p>
                             <p
-                                class="text-nowrap text-base font-semibold leading-none"
+                                class="text-nowrap text-base font-semibold leading-none transition-all duration-500"
+                                :class="{
+                                    'text-green-400 scale-110': isBalanceChanged,
+                                    'text-white': !isBalanceChanged
+                                }"
                             >
-                                $ {{ userStore.currentUser.balance }}
+                                $ {{ userStore.currentUser?.balance || '0.00' }}
                             </p>
                         </div>
                         <Link href="/account/wallet" class="relative">
@@ -148,7 +168,7 @@ const toggleNotify = () => {
                 </div>
                 <div
                     @click="toggleNotify"
-                    class="px-4 py-3.5 flex-shrink-0 rounded-xl notify-container-icon"
+                    class="notify-container-icon flex-shrink-0 px-4 py-3.5 rounded-xl"
                 >
 
                     <svg

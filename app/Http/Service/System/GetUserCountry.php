@@ -67,10 +67,10 @@ class GetUserCountry
             ];
         } catch (\Exception $e) {
             // Если не удалось определить местоположение, возвращаем базовые данные
-            return response()->json([
-                'message' => 'Error getting IP info',
-                'error'   => $e->getMessage(),
-            ], 500);
+            // return response()->json([
+            //     'message' => 'Error getting IP info',
+            //     'error'   => $e->getMessage(),
+            // ], 500);
             return [
                 'country' => 'Unknown',
                 'city'    => 'Unknown',

@@ -188,7 +188,7 @@ body {
 }
 
 .btn {
-    @apply hover:opacity-80 relative flex items-center gap-2 py-3 font-semibold leading-none;
+    @apply hover:opacity-80 flex relative gap-2 items-center py-3 font-semibold leading-none;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -220,7 +220,7 @@ input {
     @apply flex-1 w-full;
 }
 .main-input-small {
-    @apply bg-secondary-sidebar-dark-1 rounded-xl flex items-center justify-between w-full gap-2 p-2;
+    @apply bg-secondary-sidebar-dark-1 flex gap-2 justify-between items-center p-2 w-full rounded-xl;
     border-radius: 10px;
     background: #171f3d;
     border: 1px solid #212b50;
@@ -237,7 +237,7 @@ input {
     @apply rounded-lg w-full h-full max-w-[400px];
 }
 .main-input {
-    @apply bg-secondary-sidebar-dark-1 rounded-xl p-4 transition-all;
+    @apply bg-secondary-sidebar-dark-1 p-4 rounded-xl transition-all;
     border-radius: 10px;
     background: #171f3d;
     border: 1px solid #212b50;
@@ -292,7 +292,7 @@ input {
     @apply flex flex-col gap-2 overflow-y-auto max-h-[370px];
 }
 .notify-list__item {
-    @apply rounded-xl bg-dark-text-2 flex flex-col gap-2 p-4;
+    @apply bg-dark-text-2 flex flex-col gap-2 p-4 rounded-xl;
 }
 .shake {
     animation: shake 0.2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -339,7 +339,7 @@ input {
     @apply bg-red-primary/10 text-red-primary;
 }
 .tag-primary:before {
-    @apply left-1/2 absolute bottom-0 -translate-x-1/2;
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2;
     content: "";
     background: #298aff;
     filter: blur(10px);
@@ -369,7 +369,7 @@ input {
     @apply text-secondary-light/50 hover:text-white hover:bg-secondary-sidebar fill-secondary-light/50 hover:fill-primary px-3 font-extrabold transition-all;
 }
 .tag {
-    @apply p-1.5 px-3 rounded-lg text-sm font-semibold relative overflow-hidden;
+    @apply overflow-hidden relative p-1.5 px-3 text-sm font-semibold rounded-lg;
 }
 .btn-primary-light {
     background: linear-gradient(
@@ -456,7 +456,7 @@ a {
 }
 .aside-item-icon-laptop::before {
     content: url('data:image/svg+xml;utf8,<svg width="2" height="18" viewBox="0 0 2 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 2L-6.11959e-07 16" stroke="%23298AFF" stroke-width="4" stroke-linecap="round"/></svg>');
-    @apply top-1/2 absolute inset-0 left-0 z-10 -translate-y-1/2;
+    @apply absolute inset-0 left-0 top-1/2 z-10 -translate-y-1/2;
     height: 50%;
     width: 10px;
     opacity: 0;
@@ -518,7 +518,7 @@ aside {
 }
 
 .aside-item-title {
-    @apply text-secondary-light/50 flex items-center justify-between px-5 font-extrabold cursor-pointer;
+    @apply text-secondary-light/50 flex justify-between items-center px-5 font-extrabold cursor-pointer;
 }
 
 .aside-item-icon-container:before {
@@ -546,7 +546,7 @@ aside {
 }
 
 .aside-item-content {
-    @apply text-secondary-light/50 fill-primary relative py-4 pl-5 mr-5 overflow-hidden font-semibold transition-all border-l-2 border-transparent cursor-pointer;
+    @apply text-secondary-light/50 fill-primary overflow-hidden relative py-4 pl-5 mr-5 font-semibold border-l-2 border-transparent transition-all cursor-pointer;
     position: relative;
 }
 
@@ -570,7 +570,7 @@ aside {
 
 .aside-item-content:hover:not(.active),
 .aside-item-content.active {
-    @apply fill-primary border-primary rounded-r-xl text-white border-l-2;
+    @apply fill-primary border-primary text-white rounded-r-xl border-l-2;
 }
 
 .aside-item-content.active svg {
@@ -579,7 +579,7 @@ aside {
 
 .aside-item-content:hover:not(.active):after,
 .aside-item-content.active:after {
-    @apply top-1/2 absolute left-0 w-4 h-4 -translate-y-1/2;
+    @apply absolute left-0 top-1/2 w-4 h-4 -translate-y-1/2;
     content: "";
     background-repeat: no-repeat;
     background-size: contain;
@@ -637,3 +637,22 @@ aside {
         background-position: bottom;
     }
 }
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    }

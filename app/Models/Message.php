@@ -13,5 +13,18 @@ class Message extends Model
         return $this->belongsTo(Chat::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function assistant()
+    {
+        return $this->belongsTo(Assistant::class);
+    }
+
+    protected $casts = [
+        'created_at' => 'datetime:d.m.Y H:i',
+    ];
 
 }

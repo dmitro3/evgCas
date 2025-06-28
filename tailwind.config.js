@@ -24,6 +24,7 @@ export default {
                 'primary': '#298AFF',
                 'secondary': '#212E5A',
                 'secondary-light': '#C7D3FF',
+                'secondary-bg': '#233061',
                 'secondary-sidebar': '#1A2446',
                 'secondary-sidebar-light': '#27376C',
                 'secondary-sidebar-light-2': '#202C55',

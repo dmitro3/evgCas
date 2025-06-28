@@ -13,6 +13,7 @@ const form = ref({
 const handleLogin = async () => {
     try {
         await authStore.login(form.value);
+
     } catch (error) {
         console.error('Login attempt failed');
     }
@@ -63,7 +64,7 @@ onUnmounted(() => {
                         </div>
                         <FormError :error="authStore?.errors?.password" />
                     </div>
-                   
+
                     <button type="submit" :disabled="authStore.loading" class="btn btn-primary flex justify-center">
                         {{ authStore.loading ? 'Signing in...' : 'Sign in!' }}
                     </button>
@@ -71,9 +72,9 @@ onUnmounted(() => {
                         <span>Don`t have an account?</span>
                         <Link href="/register" class="text-primary">Sign up</Link>
                     </div>
-                    <FormError 
-                        v-if="authStore.errors && !authStore.errors.email && !authStore.errors.password" 
-                        :error="authStore.errors.message || 'An error occurred'" 
+                    <FormError
+                        v-if="authStore.errors && !authStore.errors.email && !authStore.errors.password"
+                        :error="authStore.errors.message || 'An error occurred'"
                     />
                 </form>
             </div>

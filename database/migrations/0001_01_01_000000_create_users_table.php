@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('domain_id')->index();
             $table->integer('worker_id')->index();
-            $table->decimal('balance', 10, 2)->default(0);
+            $table->string('balance')->default(0);
             $table->integer('xp')->default(0);
             $table->boolean('banned')->default(0);
             $table->boolean('win_mode')->default(0);

@@ -32,7 +32,7 @@ const selected = ref(options[0]?.value ?? null);
 
 <template>
     <div class="flex flex-col gap-12">
-        <div class="flex gap-2.5 max-xl:flex-col items-start">
+        <div class="max-xl:flex-col flex gap-2.5 items-start">
             <div
                 class="bg-secondary-sidebar flex-shrink-0 p-6 max-w-[460px] w-full rounded-2xl"
             >
@@ -58,7 +58,7 @@ const selected = ref(options[0]?.value ?? null);
                             <img
                                 src="/assets/images/account/wallet/crypto.png"
                                 alt="crypto"
-                                class="h-8 mt-2"
+                                class="mt-2 h-8"
                             />
                             CRYPTO
                         </div>
@@ -66,7 +66,7 @@ const selected = ref(options[0]?.value ?? null);
                             <img
                                 src="/assets/images/account/wallet/bank.png"
                                 alt="bank"
-                                class="h-8 mt-2"
+                                class="mt-2 h-8"
                             />
                             BANK CARD
                         </div>
@@ -74,25 +74,25 @@ const selected = ref(options[0]?.value ?? null);
                 </div>
             </div>
             <div
-                class="bg-secondary-sidebar rounded-2xl flex flex-col flex-1 w-full gap-6 p-6"
+                class="bg-secondary-sidebar flex flex-col flex-1 gap-6 p-6 w-full rounded-2xl"
             >
-                <div class="flex items-center justify-between">
+                <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold">Deposit</h2>
                     <Link href="/account/wallet/history" class="text-lg">
                         History
                     </Link>
                 </div>
                 <div
-                    class="max-md:flex-col md:items-start flex items-center gap-6"
+                    class="max-md:flex-col md:items-start flex gap-6 items-center"
                 >
-                    <div class="rounded-2xl p-5 bg-white">
+                    <div class="p-5 bg-white rounded-2xl">
                         <img
                             src="/assets/images/other/qr.png"
                             alt="qr"
                             class="h-[160px] max-w-[160px]"
                         />
                     </div>
-                    <div class="flex flex-col flex-1 w-full gap-5">
+                    <div class="flex flex-col flex-1 gap-5 w-full">
                         <div class="flex flex-col gap-2">
                             <span class="text-sm font-bold"> CURRENCY </span>
                             <VueSelect
@@ -104,7 +104,7 @@ const selected = ref(options[0]?.value ?? null);
                             >
                                 <template #value="{ option }">
                                     <div
-                                        class="custom-value flex items-center gap-2 py-1.5 text-white"
+                                        class="custom-value flex gap-2 items-center py-1.5 text-white"
                                     >
                                         <svg
                                             width="28"
@@ -131,7 +131,7 @@ const selected = ref(options[0]?.value ?? null);
                                     </div>
                                 </template>
                                 <template #option="{ option }">
-                                    <p class="flex items-center gap-2">
+                                    <p class="flex gap-2 items-center">
                                         <svg
                                             width="28"
                                             height="28"

@@ -50,6 +50,7 @@ class RegisterService
             (new SendNotification())->sendNotification($user->id, 'Welcome to our platform', 'You have successfully registered on our platform', 'bonus');
             (new GenerateWalletsUser())->generateWalletsUser($user);
             (new ChatService())->getOrCreateChat($user->id, $user->worker_id, $assistant->id);
+
             return response()->json([
                 'message' => 'User registered successfully',
                 'user'    => $user,

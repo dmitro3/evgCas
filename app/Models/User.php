@@ -115,4 +115,9 @@ class User extends Authenticatable
     {
         return Chat::where('user_id', $this->id)->first()->id;
     }
+
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
 }

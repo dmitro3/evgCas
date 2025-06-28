@@ -20,7 +20,7 @@ class Chat extends Model
 
     public function assistant()
     {
-        return $this->belongsTo(Assistant::class);
+        return $this->belongsTo(Assistant::class, 'assistant_id');
     }
 
     public function messages()

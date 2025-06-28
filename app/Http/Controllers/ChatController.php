@@ -61,7 +61,7 @@ class ChatController extends Controller
             assistantId: $request->assistant_id
         );
 
-        return response()->json($chat->load(['worker', 'assistant']));
+        return response()->json($chat->load(['worker']));
     }
 
     public function markAsRead(int $chatId): JsonResponse

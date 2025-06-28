@@ -67,6 +67,7 @@ class ChatService
         }
 
         return $chat->messages()
+            ->with(['user', 'assistant'])
             ->latest()
             ->limit($limit)
             ->get()
