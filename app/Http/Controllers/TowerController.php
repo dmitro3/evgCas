@@ -21,7 +21,7 @@ class TowerController extends Controller
         $betAmount = $request->bet_amount;
         $minesPerRow = $request->mines_per_row;
 
-        if ($user->balance < $betAmount) {
+        if (floatval($user->balance) < $betAmount) {
             return response()->json(['error' => 'Недостаточно средств'], 400);
         }
 
@@ -30,7 +30,9 @@ class TowerController extends Controller
         $gameMap = $this->generateGameMap($minesPerRow);
 
         DB::transaction(function () use ($user, $betAmount, $minesPerRow, $gameMap) {
-            User::where('id', $user->id)->decrement('balance', $betAmount);
+            $currentBalance = floatval($user->balance);
+            $newBalance = $currentBalance - $betAmount;
+            User::where('id', $user->id)->update(['balance' => strval($newBalance)]);
 
             Tower::create([
                 'user_id' => $user->id,
@@ -137,14 +139,16 @@ class TowerController extends Controller
         if ($gameWon) {
             $winnings = $game->bet_amount * $this->calculateMultiplier(8, $game->mines_per_row);
 
-            DB::transaction(function () use ($user, $game, $winnings, $revealedCells) {
-                User::where('id', $user->id)->increment('balance', $winnings);
-                $game->update([
-                    'revealed_cells' => $revealedCells,
-                    'status' => 'won',
-                    'winnings' => $winnings
-                ]);
-            });
+                            DB::transaction(function () use ($user, $game, $winnings, $revealedCells) {
+                    $currentBalance = floatval($user->balance);
+                    $newBalance = $currentBalance + $winnings;
+                    User::where('id', $user->id)->update(['balance' => strval($newBalance)]);
+                    $game->update([
+                        'revealed_cells' => $revealedCells,
+                        'status' => 'won',
+                        'winnings' => $winnings
+                    ]);
+                });
 
             return response()->json([
                 'level_complete' => true,
@@ -200,7 +204,9 @@ class TowerController extends Controller
         $winnings = $game->bet_amount * $multiplier;
 
         DB::transaction(function () use ($user, $game, $winnings) {
-            User::where('id', $user->id)->increment('balance', $winnings);
+            $currentBalance = floatval($user->balance);
+            $newBalance = $currentBalance + $winnings;
+            User::where('id', $user->id)->update(['balance' => strval($newBalance)]);
             $game->update([
                 'status' => 'cashed_out',
                 'winnings' => $winnings

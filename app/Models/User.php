@@ -56,6 +56,7 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'country_info' => 'array',
+            'balance' => 'decimal:2',
             'notifications_count' => 'integer',
         ];
     }

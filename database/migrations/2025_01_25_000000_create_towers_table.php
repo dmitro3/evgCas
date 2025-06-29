@@ -17,7 +17,7 @@ return new class extends Migration
             $table->json('game_map');
             $table->json('revealed_cells')->default('[]');
             $table->enum('status', ['active', 'won', 'lost', 'cashed_out'])->default('active');
-            $table->decimal('winnings', 10, 2)->default(0);
+            $table->string('winnings' )->default(0);
             $table->timestamps();
         });
     }

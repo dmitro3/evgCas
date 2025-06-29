@@ -37,6 +37,7 @@ export default {
                 'dark-text': '#1C4F8C',
                 'dark-text-2': '#243267',
                 'dark-text-3': '#1D2850',
+                'dark-text-4': '#33447C',
                 'blue_dark': '#222F5B',
                 'blue_dark_2': '#3D57AA',
                 'blue_light': '#4577E7',

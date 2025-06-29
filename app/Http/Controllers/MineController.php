@@ -125,7 +125,9 @@ class MineController extends Controller
             $winAmount = $mine->bet_amount * $multiplier;
 
             $user = Auth::user();
-            User::where('id', $user->id)->increment('balance', $winAmount);
+            $currentBalance = floatval($user->balance);
+            $newBalance = $currentBalance + $winAmount;
+            User::where('id', $user->id)->update(['balance' => strval($newBalance)]);
 
             return response()->json([
                 'game_over' => true,
@@ -173,7 +175,9 @@ class MineController extends Controller
         $winAmount = $mine->bet_amount * $multiplier;
 
         $user = Auth::user();
-        User::where('id', $user->id)->increment('balance', $winAmount);
+        $currentBalance = floatval($user->balance);
+        $newBalance = $currentBalance + $winAmount;
+        User::where('id', $user->id)->update(['balance' => strval($newBalance)]);
 
         return response()->json([
             'game_over' => true,
