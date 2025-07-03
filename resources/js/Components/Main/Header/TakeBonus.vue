@@ -1,23 +1,76 @@
 <script setup>
+import { Link } from "@inertiajs/vue3";
 const props = defineProps({
-    background: String
-})
-let background = props.background || "bg-secondary-sidebar"
+    background: String,
+});
+let background = "bg-take" || props.background;
 </script>
 
 <template>
-    <div :class="background" class="p-2 rounded-xl  h-[42px] w-fit flex gap-4">
-        <div class="flex items-center gap-2">
-            <div class="bg-orange relative flex items-center justify-center w-10 h-10 rounded-lg">
-                <img src="/assets/images/header/gift.png" alt="gift" class="absolute max-w-none w-12 -top-2.5 -right-1.5 h-14 flex-shrink-0" >
+    <div class="border-take w-fit flex gap-4 rounded-xl" :class="background">
+        <div class="flex gap-2 items-center">
+            <div
+                class="bg-orange flex relative justify-center items-center w-10 h-10 rounded-lg"
+            >
+                <img
+                    src="/assets/images/header/gift.png"
+                    alt="gift"
+                    class="absolute -right-1.5 -top-2.5 flex-shrink-0 w-12 max-w-none h-14"
+                />
             </div>
-            <div class=" flex flex-col">
-                <p class="text-secondary-light/50 text-sm font-medium leading-none">Take bonus</p>
-                <p class="text-base font-bold leading-normal text-white">Free Bonus</p>
+            <div class="flex gap-12 items-center py-2">
+                <div class="flex flex-col">
+                    <p
+                        style="color: rgba(199, 211, 255, 0.5)"
+                        class="text-secondary-light/50 text-sm font-medium leading-none"
+                    >
+                        Take bonus
+                    </p>
+                    <p
+                        class="text-base font-semibold leading-normal text-white"
+                    >
+                        Free Bonus
+                    </p>
+                </div>
+                <div class="py-3">
+                    <Link
+                        href="/account/bonus"
+                        class="bg-[#43548E40] hover:bg-[#43548E60] transition-all duration-300 mr-1 flex items-center justify-center p-2.5 cursor-pointer rounded-lg"
+                    >
+                        <svg
+                            width="16"
+                            height="14"
+                            viewBox="0 0 16 14"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M1.25 7H14.75M14.75 7L8.75 1M14.75 7L8.75 13"
+                                stroke="#C7D3FF"
+                                stroke-opacity="0.5"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </Link>
+                </div>
             </div>
         </div>
-        <button class="btn btn-orange px-5 text-base leading-none !py-1">
-            Claim
-        </button>
     </div>
 </template>
+<style>
+.border-take {
+    border-radius: 12px;
+    height: 44px;
+    border: 2px solid rgba(240, 240, 240, 0.05);
+}
+
+.bg-take {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 148, 41, 0.12) 0%,
+        rgba(41, 138, 255, 0.12) 100%
+    );
+}
+</style>

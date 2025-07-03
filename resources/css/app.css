@@ -51,11 +51,25 @@
     --toastify-color-progress-warning: var(--toastify-color-warning);
     --toastify-color-progress-error: var(--toastify-color-error);
 }
+.bg-card {
+    border-radius: 16px;
+    background: linear-gradient(
+            180deg,
+            rgba(41, 138, 255, 0) 45%,
+            rgba(41, 138, 255, 0.16) 95%
+        ),
+        #1a2446;
+}
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
 .hide-scroll {
     -ms-overflow-style: none; /* для IE и Edge */
     scrollbar-width: none; /* для Firefox */
 }
-.select-default{
+.select-default {
     --vs-width: 100%;
     --vs-min-height: 38px;
     --vs-padding: 4px 8px;
@@ -78,8 +92,6 @@
     --vs-menu-box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --vs-menu-z-index: 2;
 
-
-
     --vs-option-width: 100%;
     --vs-option-padding: 8px 12px;
     --vs-option-cursor: pointer;
@@ -93,7 +105,9 @@
     --vs-option-disabled-text-color: #52525b;
     --vs-option-background-color: var(--vs-menu-background);
     --vs-option-hover-background-color: #07090b !important;
-    --vs-option-focused-background-color: var(--vs-option-hover-background-color);
+    --vs-option-focused-background-color: var(
+        --vs-option-hover-background-color
+    );
     --vs-option-selected-background-color: #93c5fd;
     --vs-option-disabled-background-color: #f4f4f5;
     --vs-option-opacity-menu-open: 0.4;
@@ -110,7 +124,7 @@
     --vs-multi-value-label-text-color: #3f3f46;
 
     --vs-multi-value-delete-padding: 0 3px;
-    --vs-multi-value-delete-hover-background-color: #FF6467;
+    --vs-multi-value-delete-hover-background-color: #ff6467;
     --vs-multi-value-xmark-size: 16px;
     --vs-multi-value-xmark-cursor: pointer;
     --vs-multi-value-xmark-color: var(--vs-multi-value-label-text-color);
@@ -125,10 +139,10 @@
     --vs-spinner-color: rgb(199 211 255 / 0.5);
     --vs-spinner-size: 16px;
 }
-.clear-button{
-    @apply !hidden
+.clear-button {
+    @apply !hidden;
 }
-.menu-option{
+.menu-option {
     background-color: #171f3d !important;
     color: #fff !important;
     @apply hover:!bg-black/10 transition-all;
@@ -500,13 +514,13 @@ aside {
 }
 
 .aside-info-container {
-    @apply px-5;
+    @apply px-3;
 }
 
 .aside-items-container {
     @apply flex flex-col gap-5;
 }
-.link{
+.link {
     @apply text-primary hover:text-primary/80 transition-all;
 }
 .aside-items {
@@ -518,7 +532,7 @@ aside {
 }
 
 .aside-item-title {
-    @apply text-secondary-light/50 flex justify-between items-center px-5 font-extrabold cursor-pointer;
+    @apply text-secondary-light/50 flex justify-between items-center px-5 font-bold cursor-pointer;
 }
 
 .aside-item-icon-container:before {
@@ -545,47 +559,42 @@ aside {
     stroke: rgba(199, 211, 255, 0.25);
 }
 
-.aside-item-content {
-    @apply text-secondary-light/50 fill-primary overflow-hidden relative py-4 pl-5 mr-5 font-semibold border-l-2 border-transparent transition-all cursor-pointer;
-    position: relative;
+.aside-item-content:hover {
+    @apply bg-primary/15 text-white;
 }
-
-.aside-item-content:before {
-    @apply -z-10 absolute inset-0;
+.aside-item-content svg {
+    @apply opacity-50;
+}
+.aside-item-content:hover svg {
+    @apply fill-primary text-primary opacity-100;
+}
+.aside-item-content:hover:after {
+    width: 40px;
+    height: 30px;
     content: "";
-    background: transparent;
-    transition: opacity 0.3s ease;
-    opacity: 0;
-}
-
-.aside-item-content:hover:not(.active):before,
-.aside-item-content.active:before {
-    background: linear-gradient(
-        90deg,
-        rgba(41, 138, 255, 0.1) 0%,
+    transform: rotate(90deg);
+    position: absolute;
+    left: -17px;
+    top: 8px;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        #298aff 0%,
         rgba(41, 138, 255, 0) 100%
     );
-    opacity: 1;
+    opacity: 0.2;
 }
-
-.aside-item-content:hover:not(.active),
-.aside-item-content.active {
-    @apply fill-primary border-primary text-white rounded-r-xl border-l-2;
+.aside-item-content:hover {
+    @apply text-white;
+}
+.aside-item-content:hover:before {
+    @apply content-[''] absolute top-1/2 -translate-y-1/2 -left-0.5 h-5 rounded-lg bg-primary w-1;
+}
+.aside-item-content {
+    @apply text-secondary-light/50 fill-primary overflow-hidden relative px-3 py-3 mx-3 font-semibold rounded-xl border-l-2 border-transparent transition-all cursor-pointer;
 }
 
 .aside-item-content.active svg {
     @apply fill-primary text-primary;
-}
-
-.aside-item-content:hover:not(.active):after,
-.aside-item-content.active:after {
-    @apply absolute left-0 top-1/2 w-4 h-4 -translate-y-1/2;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: var(--primary, #298aff);
-    filter: blur(15px);
-    background-position: center;
 }
 
 .bg-main-container-1 {
@@ -593,6 +602,26 @@ aside {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+.bg-main-container-4 {
+    background-image: url("/assets/images/main/container4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.bg-online {
+    border-radius: 1111px;
+    border: 1px solid var(--5, rgba(199, 211, 255, 0.05));
+    background: var(--10, rgba(93, 223, 89, 0.1));
+}
+.bg-tag {
+    border-radius: 8px;
+    border: 1px solid rgba(41, 138, 255, 0.35);
+    background: var(--10, rgba(41, 138, 255, 0.1));
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    gap: 12px;
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1000px) {
@@ -640,19 +669,19 @@ aside {
 .loader {
     width: 18px;
     height: 18px;
-    border: 2px solid #FFF;
+    border: 2px solid #fff;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-    }
+}
 
-    @keyframes rotation {
+@keyframes rotation {
     0% {
         transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-    }
+}

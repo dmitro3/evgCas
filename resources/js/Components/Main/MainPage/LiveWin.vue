@@ -1,48 +1,74 @@
 <script setup>
-import LastWinItem from './LastWinItem.vue';
+import LastWinItem from "./LastWinItem.vue";
 
 const lastWins = [
     {
-        title: 'LeBron James',
+        title: "LeBron James",
         amount: 1500,
-        image: '/assets/images/games/yeti_quest.png',
+        image: "/assets/images/games/yeti_quest.png",
     },
-
-
-
-
 ];
 
 for (let i = 0; i < 40; i++) {
     lastWins.push({
-        title: 'LeBron James',
+        title: "LeBron James",
         amount: 1500,
-        image: '/assets/images/games/yeti_quest.png',
+        image: "/assets/images/games/yeti_quest.png",
     });
 }
 </script>
 <template>
     <div class="relative min-h-[210px] mt-7">
         <div class="container px-5 mx-auto">
-            <div class="absolute h-full -top-6 z-50">
+            <div class="absolute -top-10 z-50 h-full">
                 <div
-                    class="rounded-full py-4 px-6 bg-secondary-sidebar  w-fit backdrop-blur-sm font-bold flex items-center justify-center z-10 gap-2.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                        <circle cx="12" cy="12.5" r="12" fill="#5DDF59" fill-opacity="0.1" />
-                        <circle cx="12" cy="12.5" r="8" fill="#5DDF59" fill-opacity="0.1" />
-                        <circle cx="12" cy="12.5" r="4" fill="#47F260" />
+                    class="w-fit bg-online text-green-light flex z-10 gap-2 justify-center items-center p-2 text-sm font-medium rounded-full"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="18"
+                        viewBox="0 0 17 18"
+                        fill="none"
+                    >
+                        <circle
+                            cx="8.5"
+                            cy="9.5"
+                            r="8"
+                            fill="#5DDF59"
+                            fill-opacity="0.1"
+                        />
+                        <circle cx="8.5" cy="9.5" r="4" fill="#47F260" />
                     </svg>
                     Live Winnings
                 </div>
-
             </div>
         </div>
 
-        <div class="flex bg-secondary-sidebar py-6  gap-2.5 items-center overflow-hidden  w-full absolute top-0 ">
-            <LastWinItem v-for="lastWin in lastWins" :key="lastWin.title" :title="lastWin.title"
-                :amount="lastWin.amount" :image="lastWin.image" />
-            <img src="/assets/images/account/bg/left_shadow.png" alt="left_shadow" srcset="" class="h-full absolute left-0 z-10">
-            <img src="/assets/images/account/bg/right_shadow.png" alt="right_shadow" srcset="" class="h-full absolute z-10 right-0">
+        <div
+            class="flex overflow-hidden absolute top-0 gap-3 items-center py-6 w-full"
+        >
+            <LastWinItem
+                v-for="lastWin in lastWins"
+                :key="lastWin.title"
+                :title="lastWin.title"
+                :amount="lastWin.amount"
+                :image="lastWin.image"
+            />
+            <img
+                src="/assets/images/account/bg/left_shadow.png"
+                alt="left_shadow"
+                srcset=""
+                class="absolute left-0 z-10 h-full"
+            />
+            <img
+                src="/assets/images/account/bg/right_shadow.png"
+                alt="right_shadow"
+                srcset=""
+                class="absolute right-0 z-10 h-full"
+            />
         </div>
     </div>
 </template>
+
+<style scoped></style>

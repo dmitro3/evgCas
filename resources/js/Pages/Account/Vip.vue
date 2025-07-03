@@ -43,13 +43,17 @@ const faqItems = {
 
 <template>
     <MainLayout>
-        <section class="md:px-12 flex flex-col gap-12">
-            <div class="flex  flex-col gap-2.5">
+        <section class="md: flex flex-col gap-12">
+            <div class="flex flex-col gap-2.5">
                 <div
                     class="grid grid-cols-1 xl:grid-cols-2 gap-2.5 container mx-auto w-full"
                 >
-                    <div class="bg-main-container-1  max-md:min-h-[380px] rounded-2xl p-5">
-                        <div class="flex flex-col gap-2.5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]">
+                    <div
+                        class="bg-main-container-1 max-md:min-h-[380px] rounded-2xl p-5"
+                    >
+                        <div
+                            class="flex flex-col gap-2.5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]"
+                        >
                             <div
                                 class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
                             >
@@ -96,7 +100,9 @@ const faqItems = {
                         </div>
                     </div>
                     <div class="bg-main-container-2 rounded-2xl p-5">
-                        <div class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[380px] gap-2.5 max-w-[290px]">
+                        <div
+                            class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[380px] gap-2.5 max-w-[290px]"
+                        >
                             <div
                                 class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
                             >
@@ -171,7 +177,9 @@ const faqItems = {
 
             <div class="container flex flex-col gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Characters</h2>
-                <div class="grid charters max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch">
+                <div
+                    class="grid charters max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch"
+                >
                     <div
                         class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full p-4"
                     >
@@ -223,7 +231,7 @@ const faqItems = {
                                 </div>
                             </div>
                         </div>
-                        <ProgressBar  />
+                        <ProgressBar />
                     </div>
                     <div
                         class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full p-4"
@@ -369,7 +377,7 @@ const faqItems = {
                                 </div>
                             </div>
                         </div>
-                        <ProgressBar    />
+                        <ProgressBar />
                     </div>
                     <div
                         class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between p-4"
@@ -470,7 +478,7 @@ const faqItems = {
                                     </p>
                                 </div>
                             </div>
-                            <ProgressBar  />
+                            <ProgressBar />
                         </div>
                     </div>
                 </div>
@@ -480,7 +488,9 @@ const faqItems = {
             <div class="md:px-5 container flex flex-col w-full gap-6 mx-auto">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
                 <div class="flex gap-2.5 max-md:flex-col">
-                    <div class="md:flex  grid grid-cols-2 md:flex-col md:max-w-[230px] w-full">
+                    <div
+                        class="md:flex grid grid-cols-2 md:flex-col md:max-w-[230px] w-full"
+                    >
                         <div
                             @click="faqTab = 'main'"
                             :class="{ active: faqTab === 'main' }"
@@ -555,7 +565,6 @@ const faqItems = {
 </template>
 
 <style>
-
 p {
     line-height: normal;
 }
@@ -599,5 +608,4 @@ p {
         background-position: bottom;
     }
 }
-
 </style>

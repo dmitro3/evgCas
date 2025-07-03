@@ -10,8 +10,7 @@ onMounted(() => {
         setTimeout(() => {
             progress.value = 50;
         }, 10);
-    }
-    else{
+    } else {
         progress.value = 50;
     }
 });
@@ -40,12 +39,12 @@ const props = defineProps({
     <div
         v-if="!isShowRank"
         :class="{ 'bg-secondary-sidebar': isShowBg }"
-        class="flex flex-1 flex-col gap-2 rounded-2xl"
+        class="flex flex-col flex-1 gap-2 rounded-2xl"
     >
-        <div class="relative h-2 rounded-full overflow-hidden">
-            <div class="w-full h-full bg-secondary-sidebar-dark"></div>
+        <div class="overflow-hidden relative h-2 rounded-full">
+            <div class="bg-secondary-sidebar-dark w-full h-full"></div>
             <div
-                class="absolute top-0 left-0 rounded-full h-full bg-primary"
+                class="bg-primary absolute top-0 left-0 h-full rounded-full"
                 :style="{ width: progress + '%' }"
                 :class="{
                     'progress-animation': isMounted,
@@ -55,23 +54,33 @@ const props = defineProps({
             </div>
         </div>
         <div class="flex justify-between items-center font-semibold">
-            <p class="text-secondary-light/50">0XP</p>
-            <p class="text-secondary-light/50">100XP</p>
+            <div class="flex gap-2 items-center">
+                <img
+                    src="/assets/images/account/vip/ranks/silver1.png"
+                    alt=""
+                    srcset=""
+                    class="flex-shrink-0 h-10"
+                />
+                <p class="text-secondary-light/50">0XP</p>
+            </div>
+            <div>
+                <p class="text-secondary-light/50">100XP</p>
+            </div>
         </div>
     </div>
     <div
         v-else
         :class="{ 'bg-secondary-sidebar': isShowBg, 'p-4': isPadding }"
-        class="flex flex-1 flex-col gap-2 rounded-2xl"
+        class="flex flex-col flex-1 gap-2 rounded-2xl"
     >
-        <div class="w-full flex justify-between items-center">
+        <div class="flex justify-between items-center w-full">
             <p class="font-extrabold">SILVER I</p>
             <p class="font-extrabold">SILVER II</p>
         </div>
-        <div class="relative h-2 rounded-full overflow-hidden">
-            <div class="w-full h-full bg-secondary-sidebar-dark"></div>
+        <div class="overflow-hidden relative h-2 rounded-full">
+            <div class="bg-secondary-sidebar-dark w-full h-full"></div>
             <div
-                class="absolute top-0 left-0 rounded-full h-full bg-primary"
+                class="bg-primary absolute top-0 left-0 h-full rounded-full"
                 :style="{ width: progress + '%' }"
                 :class="{ 'progress-animation': isMounted }"
             >

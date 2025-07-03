@@ -16,17 +16,25 @@ const toggleNotify = () => {
 };
 
 // Watch for balance changes with animation
-watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
-    if (oldBalance !== undefined && newBalance !== oldBalance && oldBalance !== null) {
-        previousBalance.value = oldBalance;
-        isBalanceChanged.value = true;
+watch(
+    () => userStore.user?.balance,
+    (newBalance, oldBalance) => {
+        if (
+            oldBalance !== undefined &&
+            newBalance !== oldBalance &&
+            oldBalance !== null
+        ) {
+            previousBalance.value = oldBalance;
+            isBalanceChanged.value = true;
 
-        // Reset animation after duration
-        setTimeout(() => {
-            isBalanceChanged.value = false;
-        }, 1000);
-    }
-}, { immediate: true });
+            // Reset animation after duration
+            setTimeout(() => {
+                isBalanceChanged.value = false;
+            }, 1000);
+        }
+    },
+    { immediate: true }
+);
 </script>
 
 <template>
@@ -42,7 +50,7 @@ watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
                 src="/assets/images/aside/test-logo.svg"
                 class="md:hidden"
             />
-            <div class="max-xl:hidden flex gap-10 h-full">
+            <div class="max-xl:hidden flex overflow-hidden gap-10 px-6 h-full">
                 <Link href="/" class="nav-element">
                     <svg
                         width="24"
@@ -127,9 +135,14 @@ watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
                     VIP Club
                 </Link>
             </div>
-            <div v-if="!userStore.isAuth" class="flex gap-4 items-center uppercase">
+            <div
+                v-if="!userStore.isAuth"
+                class="flex gap-4 items-center uppercase"
+            >
                 <Link class="text-[16px]" href="/login">Sign in</Link>
-                <Link href="/register" class="btn btn-primary px-6 py-3 text-[16px]"
+                <Link
+                    href="/register"
+                    class="btn btn-primary px-6 py-3 text-[16px]"
                     >Register</Link
                 >
             </div>
@@ -150,11 +163,12 @@ watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
                             <p
                                 class="text-nowrap text-base font-semibold leading-none transition-all duration-500"
                                 :class="{
-                                    'text-green-400 scale-110': isBalanceChanged,
-                                    'text-white': !isBalanceChanged
+                                    'text-green-400 scale-110':
+                                        isBalanceChanged,
+                                    'text-white': !isBalanceChanged,
                                 }"
                             >
-                                $ {{ userStore.currentUser?.balance || '0.00' }}
+                                $ {{ userStore.currentUser?.balance || "0.00" }}
                             </p>
                         </div>
                         <Link href="/account/wallet" class="relative">
@@ -170,7 +184,6 @@ watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
                     @click="toggleNotify"
                     class="notify-container-icon flex-shrink-0 px-4 py-3.5 rounded-xl"
                 >
-
                     <svg
                         v-if="userStore.user?.notifications_count > 0"
                         width="22"
