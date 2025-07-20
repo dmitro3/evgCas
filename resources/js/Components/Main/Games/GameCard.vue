@@ -7,14 +7,14 @@ const props = defineProps({
 </script>
 
 <template>
-    <Link :href="`/play/slot/${game.id}`" class="relative max-h-[350px] hover:translate-y-[-5px] cursor-pointer transition-all duration-300 rounded-2xl overflow-hidden">
+    <Link :href="`${game.type === 'slot' ? '/play/slot/' + game.id : game.route}`" class="relative max-h-[350px] hover:translate-y-[-5px] cursor-pointer transition-all duration-300 rounded-2xl overflow-hidden">
         <img
             :src="game.image"
             :alt="game.name"
             srcset=""
             class="object-cover w-full h-full"
         />
-        <div class="top-2 right-2 absolute">
+        <div class="absolute top-2 right-2">
             <div class="rtp-percentage">
                 <svg
                 width="17"

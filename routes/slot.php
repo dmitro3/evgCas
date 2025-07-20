@@ -17,6 +17,7 @@ Route::prefix('api/slots')->withoutMiddleware([\Illuminate\Foundation\Http\Middl
             $user = auth()->user();
 
             $slot = Slot::where('id_game', $request->symbol)->first();
+
             $session = $user->slotSessions()->where('slot_id', $slot->id)->first();
             if (!$session) {
                 $session = $apiSlotService->createSession(

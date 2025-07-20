@@ -10,14 +10,14 @@ const isMobile = ref(window.innerWidth < 768);
 <template>
     <div class="flex flex-col gap-12">
 
-        <div class="flex flex-col gap-8 ">
-            <div class="flex items-center bg-secondary-sidebar-dark p-2 rounded-xl w-fit gap-2">
+        <div class="flex flex-col gap-8">
+            <div class="bg-secondary-sidebar-dark w-fit flex gap-2 items-center p-2 rounded-xl">
                 <button :class="{'active': activeTabTransactions === 'deposit'}"
-                        @click="activeTabTransactions = 'deposit'" class="btn btn-sidebar font-bold px-5">
+                        @click="activeTabTransactions = 'deposit'" class="btn btn-sidebar px-5 font-bold">
                     Deposit
                 </button>
                 <button :class="{'active': activeTabTransactions === 'withdraw'}"
-                        @click="activeTabTransactions = 'withdraw'" class="btn btn-sidebar font-bold px-5">
+                        @click="activeTabTransactions = 'withdraw'" class="btn btn-sidebar px-5 font-bold">
                     Withdraw
                 </button>
             </div>
@@ -62,7 +62,7 @@ const isMobile = ref(window.innerWidth < 768);
             </tbody>
         </table>
         <div v-else class="flex flex-col gap-4">
-            <div class="flex items-center uppercase justify-between text-sm font-bold">
+            <div class="flex justify-between items-center text-sm font-bold uppercase">
                 <p class="text-secondary-light/50">
                     Method/time
                 </p>
@@ -71,9 +71,9 @@ const isMobile = ref(window.innerWidth < 768);
                 </p>
             </div>
 
-            <div class="flex flex-col gap-2 py-5 px-4 bg-secondary-sidebar rounded-xl">
-                <div class="flex flex-col  gap-4">
-                    <div class="flex items-center font-bold justify-between">
+            <div class="bg-secondary-sidebar flex flex-col gap-2 px-4 py-5 rounded-xl">
+                <div class="flex flex-col gap-4">
+                    <div class="flex justify-between items-center font-bold">
                         <span>
                             USDT TRC20 to Rc...
                         </span>
@@ -84,11 +84,11 @@ const isMobile = ref(window.innerWidth < 768);
                     <div class="h-[1px] bg-secondary-light/5 w-full">
 
                     </div>
-                    <div class="flex items-center font-bold justify-between">
+                    <div class="flex justify-between items-center font-bold">
                         <span>
                            05.11.2024 16:30
                         </span>
-                        <span class=" completed">
+                        <span class="completed">
                             Completed
                         </span>
                     </div>
@@ -101,9 +101,7 @@ const isMobile = ref(window.innerWidth < 768);
 </template>
 
 <style>
-.method-pay {
-    @apply flex flex-col gap-5 items-center justify-center font-extrabold py-3 bg-secondary transition-all duration-300 hover:bg-secondary-sidebar-light cursor-pointer rounded-xl
-}
+
 
 .btn-switch {
     text-align: center;

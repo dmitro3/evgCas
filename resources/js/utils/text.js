@@ -8,3 +8,17 @@ export function formatNumber(number) {
 export function copyText(text) {
     navigator.clipboard.writeText(text);
 }
+
+export function getCryptoIcon(symbol) {
+    const iconMap = {
+        'BTC': 'btc',
+        'ETH': 'eth',
+        'USDTTRC20': 'usdt',
+        'USDTERC20': 'usdt',
+        'BNB': 'binance',
+        'SOL': 'sol',
+        'TRX': 'trx',
+        'XRP': 'ripple'
+    };
+    return iconMap[symbol] || symbol.toLowerCase();
+};

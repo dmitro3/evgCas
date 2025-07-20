@@ -1,17 +1,17 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { defineProps } from "vue";
-const progress = ref(0);
+
 const isMounted = ref(false);
 
 onMounted(() => {
     isMounted.value = true;
     if (props.isAnimated) {
         setTimeout(() => {
-            progress.value = 50;
+            progress.value = props.progress;
         }, 10);
     } else {
-        progress.value = 50;
+        progress.value = props.progress;
     }
 });
 
@@ -19,6 +19,10 @@ const props = defineProps({
     isShowRank: {
         type: Boolean,
         default: false,
+    },
+    progress: {
+        type: Number,
+        default: 0,
     },
     isShowBg: {
         type: Boolean,
@@ -32,13 +36,26 @@ const props = defineProps({
         type: Boolean,
         default: true,
     },
+    isShowXP: {
+        type: Boolean,
+        default: true,
+    },
+    bgColor: {
+        type: String,
+        default: 'bg-secondary-sidebar',
+    },
+    xpRange: {
+        type: Array,
+        default: () => [0, 100],
+    },
 });
+const progress = ref(props.progress);
 </script>
 
 <template>
     <div
         v-if="!isShowRank"
-        :class="{ 'bg-secondary-sidebar': isShowBg }"
+        :class="{ [bgColor]: isShowBg }"
         class="flex flex-col flex-1 gap-2 rounded-2xl"
     >
         <div class="overflow-hidden relative h-2 rounded-full">
@@ -53,7 +70,7 @@ const props = defineProps({
                 <div class="absolute inset-0 animate-pulse"></div>
             </div>
         </div>
-        <div class="flex justify-between items-center font-semibold">
+        <div v-if="isShowXP" class="flex justify-between items-center font-semibold">
             <div class="flex gap-2 items-center">
                 <img
                     src="/assets/images/account/vip/ranks/silver1.png"
@@ -61,10 +78,11 @@ const props = defineProps({
                     srcset=""
                     class="flex-shrink-0 h-10"
                 />
-                <p class="text-secondary-light/50">0XP</p>
+                <p class="text-secondary-light/50">{{ xpRange[0] }}XP</p>
             </div>
-            <div>
-                <p class="text-secondary-light/50">100XP</p>
+            <div class="flex flex-shrink-0 items-center">
+                <img src="/assets/images/account/vip/ranks/silver2.png" alt="" srcset="" class="flex-shrink-0 h-10">
+                <p class="text-secondary-light/50">{{ xpRange[1] }}XP</p>
             </div>
         </div>
     </div>
@@ -87,9 +105,15 @@ const props = defineProps({
                 <div class="absolute inset-0 animate-pulse"></div>
             </div>
         </div>
-        <div class="flex justify-between items-center font-semibold">
-            <p class="text-secondary-light/50">0XP</p>
-            <p class="text-secondary-light/50">100XP</p>
+        <div v-if="isShowXP" class="flex justify-between items-center pt-2 font-semibold">
+            <div class="flex gap-2 items-center">
+                <img src="/assets/images/account/vip/ranks/silver1.png" alt="" srcset="" class="flex-shrink-0 h-7">
+                <p class="text-secondary-light/50">{{ xpRange[0] }}XP</p>
+            </div>
+            <div class="flex gap-2 items-center">
+                <img src="/assets/images/account/vip/ranks/silver1.png" alt="" srcset="" class="flex-shrink-0 h-7">
+                <p class="text-secondary-light/50">{{ xpRange[1] }}XP</p>
+            </div>
         </div>
     </div>
 </template>

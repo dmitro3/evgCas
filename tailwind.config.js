@@ -13,7 +13,7 @@ export default {
     theme: {
         extend: {
             screens: {
-                sm: "365px",
+                sm: "358px",
                 md: "976px",
                 lg: "1024px",
                 xl: "1380px",
@@ -28,6 +28,7 @@ export default {
                 "secondary-sidebar": "#1A2446",
                 "secondary-sidebar-light": "#27376C",
                 "secondary-sidebar-light-2": "#202C55",
+                "secondary-sidebar-light-3": "#222C51",
                 background: "#141B35",
                 orange: "#FF9429",
                 green: "#5DDF59",

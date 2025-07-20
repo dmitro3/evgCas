@@ -7,7 +7,7 @@ import StatisticCard from "../Components/Main/MainPage/StatisticCard.vue";
 import FaqItem from "../Components/Main/Global/FaqItem.vue";
 import CardContainerMobile from "@/Components/Main/MainPage/CardContainerMobile.vue";
 import CardContainerPC from "@/Components/Main/MainPage/CardContainerPC.vue";
-
+import { Link } from "@inertiajs/vue3";
 const faqItems = [
     {
         question: "Who is Domain?",
@@ -206,137 +206,117 @@ const faqItems = [
                     />
                 </div>
             </div>
-            <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">Secure Deposit</h2>
-                <div
-                    class="flex h-full max-md:flex-col items-center justify-between overflow-hidden max-md:min-h-[600px] max-md:items-start max-md:justify-center relative bg-secondary-sidebar rounded-2xl w-full"
-                >
-                    <div class="p-8">
-                        <div
-                            class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10"
-                        >
-                            <div class="flex flex-col max-w-[300px] gap-2">
-                                <h3 class="text-2xl font-bold">
-                                    Reliable deposit of crypto and local
-                                    currencies
-                                </h3>
-                                <p class="text-secondary-light/50">
-                                    Safety and speed are our priorities. We
-                                    offer a reliable withdraw system
-                                </p>
-                            </div>
-                            <button class="btn btn-primary w-fit px-6">
-                                Deposit
-                            </button>
-                        </div>
-                    </div>
-                    <CardContainerMobile></CardContainerMobile>
-                    <CardContainerPC></CardContainerPC>
-                </div>
-            </div>
-            <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">VIP Club</h2>
-                <div
-                    class="p-8 flex justify-between max-md:min-h-[900px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl vip-image"
-                >
-                    <div
-                        class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10"
-                    >
-                        <div class="flex flex-col max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">
-                                See your rewards grow as a Domain VIP
-                            </h3>
-                            <p class="text-secondary-light/50">
-                                Become a part of the VIP CLUB and get access to
-                                unique benefits
-                            </p>
-                        </div>
-                        <button class="btn btn-orange w-fit px-6">
-                            <svg
-                                width="20"
-                                height="21"
-                                viewBox="0 0 20 21"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M18.3329 5.25857V13.2419C18.3329 15.5419 16.4663 17.4086 14.1663 17.4086H5.83294C5.44961 17.4086 5.08294 17.3586 4.72461 17.2586C4.20794 17.1169 4.04128 16.4586 4.42461 16.0752L13.2829 7.21691C13.4663 7.03357 13.7413 6.99191 13.9996 7.04191C14.2663 7.09191 14.5579 7.01691 14.7663 6.81691L16.9079 4.66691C17.6913 3.88357 18.3329 4.14191 18.3329 5.25857Z"
-                                    fill="#FFF5ED"
-                                />
-                                <path
-                                    d="M12.1998 6.63262L3.47484 15.3576C3.07484 15.7576 2.40817 15.6576 2.1415 15.1576C1.83317 14.5909 1.6665 13.9326 1.6665 13.2409V5.25762C1.6665 4.14095 2.30817 3.88262 3.0915 4.66595L5.2415 6.82428C5.5665 7.14095 6.09984 7.14095 6.42484 6.82428L9.40817 3.83262C9.73317 3.50762 10.2665 3.50762 10.5915 3.83262L12.2082 5.44928C12.5248 5.77428 12.5248 6.30762 12.1998 6.63262Z"
-                                    fill="#FFF5ED"
-                                />
-                            </svg>
 
-                            VIP Club
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">Support</h2>
-                <div
-                    class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl support-image"
-                >
+            <div
+                class="container flex flex-col gap-2.5 justify-center items-center mx-auto"
+            >
+                <div class="max-md:grid-cols-1 grid grid-cols-2 gap-2.5 w-full">
                     <div
-                        class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10"
+                        class="bg-secondary-sidebar overflow-hidden relative p-6 w-full rounded-2xl"
                     >
-                        <div class="flex flex-col max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">
+                        <div class="flex z-50 flex-col gap-4 max-w-[320px]">
+                            <p
+                                class="text-secondary-light/50 font-semibold uppercase"
+                            >
+                                Secure deposit
+                            </p>
+                            <p class="text-2xl font-bold text-white">
+                                Reliable deposit of crypto and local currencies
+                            </p>
+                            <p class="text-secondary-light/50">
+                                Fast, secure cryptocurrency deposits and
+                                withdrawals - your comfort and privacy
+                            </p>
+                            <Link
+                                class="btn btn-primary w-fit z-50 px-6"
+                                href="/account/wallet"
+                            >
+                                Deposit
+                            </Link>
+                        </div>
+                        <CardContainerPC></CardContainerPC>
+                        <CardContainerMobile></CardContainerMobile>
+                        <div class="shadow_card"></div>
+                    </div>
+                    <div
+                        class="bg-secondary-sidebar support-image overflow-hidden relative p-6 w-full rounded-2xl"
+                    >
+                        <div class="flex flex-col gap-4 max-w-[320px]">
+                            <p
+                                class="text-secondary-light/50 font-semibold uppercase"
+                            >
+                                support
+                            </p>
+                            <p class="text-2xl font-bold text-white">
                                 Get 24/7 online help from our support team
-                            </h3>
+                            </p>
                             <p class="text-secondary-light/50">
                                 Ask a question in a language that is convenient
                                 for you
                             </p>
-                        </div>
-                        <button class="btn btn-primary w-fit px-6">
-                            <svg
-                                width="20"
-                                height="21"
-                                viewBox="0 0 20 21"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                            <Link
+                                class="btn btn-primary w-fit z-50 px-6"
+                                href="/account/wallet"
                             >
-                                <path
-                                    d="M15.3913 14.5253L15.7163 17.1587C15.7997 17.8503 15.058 18.3337 14.4663 17.9753L11.583 16.2587C11.383 16.142 11.333 15.892 11.4413 15.692C11.858 14.9253 12.083 14.0587 12.083 13.192C12.083 10.142 9.46633 7.65866 6.24967 7.65866C5.59133 7.65866 4.94967 7.75866 4.34967 7.95866C4.04133 8.05866 3.74133 7.77533 3.81633 7.45866C4.57467 4.42533 7.49133 2.16699 10.9747 2.16699C15.0413 2.16699 18.333 5.24199 18.333 9.03366C18.333 11.2837 17.1747 13.2753 15.3913 14.5253Z"
-                                    fill="#E8EDFF"
-                                />
-                                <path
-                                    d="M10.8332 13.1915C10.8332 14.1832 10.4665 15.0999 9.84984 15.8249C9.02484 16.8249 7.7165 17.4665 6.24984 17.4665L4.07484 18.7582C3.70817 18.9832 3.2415 18.6749 3.2915 18.2499L3.49984 16.6082C2.38317 15.8332 1.6665 14.5915 1.6665 13.1915C1.6665 11.7249 2.44984 10.4332 3.64984 9.66654C4.3915 9.1832 5.28317 8.9082 6.24984 8.9082C8.78317 8.9082 10.8332 10.8249 10.8332 13.1915Z"
-                                    fill="#E8EDFF"
-                                />
-                            </svg>
+                                <svg
+                                    class="!opacity-100"
+                                    width="20"
+                                    height="21"
+                                    viewBox="0 0 20 21"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M15.3913 14.7372L15.7163 17.3706C15.7997 18.0622 15.058 18.5456 14.4663 18.1872L11.583 16.4706C11.383 16.3539 11.333 16.1039 11.4413 15.9039C11.858 15.1372 12.083 14.2706 12.083 13.4039C12.083 10.3539 9.46633 7.87057 6.24967 7.87057C5.59133 7.87057 4.94967 7.97057 4.34967 8.17057C4.04133 8.27057 3.74133 7.98724 3.81633 7.67057C4.57467 4.63724 7.49133 2.37891 10.9747 2.37891C15.0413 2.37891 18.333 5.45391 18.333 9.24557C18.333 11.4956 17.1747 13.4872 15.3913 14.7372Z"
+                                        fill="#E8EDFF"
+                                    />
+                                    <path
+                                        d="M10.8332 13.4034C10.8332 14.3951 10.4665 15.3118 9.84984 16.0368C9.02484 17.0368 7.7165 17.6785 6.24984 17.6785L4.07484 18.9701C3.70817 19.1951 3.2415 18.8868 3.2915 18.4618L3.49984 16.8201C2.38317 16.0451 1.6665 14.8034 1.6665 13.4034C1.6665 11.9368 2.44984 10.6451 3.64984 9.87845C4.3915 9.39512 5.28317 9.12012 6.24984 9.12012C8.78317 9.12012 10.8332 11.0368 10.8332 13.4034Z"
+                                        fill="#E8EDFF"
+                                    />
+                                </svg>
 
-                            Register & Write to Us
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">Original Games</h2>
-                <div
-                    class="p-8 flex justify-between max-md:min-h-[630px] max-md:items-start max-md:justify-center items-center bg-secondary-sidebar rounded-2xl games-image"
-                >
-                    <div
-                        class="max-md:items-center max-md:text-center flex flex-col flex-shrink-0 gap-10"
-                    >
-                        <div class="flex flex-col max-w-[300px] gap-2">
-                            <h3 class="text-2xl font-bold">
-                                Enjoy the original games from Domain
-                            </h3>
-                            <p class="text-secondary-light/50">
-                                Discover the world of original Domain casino
-                                games!
-                            </p>
+                                Reach support
+                            </Link>
                         </div>
-                        <TakeBonus background="bg-secondary-sidebar-light" />
+
+                        <div class="shadow_card"></div>
                     </div>
+                </div>
+                <div
+                    class="bg-secondary-sidebar games-image overflow-hidden relative p-6 w-full rounded-2xl"
+                >
+                    <div class="flex z-50 flex-col gap-4 max-w-[320px]">
+                        <p
+                            class="text-secondary-light/50 font-semibold uppercase"
+                        >
+                            original games
+                        </p>
+                        <p class="text-2xl font-bold text-white">
+                            Enjoy the original games from Domain
+                        </p>
+                        <p class="text-secondary-light/50">
+                            Unique gameplay and exciting features only in
+                            exclusive Domain Originals games
+                        </p>
+                        <TakeBonus></TakeBonus>
+                    </div>
+
+                    <div class="shadow_card"></div>
                 </div>
             </div>
             <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
+                <div
+                    class="flex z-50 flex-col gap-4 justify-center items-center text-center"
+                >
+                    <h2 class="text-2xl font-bold">
+                        Frequently Asked Questions
+                    </h2>
+                    <p class="text-white/75">
+                        Here, you’ll find answers to the most common questions
+                        about our platform, games, payments, and more
+                    </p>
+                </div>
                 <div class="flex flex-col gap-3">
                     <FaqItem
                         v-for="item in faqItems"

@@ -20,6 +20,11 @@ const props = defineProps({
         default: [],
         required: false,
     },
+    fiat_merchants: {
+        type: Array,
+        default: [],
+        required: false,
+    },
 });
 
 const activeTab = ref(props.activeTab);
@@ -28,39 +33,26 @@ const activeTab = ref(props.activeTab);
 </script>
 <template>
     <MainLayout>
-        <div class="container flex flex-col gap-6 px-5 mx-auto">
+        <div class="container flex flex-col gap-6 mx-auto">
             <ProfileBanner v-if="activeTab !== 'bonus'"/>
             <div v-else
-                 class="bonus_banner bg-secondary-sidebar max-md:min-h-[605px] container flex-col mx-auto p-8 rounded-2xl">
+                 class="bonus_banner bg-secondary-sidebar max-md:min-h-[525px] container flex-col mx-auto p-7 rounded-2xl">
                 <div
                     class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px]">
-                    <div class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_102_4036)">
-                                <path
-                                    d="M6.85023 11.4535V13.4031C6.12417 13.4031 5.64014 13.8905 5.64014 14.6215C5.64014 15.3526 6.12417 15.84 6.85023 15.84H9.27039C9.99644 15.84 10.4805 15.3526 10.4805 14.6215C10.4805 13.8905 9.99644 13.4031 9.27039 13.4031V11.4535C9.87544 11.9409 10.7225 12.1846 11.4485 12.1846C12.4166 12.1846 13.3847 11.8191 14.1107 11.088C14.8368 10.3569 15.1998 9.38215 15.1998 8.40738C15.1998 7.43261 14.8368 6.45785 14.1107 5.72677L8.90737 0.365538C8.42333 -0.121846 7.69728 -0.121846 7.21325 0.365538L1.88888 5.60492C1.16283 6.336 0.799805 7.31077 0.799805 8.28554C0.799805 9.26031 1.16283 10.2351 1.88888 10.9662C3.21997 12.4283 5.39812 12.5502 6.85023 11.4535Z"
-                                    fill="#C7D3FF" fill-opacity="0.5"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_102_4036">
-                                    <rect width="16" height="16" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </svg>
-                        DOMAIN
-                    </div>
+
                     <div class="flex flex-col gap-2">
-                        <h1 class="text-2xl md:text-4xl max-w-[290px] font-bold text-white">
-                            Get Your Bonus For Free!
+                        <h1 class="text-2xl md:text-3xl  max-w-[270px] font-bold text-white">
+                            Get Your Welcome
+                            Bonus For Free!
                         </h1>
-                        <p class="text-secondary-light/50 md:text-lg">
+                        <p class="text-secondary-light/50">
                             Get a generous welcome bonus from our partners and us
                         </p>
                     </div>
                     <TakeBonus background="bg-secondary-sidebar-light"/>
                 </div>
             </div>
-            <div class="md:flex grid items-center grid-cols-2 gap-2">
+            <div class="md:flex grid grid-cols-2 gap-2 items-center">
                 <Link href="/account/wallet" class="btn btn-sidebar" :class="{ 'active': activeTab === 'wallet' }">
 
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,7 +108,7 @@ const activeTab = ref(props.activeTab);
                 </Link>
 
             </div>
-            <Wallet v-if="activeTab === 'wallet' " :wallets="wallets"/>
+            <Wallet v-if="activeTab === 'wallet' " :wallets="wallets" :fiat_merchants="fiat_merchants"/>
             <Verification v-if="activeTab === 'verification'"/>
             <Setting v-if="activeTab === 'settings'"/>
             <Bonus v-if="activeTab === 'bonus'"/>
@@ -129,7 +121,7 @@ const activeTab = ref(props.activeTab);
 .bonus_banner {
     background-image: url('/assets/images/account/bg/bonus_banner.png');
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: top;
     background-size: cover;
 }
 

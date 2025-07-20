@@ -33,6 +33,7 @@ class AddSlot extends Command
         $description = $this->ask('Введите описание слота (необязательно)', null);
         $image = $this->ask('Введите путь к изображению слота');
         $route = $this->ask('Введите маршрут слота');
+        $type = $this->ask('Введите тип слота (slot, original_game, other_game)', 'slot');
         $isActive = $this->confirm('Слот активен?', true);
 
         try {
@@ -42,6 +43,7 @@ class AddSlot extends Command
                 'description' => $description,
                 'image' => $image,
                 'route' => $route,
+                'type' => $type,
                 'is_active' => $isActive,
             ]);
 

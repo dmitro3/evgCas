@@ -118,5 +118,16 @@ export const useUserStore = defineStore("user", {
                 return error;
             }
         },
+        async createWithdrawal($withdraw_data) {
+            try {
+                const response = await axiosClient.post("/account/withdraw/create", $withdraw_data);
+                return response;
+            } catch (error) {
+                this.errors = error.response?.data?.errors || {
+                    message: "Error create withdrawal",
+                };
+                return error;
+            }
+        },
     },
 });

@@ -11,6 +11,7 @@ class Currency extends Model
         'symbol',
         'network',
         'min_deposit',
+        'rate',
     ];
 
     public function userWallets()

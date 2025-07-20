@@ -2,21 +2,28 @@
 
 use App\Http\Service\System\Westwallet\GenerateWallet;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
-use App\Models\Slot;
 
+use App\Models\Slot;
+use App\Models\Rank;
 Route::get('/', function () {
     return Inertia::render('Main');
 })->name('main');
-Route::get('/games', function () {
-    $slots = Slot::all();
-    return Inertia::render('PlayPage', [
-        'slots' => $slots
-    ]);
-})->name('games');
+
 Route::get('/vip', function () {
-    return Inertia::render('Account/Vip');
-});
+    $user = Auth::user();
+
+    if (!$user) {
+        return redirect()->route('login');
+    }
+
+    return Inertia::render('Account/Vip', [
+        'ranks' => $user->current_ranks,
+        'userXp' => $user->xp ?? 0,
+        'vipProgress' => $user->vip_progress,
+    ]);
+})->middleware('auth');
 
 Route::get('/test', function () {
     $generateWallet = new GenerateWallet();

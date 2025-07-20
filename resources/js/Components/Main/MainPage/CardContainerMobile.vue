@@ -3,14 +3,12 @@
 </script>
 
 <template>
-    <div class="w-full h-full relative flex-1 flex-shrink-0 z-40 flex md:hidden justify-end items-center ">
-        <img src="/assets/images/account/bg/bottom_shadow.png" alt="bottom_shadow" class="absolute -bottom-8 left-0 w-full max-h-20 h-full z-50">
-        <div class=" w-full flex min-h-[190px] justify-end h-full  ">
-            <div class="relative h-full min-h-[190px] z-20 w-full flex-shrink-0 max-w-[320px]">
+    <div class="md:hidden flex relative z-40 flex-1 flex-shrink-0 justify-start items-start w-full h-full">
+        <div class="w-full flex min-h-[150px] justify-center h-full">
+            <div class="absolute h-full left-1/2 -translate-x-1/2 ] z-20 w-full flex-shrink-0 max-w-[150px]">
                 <div
-                    style="rotate: -9.5deg;"
-                    class="min-h-[220px] flex-shrink-0 left-[650px] -bottom-36 absolute deposit_card_eth max-w-[320px] px-6 py-8  w-full">
-                    <div class="mix-blend-soft-light flex gap-2 text-lg font-extrabold  items-center">
+                    class="min-h-[150px]  flex-shrink-0  absolute deposit_card_eth  max-w-[150px] py-6 px-3  w-full">
+                    <div class="flex gap-2 items-center text-xs font-extrabold mix-blend-soft-light">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">
@@ -28,11 +26,10 @@
                     </div>
                 </div>
             </div>
-            <div class="relative min-h-[190px] z-10 w-full flex-shrink-0 max-w-[320px]">
+            <div class="absolute min-h-[150px] z-10 w-full flex-shrink-0 max-w-[150px]">
                 <div
-                    style="rotate: 8deg;"
-                    class="min-h-[220px] flex-shrink-0 left-56 absolute top-1/2 -translate-y-1/2 deposit_card_usdt max-w-[320px] py-8 px-6  w-full">
-                    <div class="mix-blend-soft-light flex gap-2 text-lg font-extrabold  items-center">
+                    class="min-h-[150px] flex-shrink-0 top-20 -left-24 absolute deposit_card_usdt max-w-[150px] py-6 px-3  w-full">
+                    <div class="flex gap-2 items-center text-xs font-extrabold mix-blend-soft-light">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">
@@ -50,11 +47,10 @@
                     </div>
                 </div>
             </div>
-            <div class="relative z-0 min-h-[190px] w-full flex-shrink-0 max-w-[320px]">
+            <div class="relative z-0 min-h-[150px] w-full flex-shrink-0 max-w-[150px]">
                 <div
-                    style="rotate: -22deg;"
-                    class="min-h-[220px] flex-shrink-0 -top-24 absolute deposit_card_btc  max-w-[320px] px-6 py-8 -right-36   w-full">
-                    <div class="mix-blend-soft-light flex gap-2 text-lg font-extrabold  items-center">
+                    class="min-h-[150px] flex-shrink-0 top-20 left-24 absolute deposit_card_btc  max-w-[150px] py-6 px-3   w-full">
+                    <div class="flex gap-2 items-center text-xs font-extrabold mix-blend-soft-light">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">

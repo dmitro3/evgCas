@@ -10,12 +10,15 @@ const userStore = useUserStore();
 const isOpenNotify = ref(false);
 const previousBalance = ref(0);
 const isBalanceChanged = ref(false);
+const isSlot = ref(false);
+onMounted(() => {
+    isSlot.value = window.location.pathname.includes('play/slot');
+});
 
 const toggleNotify = () => {
     isOpenNotify.value = !isOpenNotify.value;
 };
 
-// Watch for balance changes with animation
 watch(
     () => userStore.user?.balance,
     (newBalance, oldBalance) => {
@@ -137,12 +140,12 @@ watch(
             </div>
             <div
                 v-if="!userStore.isAuth"
-                class="flex gap-4 items-center uppercase"
+                class="flex gap-4 items-center"
             >
-                <Link class="text-[16px]" href="/login">Sign in</Link>
+                <Link class="text-[15px]" href="/login">Sign in</Link>
                 <Link
                     href="/register"
-                    class="btn btn-primary px-6 py-3 text-[16px]"
+                    class="btn btn-primary px-6 py-3 text-[15px]"
                     >Register</Link
                 >
             </div>
@@ -158,7 +161,8 @@ watch(
                             <p
                                 class="text-secondary-light/50 text-nowrap text-sm leading-none"
                             >
-                                Your balance
+                            Your balance
+
                             </p>
                             <p
                                 class="text-nowrap text-base font-semibold leading-none transition-all duration-500"
@@ -168,7 +172,7 @@ watch(
                                     'text-white': !isBalanceChanged,
                                 }"
                             >
-                                $ {{ userStore.currentUser?.balance || "0.00" }}
+                                {{ isSlot ? "In game" :   "$" + (userStore.currentUser?.balance || "$ 0.00") }}
                             </p>
                         </div>
                         <Link href="/account/wallet" class="relative">
@@ -182,7 +186,7 @@ watch(
                 </div>
                 <div
                     @click="toggleNotify"
-                    class="notify-container-icon flex-shrink-0 px-4 py-3.5 rounded-xl"
+                    class="notify-container-icon max-md:hidden flex-shrink-0 px-4 py-3.5 rounded-xl"
                 >
                     <svg
                         v-if="userStore.user?.notifications_count > 0"

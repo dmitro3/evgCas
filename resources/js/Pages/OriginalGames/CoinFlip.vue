@@ -95,7 +95,7 @@ const displayResult = () => {
                                 </div>
                                 <div class="coof_text">{{ coinFlipStore.currentMultiplier.toFixed(2) }}×</div>
                             </div>
-                                                        <div
+                            <div
                                 class="max-w-[200px] max-h-[200px] w-full h-full coin-container"
                                 :class="{ 'flipping': coinFlipStore.flipAnimation === 'flipping' }"
                             >
@@ -116,7 +116,7 @@ const displayResult = () => {
                                         src="/assets/images/OriginalGames/Flip/tails.png"
                                         class="w-[200px] h-[200px] coin-side coin-tails"
                                         alt="Tails"
-                                    />
+                                />
                                 </div>
                             </div>
                                                          <div class="text-secondary-light/50 mx-auto text-2xl font-bold">

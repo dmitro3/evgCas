@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('symbol')->unique()->index();
             $table->string('network')->nullable();
             $table->decimal('min_deposit', 15, 8)->default(0);
+            $table->string('rate')->nullable();
             $table->timestamps();
         });
         DB::table('currencies')->insert([

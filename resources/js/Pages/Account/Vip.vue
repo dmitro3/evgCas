@@ -6,8 +6,16 @@ import FaqItem from "../../Components/Main/Global/FaqItem.vue";
 import ProgressBar from "../../Components/Main/Global/ProgressBar.vue";
 import SupportBanner from "../../Components/Main/Global/SupportBanner.vue";
 import CharactersSlider from "../../Components/Sliders/CharactersSlider.vue";
-const faqTab = ref("main");
+import VipRank from "../../Components/Main/Global/VipRank.vue";
+import { usePage } from "@inertiajs/vue3";
+const user = usePage().props.auth.user;
+const props = defineProps({
+    ranks: Array,
+    userXp: Number,
+    vipProgress: Number,
+});
 
+const faqTab = ref("main");
 const faqItems = {
     main: [
         {
@@ -39,455 +47,634 @@ const faqItems = {
         },
     ],
 };
+
+const progress = ref(props.vipProgress || 0);
+const currentRank = ref(user.current_ranks[0]?.type || "silver");
 </script>
 
 <template>
     <MainLayout>
         <section class="md: flex flex-col gap-12">
             <div class="flex flex-col gap-2.5">
-                <div
-                    class="grid grid-cols-1 xl:grid-cols-2 gap-2.5 container mx-auto w-full"
-                >
+                <div class="container grid grid-cols-1 gap-2.5 mx-auto w-full">
                     <div
-                        class="bg-main-container-1 max-md:min-h-[380px] rounded-2xl p-5"
+                        class="bg-main-container-2 p-6 rounded-xl min-h-[250px]"
                     >
                         <div
-                            class="flex flex-col gap-2.5 max-md:items-center max-md:text-center max-md:justify-center max-w-[290px]"
+                            class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[500px] gap-2.5 max-w-[380px]"
                         >
-                            <div
-                                class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
-                            >
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <g clip-path="url(#clip0_102_4036)">
-                                        <path
-                                            d="M6.85023 11.4535V13.4031C6.12417 13.4031 5.64014 13.8905 5.64014 14.6215C5.64014 15.3526 6.12417 15.84 6.85023 15.84H9.27039C9.99644 15.84 10.4805 15.3526 10.4805 14.6215C10.4805 13.8905 9.99644 13.4031 9.27039 13.4031V11.4535C9.87544 11.9409 10.7225 12.1846 11.4485 12.1846C12.4166 12.1846 13.3847 11.8191 14.1107 11.088C14.8368 10.3569 15.1998 9.38215 15.1998 8.40738C15.1998 7.43261 14.8368 6.45785 14.1107 5.72677L8.90737 0.365538C8.42333 -0.121846 7.69728 -0.121846 7.21325 0.365538L1.88888 5.60492C1.16283 6.336 0.799805 7.31077 0.799805 8.28554C0.799805 9.26031 1.16283 10.2351 1.88888 10.9662C3.21997 12.4283 5.39812 12.5502 6.85023 11.4535Z"
-                                            fill="#C7D3FF"
-                                            fill-opacity="0.5"
-                                        ></path>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_102_4036">
-                                            <rect
-                                                width="16"
-                                                height="16"
-                                                fill="white"
-                                            ></rect>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                DOMAIN
-                            </div>
                             <div class="flex flex-col gap-2">
                                 <h1
-                                    class="text-xl md:text-2xl md:max-w-[170px] font-bold text-white"
+                                    class="md:text-3xl text-xl font-bold text-white"
                                 >
-                                    Welcome to VIP Club!
+                                    Play Domain Casino and win
+                                    <span class="text-primary"
+                                        >Lamborghini Urus</span
+                                    >
                                 </h1>
                                 <p class="text-secondary-light/50 md:text-base">
-                                    Ut enim ad minim veniam, quis nostrud
-                                    exercitation
+                                    Join the VIP Club — enjoy higher limits,
+                                    bonuses, and exclusive offers from Domain
+                                    partners
                                 </p>
                             </div>
-                            <button class="btn btn-primary w-fit px-6">
+                            <button
+                                class="btn btn-primary max-md:mt-2 w-fit px-5"
+                            >
                                 Deposit
                             </button>
                         </div>
                     </div>
-                    <div class="bg-main-container-2 rounded-2xl p-5">
+                </div>
+            </div>
+
+            <div class="container flex flex-col gap-6 mx-auto">
+                <h2 class="text-lg font-bold">Your Progress</h2>
+                <div class="relative min-h-[40px]">
+                    <div class="absolute top-0 left-0 z-[100] w-full h-full">
                         <div
-                            class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[380px] gap-2.5 max-w-[290px]"
+                            v-for="(rank, index) in ranks"
+                            :key="rank.id"
+                            class="absolute"
+                            :style="{
+                                left: `${(index / 4) * 100}%`,
+                                transform:
+                                    index === 4
+                                        ? 'translateX(-100%)'
+                                        : index > 0
+                                        ? 'translateX(-50%)'
+                                        : 'translateX(0)',
+                            }"
                         >
-                            <div
-                                class="text-secondary-light/50 flex items-center gap-2 text-lg font-extrabold"
-                            >
-                                <svg
-                                    width="126"
-                                    height="14"
-                                    viewBox="0 0 126 14"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M22.2426 3.81556V10.1772H5.62596V3.81556L0 0V10.17L5.63266 13.9856H22.2493L27.882 10.17V0L22.2426 3.81556ZM87.1757 3.81556V10.1772H70.5657V3.81556L64.933 0V10.17L70.5657 13.9856H87.1757L92.8083 10.17V0L87.1757 3.81556ZM60.2917 5.09961L54.659 8.91517H54.6724L61.2561 14.0002H53.6008L47.0171 8.91517H32.4097L38.0423 5.09961H60.2917ZM54.659 0.0147236H32.4097L38.0423 3.83027H60.2917L54.659 0.0147236ZM125.284 0.0144396H125.332L125.305 0L125.284 0.0144396ZM125.284 0.0144396H103.083L97.4233 3.81556H119.673L125.284 0.0144396ZM103.063 8.86451L97.43 5.04894H119.679L125.312 8.86451H103.063ZM97.4972 13.9495H97.43L97.4233 14L97.4972 13.9495ZM97.4972 13.9495H119.679L125.312 10.134H103.083L97.4972 13.9495Z"
-                                        fill="#E8EDFF"
-                                        fill-opacity="0.6"
-                                    />
-                                </svg>
+                            <div class="flex flex-col gap-3 items-center">
+                                <VipRank :rank="rank.level" :type="rank.type" />
+                                <div class="flex flex-col gap-1 items-center">
+                                    <p
+                                        class="text-nowrap font-bold leading-none text-center text-white uppercase"
+                                    >
+                                        {{ rank.name }}
+                                    </p>
+                                    <span class="font-bold leading-none">
+                                        <span
+                                            v-if="
+                                                userXp >= rank.xp_min &&
+                                                userXp < rank.xp_max
+                                            "
+                                            class="text-primary"
+                                        >
+                                            {{ userXp }}XP
+                                        </span>
+                                        <span
+                                            v-else-if="userXp >= rank.xp_max"
+                                            class="text-green"
+                                        >
+                                            {{ rank.xp_min }}XP
+                                        </span>
+                                        <span
+                                            v-else
+                                            class="text-secondary-light/50"
+                                        >
+                                            {{ rank.xp_min }}XP
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="flex flex-col h-full gap-2">
-                                <h1
-                                    class="text-xl md:text-2xl md:max-w-[260px] font-bold text-white"
-                                >
-                                    Lamborgini Urus official partner
-                                </h1>
-                                <p class="text-secondary-light/50 md:text-base">
-                                    Ut enim ad minim veniam, quis nostrud
-                                    exercitation
-                                </p>
-                            </div>
-                            <Link href="/" class="flex items-center gap-1">
-                                Read more
-                                <svg
-                                    width="13"
-                                    height="15"
-                                    viewBox="0 0 13 15"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M12.7071 8.20711C13.0976 7.81658 13.0976 7.18342 12.7071 6.79289L6.34315 0.428933C5.95262 0.0384083 5.31946 0.0384083 4.92893 0.428933C4.53841 0.819457 4.53841 1.45262 4.92893 1.84315L10.5858 7.5L4.92893 13.1569C4.53841 13.5474 4.53841 14.1805 4.92893 14.5711C5.31946 14.9616 5.95262 14.9616 6.34315 14.5711L12.7071 8.20711ZM-8.74228e-08 8.5L12 8.5L12 6.5L8.74228e-08 6.5L-8.74228e-08 8.5Z"
-                                        fill="#C7D3FF"
-                                    />
-                                </svg>
-                            </Link>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">VIP Progress</h2>
-                <div class="flex items-stretch gap-2">
-                    <div class="rank-bg w-fit flex items-center gap-2">
-                        <img
-                            src="/assets/images/account/vip/ranks/silver1.png"
-                            alt="rank"
-                            class="h-7 w-6"
-                        />
-                    </div>
-                    <ProgressBar :isShowRank="true" />
-
-                    <div class="rank-bg w-fit flex items-center gap-2">
-                        <img
-                            src="/assets/images/account/vip/ranks/silver1.png"
-                            alt="rank"
-                            class="h-7 w-6"
+                    <div
+                        class="flex absolute left-0 top-1/2 justify-center items-center px-6 w-full h-full -translate-y-1/2"
+                    >
+                        <ProgressBar
+                            :isShowRank="false"
+                            :progress="progress"
+                            :isShowBg="false"
+                            :isShowXP="false"
+                            bgColor="!bg-[#0F1427]"
                         />
                     </div>
                 </div>
             </div>
 
-            <div class="container flex flex-col gap-6 mx-auto">
+            <div class="container flex flex-col gap-6 pt-10 mx-auto">
                 <h2 class="text-lg font-bold">Characters</h2>
                 <div
-                    class="grid charters max-md:hidden grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-2.5 items-stretch"
+                    class="charters max-md:hidden max-xl:grid-cols-2 max-md:grid-cols-1 grid grid-cols-4 gap-2.5 items-stretch"
                 >
                     <div
-                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full p-4"
+                        :class="
+                            currentRank === 'silver'
+                                ? 'active_rank_bg'
+                                : 'opacity-20'
+                        "
+                        class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]"
                     >
-                        <div class="flex flex-col h-full gap-6">
+                        <div class="flex flex-col gap-6 h-full">
                             <img
                                 src="/assets/images/account/vip/characters/silver.png"
                                 alt="character"
                                 class="w-full ] flex-shrink-0 character"
                             />
-                            <div class="flex flex-col gap-2">
-                                <p class="text-2xl font-bold leading-normal">
-                                    50$
-                                </p>
-                                <p class="text-secondary-light/50 leading-none">
-                                    Silver Reward
-                                </p>
+                            <div class="flex justify-between items-center">
+                                <div
+                                    class="flex gap-3 items-center text-xl font-extrabold uppercase"
+                                >
+                                    <VipRank :rank="5" type="silver" />
+                                    Silver
+                                </div>
+                                <div class="tag tag-success">+50$</div>
                             </div>
-                            <div class="flex flex-col h-full gap-5">
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        COMMON STOCKS
-                                    </p>
-                                </div>
-
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        DAILY RAKEBACK 0.1%
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        LEVEL-UP BONUS
-                                    </p>
+                            <div class="h-full">
+                                <div
+                                    class="bg-primary/10 flex flex-col gap-5 p-3 rounded-xl"
+                                >
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            COMMON STOCKS
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            DAILY RAKEBACK 0.1%
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            LEVEL-UP BONUS
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <ProgressBar />
+                        <ProgressBar :isShowBg="false" :xp-range="[0, 500]" />
                     </div>
                     <div
-                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full p-4"
+                        :class="
+                            currentRank === 'cooper'
+                                ? 'active_rank_bg'
+                                : 'opacity-20'
+                        "
+                        class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]"
                     >
-                        <div class="flex flex-col h-full gap-6">
+                        <div class="flex flex-col gap-6 h-full">
                             <img
                                 src="/assets/images/account/vip/characters/copper.png"
                                 alt="character"
-                                class="character w-full"
+                                class="character flex-shrink-0 w-full"
                             />
-                            <div class="flex flex-col gap-2">
-                                <p class="text-2xl font-bold leading-normal">
-                                    150$
-                                </p>
-                                <p class="text-secondary-light/50 leading-none">
-                                    Copper Reward
-                                </p>
+                            <div class="flex justify-between items-center">
+                                <div
+                                    class="flex gap-3 items-center text-xl font-extrabold uppercase"
+                                >
+                                    <VipRank :rank="5" type="cooper" />
+                                    Copper
+                                </div>
+                                <div class="tag tag-success">+150$</div>
                             </div>
-                            <div class="flex flex-col h-full gap-5">
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        GENERAL PROMOTIONS
-                                    </p>
-                                </div>
-
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        DAILY RAKEBACK 0.2%
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        MONTHLY BONUSES
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        LEVEL-UP BONUS
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        BONUS GROWTH
-                                    </p>
+                            <div class="h-full">
+                                <div
+                                    class="bg-primary/10 flex flex-col gap-5 p-3 rounded-xl"
+                                >
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            GENERAL PROMOTIONS
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            DAILY RAKEBACK 0.2%
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            MONTHLY BONUSES
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            LEVEL-UP BONUS
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            BONUS GROWTH
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <ProgressBar :isShowRank="false" />
+                        <ProgressBar :isShowBg="false" :xp-range="[500, 1000]" />
                     </div>
                     <div
-                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between h-full gap-6 p-4"
+                        :class="
+                            currentRank === 'magican'
+                                ? 'active_rank_bg'
+                                : 'opacity-20'
+                        "
+                        class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]"
                     >
-                        <div class="flex flex-col h-full gap-6">
+                        <div class="flex flex-col gap-6 h-full">
                             <img
                                 src="/assets/images/account/vip/characters/magican.png"
                                 alt="character"
-                                class="character w-full"
+                                class="character flex-shrink-0 w-full"
                             />
-                            <div class="flex flex-col gap-2">
-                                <p class="text-2xl font-bold leading-normal">
-                                    250$
-                                </p>
-                                <p class="text-secondary-light/50 leading-none">
-                                    Silver Reward
-                                </p>
+                            <div class="flex justify-between items-center">
+                                <div
+                                    class="flex gap-3 items-center text-xl font-extrabold uppercase"
+                                >
+                                    <VipRank :rank="5" type="magican" />
+                                    Magican
+                                </div>
+                                <div class="tag tag-success">+250$</div>
                             </div>
-                            <div class="flex flex-col h-full gap-5">
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        GENERAL PROMOTIONS
-                                    </p>
-                                </div>
-
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        DAILY RAKEBACK 0.25%
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        MONTHLY BONUSES
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        LEVEL-UP BONUS
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        BONUS GROWTH
-                                    </p>
+                            <div class="h-full">
+                                <div
+                                    class="bg-primary/10 flex flex-col gap-5 p-3 rounded-xl"
+                                >
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            GENERAL PROMOTIONS
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            DAILY RAKEBACK 0.25%
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            MONTHLY BONUSES
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            LEVEL-UP BONUS
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            BONUS GROWTH
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <ProgressBar />
+                        <ProgressBar :isShowBg="false" :xp-range="[1000, 1500]" />
                     </div>
                     <div
-                        class="bg-secondary-sidebar rounded-2xl flex flex-col justify-between p-4"
+                        :class="
+                            currentRank === 'zues'
+                                ? 'active_rank_bg'
+                                : 'opacity-20'
+                        "
+                        class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]"
                     >
-                        <div class="flex flex-col gap-6">
+                        <div class="flex flex-col gap-6 h-full">
                             <img
                                 src="/assets/images/account/vip/characters/zues.png"
                                 alt="character"
-                                class="character w-full"
+                                class="character flex-shrink-0 w-full"
                             />
-                            <div class="flex flex-col gap-2">
-                                <p class="text-2xl font-bold leading-normal">
-                                    500$
-                                </p>
-                                <p class="text-secondary-light/50 leading-none">
-                                    Zeus Reward
-                                </p>
+                            <div class="flex justify-between items-center">
+                                <div
+                                    class="flex gap-3 items-center text-xl font-extrabold uppercase"
+                                >
+                                    <VipRank :rank="5" type="zues" />
+                                    Zeus
+                                </div>
+                                <div class="tag tag-success">+500$</div>
                             </div>
-                            <div class="flex flex-col gap-5">
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        GENERAL PROMOTIONS
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        VIP PROMOTIONS (LEVEL V)
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        WEEKLY BONUSES (LEVEL V)
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        DAILY RAKEBACK 0.3%
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        MONTHLY BONUSES
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        DAILY BONUSES/RELOAD
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        LEVEL-UP BONUS
-                                    </p>
-                                </div>
-                                <div class="flex gap-2.5 items-center">
-                                    <img
-                                        src="/assets/images/other/checkbox.svg"
-                                        alt="checkbox"
-                                        class="w-6 h-6"
-                                    />
-                                    <p class="font-extrabold leading-none">
-                                        BONUS GROWTH
-                                    </p>
+                            <div class="h-full">
+                                <div
+                                    class="bg-primary/10 flex flex-col gap-5 p-3 rounded-xl"
+                                >
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            VIP PROMOTIONS (LEVEL V)
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            WEEKLY BONUSES (LEVEL V)
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            DAILY RAKEBACK 0.3%
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            MONTHLY BONUSES
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            LEVEL-UP BONUS
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="12"
+                                            viewBox="0 0 16 12"
+                                            fill="none"
+                                        >
+                                            <path
+                                                d="M14 1.37109L6.5 9.94252L2 6.04642"
+                                                stroke="#298AFF"
+                                                stroke-width="2.14286"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                            />
+                                        </svg>
+                                        <p class="font-extrabold leading-none">
+                                            BONUS GROWTH
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <ProgressBar />
                         </div>
+                        <ProgressBar :isShowBg="false" :xp-range="[1500, 2000]" />
                     </div>
                 </div>
                 <CharactersSlider />
             </div>
 
-            <div class="md:px-5 container flex flex-col w-full gap-6 mx-auto">
+            <div class="container flex flex-col gap-6 mx-auto w-full">
                 <h2 class="text-lg font-bold">Frequently Asked Questions</h2>
-                <div class="flex gap-2.5 max-md:flex-col">
+                <div class="max-md:flex-col flex gap-2.5">
                     <div
                         class="md:flex grid grid-cols-2 md:flex-col md:max-w-[230px] w-full"
                     >
@@ -496,7 +683,7 @@ const faqItems = {
                             :class="{ active: faqTab === 'main' }"
                             class="aside-item-content"
                         >
-                            <div class="flex items-center gap-2">
+                            <div class="flex gap-2 items-center">
                                 <svg
                                     width="20"
                                     height="20"
@@ -519,7 +706,7 @@ const faqItems = {
                             :class="{ active: faqTab === 'privileges' }"
                             class="aside-item-content"
                         >
-                            <div class="flex items-center gap-2">
+                            <div class="flex gap-2 items-center">
                                 <svg
                                     width="20"
                                     height="20"
@@ -541,7 +728,7 @@ const faqItems = {
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col w-full gap-3">
+                    <div class="flex flex-col gap-3 w-full">
                         <FaqItem
                             v-for="item in faqItems.main"
                             v-if="faqTab === 'main'"
@@ -585,6 +772,7 @@ p {
     background-image: url("/assets/images/account/vip/bg_container1.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: top;
 }
 .bg-main-container-2 {
     background-image: url("/assets/images/account/vip/bg_container2.png");
@@ -592,8 +780,7 @@ p {
     background-repeat: no-repeat;
 }
 .character {
-    height: 225px;
-    @apply rounded-2xl md:h-[225px] min-h-[305px];
+    @apply rounded-2xl   min-h-[174px];
 }
 
 @media (max-width: 760px) {
@@ -604,8 +791,8 @@ p {
     }
     .bg-main-container-2 {
         background-image: url("/assets/images/account/vip/bg_container2_mobile.png");
-        background-size: cover;
-        background-position: bottom;
+        background-size: contain;
+        background-position: top;
     }
 }
 </style>

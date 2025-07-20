@@ -23,9 +23,9 @@ class WithdrawRequest extends FormRequest
     {
         return [
             'amount' => ['required', 'numeric', 'min:1', new CheckBalanceBeforeWithdrawal],
-            'type' => 'required|string',
+            'type' => 'required|in:crypto,fiat',
             'address' => 'required|string',
-            'currency' => 'required|string',
+            'currency_id' => 'required',
         ];
     }
 }

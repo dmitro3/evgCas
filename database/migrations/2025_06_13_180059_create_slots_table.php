@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image');
             $table->string('route');
+            $table->enum('type', ['slot', 'original_game', 'other_game' ])->default('slot');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

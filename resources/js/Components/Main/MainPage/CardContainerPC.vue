@@ -3,15 +3,13 @@
 </script>
 
 <template>
-    <div class="w-full h-full relative flex-1 flex-shrink-0 z-40 hidden md:flex max-2xl:left-24 justify-end items-center ">
+    <div class="md:flex hidden absolute top-0 left-10 z-40 flex-1 flex-shrink-0 justify-end items-center pt-5 w-full h-full">
 
-        <div class=" w-full flex min-h-[260px] justify-end h-full  lg:px-16">
-            <img src="/assets/images/account/bg/bottom_shadow.png" alt="bottom_shadow" class="absolute -bottom-8 left-0 max-2xl:hidden w-full max-h-20 h-full z-50">
-            <img src="/assets/images/account/bg/top_shadow.png" alt="bottom_shadow" class="absolute -top-1 left-0 w-full max-h-8 z-50">
-            <div class="relative h-full min-h-[260px] z-20 w-full flex-shrink-0 max-w-[390px]">
+        <div class=" w-full flex min-h-[150px] justify-end h-full  ">
+            <div class="relative h-full min-h-[150px] z-20 w-full right-0 flex-shrink-0 max-w-[175px]">
                 <div
-                    class="min-h-[220px] flex-shrink-0 left-96 -bottom-16 absolute deposit_card_eth max-w-[390px] p-5  w-full">
-                    <div class="mix-blend-soft-light flex gap-2 text-lg font-extrabold  items-center">
+                    class="min-h-[160px] flex-shrink-0 left-64 top-0 absolute deposit_card_eth max-w-[175px] p-4  w-full">
+                    <div class="flex gap-2 items-center text-xs font-extrabold mix-blend-soft-light">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">
@@ -29,10 +27,10 @@
                     </div>
                 </div>
             </div>
-            <div class="relative min-h-[260px] z-10 w-full flex-shrink-0 max-w-[390px]">
+            <div class="relative min-h-[150px] z-10 w-full flex-shrink-0 max-w-[175px]">
                 <div
-                    class="min-h-[220px] flex-shrink-0 left-36 absolute top-1/2 -translate-y-1/2 deposit_card_usdt max-w-[390px] p-5  w-full">
-                    <div class="mix-blend-soft-light flex gap-2 text-lg font-extrabold  items-center">
+                    class="min-h-[150px] flex-shrink-0 left-48 absolute top-1/2 -translate-y-1/2 deposit_card_usdt max-w-[175px] p-5  w-full">
+                    <div class="flex gap-2 items-center text-xs font-extrabold mix-blend-soft-light">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">
@@ -50,10 +48,10 @@
                     </div>
                 </div>
             </div>
-            <div class="relative z-0 min-h-[260px] w-full flex-shrink-0 max-w-[390px]">
+            <div class="relative z-0 min-h-[150px] w-full flex-shrink-0 max-w-[175px]">
                 <div
-                    class="min-h-[220px] flex-shrink-0 -top-8 absolute deposit_card_btc max-w-[390px] p-5  w-full">
-                    <div class="mix-blend-soft-light flex gap-2 text-lg font-extrabold  items-center">
+                    class="min-h-[150px] flex-shrink-0 top-28 right-20 absolute deposit_card_btc max-w-[175px] p-5  w-full">
+                    <div class="flex gap-2 items-center text-xs font-extrabold mix-blend-soft-light">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_102_4036)">

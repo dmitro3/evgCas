@@ -110,7 +110,59 @@ class User extends Authenticatable
         return $this->belongsTo(Panel\Domain::class);
     }
 
-    protected $appends = ['kyc_step', 'notifications_count', 'chat_id'];
+    public function getCurrentRanksAttribute()
+    {
+        $userXp = $this->xp ?? 0;
+
+        // Определяем какую группу из 5 рангов показать
+        $allRanks = Rank::orderBy('xp_min')->get();
+
+        // Находим в какой группе из 5 находится пользователь
+        $groupIndex = floor($userXp / 500); // каждая группа из 5 рангов = 500 XP
+
+        // Начальный индекс для группы из 5 рангов
+        $startIndex = $groupIndex * 5;
+
+        // Возвращаем 5 рангов с дополнительными данными
+        return $allRanks->slice($startIndex, 5)->map(function($rank) {
+            // Извлекаем уровень из названия (например, "silver 1" -> 1)
+            $nameParts = explode(' ', $rank->name);
+            $level = end($nameParts);
+
+            return [
+                'id' => $rank->id,
+                'name' => $rank->name,
+                'type' => $rank->type,
+                'level' => $level,
+                'xp_min' => $rank->xp_min,
+                'xp_max' => $rank->xp_max,
+            ];
+        })->values();
+    }
+
+    public function getVipProgressAttribute()
+    {
+        $userXp = $this->xp ?? 0;
+
+        // Определяем в какой группе из 5 рангов находится пользователь
+        $groupIndex = floor($userXp / 500);
+
+        // XP в начале текущей группы
+        $groupStartXp = $groupIndex * 500;
+
+        // Определяем какой ранг в группе (0-4)
+        $rankInGroup = floor(($userXp - $groupStartXp) / 100);
+
+        // Прогресс внутри текущего ранга (0-1)
+        $progressInRank = (($userXp - $groupStartXp) % 100) / 100;
+
+        // Общий прогресс: позиция до текущего ранга + прогресс внутри ранга
+        $totalProgress = ($rankInGroup + $progressInRank) / 4 * 100;
+
+        return min(100, max(0, $totalProgress));
+    }
+
+    protected $appends = ['kyc_step', 'notifications_count', 'chat_id', 'current_ranks', 'vip_progress'];
 
     public function getChatIdAttribute()
     {

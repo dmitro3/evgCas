@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Slot extends Model
 {
-    protected $fillable = ['id_game', 'name', 'description', 'image', 'route', 'is_active'];
+    protected $fillable = ['id_game', 'name', 'description', 'image', 'route', 'type', 'is_active'];
 
     public function slotSessions()
     {

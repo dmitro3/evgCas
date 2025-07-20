@@ -6,6 +6,7 @@ import Vip from "@/icons/Aside/Vip.vue";
 import About from "@/icons/Aside/About.vue";
 import Promo from "@/icons/Aside/Promo.vue";
 import Sponsor from "@/icons/Aside/Sponsor.vue";
+import { Link } from "@inertiajs/vue3";
 import Feedback from "@/icons/Aside/Feedback.vue";
 import Licenses from "@/icons/Aside/Licenses.vue";
 import { ref } from "vue";
@@ -18,12 +19,12 @@ const categories = ref([
             {
                 name: "Originals",
                 icon: Games,
-                href: "/casino/originals",
+                href: "/games?type=original_game",
             },
             {
                 name: "Slots",
                 icon: Slots,
-                href: "/casino/slots",
+                href: "/games?type=slot",
             },
         ],
     },
@@ -34,12 +35,12 @@ const categories = ref([
             {
                 name: "Account",
                 icon: Account,
-                href: "/profile/account",
+                href: "/account/wallet",
             },
             {
                 name: "VIP Club",
                 icon: Vip,
-                href: "/profile/vip",
+                href: "/vip",
             },
         ],
     },
@@ -116,7 +117,7 @@ const toggleCategory = (category) => {
                         </div>
                         <transition name="slide">
                             <div class="aside-items" v-show="category.isOpen">
-                                <div
+                                <Link :href="item.href"
                                     class="aside-item-content"
                                     v-for="item in category.items"
                                     :key="item.name"
@@ -125,7 +126,7 @@ const toggleCategory = (category) => {
                                         <component :is="item.icon" />
                                         {{ item.name }}
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </transition>
                     </div>
