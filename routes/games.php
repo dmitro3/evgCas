@@ -9,6 +9,7 @@ use App\Http\Controllers\CoinFlipController;
 use App\Http\Controllers\PlinkoController;
 use Inertia\Inertia;
 use App\Models\Slot;
+use App\Http\Controllers\CrashController;
 
 Route::group(['prefix' => 'games'], function () {
     Route::get('/', function (Request $request) {
@@ -36,7 +37,15 @@ Route::group(['prefix' => 'games'], function () {
     Route::get('/plinko', function () {
         return Inertia::render('OriginalGames/Plinko');
     });
-
+    Route::get('/plinko_test', function () {
+        return Inertia::render('OriginalGames/Plinko_test');
+    });
+    Route::get('/plinko_multi_test', function () {
+        return Inertia::render('OriginalGames/PlinkoMultiTest');
+    });
+    Route::get('/crash', function () {
+        return Inertia::render('OriginalGames/Crash');
+    });
 });
 
 Route::middleware('auth')->prefix('api/mines')->group(function () {
@@ -61,8 +70,28 @@ Route::middleware('auth')->prefix('api/coinflip')->group(function () {
     Route::get('/series', [CoinFlipController::class, 'getCurrentSeries']);
 });
 
-Route::prefix('api/plinko')->group(function () {
+Route::middleware('auth')->prefix('api/plinko')->group(function () {
+    Route::post('/place-bet', [PlinkoController::class, 'placeBet']);
+    Route::post('/payout', [PlinkoController::class, 'payout']);
+    Route::get('/balance', [PlinkoController::class, 'getBalance']);
     Route::post('/record-position', [PlinkoController::class, 'recordPosition']);
     Route::get('/positions', [PlinkoController::class, 'getLastPositions']);
+});
+
+Route::prefix('api/crash')->group(function () {
+    Route::get('/current', [CrashController::class, 'getCurrentGame']);
+    Route::get('/history', [CrashController::class, 'getHistory']);
+    Route::get('/test', function() {
+        return response()->json([
+            'status' => 'ok',
+            'message' => 'Crash API работает',
+            'timestamp' => now()
+        ]);
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::post('/bet', [CrashController::class, 'placeBet']);
+        Route::post('/cashout', [CrashController::class, 'cashOut']);
+    });
 });
 

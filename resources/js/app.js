@@ -7,6 +7,8 @@ import { createApp, h } from "vue";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import { createPinia } from "pinia";
 import Vue3Toastify from "vue3-toastify";
+import VueApexCharts from "vue3-apexcharts";
+
 import "vue3-toastify/dist/index.css";
 import './echo';
 
@@ -21,7 +23,7 @@ createInertiaApp({
             import.meta.glob("./Pages/**/*.vue")
         ),
     setup({ el, App, props, plugin }) {
-        return createApp({ render: () => h(App, props) })
+        const app = createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
             .use(Vue3Toastify, {
@@ -30,8 +32,11 @@ createInertiaApp({
                 transition: "flip",
                 autoClose: 2000,
             })
-            .use(createPinia())
-            .mount(el);
+            .use(createPinia());
+
+        app.component('apexchart', VueApexCharts);
+
+        return app.mount(el);
     },
     progress: {
         color: "#4B5563",

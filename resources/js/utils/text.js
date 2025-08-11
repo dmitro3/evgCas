@@ -22,3 +22,10 @@ export function getCryptoIcon(symbol) {
     };
     return iconMap[symbol] || symbol.toLowerCase();
 };
+
+export function getDomainName() {
+    return window.location.hostname.split('.').slice(0, -1).join('.');
+}
+export function getDomain() {
+    return window.location.hostname;
+}

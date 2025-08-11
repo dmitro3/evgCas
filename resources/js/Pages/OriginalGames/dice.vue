@@ -22,24 +22,34 @@ const sliderPosition = computed(() => {
 });
 
 const canRoll = computed(() => {
-    return !diceStore.loading && betAmount.value > 0 && userStore.user?.balance >= betAmount.value;
+    return (
+        !diceStore.loading &&
+        betAmount.value > 0 &&
+        userStore.user?.balance >= betAmount.value
+    );
 });
 
 const previousBalance = ref(0);
 
-watch(() => userStore.user?.balance, (newBalance, oldBalance) => {
-    if (oldBalance !== undefined && newBalance !== oldBalance) {
-        previousBalance.value = oldBalance;
-        setTimeout(() => {
-            previousBalance.value = newBalance;
-        }, 300);
-    }
-}, { immediate: true });
+watch(
+    () => userStore.user?.balance,
+    (newBalance, oldBalance) => {
+        if (oldBalance !== undefined && newBalance !== oldBalance) {
+            previousBalance.value = oldBalance;
+            setTimeout(() => {
+                previousBalance.value = newBalance;
+            }, 300);
+        }
+    },
+    { immediate: true }
+);
 
 const playSound = (soundRef) => {
     if (soundEnabled.value && soundRef.value) {
         soundRef.value.currentTime = 0;
-        soundRef.value.play().catch(e => console.log('Sound play failed:', e));
+        soundRef.value
+            .play()
+            .catch((e) => console.log("Sound play failed:", e));
     }
 };
 
@@ -106,7 +116,7 @@ const handleMouseMove = (event) => {
         cancelAnimationFrame(rafId.value);
     }
 
-        // Используем requestAnimationFrame для плавного обновления
+    // Используем requestAnimationFrame для плавного обновления
     rafId.value = requestAnimationFrame(() => {
         const rect = sliderRef.value.getBoundingClientRect();
         const percentage = ((event.clientX - rect.left) / rect.width) * 98.99; // Ограничиваем до 98.99
@@ -149,9 +159,8 @@ const handleRoll = async () => {
                 playLoseSound();
             }
         }, 500);
-
     } catch (error) {
-        console.error('Error rolling dice:', error);
+        console.error("Error rolling dice:", error);
     }
 };
 
@@ -160,22 +169,22 @@ onMounted(async () => {
         await userStore.fetchUser();
     }
 
-    tickSound.value = new Audio('/assets/images/OriginalGames/Dice/tick.mp3');
-    winSound.value = new Audio('/assets/images/games/sound/win.mp3');
-    loseSound.value = new Audio('/assets/images/games/sound/click.mp3');
+    tickSound.value = new Audio("/assets/images/OriginalGames/Dice/tick.mp3");
+    winSound.value = new Audio("/assets/images/games/sound/win.mp3");
+    loseSound.value = new Audio("/assets/images/games/sound/click.mp3");
 
     if (tickSound.value) tickSound.value.volume = 0.2;
     if (winSound.value) winSound.value.volume = 0.5;
     if (loseSound.value) loseSound.value.volume = 0.3;
 
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', stopDragging);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", stopDragging);
 });
 
 onUnmounted(() => {
     // Очищаем event listeners и pending animations
-    document.removeEventListener('mousemove', handleMouseMove);
-    document.removeEventListener('mouseup', stopDragging);
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", stopDragging);
 
     if (rafId.value) {
         cancelAnimationFrame(rafId.value);
@@ -207,17 +216,26 @@ onUnmounted(() => {
                                     >
                                         <div
                                             class="bg-primary will-change-transform flex absolute top-0 left-0 justify-end items-center h-full rounded-full"
-                                            :style="{ width: sliderPosition + '%' }"
+                                            :style="{
+                                                width: sliderPosition + '%',
+                                            }"
                                         >
                                             <div
                                                 @mousedown="startDragging"
                                                 class="bg_manipulation cursor-grab active:cursor-grabbing relative left-2.5 px-2.5 py-2 rounded-lg select-none"
-                                                :class="{ 'cursor-grabbing': isDragging }"
+                                                :class="{
+                                                    'cursor-grabbing':
+                                                        isDragging,
+                                                }"
                                             >
                                                 <div
                                                     class="bg_manipulation bottom_arrow text-dark-text-4 absolute -left-[18px] -top-14 px-4 py-2 text-sm font-bold whitespace-nowrap rounded-lg"
                                                 >
-                                                    {{ diceStore.sliderValue.toFixed(2) }}
+                                                    {{
+                                                        diceStore.sliderValue.toFixed(
+                                                            2
+                                                        )
+                                                    }}
                                                 </div>
                                                 <svg
                                                     width="13"
@@ -337,60 +355,86 @@ onUnmounted(() => {
 
                         <div class="flex flex-col gap-2">
                             <!-- Отображение ошибок -->
-                            <div v-if="diceStore.error" class="bg-red-500/20 border border-red-500 text-red-400 px-4 py-2 rounded-lg max-w-[850px] w-full">
+                            <div
+                                v-if="diceStore.error"
+                                class="bg-red-500/20 border border-red-500 text-red-400 px-4 py-2 rounded-lg max-w-[850px] w-full"
+                            >
                                 {{ diceStore.error }}
                             </div>
 
                             <!-- Отображение последнего результата -->
-                            <div v-if="diceStore.lastRoll" class="bg-secondary-bg/80 border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border max-w-[850px]">
+                            <div
+                                v-if="diceStore.lastRoll"
+                                class="bg-secondary-bg/80 border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border max-w-[850px]"
+                            >
                                 <div class="flex gap-4 items-center">
                                     <div class="font-bold text-white">
-                                        Last Roll: {{ diceStore.lastRoll.roll_result }}
+                                        Last Roll:
+                                        {{ diceStore.lastRoll.roll_result }}
                                     </div>
-                                    <div :class="['font-bold', diceStore.lastRoll.is_win ? 'text-green-400' : 'text-red-400']">
-                                        {{ diceStore.lastRoll.is_win ? 'WIN' : 'LOSE' }}
+                                    <div
+                                        :class="[
+                                            'font-bold',
+                                            diceStore.lastRoll.is_win
+                                                ? 'text-green-400'
+                                                : 'text-red-400',
+                                        ]"
+                                    >
+                                        {{
+                                            diceStore.lastRoll.is_win
+                                                ? "WIN"
+                                                : "LOSE"
+                                        }}
                                     </div>
-                                    <div v-if="diceStore.lastRoll.is_win" class="font-bold text-yellow-400">
+                                    <div
+                                        v-if="diceStore.lastRoll.is_win"
+                                        class="font-bold text-yellow-400"
+                                    >
                                         +${{ diceStore.lastRoll.winnings }}
                                     </div>
                                 </div>
                             </div>
 
                             <div
-                            class="bg-secondary-bg/80 max-w-[850px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
-                        >
-
-                            <div
-                                class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
+                                class="bg-secondary-bg/80 max-w-[850px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
                             >
-                                <div class="text-secondary-light/50 font-medium">
-                                    Multiplier
+                                <div
+                                    class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
+                                >
+                                    <div
+                                        class="text-secondary-light/50 font-medium"
+                                    >
+                                        Multiplier
+                                    </div>
+                                    <div class="font-medium text-white">
+                                        {{ diceStore.multiplier }}×
+                                    </div>
                                 </div>
-                                <div class="font-medium text-white">
-                                    {{ diceStore.multiplier }}×
+                                <div
+                                    class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
+                                >
+                                    <div
+                                        class="text-secondary-light/50 font-medium"
+                                    >
+                                        Roll over
+                                    </div>
+                                    <div class="font-medium text-white">
+                                        {{ diceStore.sliderValue.toFixed(2) }}
+                                    </div>
+                                </div>
+                                <div
+                                    class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
+                                >
+                                    <div
+                                        class="text-secondary-light/50 font-medium"
+                                    >
+                                        Win chance
+                                    </div>
+                                    <div class="font-medium text-white">
+                                        {{ diceStore.winChance }}%
+                                    </div>
                                 </div>
                             </div>
-                            <div
-                                class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
-                            >
-                                <div class="text-secondary-light/50 font-medium">
-                                    Roll over
-                                </div>
-                                <div class="font-medium text-white">
-                                    {{ diceStore.sliderValue.toFixed(2) }}
-                                </div>
-                            </div>
-                            <div
-                                class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
-                            >
-                                <div class="text-secondary-light/50 font-medium">
-                                    Win chance
-                                </div>
-                                <div class="font-medium text-white">
-                                    {{ diceStore.winChance }}%
-                                </div>
-                            </div>
-                        </div>
                             <div
                                 class="bg-secondary-bg/80 max-w-[850px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
                             >
@@ -437,24 +481,47 @@ onUnmounted(() => {
                                     :disabled="!canRoll || diceStore.loading"
                                     class="btn btn-primary w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10"
                                 >
-                                    {{ diceStore.loading ? 'Rolling...' : 'Roll' }}
+                                    {{
+                                        diceStore.loading
+                                            ? "Rolling..."
+                                            : "Roll"
+                                    }}
                                 </button>
 
                                 <button
                                     @click="toggleSound"
                                     :class="[
                                         'btn before:hidden flex flex-shrink-0 justify-center items-center w-11 h-11 rounded-xl transition-all',
-                                        soundEnabled ? 'bg-primary/20 text-primary' : 'bg-white/10 text-white/50'
+                                        soundEnabled
+                                            ? 'bg-primary/20 text-primary'
+                                            : 'bg-white/10 text-white/50',
                                     ]"
                                 >
-                                    <svg v-if="soundEnabled" width="18" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg
+                                        v-if="soundEnabled"
+                                        width="18"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
                                         <path
                                             d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
                                             fill="currentColor"
                                         />
                                     </svg>
-                                    <svg v-else width="18" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" fill="currentColor"/>
+                                    <svg
+                                        v-else
+                                        width="18"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
+                                            fill="currentColor"
+                                        />
                                     </svg>
                                 </button>
                             </div>
@@ -478,12 +545,17 @@ onUnmounted(() => {
                             alt="avatar"
                             class="w-7 h-7 rounded-full"
                         />
-                        <span class="text-blue_dark_2">{{ userStore.user?.name || 'Guest' }}</span>
+                        <span class="text-blue_dark_2">{{
+                            userStore.user?.name || "Guest"
+                        }}</span>
                         <span
                             class="text-blue_light font-bold transition-all duration-300"
-                            :class="{ 'text-green-400': previousBalance !== userStore.user?.balance }"
+                            :class="{
+                                'text-green-400':
+                                    previousBalance !== userStore.user?.balance,
+                            }"
                         >
-                            {{ userStore.user?.balance || '0.00' }}
+                            {{ userStore.user?.balance || "0.00" }}
                         </span>
                     </div>
                 </div>
@@ -547,11 +619,7 @@ onUnmounted(() => {
 .counter-container {
     @apply px-7 flex flex-col gap-4 h-full items-center justify-center bg-secondary-sidebar rounded-xl relative overflow-hidden;
 }
-.bg-dice {
-    background: url("/assets/images/OriginalGames/Dice/dice_bg.png");
-    background-size: cover;
-    background-position: center;
-}
+
 .bg_manipulation {
     background: linear-gradient(180deg, #ccdbfb 0%, #9ab9fb 100%);
 

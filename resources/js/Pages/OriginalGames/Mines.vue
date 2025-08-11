@@ -269,9 +269,7 @@ onMounted(async () => {
                         <div class="flex items-stretch max-md:flex-col-reverse gap-4 max-w-[850px] w-full mx-auto">
                             <div class="flex justify-center items-center h-full">
                                 <div class="md:flex-col flex relative gap-2 h-full">
-                                    <!-- Gradient overlay top -->
 
-                                    <!-- Up Arrow -->
                                     <div
                                         v-if="canScrollUp"
                                         @click="scrollMultipliersUp"
@@ -566,9 +564,7 @@ onMounted(async () => {
 .counter-container {
     @apply px-7 flex flex-col gap-4 h-full items-center justify-center bg-secondary-sidebar rounded-xl relative overflow-hidden;
 }
-.bg-mines {
-    background: url("/assets/images/OriginalGames/Mines/bg_mines.png");
-}
+
 
 .field:hover:not(.mine):not(.gems) {
     background-color: #2f4282;

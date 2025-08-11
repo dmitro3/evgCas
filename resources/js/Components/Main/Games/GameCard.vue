@@ -3,6 +3,7 @@ import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
     game: Object,
+    showRtp: Boolean,
 });
 </script>
 
@@ -14,8 +15,8 @@ const props = defineProps({
             srcset=""
             class="object-cover w-full h-full"
         />
-        <div class="absolute top-2 right-2">
-            <div class="rtp-percentage">
+        <div v-if="showRtp" class="absolute top-2 right-2">
+            <div class="rtp-percentage rounded-full">
                 <svg
                 width="17"
                 height="16"

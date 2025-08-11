@@ -190,7 +190,12 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
-
+.gradient-text {
+    background: linear-gradient(180deg, #E8EDFF 0%, #84ACFF 210.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .btn:before {
     content: "";
     position: absolute;
@@ -610,14 +615,14 @@ aside {
     @apply text-secondary-light/50 flex justify-between items-center px-5 font-bold cursor-pointer;
 }
 
-/* .aside-item-icon-container:before {
+.aside-item-icon-container:before {
     @apply absolute bottom-0 left-0 w-full h-full;
     content: "";
     background-image: url("/assets/images/aside/bg-item-icon.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-} */
+}
 
 .aside-item-icon-container svg {
     @apply transition-all duration-300;
@@ -633,10 +638,9 @@ aside {
     filter: blur(80px);
     width: 240px;
     height: 68px;
-
 }
 .aside-item-icon-container {
-    @apply flex relative flex-shrink-0 justify-center items-center p-2.5 w-9 h-9 rounded-xl;
+    @apply flex relative flex-shrink-0 justify-center items-center p-2.5 w-7 h-7 rounded-xl;
     background: rgba(106, 117, 158, 0.16);
 }
 
@@ -689,6 +693,14 @@ aside {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+.bg-dice {
+    background: url("/assets/images/OriginalGames/Dice/dice_bg.png");
+    background-size: cover;
+    background-position: center;
+}
+.bg-mines {
+    background: url("/assets/images/OriginalGames/Mines/bg_mines.png");
 }
 .bg-online {
     border-radius: 1111px;
@@ -746,6 +758,23 @@ aside {
         background-size: contain;
         background-position: bottom;
     }
+    .licenses-bg{
+        background-image: url("/assets/images/info/licenses_bg_mobile.png") !important;
+        min-height: 512px;
+        align-items: start !important;
+        justify-content: center !important;
+        text-align: center;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .about-bg{
+        background-image: url("/assets/images/info/about_bg_mobile.png") !important;
+        min-height: 512px;
+        align-items: start !important;
+        justify-content: center !important;
+        text-align: center;
+    }
 }
 .loader {
     width: 18px;
@@ -765,4 +794,26 @@ aside {
     100% {
         transform: rotate(360deg);
     }
+}
+
+
+.feedback-bg{
+    background-image: url("/assets/images/info/feedback_bg.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.licenses-bg{
+    background-image: url("/assets/images/info/licenses_bg.png");
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.about_bg{
+    background-image: url("/assets/images/info/about_bg.png");
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
 }

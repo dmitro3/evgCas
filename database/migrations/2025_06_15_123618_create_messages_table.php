@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('assistant_id')->nullable();
             $table->text('message');
-            $table->enum('type', ['rules', 'change_assistent','default'])->default('default');
+            $table->enum('type', ['rules', 'change_assistent','default', 'image'])->default('default');
             $table->integer('rule_id')->nullable();
             $table->dateTime('read_at')->nullable();
             $table->timestamps();

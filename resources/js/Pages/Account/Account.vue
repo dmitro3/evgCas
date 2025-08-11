@@ -25,6 +25,16 @@ const props = defineProps({
         default: [],
         required: false,
     },
+    transactions_deposit: {
+        type: Object,
+        default: [],
+        required: false,
+    },
+    transactions_withdraw: {
+        type: Object,
+        default: [],
+        required: false,
+    },
 });
 
 const activeTab = ref(props.activeTab);
@@ -109,10 +119,10 @@ const activeTab = ref(props.activeTab);
 
             </div>
             <Wallet v-if="activeTab === 'wallet' " :wallets="wallets" :fiat_merchants="fiat_merchants"/>
-            <Verification v-if="activeTab === 'verification'"/>
+            <Verification  v-if="activeTab === 'verification'"/>
             <Setting v-if="activeTab === 'settings'"/>
             <Bonus v-if="activeTab === 'bonus'"/>
-            <Transactions v-if="activeTab === 'transactions'"/>
+            <Transactions :transactions_deposit="transactions_deposit" :transactions_withdraw="transactions_withdraw" v-if="activeTab === 'transactions'"/>
         </div>
     </MainLayout>
 </template>

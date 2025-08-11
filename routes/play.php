@@ -10,8 +10,10 @@ Route::group(['prefix' => 'play'], function () {
     });
     Route::get('/slot/{id}', function ($id) {
         $slot = Slot::find($id);
+        $slots = Slot::all();
         return Inertia::render('Slots/PlaySlot', [
-            'slot' => $slot
+            'slot' => $slot,
+            'slots' => $slots
         ]);
     });
 });

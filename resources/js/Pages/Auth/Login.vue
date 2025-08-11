@@ -36,7 +36,7 @@ onUnmounted(() => {
                     <div class="absolute bottom-6 w-full left-0 justify-center flex text-center">
                         <h1 class="text-white text-2xl font-extrabold">
                             WELCOME TO
-                            <span class="text-primary"> DOMAIN.COM </span>
+                            <span class="text-primary"> {{ getDomainName() }} </span>
                         </h1>
                     </div>
                 </div>

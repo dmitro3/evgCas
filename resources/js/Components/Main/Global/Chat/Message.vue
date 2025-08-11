@@ -21,13 +21,17 @@ const props = defineProps({
 
     <div class="message" :class="{ 'support': isSupport, 'person': !isSupport }">
 
-        <img v-if="isSupport" :src="isSupport ? '/assets/images/chat/support_avatar.png' : '' " alt="support_avatar" class="w-10 h-10 rounded-full">
-        <div class="flex flex-col gap-2">
-            <div class="bg-secondary p-3 rounded-lg">
-                {{ message.message }}
+        <div :class="{ 'flex-row-reverse': !isSupport, 'flex-row': isSupport }" class="flex gap-2 items-center">
+            <div class="bg-secondary-sidebar p-3 rounded-2xl max-w-[70%] overflow-hidden">
+                <template v-if="message.type === 'image'">
+                    <img :src="message.message" alt="image" class="max-w-[280px] rounded-lg" />
+                </template>
+                <template v-else>
+                    {{ message.message }}
+                </template>
             </div>
             <div class="text-secondary-light/50 text-xs">
-                {{ message.created_at }}
+             {{ message.created_at }}
             </div>
         </div>
     </div>

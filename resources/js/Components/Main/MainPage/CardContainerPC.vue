@@ -1,5 +1,5 @@
 <script setup>
-
+import { getDomainName } from "@/utils/text";
 </script>
 
 <template>
@@ -23,7 +23,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                        DOMAIN
+                        {{ getDomainName() }}
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                        DOMAIN
+                        {{ getDomainName() }}
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                        DOMAIN
+                        {{ getDomainName() }}
                     </div>
                 </div>
             </div>

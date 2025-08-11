@@ -15,7 +15,8 @@ use App\Http\Service\User\Action\ReadNotifications;
 use App\Models\Panel\PaymentMethod;
 use Inertia\Inertia;
 use App\Models\UserWallet;
-
+use App\Models\Deposit;
+use App\Models\WithdrawUser;
 class AccountController extends Controller
 {
     public function index()
@@ -75,6 +76,26 @@ class AccountController extends Controller
                     ];
                 });
 
+        }
+        if ($tab === 'transactions') {
+            $data['transactions_deposit'] = Deposit::where('user_id', auth()->user()->id)->get()->map(function ($deposit) {
+                return [
+                    'id' => $deposit->id,
+                    'amount' => $deposit->amount,
+                    'currency' => $deposit->currencies?->symbol ?? $deposit->currency,
+                    'created_at' => $deposit->created_at->format('d M Y H:i'),
+                    'status' => $deposit->status,
+                ];
+            });
+            $data['transactions_withdraw'] = WithdrawUser::where('user_id', auth()->user()->id)->get()->map(function ($withdraw) {
+                return [
+                    'id' => $withdraw->id,
+                    'amount' => $withdraw->amount,
+                    'type' => $withdraw->type,
+                    'created_at' => $withdraw->created_at->format('d M Y H:i'),
+                    'status' => $withdraw->status,
+                ];
+            });
         }
         return Inertia::render('Account/Account', $data);
     }

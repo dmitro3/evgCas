@@ -7,5 +7,6 @@ Route::middleware('auth:sanctum')->prefix('chat')->group(function () {
     Route::get('/', [ChatController::class, 'getUserChats']);
     Route::get('{chatId}/messages', [ChatController::class, 'getChatMessages']);
     Route::post('send', [ChatController::class, 'sendMessage']);
+    Route::post('send-image', [ChatController::class, 'sendImage']);
     Route::post('{chatId}/read', [ChatController::class, 'markAsRead']);
 });

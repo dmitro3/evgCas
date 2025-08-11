@@ -1,15 +1,24 @@
 <script setup>
-import {ref} from 'vue';
+import {ref, onMounted} from 'vue';
+import { defineProps } from 'vue';
+
+const props = defineProps({
+    transactions_deposit: Object,
+    transactions_withdraw: Object,
+});
 
 const activeTabTransactions = ref('deposit');
 
 const isMobile = ref(window.innerWidth < 768);
+onMounted(() => {
+    console.log("фиат", props.transactions_deposit);
+});
+
 </script>
 
 
 <template>
     <div class="flex flex-col gap-12">
-
         <div class="flex flex-col gap-8">
             <div class="bg-secondary-sidebar-dark w-fit flex gap-2 items-center p-2 rounded-xl">
                 <button :class="{'active': activeTabTransactions === 'deposit'}"
@@ -24,7 +33,7 @@ const isMobile = ref(window.innerWidth < 768);
 
         </div>
 
-        <table v-if="!isMobile">
+        <table v-if="!isMobile && transactions_deposit.length > 0 && transactions_withdraw.length > 0">
             <thead >
             <tr>
                 <th>METHOD</th>
@@ -35,33 +44,22 @@ const isMobile = ref(window.innerWidth < 768);
             </thead>
 
             <tbody>
-            <tr>
-                <td>USDT TRC20</td>
-                <td>05.11.2024 16:30</td>
-                <td>+$3,500</td>
-                <td class="completed">Completed</td>
+            <tr v-if="activeTabTransactions === 'deposit'" v-for="transaction in transactions_deposit">
+                <td>{{ transaction.currency }}</td>
+                <td>{{ transaction.created_at }}</td>
+                <td>+ ${{ transaction.amount }}</td>
+                <td class="completed text-green font-bold uppercase">{{ transaction.status }}</td>
             </tr>
-            <tr>
-                <td>USDT TRC20</td>
-                <td>05.11.2024 16:30</td>
-                <td>+$3,500</td>
-                <td class="canceled">Canceled</td>
+            <tr v-if="activeTabTransactions === 'withdraw'" v-for="transaction in transactions_withdraw">
+                <td>{{ transaction.type === 'crypto' ? 'Crypto' : 'Bank' }}</td>
+                <td>{{ transaction.created_at }}</td>
+                <td>- ${{ transaction.amount }}</td>
+                <td class="completed text-orange font-bold uppercase">{{ transaction.status }}</td>
             </tr>
-            <tr>
-                <td>USDT TRC20</td>
-                <td>05.11.2024 16:30</td>
-                <td>+$3,500</td>
-                <td class="completed">Completed</td>
-            </tr>
-            <tr>
-                <td>USDT TRC20</td>
-                <td>05.11.2024 16:30</td>
-                <td>+$3,500</td>
-                <td class="waiting">Waiting...</td>
-            </tr>
+
             </tbody>
         </table>
-        <div v-else class="flex flex-col gap-4">
+        <div v-else-if="isMobile && transactions_deposit.length > 0 && transactions_withdraw.length > 0" class="flex flex-col gap-4">
             <div class="flex justify-between items-center text-sm font-bold uppercase">
                 <p class="text-secondary-light/50">
                     Method/time
@@ -96,7 +94,16 @@ const isMobile = ref(window.innerWidth < 768);
             </div>
 
         </div>
-
+        <div v-if="activeTabTransactions === 'deposit' && transactions_deposit.length === 0">
+                <p class="text-xl font-bold text-center text-white">
+                   Transactions not found
+                </p>
+            </div>
+            <div v-if="activeTabTransactions === 'withdraw' && transactions_withdraw.length === 0">
+                <p class="text-xl font-bold text-center text-white">
+                    Transactions not found
+                </p>
+            </div>
     </div>
 </template>
 

@@ -11,3 +11,11 @@ Broadcast::channel('chat.{chatId}', function ($user, $chatId) {
     }
     return $chat->user_id === $user->id || $chat->worker_id === $user->id;
 });
+
+Broadcast::channel('crash', function ($user) {
+    return ['id' => $user->id, 'name' => $user->name ?? 'User'];
+});
+
+Broadcast::channel('wins', function ($user) {
+    return true;
+});

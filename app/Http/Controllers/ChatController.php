@@ -7,6 +7,8 @@ use App\Http\Service\Chat\ChatService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Chat;
+use App\Http\Requests\SendImageRequest;
+use Illuminate\Support\Facades\Storage;
 class ChatController extends Controller
 {
     public function __construct(private ChatService $chatService) {}
@@ -67,7 +69,32 @@ class ChatController extends Controller
     public function markAsRead(int $chatId): JsonResponse
     {
         $this->chatService->markChatAsRead($chatId, auth()->user()->id);
-
         return response()->json(['success' => true]);
+    }
+
+    public function sendImage(SendImageRequest $request): JsonResponse
+    {
+        $chat = Chat::where('user_id', auth()->user()->id)->first();
+        try {
+            $path = $request->file('image')->store('chat', 'public');
+            $url = Storage::url($path);
+
+            $message = $this->chatService->sendUserMessage(
+                chatId: $chat->id,
+                userId: auth()->user()->id,
+                message: $url,
+                type: 'image',
+            );
+
+            return response()->json([
+                'success' => true,
+                'message' => $message,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage()
+            ], 403);
+        }
     }
 }

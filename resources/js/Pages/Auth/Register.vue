@@ -3,6 +3,7 @@ import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layouts/MainLayout.vue";
 import { useAuthStore } from "@/stores/authStore";
 import { ref, onUnmounted } from "vue";
+import { getDomainName, getDomain } from "@/utils/text";
 import FormError from '@/Components/Main/Global/FormError.vue';
 import { router } from '@inertiajs/vue3';
 import { existPromo } from '@/utils/api';
@@ -51,7 +52,7 @@ onUnmounted(() => {
                     <div class="flex absolute left-0 bottom-6 justify-center w-full text-center">
                         <h1 class="text-2xl font-extrabold text-white">
                             WELCOME TO
-                            <span class="text-primary"> DOMAIN.COM </span>
+                            <span class="text-primary"> {{ getDomainName() }} </span>
                         </h1>
                     </div>
                 </div>

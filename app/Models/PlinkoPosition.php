@@ -8,6 +8,7 @@ class PlinkoPosition extends Model
 {
     protected $fillable = [
         'position_x',
+        'start_position_x',
         'bucket_index',
         'multiplier',
         'rows'

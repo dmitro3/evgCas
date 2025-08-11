@@ -40,3 +40,4 @@ include __DIR__ . '/slot.php';
 include __DIR__ . '/chat.php';
 include __DIR__ . '/system.php';
 include __DIR__ . '/games.php';
+include __DIR__ . '/pages.php';

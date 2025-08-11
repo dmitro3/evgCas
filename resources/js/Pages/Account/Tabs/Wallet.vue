@@ -119,7 +119,7 @@ onMounted(() => {
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold">Deposit</h2>
                     <Link
-                        href="/account/wallet/history"
+                        href="/account/wallet/transactions"
                         class="flex gap-2 items-center text-lg font-normal"
                     >
                         <svg

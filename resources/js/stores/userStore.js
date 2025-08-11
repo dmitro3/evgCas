@@ -129,5 +129,11 @@ export const useUserStore = defineStore("user", {
                 return error;
             }
         },
+
+        updateBalance(newBalance) {
+            if (this.user) {
+                this.user.balance = newBalance;
+            }
+        },
     },
 });

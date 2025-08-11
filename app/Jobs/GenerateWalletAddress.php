@@ -29,7 +29,7 @@ class GenerateWalletAddress implements ShouldQueue
     public function handle()
     {
         $generateWallet = new GenerateWallet();
-        $address = $generateWallet->generateWallet($this->currencySymbol);
+        $address = $generateWallet->generateWallet($this->currencySymbol, env("WESTWALLET_IPN_URL"), $this->user->id);
 
         if ($address !== null && $address !== false) {
             $this->user->wallets()->create([

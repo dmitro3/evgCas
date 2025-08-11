@@ -11,9 +11,7 @@ const props = defineProps({
         <div class="rounded-2xl relative max-w-[115px]">
             <img
                 :src="image"
-                alt=""
-                srcset=""
-                class="object-cover w-full h-full rounded-2xl"
+                class="object-cover max-w-[95px] max-h-[125px] min-w-[95px] min-h-[125px] w-full h-full rounded-2xl"
             />
         </div>
         <p

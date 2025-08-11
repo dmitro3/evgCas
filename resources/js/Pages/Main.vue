@@ -48,7 +48,7 @@ const faqItems = [
     <MainLayout>
         <section class="flex flex-col gap-12">
             <div class="container flex flex-col gap-2.5 mx-auto">
-                <div class="flex gap-2.5 items-stretch">
+                <div class="max-md:flex-col flex gap-2.5 items-stretch">
                     <div
                         class="bg-main-container-1 bg-card md:container flex-col flex-1 p-8 py-3.5 mx-auto w-full rounded-2xl"
                     >
@@ -241,16 +241,16 @@ const faqItems = [
                     <div
                         class="bg-secondary-sidebar support-image overflow-hidden relative p-6 w-full rounded-2xl"
                     >
-                        <div class="flex flex-col gap-4 max-w-[320px]">
+                        <div class="flex flex-col  max-md:justify-center max-md:items-center gap-4 max-w-[320px]">
                             <p
                                 class="text-secondary-light/50 font-semibold uppercase"
                             >
                                 support
                             </p>
-                            <p class="text-2xl font-bold text-white">
+                            <p class="max-md:text-center text-2xl font-bold text-white">
                                 Get 24/7 online help from our support team
                             </p>
-                            <p class="text-secondary-light/50">
+                            <p class="text-secondary-light/50 max-md:text-center">
                                 Ask a question in a language that is convenient
                                 for you
                             </p>
@@ -286,16 +286,16 @@ const faqItems = [
                 <div
                     class="bg-secondary-sidebar games-image overflow-hidden relative p-6 w-full rounded-2xl"
                 >
-                    <div class="flex z-50 flex-col gap-4 max-w-[320px]">
+                    <div class="flex z-50 flex-col max-md:justify-center max-md:items-center gap-4 max-w-[320px]">
                         <p
-                            class="text-secondary-light/50 font-semibold uppercase"
+                            class="text-secondary-light/50 max-md:text-center font-semibold uppercase"
                         >
                             original games
                         </p>
-                        <p class="text-2xl font-bold text-white">
+                        <p class="max-md:text-center text-2xl font-bold text-white">
                             Enjoy the original games from Domain
                         </p>
-                        <p class="text-secondary-light/50">
+                        <p class="max-md:text-center text-secondary-light/50">
                             Unique gameplay and exciting features only in
                             exclusive Domain Originals games
                         </p>
@@ -356,18 +356,22 @@ const faqItems = [
     .support-image {
         background-image: url("/assets/images/main/support_mobile.png");
         background-position: bottom;
+        min-height: 570px;
+
     }
 
     .vip-image {
         background-image: url("/assets/images/main/vip_mobile.png");
         background-position: bottom;
         background-size: cover;
+        min-height: 570px;
     }
 
     .games-image {
         background-image: url("/assets/images/main/games_mobile.png");
         background-position: bottom;
         background-size: cover;
+        min-height: 570px;
     }
 }
 </style>

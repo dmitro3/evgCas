@@ -14,7 +14,9 @@ export function useChat() {
          window.Echo.private(`chat.${activeChat.value}`)
             .listen('MessageSent', (e) => {
                 console.log("Получено событие MessageSent:", e);
-                messages.value.push(e.message);
+                if(e.message.chat_id === activeChat.value && e.message.id !== messages.value[messages.value.length - 1].id) {
+                    messages.value.push(e.message);
+                }
             })
             .error((error) => {
             });
@@ -78,6 +80,27 @@ export function useChat() {
         }
     };
 
+    const sendImage = async (file) => {
+        if (!file || sending.value) return;
+        const targetChatId = activeChat.value;
+        if (!targetChatId) return;
+        sending.value = true;
+        try {
+            const formData = new FormData();
+            formData.append('image', file);
+            formData.append('chat_id', targetChatId);
+            const response = await axios.post('/chat/send-image', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Ошибка отправки изображения:', error);
+            throw error;
+        } finally {
+            sending.value = false;
+        }
+    };
+
 
 
     const markAsRead = async (chatId) => {
@@ -101,6 +124,7 @@ export function useChat() {
         initializeEcho,
         selectChat,
         sendMessage,
+        sendImage,
         markAsRead
     };
 }

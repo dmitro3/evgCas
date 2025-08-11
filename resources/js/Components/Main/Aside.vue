@@ -10,7 +10,7 @@ import { Link } from "@inertiajs/vue3";
 import Feedback from "@/icons/Aside/Feedback.vue";
 import Licenses from "@/icons/Aside/Licenses.vue";
 import { ref } from "vue";
-
+import { getDomainName } from "@/utils/text";
 const categories = ref([
     {
         name: "Casino",
@@ -56,7 +56,7 @@ const categories = ref([
             {
                 name: "Promotions",
                 icon: Promo,
-                href: "/more/promotions",
+                href: "/news",
             },
             {
                 name: "Sponsorships",
@@ -93,7 +93,7 @@ const toggleCategory = (category) => {
                         alt="logo"
                         src="/assets/images/aside/test-logo.svg"
                     />
-                    MEDIUM
+                    {{ getDomainName() }}
                 </div>
             </div>
             <div class="flex flex-col gap-8 py-5">
