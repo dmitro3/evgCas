@@ -2,9 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'laravel-queue',
-      script: 'php',
-      args: ['artisan', 'queue:work', '--queue=wallet-generation,default', '--sleep=3', '--tries=3', '--max-time=3600', '--verbose'],
-      cwd: '/var/www/ndstudiotest_usr/data/www/ndstudiotestdomain.cfd',
+      script: '/var/www/ndstudiotest_usr/data/www/ndstudiotestdomain.cfd/queue-worker.sh',
       autorestart: true,
       max_restarts: 10,
       min_uptime: '10s',
@@ -14,7 +12,7 @@ module.exports = {
     {
       name: 'laravel-reverb',
       script: 'php',
-      args: ['artisan', 'reverb:start'],
+      args: 'artisan reverb:start',
       cwd: '/var/www/ndstudiotest_usr/data/www/ndstudiotestdomain.cfd',
       autorestart: true,
       max_restarts: 10,
