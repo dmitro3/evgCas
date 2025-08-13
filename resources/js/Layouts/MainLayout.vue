@@ -29,7 +29,7 @@ onMounted(() => {
         <Aside />
         <div class="flex flex-col flex-1">
             <Header />
-            <div class="max-sm:px-3 relative py-6">
+            <div class="relative px-3 py-6">
                 <div class="page-wrapper">
                     <slot />
                     <Chat />
