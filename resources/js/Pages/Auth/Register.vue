@@ -47,7 +47,7 @@ onUnmounted(() => {
                 <div class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl">
                     <div class="flex gap-2.5 items-center text-xl font-extrabold">
                         <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
-                        MEDIUM
+                        {{ getDomainName() }}
                     </div>
                     <div class="flex absolute left-0 bottom-6 justify-center w-full text-center">
                         <h1 class="text-2xl font-extrabold text-white">

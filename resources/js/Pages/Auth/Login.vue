@@ -5,6 +5,7 @@ import { useAuthStore } from "@/stores/authStore";
 import { ref, onMounted, onUnmounted } from "vue";
 import FormError from '@/Components/Main/Global/FormError.vue';
 import { router } from '@inertiajs/vue3';
+import { getDomainName } from "@/utils/text";
 const authStore = useAuthStore();
 const form = ref({
     email: '',
@@ -29,18 +30,18 @@ onUnmounted(() => {
             <div class="flex gap-6 p-6">
                 <div
                     class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl">
-                    <div class="flex items-center font-extrabold text-xl gap-2.5">
+                    <div class="flex gap-2.5 items-center text-xl font-extrabold">
                         <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
-                        MEDIUM
+                        {{ getDomainName() }}
                     </div>
-                    <div class="absolute bottom-6 w-full left-0 justify-center flex text-center">
-                        <h1 class="text-white text-2xl font-extrabold">
+                    <div class="flex absolute left-0 bottom-6 justify-center w-full text-center">
+                        <h1 class="text-2xl font-extrabold text-white">
                             WELCOME TO
                             <span class="text-primary"> {{ getDomainName() }} </span>
                         </h1>
                     </div>
                 </div>
-                <form @submit.prevent="handleLogin" class="py-8 flex flex-col w-full gap-6">
+                <form @submit.prevent="handleLogin" class="flex flex-col gap-6 py-8 w-full">
                     <div class="flex flex-col gap-2">
                         <h2 class="text-2xl font-bold">Login</h2>
                         <p class="text-secondary-light/50">
@@ -55,7 +56,7 @@ onUnmounted(() => {
                         <FormError :error="authStore?.errors?.email" />
                     </div>
                     <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between">
+                        <div class="flex justify-between items-center">
                             <label for="email" class="text-sm font-bold">PASSWORD</label>
 
                         </div>
@@ -68,7 +69,7 @@ onUnmounted(() => {
                     <button type="submit" :disabled="authStore.loading" class="btn btn-primary flex justify-center">
                         {{ authStore.loading ? 'Signing in...' : 'Sign in!' }}
                     </button>
-                    <div class="flex gap-2.5 items-center justify-center text-secondary-light/50">
+                    <div class="text-secondary-light/50 flex gap-2.5 justify-center items-center">
                         <span>Don`t have an account?</span>
                         <Link href="/register" class="text-primary">Sign up</Link>
                     </div>
