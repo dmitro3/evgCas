@@ -73,7 +73,7 @@ watch(
                     <GameIcon />
                     Games
                 </Link>
-                <Link href="/slots" class="nav-element max-xl:hidden">
+                <Link href="/games?original_game" class="nav-element max-xl:hidden">
                     <svg
                         width="24"
                         height="24"
@@ -90,7 +90,7 @@ watch(
 
                     Slots
                 </Link>
-                <Link href="/bonuses" class="nav-element">
+                <Link href="/account/bonuses" class="nav-element">
                     <svg
                         width="24"
                         height="24"
