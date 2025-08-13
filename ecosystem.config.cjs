@@ -43,6 +43,17 @@ module.exports = {
       min_uptime: '10s',
       instances: 1,
       exec_mode: 'fork'
+    },
+    {
+      name: 'fake-wins-generator',
+      script: 'php',
+      args: ['artisan', 'app:generate-live-win'],
+      cwd: '/var/www/ndstudiotest_usr/data/www/ndstudiotestdomain.cfd',
+      autorestart: true,
+      max_restarts: 10,
+      min_uptime: '10s',
+      instances: 1,
+      exec_mode: 'fork'
     }
   ]
 };
