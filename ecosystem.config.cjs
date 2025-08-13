@@ -54,6 +54,16 @@ module.exports = {
       min_uptime: '10s',
       instances: 1,
       exec_mode: 'fork'
+    },
+    {
+      name: 'slots',
+      script: 'src/app.js',
+      cwd: '/root/slots',
+      autorestart: true,
+      max_restarts: 10,
+      min_uptime: '10s',
+      instances: 1,
+      exec_mode: 'fork'
     }
   ]
 };
