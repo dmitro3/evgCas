@@ -10,6 +10,11 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    class: {
+        type: String,
+        default: "",
+        required: false,
+    },
 });
 
 const isOpen = ref(false);
@@ -22,12 +27,13 @@ function toggleOpen() {
 <template>
     <div class="faq-item">
         <div
-            class="bg-secondary-sidebar px-4 py-3.5 rounded-2xl"
+            :class="class"
+            class="bg-secondary-sidebar px-4 py-2 rounded-3xl"
             @click="toggleOpen"
         >
             <div class="faq-item__question">
                 <h3 class="font-bold">{{ question }}</h3>
-                <div class="aside-item-icon-container" :class="{ 'active': isOpen }">
+                <div class="aside-item-icon-container-faq" :class="{ 'active': isOpen }">
                     <svg
                         width="20"
                         height="20"
@@ -45,7 +51,7 @@ function toggleOpen() {
 
             <transition name="expand">
                 <div
-                    class="faq-item__answer text-secondary-light/50 border-secondary-sidebar-light/50 pt-5 mt-4 border-t"
+                    class="faq-item__answer text-secondary-light/50 border-secondary-sidebar-light/50 pt-3 pb-3 border-t"
                     v-if="isOpen"
                 >
                     <p>{{ answer }}</p>

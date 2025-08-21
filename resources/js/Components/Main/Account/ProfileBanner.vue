@@ -51,7 +51,7 @@ const handleLogout = () => {
                         </div>
                         <div class="tag tag-danger w-fit">Unveriefed</div>
                     </div>
-                    <p class="text-lg font-bold leading-none">$ {{ userStore?.user?.balance }}</p>
+                    <p class="text-lg font-bold leading-none">${{ userStore?.user?.balance }}</p>
                 </div>
             </div>
             <div class="flex flex-col w-full">

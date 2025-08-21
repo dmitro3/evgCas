@@ -59,7 +59,10 @@ class SystemController extends Controller
 
     public function lastWins(Request $request)
     {
-        $wins = Win::with('game')->orderBy('created_at', 'desc')->limit(15)->get();
+        $wins = Win::with('game')
+            ->orderBy('created_at', 'desc')
+            ->limit(15)
+            ->get();
         return response()->json($wins);
     }
 }

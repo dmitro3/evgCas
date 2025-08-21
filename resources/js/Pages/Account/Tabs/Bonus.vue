@@ -61,8 +61,6 @@ const handleActivatePromo = async () => {
 <template>
     <section class="flex flex-col gap-12">
         <div class="flex flex-col gap-6">
-            <h2 class="text-lg font-bold">Rakeback</h2>
-
             <div
                 class="xl:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full"
             >
@@ -90,7 +88,7 @@ const handleActivatePromo = async () => {
                                 </svg>
                                 Up to $3,000
                             </div>
-                            <h2 class="text-2xl font-bold">
+                            <h2 class="text-xl font-bold">
                                 Activate code for bonus
                             </h2>
                         </div>
@@ -130,7 +128,7 @@ const handleActivatePromo = async () => {
                 >
                     <div class="flex flex-col md:max-w-[290px] gap-10">
                         <div class="flex flex-col gap-2">
-                            <h2 class="text-2xl font-bold">Rakeback</h2>
+                            <h2 class="text-xl font-bold">Rakeback</h2>
                             <p class="text-secondary-light/50">
                                 Take your rakeback for placing bets and gambling
                             </p>
@@ -149,7 +147,7 @@ const handleActivatePromo = async () => {
                                         value="$3,500.01"
                                     />
                                 </div>
-                                <button class="btn btn-primary px-5">
+                                <button class="btn btn-primary flex-shrink-0 px-5">
                                     Claim!
                                 </button>
                             </div>
@@ -223,11 +221,11 @@ const handleActivatePromo = async () => {
                     <div
                         class="max-w-[160px] w-full ticket-bg py-4 min-h-[208px] flex items-start justify-center h-full"
                     >
-                        <p class="text-lg font-bold">3500$</p>
+                        <p class="text-lg font-bold">$3,500</p>
                     </div>
                     <div class="flex flex-col gap-8 w-full">
                         <div class="flex flex-col gap-2">
-                            <p class="text-2xl font-bold">Special Promocode</p>
+                            <p class="text-xl font-bold">Special Promocode</p>
                             <p class="text-secondary-light/50">
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit, sed do eiusmod tempor
@@ -248,7 +246,7 @@ const handleActivatePromo = async () => {
                                 class="text-secondary-light/50 flex justify-between items-center w-full text-sm font-semibold"
                             >
                                 <p class="">Bets placed</p>
-                                <p class="text-sm font-extrabold">
+                                <p class="text-sm">
                                     Need for wagering
                                 </p>
                             </div>

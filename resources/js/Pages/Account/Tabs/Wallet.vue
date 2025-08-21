@@ -22,10 +22,10 @@ onMounted(() => {
     <div class="flex flex-col gap-12">
         <div class="max-xl:flex-col flex gap-2.5 items-start">
             <div
-                class="bg-secondary-sidebar flex-shrink-0 p-6 xl:max-w-[460px] w-full rounded-2xl"
+                class=" flex-shrink-0  xl:max-w-[460px] w-full rounded-2xl"
             >
                 <div class="flex flex-col gap-4">
-                    <div class="grid grid-cols-2">
+                    <div class="bg-secondary-sidebar grid grid-cols-2 p-3 rounded-2xl">
                         <button
                             @click="activeTabDeposit = 'deposit'"
                             class="btn btn-switch before:content-none relative px-6 py-3"
@@ -83,7 +83,7 @@ onMounted(() => {
                             Withdraw
                         </button>
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-secondary-sidebar grid grid-cols-2 gap-2 p-3 rounded-2xl">
                         <div
                             class="method-pay"
                             :class="{
@@ -119,7 +119,7 @@ onMounted(() => {
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold">Deposit</h2>
                     <Link
-                        href="/account/wallet/transactions"
+                        href="/account/transactions"
                         class="flex gap-2 items-center text-lg font-normal"
                     >
                         <svg

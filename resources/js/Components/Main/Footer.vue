@@ -4,36 +4,16 @@ import { getDomainName, getDomain } from "@/utils/text";
 </script>
 
 <template>
-    <div class="md:px-5 container px-3 py-24 mx-auto">
+    <div class="md:px-5 container items-center px-3 py-24 mx-auto">
         <div class="flex flex-col gap-16">
-            <div
-                class="max-md:flex-wrap flex justify-between items-center opacity-50"
-            >
-                <img
-                    src="/assets/images/footer/huobi.svg"
-                    alt="huobi"
-                    srcset=""
-                />
-                <img src="/assets/images/footer/nba.svg" alt="nba" srcset="" />
-                <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="" />
-                <img
-                    src="/assets/images/footer/nascar.svg"
-                    alt="nascar"
-                    srcset=""
-                />
-
-                <img
-                    src="/assets/images/footer/blockchain.svg"
-                    alt="blockchain"
-                    class="h-6"
-                    srcset=""
-                />
-                <img
-                    src="/assets/images/footer/fc_bayern.png"
-                    alt="fc_bayern"
-                    class="h-11"
-                    srcset=""
-                />
+            <div class="max-md:flex-wrap flex justify-between items-center opacity-50">
+                <img src="/assets/images/footer/crypto/btc.svg" alt="bitcoin" srcset="" />
+                <img src="/assets/images/footer/crypto/eth.svg" alt="ethereum" srcset="" />
+                <img src="/assets/images/footer/crypto/ripple.svg" alt="ripple" srcset="" />
+                <img src="/assets/images/footer/crypto/sol.svg" alt="solana" srcset="" />
+                <img src="/assets/images/footer/crypto/tether.svg" alt="tether" srcset="" />
+                <img src="/assets/images/footer/crypto/binance.svg" alt="binance" srcset="" />
+                <img src="/assets/images/footer/crypto/tron.svg" alt="tron" srcset="" />
             </div>
             <div class="line"></div>
             <div class="md:grid-cols-5 grid grid-cols-2 gap-3 items-start">
@@ -82,66 +62,44 @@ import { getDomainName, getDomain } from "@/utils/text";
             </div>
 
             <div class="line"></div>
-            <div class="max-md:flex-col max-md:items-start max-md:gap-10 flex justify-between items-center">
-                <div class="max-md:flex-col flex gap-8 items-center">
-                    <div class="flex flex-col gap-5">
-                        <p
-                            class="text-secondary-light text-lg font-bold uppercase"
-                        >
-                            support
-                        </p>
-                        <p
-                            class="text-secondary-light/50 text-base font-medium"
-                        >
-                            support@{{ getDomain() }}
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-5">
-                        <p
-                            class="text-secondary-light text-lg font-bold uppercase"
-                        >
-                            press
-                        </p>
-                        <p
-                            class="text-secondary-light/50 text-base font-medium"
-                        >
-                            press@{{ getDomain() }}
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-5">
-                        <p
-                            class="text-secondary-light text-lg font-bold uppercase"
-                        >
-                            partners
-                        </p>
-                        <p
-                            class="text-secondary-light/50 text-base font-medium"
-                        >
-                            partners@{{ getDomain() }}
-                        </p>
-                    </div>
-                </div>
-                <p class="text-secondary-light/50 max-w-[530px]">{{ getDomainName() }} is owned and operated by Medium Rare N.V., registration number: 151486, registered address: Korporaalweg 10, Willemstad, Curaçao. Payment agent company is Medium Rare Limited with address 7-9 Riga Feraiou, LIZANTIA COURT, Office 310, Agioi Omologites, 1087 Nicosia, Cyprus and Registration number: HE 410775</p>
-            </div>
-            <div class="line"></div>
-            <div
-                class="max-md:flex-col flex justify-between items-center w-full"
-            >
-                <div class="flex flex-shrink-0 gap-6 justify-between w-full">
-                    <div
-                        class="flex gap-2.5 justify-start items-center text-2xl font-extrabold leading-none"
-                    >
-                        <img
-                            height="30"
-                            width="30"
-                            alt="logo"
-                            src="/assets/images/aside/test-logo.svg"
-                        />
+
+            <div class="max-md:flex-col flex justify-between items-center w-full">
+                <div class="flex flex-col flex-shrink-0 gap-4">
+                    <div class="flex gap-2.5 justify-start items-center text-2xl font-extrabold leading-none">
+                        <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
                         {{ getDomainName() }}
                     </div>
                     <p class="text-secondary-light/50 leading-none">
-                        © 2024 {{ getDomain() }} | All Right Are Reserved
+                        © 2025 {{ getDomain() }} | All Right Are Reserved
                     </p>
+                </div>
+                <div class="max-md:flex-col max-md:items-start max-md:gap-10 flex justify-between items-center">
+                    <div class="max-md:flex-col flex gap-8 items-center">
+                        <div class="flex flex-col gap-5">
+                            <p class="text-lg font-bold text-white uppercase">
+                                support
+                            </p>
+                            <p class="text-secondary-light/50 text-base font-medium">
+                                support@{{ getDomain() }}
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <p class="text-lg font-bold text-white uppercase">
+                                press
+                            </p>
+                            <p class="text-secondary-light/50 text-base font-medium">
+                                press@{{ getDomain() }}
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <p class="text-lg font-bold text-white uppercase">
+                                partners
+                            </p>
+                            <p class="text-secondary-light/50 text-base font-medium">
+                                partners@{{ getDomain() }}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

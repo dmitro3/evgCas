@@ -3,6 +3,8 @@ import MainLayout from "../Layouts/MainLayout.vue";
 import LiveWin from "../Components/Main/MainPage/LiveWin.vue";
 import { Link } from "@inertiajs/vue3";
 import GameCard from "../Components/Main/Games/GameCard.vue";
+import { ref, computed } from "vue";
+import LastetsBets from "@/Components/Main/MainPage/LastetsBets.vue";
 
 const props = defineProps({
     slots: Array,
@@ -12,6 +14,11 @@ const slots = props.slots.filter((slot) => slot.type === "slot");
 
 const originalGames = props.slots.filter(
     (slot) => slot.type === "original_game"
+);
+
+const showAllSlots = ref(false);
+const slotsToShow = computed(() =>
+    showAllSlots.value ? slots : slots.slice(0, 14)
 );
 </script>
 
@@ -23,13 +30,13 @@ const originalGames = props.slots.filter(
                 <div
                     class="2xl:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full"
                 >
-                    <div class="bg-main-container-1 p-8 rounded-2xl">
+                    <div class="bg-main-container-1 p-6 rounded-2xl">
                         <div
                             class="flex flex-col max-md:text-center max-md:items-center max-md:justify-center gap-5 max-w-[290px]"
                         >
                             <div class="flex flex-col gap-2">
                                 <h1
-                                    class="text-2xl md:text-3xl max-w-[370px] font-bold text-white"
+                                    class="max-w-[370px] text-2xl font-bold text-white"
                                 >
                                     Licensed slots by Pragmatic Play
                                 </h1>
@@ -43,13 +50,13 @@ const originalGames = props.slots.filter(
                             </button>
                         </div>
                     </div>
-                    <div class="bg-main-container-2 p-8 rounded-2xl">
+                    <div class="bg-main-container-2 p-6 rounded-2xl">
                         <div
                             class="flex md:h-full flex-col gap-5 max-w-[290px] max-md:items-center max-md:justify-center max-md:text-center"
                         >
                             <div class="md:h-full flex flex-col gap-2">
                                 <h1
-                                    class="text-2xl md:text-3xl max-w-[280px] font-bold text-white"
+                                    class="max-w-[280px] text-2xl font-bold text-white"
                                 >
                                     Official football partnerships
                                 </h1>
@@ -102,6 +109,8 @@ const originalGames = props.slots.filter(
                         v-for="game in originalGames"
                         :key="game.id"
                         :game="game"
+                        :showRtp="game.type === 'original_game'"
+
                     />
                 </div>
             </div>
@@ -111,24 +120,37 @@ const originalGames = props.slots.filter(
             >
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold text-white">Slots</h2>
-                    <Link
-                        href="/games?type=slot"
-                        class="flex gap-1 items-center"
-                    >
-                        View all
-                    </Link>
                 </div>
                 <div
-                    class="xl:grid-cols-4 md:grid-cols-3 2xl:grid-cols-6 grid grid-cols-2 gap-2.5"
+                    class="xl:grid-cols-7 md:grid-cols-3 2xl:grid-cols-7 grid grid-cols-2 gap-2.5"
                 >
                     <GameCard
-                        v-for="game in slots"
+                        v-for="game in slotsToShow"
                         :key="game.id"
                         :game="game"
                         :showRtp="false"
                     />
+
                 </div>
+                <button
+                    v-if="slots.length > 14"
+                    @click="showAllSlots = !showAllSlots"
+                    class="bg-secondary-sidebar flex gap-2 justify-center items-center py-4 w-full font-bold rounded-lg"
+                >
+                    <span>{{ showAllSlots ? 'Show less' : 'Show more' }}</span>
+                    <div class="aside-item-icon-container">
+                        <img
+                            src="/assets/images/icons/arrow.svg"
+                            :class="[
+                                'transition-transform duration-300',
+                                { 'rotate-180': slotsToShow.length > 14 },
+                            ]"
+                            alt="arrow"
+                        />
+                    </div>
+                </button>
             </div>
+            <LastetsBets />
         </div>
     </MainLayout>
 </template>

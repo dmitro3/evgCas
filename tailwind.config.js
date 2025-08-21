@@ -15,9 +15,10 @@ export default {
             screens: {
                 sm: "358px",
                 md: "976px",
-                lg: "1024px",
+                lg: "1124px",
                 xl: "1380px",
-                "2xl": "1410px",
+                "2xl": "1500px",
+                "3xl": "1600px",
             },
             colors: {
                 white: "#E8EDFF",

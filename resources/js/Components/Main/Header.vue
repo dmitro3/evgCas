@@ -151,7 +151,7 @@ watch(
             </div>
             <div v-else class="flex relative gap-2 items-center">
                 <div
-                    class="border_angle bg-secondary-sidebar flex gap-4 items-center p-2 rounded-lg"
+                    class="border_angle bg-secondary-sidebar flex gap-4 items-center p-2 rounded-2xl"
                 >
                     <Link href="/account/wallet" class="btn btn-green px-6"
                         >Deposit</Link
@@ -159,7 +159,7 @@ watch(
                     <div class="flex gap-3 items-center">
                         <div class="flex flex-col gap-1 items-end">
                             <p
-                                class="text-secondary-light/50 text-nowrap text-sm leading-none"
+                                class="text-secondary-light/50 text-nowrap text-sm font-medium leading-none"
                             >
                             Your balance
 
@@ -172,7 +172,7 @@ watch(
                                     'text-white': !isBalanceChanged,
                                 }"
                             >
-                                {{ isSlot ? "In game" :   "$" + (userStore.currentUser?.balance || "$ 0.00") }}
+                                {{ isSlot ? "In game" :   "$" + (userStore.currentUser?.balance || "$0.00") }}
                             </p>
                         </div>
                         <Link href="/account/wallet" class="relative">

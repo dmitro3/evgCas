@@ -46,7 +46,7 @@ const submitWithdrawal = async () => {
         <div class="flex flex-col gap-5">
             <!-- Bank Name -->
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     BANK NAME
                 </span>
                 <div class="main-input-small">
@@ -59,9 +59,8 @@ const submitWithdrawal = async () => {
                 </div>
             </div>
 
-            <!-- Receiver's Name -->
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     RECEIVER'S NAME
                 </span>
                 <div class="main-input-small">
@@ -76,7 +75,7 @@ const submitWithdrawal = async () => {
 
             <!-- Card Number -->
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     CARD NUMBER
                 </span>
                 <div class="main-input-small">
@@ -93,7 +92,7 @@ const submitWithdrawal = async () => {
 
             <!-- Comment -->
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     COMMENT (OPTIONAL)
                 </span>
                 <div class="main-input-small">
@@ -108,7 +107,7 @@ const submitWithdrawal = async () => {
 
             <!-- Amount -->
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     AMOUNT IN USD
                 </span>
                 <div class="main-input-small">
@@ -119,7 +118,7 @@ const submitWithdrawal = async () => {
                         placeholder="Min $1.00"
                         min="1"
                     />
-                    <span class="text-primary px-3 cursor-pointer" @click="form.amount = userBalance">Max</span>
+                    <span class="text-primary px-3 font-medium cursor-pointer" @click="form.amount = userBalance">Max</span>
                 </div>
             </div>
 

@@ -43,6 +43,8 @@ class FakeWinEvent implements ShouldBroadcast
             'win' => [
                 'id' => $this->win->id,
                 'amount' => $this->win->amount,
+                'random_username' => $this->win->random_username,
+                'bet_amount' => $this->win->bet_amount,
                 'game_id' => $this->win->game_id,
                 'game' => $this->win->game ? [
                     'id' => $this->win->game->id,

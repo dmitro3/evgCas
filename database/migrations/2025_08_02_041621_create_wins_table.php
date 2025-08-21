@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('amount');
             $table->integer('game_id');
+            $table->string('bet_amount');
+            $table->string('random_username')->nullable();
             $table->timestamps();
         });
     }

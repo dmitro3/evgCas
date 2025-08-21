@@ -9,11 +9,11 @@ const props = defineProps({
 
 <template>
     <div class="flex flex-col gap-2 justify-center items-center rounded-2xl">
-        <div class="flex gap-2.5 items-center text-3xl font-bold">
+        <div class="flex gap-2.5 items-center text-[22px] font-bold">
             <img :src="icon" alt="" class="w-8 h-8" />
             {{ amount }}
         </div>
-        <p class="text-secondary-light/50 text-center">
+        <p class="text-secondary-light/50 text-base text-center">
             {{ description }}
         </p>
     </div>

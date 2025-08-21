@@ -1,6 +1,8 @@
 <script setup>
 import MainLayout from "@/Layouts/MainLayout.vue";
 import Domain from "@/Components/Main/Global/Domain.vue";
+import FaqItem from "@/Components/Main/Global/FaqItem.vue";
+import { getDomainName } from "@/utils/text";
 
 const cards = [
     {
@@ -62,7 +64,28 @@ const cards = [
 </svg>`,
     },
 ];
-
+const faqItems = [
+    {
+        question: `Why is ${getDomainName()}'s VIP program the best one?`,
+        answer: `${getDomainName()}'s VIP program stands out from competitors by offering progressive rewards that increase with your loyalty. Unlike other platforms, we provide exclusive bonuses, personalized support, higher withdrawal limits, and special event invitations that truly reward your dedication. Our VIP members also enjoy custom-tailored promotions and cashback offers that grow with your VIP level.`,
+    },
+    {
+        question: "What is XP?",
+        answer: `XP (Experience Points) is ${getDomainName()}'s loyalty currency that you earn through gameplay. Every bet you place contributes to your XP total, allowing you to progress through VIP levels naturally as you enjoy our games. XP accumulates automatically in your account and determines your position in our VIP hierarchy, unlocking increasingly valuable rewards as you advance.`,
+    },
+    {
+        question: "What are the levels of VIP status and their benefits?",
+        answer: `${getDomainName()} offers multiple VIP tiers, each with enhanced benefits: Bronze (entry level) provides basic cashback and weekly bonuses; Silver adds higher withdrawal limits and priority support; Gold includes personalized offers and exclusive tournament access; Platinum features dedicated account managers and VIP-only events; while Diamond (our highest tier) offers custom rewards packages, instant withdrawals, and invitation-only experiences. Each level progressively improves your rewards and platform privileges.`,
+    },
+    {
+        question: "I need to make a deposit in the equivalent of XP points for each status?",
+        answer: `No, you don't need to make deposits equivalent to XP points. XP is earned naturally through your gameplay on ${getDomainName()}. Every wager you place contributes to your XP total regardless of whether you win or lose. Your VIP status advances automatically as you accumulate XP through regular play, with no minimum deposit requirements tied directly to VIP progression.`,
+    },
+    {
+        question: "How does VIP status affect my chances of winning?",
+        answer: `Your VIP status has absolutely no impact on your chances of winning at ${getDomainName()}. All games operate with the same fair and transparent odds regardless of your VIP level. What VIP status does provide are enhanced rewards, bonuses, and services that improve your overall experience and value, but the fundamental game mechanics and winning probabilities remain identical for all players across all VIP tiers.`,
+    },
+];
 const certificates = [
     {
         title: "Reliable protection of user data and funds",
@@ -100,13 +123,11 @@ const certificates = [
 <template>
     <MainLayout>
         <div class="container flex flex-col gap-12 mx-auto">
-            <div
-                class="bg-secondary-sidebar about_bg flex justify-between items-center p-6 w-full rounded-2xl"
-            >
+            <div class="bg-secondary-sidebar about_bg flex justify-between items-center p-6 w-full rounded-2xl">
                 <div class="flex flex-col gap-12">
                     <Domain />
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-3xl font-semibold text-white">
+                        <h1 class="text-3xl font-bold text-white">
                             About us
                         </h1>
                         <p class="text-white/50 max-w-[570px]">
@@ -120,7 +141,7 @@ const certificates = [
             </div>
             <div class="flex relative justify-between items-center">
                 <div class="flex flex-col gap-4 max-w-[780px]">
-                    <p class="text-2xl font-bold">
+                    <p class="text-[22px] font-bold">
                         Domain - The Foremost Crypto Casino in the Industry
                     </p>
                     <p class="text-white/75">
@@ -135,27 +156,15 @@ const certificates = [
                     </p>
                 </div>
                 <div class="flex absolute right-0 -top-20 justify-end w-full">
-                    <img
-                        src="/assets/images/info/games.png"
-                        alt="about"
-                        class="max-h-[572px] max-w-[500px] object-cover w-full h-full"
-                    />
+                    <img src="/assets/images/info/games.png" alt="about" class="max-h-[572px] max-w-[500px] object-cover w-full h-full" />
                 </div>
             </div>
             <div class="flex flex-col gap-4">
-                <p class="text-2xl font-bold text-white">Why Choose Medium?</p>
-                <div
-                    class="max-lg:grid-cols-2 max-md:grid-rows-1 grid grid-cols-4 gap-5 items-center"
-                >
-                    <div
-                        v-for="card in cards"
-                        :key="card.title"
-                        class="card_about"
-                    >
+                <p class="text-[22px] font-bold text-white">Why Choose Medium?</p>
+                <div class="max-lg:grid-cols-2 max-md:grid-rows-1 grid grid-cols-4 gap-5 items-center">
+                    <div v-for="card in cards" :key="card.title" class="card_about">
                         <div class="flex flex-col gap-4">
-                            <div
-                                class="bg-primary/10 flex justify-center items-center w-12 h-12 rounded-xl"
-                            >
+                            <div class="bg-primary/10 flex justify-center items-center w-12 h-12 rounded-xl">
                                 <div v-html="card.icon"></div>
                             </div>
                             <p class="text-xl font-bold text-white">
@@ -168,14 +177,10 @@ const certificates = [
             </div>
             <div class="flex gap-12 items-center">
                 <div class="overflow-hidden max-w-[520px]">
-                    <img
-                        src="/assets/images/info/coins.png"
-                        alt="about"
-                        class="object-cover w-full h-full"
-                    />
+                    <img src="/assets/images/info/coins.png" alt="about" class="object-cover w-full h-full" />
                 </div>
                 <div class="flex flex-col flex-1 gap-3 w-full">
-                    <p class="gap-4 text-2xl font-bold text-white">
+                    <p class="gap-4 text-[22px] font-bold text-white">
                         Play Your Way
                     </p>
                     <p class="text-white/75">
@@ -207,13 +212,8 @@ const certificates = [
                                 GPL license provides
                             </p>
                             <div class="grid grid-cols-3 gap-3">
-                                <div
-                                    v-for="certificate in certificates"
-                                    class="bg-secondary flex gap-4 items-center p-4 rounded-xl"
-                                >
-                                    <div
-                                        class="bg-primary/10 flex justify-center items-center w-12 h-12 rounded-xl"
-                                    >
+                                <div v-for="certificate in certificates" class="bg-secondary flex gap-4 items-center p-4 rounded-xl">
+                                    <div class="bg-primary/10 flex justify-center items-center w-14 h-14 rounded-xl">
                                         <div v-html="certificate.icon"></div>
                                     </div>
                                     <div class="flex flex-col gap-2">
@@ -228,8 +228,8 @@ const certificates = [
                         <div class="flex gap-3 items-center">
                             <img src="/assets/images/info/david_img.png" alt="david" class="w-14 h-14 rounded-full">
                             <div class="flex flex-col gap-2">
-                                <p class="text-white">David Lopez</p>
-                                <p class="text-white/50 uppercase">
+                                <p class="font-bold leading-none text-white">David Lopez</p>
+                                <p class="text-white/50 font-medium uppercase">
                                     One of the founders of Domain
                                 </p>
                             </div>
@@ -237,6 +237,32 @@ const certificates = [
                     </div>
                 </div>
                 <img src="/assets/images/license/license.png" class="max-w-[310px]">
+            </div>
+            <div class="flex flex-col gap-3">
+                <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
+                    <h2 class="text-[22px] font-bold">
+                        Frequently Asked Questions
+                    </h2>
+                    <p class="text-white/75">
+                        Here, you’ll find answers to the most common questions
+                        about our platform, games, payments, and more
+                    </p>
+                </div>
+                <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />
+                <div class="bg-primary/10 flex justify-between items-center px-4 py-3 rounded-3xl">
+                    <div class="flex flex-col">
+                        <p class="font-bold">Any questions left?</p>
+                        <p class="text-[#81BAFF]">Our team of professionals is ready to help you 24/7 - write to us</p>
+                    </div>
+                    <button class="btn btn-primary before:hidden w-fit z-50 px-6 shadow-none">
+                        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.3916 14.2372L15.7166 16.8706C15.7999 17.5622 15.0582 18.0456 14.4666 17.6872L11.5832 15.9706C11.3832 15.8539 11.3332 15.6039 11.4416 15.4039C11.8582 14.6372 12.0832 13.7706 12.0832 12.9039C12.0832 9.85391 9.46658 7.37057 6.24991 7.37057C5.59158 7.37057 4.94991 7.47057 4.34991 7.67057C4.04158 7.77057 3.74158 7.48724 3.81658 7.17057C4.57491 4.13724 7.49158 1.87891 10.9749 1.87891C15.0416 1.87891 18.3332 4.95391 18.3332 8.74557C18.3332 10.9956 17.1749 12.9872 15.3916 14.2372Z" fill="#E8EDFF" />
+                            <path d="M10.8334 12.9034C10.8334 13.8951 10.4667 14.8118 9.85008 15.5368C9.02508 16.5368 7.71675 17.1785 6.25008 17.1785L4.07508 18.4701C3.70841 18.6951 3.24175 18.3868 3.29175 17.9618L3.50008 16.3201C2.38341 15.5451 1.66675 14.3034 1.66675 12.9034C1.66675 11.4368 2.45008 10.1451 3.65008 9.37845C4.39175 8.89512 5.28341 8.62012 6.25008 8.62012C8.78341 8.62012 10.8334 10.5368 10.8334 12.9034Z" fill="#E8EDFF" />
+                        </svg>
+
+                        Chat with support
+                    </button>
+                </div>
             </div>
         </div>
     </MainLayout>
@@ -248,11 +274,9 @@ const certificates = [
     border-radius: 24px;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.04);
-    background: radial-gradient(
-            81.71% 58.59% at 0% 0%,
+    background: radial-gradient(81.71% 58.59% at 0% 0%,
             rgba(41, 138, 255, 0.14) 0%,
-            rgba(41, 138, 255, 0) 100%
-        ),
+            rgba(41, 138, 255, 0) 100%),
         rgba(105, 111, 156, 0.11);
     backdrop-filter: blur(30px);
 }

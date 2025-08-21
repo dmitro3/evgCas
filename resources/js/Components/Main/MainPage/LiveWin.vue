@@ -12,6 +12,8 @@ onMounted(() => {
             title: win.game.name,
             amount: win.amount,
             image: win.game.image,
+            username: win.random_username,
+            bet_amount: win.bet_amount,
         }));
     });
 
@@ -21,6 +23,8 @@ onMounted(() => {
             title: e.win.game.name,
             amount: e.win.amount,
             image: e.win.game.image,
+            username: e.win.random_username,
+            bet_amount: e.win.bet_amount,
         };
 
         // Добавляем в начало массива для анимации сверху
@@ -81,12 +85,7 @@ onMounted(() => {
                 />
             </TransitionGroup>
 
-            <img
-                src="/assets/images/account/bg/left_shadow.png"
-                alt="left_shadow"
-                srcset=""
-                class="absolute left-0 z-10 h-full pointer-events-none"
-            />
+
             <img
                 src="/assets/images/account/bg/right_shadow.png"
                 alt="right_shadow"

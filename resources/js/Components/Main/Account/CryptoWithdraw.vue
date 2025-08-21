@@ -176,7 +176,7 @@ watch(selected, generateQRCode, { immediate: true });
                         placeholder="Min $100.00"
                         min="100"
                     />
-                    <span class="text-primary px-3 cursor-pointer" @click="form.amount = userBalance">Max</span>
+                    <span class="text-primary px-3 font-medium cursor-pointer" @click="form.amount = userBalance">Max</span>
                 </div>
             </div>
 

@@ -134,7 +134,7 @@ const toggleCategory = (category) => {
             </div>
         </div>
     </aside>
-    <aside class="2xl:hidden lg:block hidden">
+    <aside class="2xl:hidden max-md:!hidden block">
         <div class="aside">
             <div class="logo-container">
                 <div class="flex gap-2.5 justify-center items-center">

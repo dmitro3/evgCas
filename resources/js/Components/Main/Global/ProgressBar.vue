@@ -92,8 +92,13 @@ const progress = ref(props.progress);
         class="flex flex-col flex-1 gap-2 rounded-2xl"
     >
         <div class="flex justify-between items-center w-full">
-            <p class="font-extrabold">SILVER I</p>
-            <p class="font-extrabold">SILVER II</p>
+            <div class="flex gap-1 items-center">
+                <p class="font-bold">SILVER I</p>
+            </div>
+            <div class="flex gap-1 items-center">
+                <p class="font-bold">SILVER II</p>
+                <img src="/assets/images/account/vip/ranks/silver1.png" alt="" srcset="" class="flex-shrink-0 h-7">
+            </div>
         </div>
         <div class="overflow-hidden relative h-2 rounded-full">
             <div class="bg-secondary-sidebar-dark w-full h-full"></div>
@@ -107,11 +112,11 @@ const progress = ref(props.progress);
         </div>
         <div v-if="isShowXP" class="flex justify-between items-center pt-2 font-semibold">
             <div class="flex gap-2 items-center">
-                <img src="/assets/images/account/vip/ranks/silver1.png" alt="" srcset="" class="flex-shrink-0 h-7">
+                <div class="vip_rank_bg silver"><span>i</span></div>
                 <p class="text-secondary-light/50">{{ xpRange[0] }}XP</p>
             </div>
             <div class="flex gap-2 items-center">
-                <img src="/assets/images/account/vip/ranks/silver1.png" alt="" srcset="" class="flex-shrink-0 h-7">
+                <div class="vip_rank_bg silver"><span>ii</span></div>
                 <p class="text-secondary-light/50">{{ xpRange[1] }}XP</p>
             </div>
         </div>

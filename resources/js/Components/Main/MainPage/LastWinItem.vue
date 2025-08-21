@@ -7,11 +7,11 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div class="flex flex-col gap-2 max-w-[115px]">
-        <div class="rounded-2xl relative max-w-[115px]">
+    <div class="flex flex-col gap-2 max-w-[95px] flex-shrink-0 w-full">
+        <div class="relative flex-shrink-0 w-full rounded-2xl">
             <img
                 :src="image"
-                class="object-cover max-w-[95px] max-h-[125px] min-w-[95px] min-h-[125px] w-full h-full rounded-2xl"
+                class="object-cover flex-shrink-0 min-h-[125px] w-full h-full rounded-2xl"
             />
         </div>
         <p
