@@ -20,7 +20,7 @@ export function getCryptoIcon(symbol) {
         'TRX': 'trx',
         'XRP': 'ripple'
     };
-    return iconMap[symbol] || symbol.toLowerCase();
+    return iconMap[symbol] || symbol.toLowerCase() || 'usdt';
 };
 
 export function getDomainName() {

@@ -58,7 +58,7 @@ module.exports = {
     {
       name: 'slots',
       script: 'src/app.js',
-      cwd: '/root/slots',
+      cwd: '/root/slot',
       autorestart: true,
       max_restarts: 10,
       min_uptime: '10s',
