@@ -44,7 +44,7 @@ const isValidAmount = computed(() => {
     <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-5 w-full">
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     MERCHANT TO DEPOSIT
                 </span>
                 <VueSelect :isLoading="options.length === 0" v-model="selected" :options="options" placeholder="Select a merchant for deposit" class="select-default">
@@ -74,7 +74,7 @@ const isValidAmount = computed(() => {
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     AMOUNT IN USD
                 </span>
                 <div class="main-input-small">
@@ -90,7 +90,7 @@ const isValidAmount = computed(() => {
 
                 </div>
                 <div class="flex flex-col gap-1">
-                    <div class="text-sm font-bold">WARNING</div>
+                    <div class="font-bold">WARNING</div>
                     <div class="text-sm">
                         To make a deposit using a bank card, copy the BTC address and click on the "Go to" button below.
                         You will be redirected to our partner to process the payment. Your personal BTC address is used
@@ -100,7 +100,7 @@ const isValidAmount = computed(() => {
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     DEPOSIT ADDRESS
                 </span>
                 <div class="main-input-small !bg-secondary py-0.5 pr-0.5">

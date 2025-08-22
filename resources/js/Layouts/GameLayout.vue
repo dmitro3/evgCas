@@ -1,5 +1,6 @@
 <script setup>
 import LiveWin from '@/Components/Main/MainPage/LiveWin.vue';
+import LastetsBets from '@/Components/Main/MainPage/LastetsBets.vue';
 import RecommendedGames from '@/Components/Main/Games/RecommendedGames.vue';
 import { defineProps } from 'vue';
 
@@ -13,6 +14,7 @@ const props = defineProps({
         <slot />
         <LiveWin />
         <RecommendedGames :slots="slots" />
+        <LastetsBets />
     </div>
 </template>
 

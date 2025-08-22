@@ -172,7 +172,7 @@ watch(
                                     'text-white': !isBalanceChanged,
                                 }"
                             >
-                                {{ isSlot ? "In game" :   "$" + (userStore.currentUser?.balance || "$0.00") }}
+                                {{ isSlot ? "In Play" :   "$" + (userStore.currentUser?.balance || "$0.00") }}
                             </p>
                         </div>
                         <Link href="/account/wallet" class="relative">

@@ -19,7 +19,7 @@ const props = defineProps({
 
 <template>
     <div v-if="mixBlend"
-        :class="`flex gap-2 items-center ${textSize} font-extrabold mix-blend-soft-light ${classNames}`"
+        :class="`flex gap-2 items-center ${textSize} font-bold mix-blend-soft-light ${classNames}`"
     >
         <svg
             width="16"

@@ -8,8 +8,10 @@ const store = usePlinkoStore();
 
 const canvas = ref(null);
 const showRowsDropdown = ref(false);
+const showRiskDropdown = ref(false);
 
 const rowsOptions = [8, 9, 10, 11, 12, 13, 14, 15, 16];
+const riskOptions = ["low", "medium", "high"];
 
 let engine, render, pegs, pegAnims, notes, autoDroppingInterval;
 let clickSynth;
@@ -18,6 +20,7 @@ let currentGAP = 32;
 
 const betAmount = computed(() => store.betAmount);
 const rows = computed(() => store.rows);
+const risk = computed(() => store.risk);
 const userStore = useUserStore();
 const soundEnabled = computed(() => store.soundEnabled);
 const isCollecting = ref(false);
@@ -365,6 +368,41 @@ function changeRows(newRows) {
     }
 }
 
+function changeRisk(newRisk) {
+    store.setRisk(newRisk);
+    showRiskDropdown.value = false;
+}
+
+function getNoteStyle(index) {
+    const length = multipliers.value.length;
+    const center = (length - 1) / 2;
+    const distance = Math.abs(index - center);
+    const normalized = center === 0 ? 0 : distance / center; // 0 center, 1 edge
+
+    let backgroundImage = "";
+    let filter = "";
+
+    if (normalized <= 0.3) {
+        // near center - red
+        backgroundImage = "linear-gradient(180deg, #FB8F8F 0%, #FB5D5D 100%)";
+        filter = "drop-shadow(0 3.77px 0 rgba(251, 93, 93, 0.25))";
+    } else if (normalized <= 0.7) {
+        // middle - orange
+        backgroundImage = "linear-gradient(180deg, #FFA07E 0%, #FF6831 100%)";
+        filter = "drop-shadow(0 3.77px 0 rgba(255, 104, 49, 0.25))";
+    } else {
+        // far - blue
+        backgroundImage = "linear-gradient(180deg, #8FC2FF 0%, #298AFF 100%)";
+        filter = "drop-shadow(0 3.77px 0 rgba(41, 138, 255, 0.25))";
+    }
+
+    return {
+        width: widthNotes.value + "px",
+        backgroundImage,
+        filter
+    };
+}
+
 async function bet() {
     // dropABall()
     const response = await store.placeBet();
@@ -376,6 +414,7 @@ async function bet() {
 function handleOutsideClick(event) {
     if (!event.target.closest(".main-input-small")) {
         showRowsDropdown.value = false;
+        showRiskDropdown.value = false;
     }
 }
 
@@ -432,7 +471,7 @@ function createBallTexture(radius) {
                             :key="index"
                             type="button"
                             class="note"
-                            :style="{ width: widthNotes + 'px' }"
+                            :style="getNoteStyle(index)"
                             :id="`note-${index}`"
                         >
                             {{ mult }}
@@ -513,12 +552,12 @@ function createBallTexture(radius) {
                     <div
                         class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
                     >
-                        <span class="text-gray">Rows</span>
+                        <span class="text-gray">Risk</span>
                         <div
                             class="flex gap-1 items-center cursor-pointer"
-                            @click="showRowsDropdown = !showRowsDropdown"
+                            @click="showRiskDropdown = !showRiskDropdown"
                         >
-                            {{ rows }}
+                            {{ risk }}
                             <svg
                                 width="12"
                                 height="7"
@@ -535,14 +574,14 @@ function createBallTexture(radius) {
                         </div>
 
                         <div
-                            v-if="showRowsDropdown"
+                            v-if="showRiskDropdown"
                             class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border"
                         >
                             <div
-                                v-for="option in rowsOptions"
+                                v-for="option in riskOptions"
                                 :key="option"
-                                class="hover:bg-secondary-bg px-3 py-2 cursor-pointer"
-                                @click="changeRows(option)"
+                                class="hover:bg-secondary-bg px-3 py-2 capitalize cursor-pointer"
+                                @click="changeRisk(option)"
                             >
                                 {{ option }}
                             </div>
@@ -839,7 +878,8 @@ function createBallTexture(radius) {
     justify-content: center;
     aspect-ratio: 30/26;
     border-radius: 5px;
-    background: linear-gradient(180deg, #8FC2FF 0%, #298AFF 100%);
+    background-image: none;
+    background-color: transparent;
     flex-shrink: 0;
     text-align: center;
     font-size: 12px;
@@ -860,50 +900,7 @@ function createBallTexture(radius) {
         scale: 1;
     }
 }
-.notes .note:nth-child(1),
-.notes .note:nth-child(17) {
-    background-color: #0f3;
-    border-color: #0a0;
-}
-.notes .note:nth-child(2),
-.notes .note:nth-child(16) {
-    background-color: #1f3;
-    border-color: #0a0;
-}
-.notes .note:nth-child(3),
-.notes .note:nth-child(15) {
-    background-color: #3f2;
-    border-color: #0a0;
-}
-.notes .note:nth-child(4),
-.notes .note:nth-child(14) {
-    background-color: #4f2;
-    border-color: #0a0;
-}
-.notes .note:nth-child(5),
-.notes .note:nth-child(13) {
-    background-color: #6f2;
-    border-color: #0a0;
-}
-.notes .note:nth-child(6),
-.notes .note:nth-child(12) {
-    background-color: #7f1;
-    border-color: #3a0;
-}
-.notes .note:nth-child(7),
-.notes .note:nth-child(11) {
-    background-color: #9f1;
-    border-color: #4a0;
-}
-.notes .note:nth-child(8),
-.notes .note:nth-child(10) {
-    background-color: #af0;
-    border-color: #6a0;
-}
-.notes .note:nth-child(9) {
-    background-color: #cf0;
-    border-color: #7a0;
-}
+/* Dynamic colors are applied via classes: bg-red-primary, bg-orange, bg-primary */
 
 .main-input-small {
     @apply flex items-center gap-2 px-4 py-3 bg-secondary-sidebar rounded-xl border border-transparent;

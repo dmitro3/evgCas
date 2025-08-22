@@ -119,7 +119,7 @@ watch(selected, generateQRCode, { immediate: true });
     <div class="max-md:flex-col md:items-start flex gap-6 items-start">
         <div class="flex flex-col flex-1 gap-5 w-full">
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold">
+                <span class="font-bold">
                     CRYPTOCURRENCY
                 </span>
                 <VueSelect
@@ -147,7 +147,7 @@ watch(selected, generateQRCode, { immediate: true });
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     WALLET ADDRESS
                 </span>
                 <div
@@ -163,7 +163,7 @@ watch(selected, generateQRCode, { immediate: true });
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     AMOUNT IN USD
                 </span>
                 <div
@@ -181,7 +181,7 @@ watch(selected, generateQRCode, { immediate: true });
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="font-bold uppercase">
                     COMMENT (OPTIONAL)
                 </span>
                 <div

@@ -2,7 +2,12 @@
 import MainLayout from "@/Layouts/MainLayout.vue";
 import { useTowerStore } from "@/stores/towerStore";
 import { useUserStore } from "@/stores/userStore";
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch, defineProps } from "vue";
+import GameLayout from "@/Layouts/GameLayout.vue";
+
+const props = defineProps({
+    slots: Array,
+});
 
 const towerStore = useTowerStore();
 const userStore = useUserStore();
@@ -170,11 +175,12 @@ onMounted(async () => {
 
 <template>
     <MainLayout>
+        <GameLayout :slots="slots">
         <div class="md:px-5 container flex flex-col mx-auto w-full">
             <div class="flex flex-col rounded-2xl">
                 <div class="max-md:flex-col-reverse flex items-stretch">
                     <div
-                        class="bg-mines flex flex-col gap-4 justify-center items-center py-14 w-full rounded-t-xl"
+                        class="bg-tower flex flex-col gap-4 justify-center items-center py-14 pb-5 w-full rounded-t-xl"
                     >
                         <div
                             class="flex items-stretch relative max-md:flex-col-reverse gap-4 max-w-[440px] w-full mx-auto p-3.5 rounded-xl bg-background"
@@ -240,14 +246,16 @@ onMounted(async () => {
                             <div
                                 class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
                             >
-                                <span class="text-gray">Difficulty</span>
+                                <span class="text-white/50">Difficulty</span>
                                 <div
                                     v-if="!towerStore.isGameActive"
-                                    class="flex gap-1 items-center cursor-pointer"
+                                    class="flex gap-2 items-center cursor-pointer"
                                     @click="showMinesDropdown = !showMinesDropdown; playClickSound()"
                                 >
                                     {{ getDifficultyLabel(selectedMinesPerRow) }}
                                     <svg
+                                        :class="showMinesDropdown ? 'rotate-180' : ''"
+                                        class="transition-all duration-300"
                                         width="12"
                                         height="7"
                                         viewBox="0 0 12 7"
@@ -340,21 +348,29 @@ onMounted(async () => {
                             alt="avatar"
                             class="w-7 h-7 rounded-full"
                         />
-                        <span class="text-blue_dark_2">{{ userStore.user?.name || 'Guest' }}</span>
+                        <span class="text-blue_dark_2">{{ userStore.user?.email || 'Guest' }}</span>
                         <span
                             class="text-blue_light font-bold transition-all duration-300"
                             :class="{ 'text-green-400': previousBalance !== userStore.user?.balance }"
                         >
-                            {{ userStore.user?.balance || '0.00' }}
+                            {{ userStore.user?.balance || '0.00' }}$
                         </span>
                     </div>
                 </div>
             </div>
         </div>
+    </GameLayout>
     </MainLayout>
 </template>
 
 <style scoped>
+
+.bg-tower {
+    background: url("/assets/images/OriginalGames/Tower/bg_tower.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .counter-container.gems:before {
     background-color: #298aff;
 }

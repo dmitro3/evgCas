@@ -23,28 +23,52 @@ Route::group(['prefix' => 'games'], function () {
         ]);
     })->name('games');
     Route::get('/mines', function () {
-        return Inertia::render('OriginalGames/Mines');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Mines', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/tower', function () {
-        return Inertia::render('OriginalGames/Tower');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Tower', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/dice', function () {
-        return Inertia::render('OriginalGames/Dice');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Dice', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/coinflip', function () {
-        return Inertia::render('OriginalGames/CoinFlip');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/CoinFlip', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/plinko', function () {
-        return Inertia::render('OriginalGames/Plinko');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Plinko', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/plinko_test', function () {
-        return Inertia::render('OriginalGames/Plinko_test');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Plinko_test', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/plinko_multi_test', function () {
-        return Inertia::render('OriginalGames/PlinkoMultiTest');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/PlinkoMultiTest', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/crash', function () {
-        return Inertia::render('OriginalGames/Crash');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Crash', [
+            'slots' => $slots
+        ]);
     });
 });
 

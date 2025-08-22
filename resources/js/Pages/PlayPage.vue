@@ -135,14 +135,14 @@ const slotsToShow = computed(() =>
                 <button
                     v-if="slots.length > 14"
                     @click="showAllSlots = !showAllSlots"
-                    class="bg-secondary-sidebar flex gap-2 justify-center items-center py-4 w-full font-bold rounded-lg"
+                    class="bg-secondary-sidebar flex gap-4 justify-center items-center py-4 w-full font-bold rounded-lg"
                 >
                     <span>{{ showAllSlots ? 'Show less' : 'Show more' }}</span>
                     <div class="aside-item-icon-container">
                         <img
                             src="/assets/images/icons/arrow.svg"
                             :class="[
-                                'transition-transform duration-300',
+                                'transition-transform duration-300 flex-shrink-0',
                                 { 'rotate-180': slotsToShow.length > 14 },
                             ]"
                             alt="arrow"

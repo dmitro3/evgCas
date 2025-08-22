@@ -8,12 +8,13 @@ const props = defineProps({
 
 const slots = ref(props.slots);
 
+const isExpanded = ref(false);
 const showAll = () => {
-    slots.value = props.slots;
+    isExpanded.value = true;
 };
 
 const slotsToShow = computed(() => {
-    return showAll.value ? slots.value : slots.value.slice(0, 14);
+    return isExpanded.value ? slots.value : slots.value.slice(0, 14);
 });
 </script>
 
@@ -24,9 +25,9 @@ const slotsToShow = computed(() => {
     >
         <div class="flex justify-between items-center">
             <h2 class="text-lg font-bold text-white">Recommended games</h2>
-            <Link href="/games" class="flex gap-1 items-center">
+            <!-- <Link href="/games" class="flex gap-1 items-center">
                 View all
-            </Link>
+            </Link> -->
         </div>
         <div class="flex flex-col gap-2">
             <div
@@ -40,12 +41,11 @@ const slotsToShow = computed(() => {
                 />
             </div>
             <div
-                v-if="slotsToShow.length <= 14"
+                v-if="!isExpanded && slots.length > 14"
                 class="flex justify-center w-full"
             >
                 <button
                     @click="showAll"
-                    v-if="slotsToShow.length <= 14"
                     class="bg-secondary-sidebar flex gap-2 justify-center items-center py-5 w-full font-bold rounded-lg"
                 >
                     <span>Show all</span>

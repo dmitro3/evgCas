@@ -11,7 +11,7 @@ const setStars = (starId) => {
 
 <template>
     <div
-        class="bg-background max-md:bg-secondary-sidebar max-md:rounded-2xl max-md:p-3 max-md:text-center max-md:items-center flex flex-col max-w-[510px] rounded-2xl gap-6 p-6 w-full"
+        class="bg-background max-md:bg-secondary-sidebar max-md:rounded-2xl max-md:p-3 max-md:text-center max-md:items-center flex flex-col lg:max-w-[350px] 2xl:max-w-[510px] rounded-2xl gap-6 p-6 w-full"
     >
         <div class="flex flex-col gap-3 items-center">
             <p class="text-[28px] font-semibold">Leave your feedback</p>

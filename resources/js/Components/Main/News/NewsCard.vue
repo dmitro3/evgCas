@@ -26,8 +26,8 @@ const props = defineProps({
     <Link :href="link" class="flex flex-col bg-secondary-sidebar rounded-xl cursor-pointer hover:translate-y-[-5px] transition-all duration-300">
         <img :src="image" class="rounded-t-xl">
         <div class="flex flex-col gap-2 p-4">
-            <h3 class=" font-semibold">{{ title }}</h3>
-            <p class="font-medium text-secondary-light/50">{{ description }}</p>
+            <h3 class="font-semibold">{{ title }}</h3>
+            <p class="text-secondary-light/50 font-medium">{{ description }}</p>
         </div>
     </Link>
 </template>

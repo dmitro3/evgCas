@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@font-face {
+	font-family: 'SuisseIntl';
+	src: url('/assets/fonts/suisseintl.woff2') format('woff2');
+}
 :root {
     --swiper-pagination-bottom: 0px;
 
@@ -24,7 +27,6 @@
     --toastify-toast-max-height: 800px;
     --toastify-font-family: sans-serif;
     --toastify-z-index: 9999;
-
     --toastify-text-color-light: #757575;
     --toastify-text-color-dark: #fff;
 
@@ -48,6 +50,10 @@
     --toastify-color-progress-success: var(--toastify-color-success);
     --toastify-color-progress-warning: var(--toastify-color-warning);
     --toastify-color-progress-error: var(--toastify-color-error);
+}
+
+.font-suisse {
+    font-family: 'SuisseIntl', sans-serif;
 }
 
 .bg-card {
@@ -655,7 +661,7 @@ aside {
 }
 
 .aside-items-container {
-    @apply flex flex-col gap-5;
+    @apply flex flex-col gap-4;
 }
 
 .link {
@@ -667,11 +673,16 @@ aside {
 }
 
 .aside-item {
-    @apply flex flex-col gap-3.5;
+    @apply flex flex-col gap-3.5 px-1.5;
 }
 
 .aside-item-title {
-    @apply text-secondary-light/50 flex justify-between items-center px-5 font-bold cursor-pointer;
+    @apply text-secondary-light/50 flex justify-between items-center px-5 font-bold uppercase cursor-pointer;
+}
+
+.counter_news{
+    border-radius: 8px;
+background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 0%, rgba(41, 134, 255, 0.00) 100%), rgba(105, 111, 156, 0.11);
 }
 
 .aside-item-icon-container:before {
@@ -789,6 +800,9 @@ aside {
 
 .bg-mines {
     background: url("/assets/images/OriginalGames/Mines/bg_mines.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .bg-online {

@@ -6,7 +6,10 @@ use App\Models\Slot;
 
 Route::group(['prefix' => 'play'], function () {
     Route::get('/mines', function () {
-        return Inertia::render('OriginalGames/Mines');
+        $slots = Slot::all();
+        return Inertia::render('OriginalGames/Mines', [
+            'slots' => $slots
+        ]);
     });
     Route::get('/slot/{id}', function ($id) {
         $slot = Slot::find($id);

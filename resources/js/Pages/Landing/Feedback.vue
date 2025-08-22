@@ -13,7 +13,7 @@ import Comment from "@/Components/Main/Global/Review/Comment.vue";
             >
                 <div class="max-md:bg-secondary-sidebar max-md:rounded-2xl max-md:p-6 max-md:text-center max-md:items-center flex flex-col flex-shrink-0 gap-8">
                     <Domain />
-                    <h1 class="max-w-[200px] text-3xl text-white font-semibold">
+                    <h1 class="max-w-[200px] text-3xl text-white font-bold">
                         Feedback from players
                     </h1>
                     <p class="text-white/75 max-w-[570px]">
@@ -26,7 +26,7 @@ import Comment from "@/Components/Main/Global/Review/Comment.vue";
             </div>
             <div class="flex flex-col gap-6">
                 <p class="text-xl font-bold">Last reviews</p>
-                <div class="max-md:grid-cols-1 grid grid-cols-3 gap-2.5">
+                <div class="max-md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 grid gap-2.5">
                     <Comment v-for="i in 9" :key="i" />
                 </div>
                 <button

@@ -35,8 +35,8 @@ onUnmounted(() => {
 <template>
     <div class="flex flex-col gap-12">
 
-        <div class="md:grid-cols-2  grid gap-2.5">
-            <div class="bg-secondary-sidebar h-fit flex-shrink-0 p-6 w-full rounded-2xl">
+        <div class="md:grid-cols-2 grid gap-2.5">
+            <div class="bg-secondary-sidebar flex flex-shrink-0 justify-center items-center p-6 w-full h-full rounded-2xl">
                 <div class="flex flex-col gap-6 justify-center items-center">
                     <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.8987 3.33301H10.0987C5.86536 3.33301 3.33203 5.86634 3.33203 10.0997V19.8997C3.33203 24.133 5.86536 26.6663 10.0987 26.6663H19.8987C24.132 26.6663 26.6654 24.133 26.6654 19.8997V10.0997C26.6654 5.86634 24.132 3.33301 19.8987 3.33301ZM21.5654 18.533C22.3987 19.3663 22.3987 20.733 21.5654 21.5663C21.132 21.9663 20.5654 22.1663 20.032 22.1663C19.4987 22.1663 18.9654 21.9663 18.532 21.5663L14.9654 18.033L11.4987 21.5663C11.0654 21.9663 10.532 22.1663 9.93203 22.1663C9.3987 22.1663 8.86536 21.9663 8.43203 21.5663C7.5987 20.733 7.5987 19.3663 8.43203 18.533L11.9987 14.9997L8.46536 11.4997C7.63203 10.6663 7.63203 9.29967 8.46536 8.46634C9.2987 7.63301 10.6654 7.63301 11.4987 8.46634L14.9654 11.9997L18.4987 8.46634C19.332 7.63301 20.6987 7.63301 21.532 8.46634C22.3654 9.29967 22.3654 10.6663 21.532 11.4997L18.032 14.9997L21.5654 18.533Z" fill="#E8EDFF" />
@@ -49,8 +49,7 @@ onUnmounted(() => {
                             your data is not filled in
                         </h2>
                         <span class="text-secondary-light/50">
-                            Lorem ipsum dolor sit amet, dolor consectetur
-                            adipiscing elit, sed do
+                            Go to the verification page to fill out your personal information
                         </span>
                     </div>
                     <Link href="/account/verification" class="btn btn-primary px-6">

@@ -80,13 +80,13 @@ watch(selected, generateQRCode, { immediate: true });
                     </div>
                 </div>
                 <div v-else class="flex items-center justify-center h-[160px] w-[160px] bg-gray-200 rounded-lg">
-                    <span class="text-gray-500">Выберите валюту</span>
+                    <span class="text-gray-500">Select a currency</span>
                 </div>
             </div>
         </div>
         <div class="flex flex-col flex-1 gap-5 w-full">
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold">
+                <span class="font-bold">
                     CRYPTOCURRENCY
                 </span>
                 <VueSelect
@@ -114,7 +114,7 @@ watch(selected, generateQRCode, { immediate: true });
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="text-sm font-bold uppercase">
+                <span class="uppercase">
                     Deposit address
                 </span>
                 <div

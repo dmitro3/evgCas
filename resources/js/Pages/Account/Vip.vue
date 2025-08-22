@@ -93,7 +93,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
             </div>
 
             <div class="container flex flex-col gap-6 mx-auto">
-                <h2 class="text-lg font-bold">Your Progress</h2>
+                <h2 class="text-xl font-bold">Your Progress</h2>
                 <div class="relative min-h-[40px]">
                     <div class="absolute top-0 left-0 z-[100] w-full h-full">
                         <div v-for="(rank, index) in ranks" :key="rank.id" class="absolute" :style="{

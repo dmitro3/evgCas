@@ -23,7 +23,7 @@ class CrashController extends Controller
         if ($user->balance < $betAmount) {
             return response()->json([
                 'success' => false,
-                'message' => 'Недостаточно средств'
+                'message' => 'Insufficient funds'
             ], 400);
         }
 
@@ -32,14 +32,14 @@ class CrashController extends Controller
         if (!$currentGame) {
             return response()->json([
                 'success' => false,
-                'message' => 'Нет активной игры для ставок'
+                'message' => 'No active game for bets'
             ], 400);
         }
 
         if ($currentGame->status === 'playing') {
             return response()->json([
                 'success' => false,
-                'message' => 'Игра уже началась, ставки не принимаются'
+                'message' => 'Game already started, bets are not accepted'
             ], 400);
         }
 

@@ -8,6 +8,7 @@ export const usePlinkoStore = defineStore('plinko', {
         lastResult: "Waiting...",
         isDropping: false,
         rows: 16,
+        risk: 'low',
         soundEnabled: true,
         isCollecting: true,
         collectedCount: 0,
@@ -29,7 +30,28 @@ export const usePlinkoStore = defineStore('plinko', {
                 15: [15, 8, 3, 2, 1.5, 1.1, 1, 0.7, 0.7, 1, 1.1, 1.5, 2, 3, 8, 15],
                 16: [16, 9, 2, 1.4, 1.4, 1.2, 1.1, 1, 0.5, 1, 1.1, 1.2, 1.4, 1.4, 2, 9, 16]
             };
-            return multiplierMaps[state.rows] || multiplierMaps[16];
+            const base = multiplierMaps[state.rows] || multiplierMaps[16];
+
+            // Adjust by risk: expand extremes for high, compress for low
+            const center = (base.length - 1) / 2;
+            const adjusted = base.map((m, idx) => {
+                const distance = Math.abs(idx - center);
+                const normalized = center === 0 ? 0 : distance / center; // 0 at center, 1 at edges
+                let scale = 1;
+                if (state.risk === 'low') {
+                    // Reduce extremes up to -40%
+                    scale = 1 - 0.4 * normalized;
+                } else if (state.risk === 'high') {
+                    // Boost extremes up to +60%
+                    scale = 1 + 0.6 * normalized;
+                } else {
+                    scale = 1; // medium
+                }
+                const value = Number((m * scale).toFixed(2));
+                return value;
+            });
+
+            return adjusted;
         },
 
         widthNotes: (state) => {
@@ -66,6 +88,10 @@ export const usePlinkoStore = defineStore('plinko', {
 
         setRows(newRows) {
             this.rows = newRows;
+        },
+
+        setRisk(newRisk) {
+            this.risk = newRisk;
         },
 
         setIsDropping(value) {

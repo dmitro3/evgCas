@@ -117,7 +117,7 @@ onMounted(() => {
                 class="bg-secondary-sidebar flex flex-col flex-1 gap-6 p-6 w-full rounded-2xl"
             >
                 <div class="flex justify-between items-center">
-                    <h2 class="text-lg font-bold">Deposit</h2>
+                    <h2 class="max-2xl:text-lg text-xl font-bold">Deposit</h2>
                     <Link
                         href="/account/transactions"
                         class="flex gap-2 items-center text-lg font-normal"

@@ -2,11 +2,13 @@
 import MainLayout from "@/Layouts/MainLayout.vue";
 import { useUserStore } from "@/stores/userStore";
 import { useCrashStore } from "@/stores/crashStore";
-import { ref, onMounted, onBeforeUnmount } from "vue";
-
+import { ref, onMounted, onBeforeUnmount, defineProps } from "vue";
+import GameLayout from "@/Layouts/GameLayout.vue";
 const userStore = useUserStore();
 const crashStore = useCrashStore();
-
+const props = defineProps({
+    slots: Array,
+});
 const series = ref([
     {
         name: "Multiplier",
@@ -479,142 +481,96 @@ onBeforeUnmount(() => {
 
 <template>
     <MainLayout>
-        <div class="md:px-5 container flex flex-col mx-auto w-full">
-            <div class="flex flex-col rounded-2xl">
-                <div class="max-md:flex-col-reverse flex items-stretch">
-                    <div class="min-h-[650px] bg-dice flex flex-col gap-4 justify-center items-center pt-14 w-full rounded-t-xl">
-                        <div class="chart-container relative p-4 w-full h-full rounded-xl">
-                            <div class="absolute top-0 left-1/2 z-10 text-white -translate-x-1/2">
-                                <div class="flex flex-col gap-2 justify-center items-center">
-                                    <p class="text-primary font-extrabold uppercase mix-blend-overlay">
-                                        multiplier
-                                    </p>
-                                    <span class="text-[56px] leading-none gradient-text font-bold">
-                                        {{ crashStore.currentMultiplier.toFixed(2) }}×
-                                    </span>
-                                    <div class="text-sm text-gray-400">
-                                        Статус: {{ crashStore.gameState }}
-                                        <span v-if="crashStore.userBet"> | Ставка: {{ crashStore.userBet.bet_amount }} ({{ crashStore.userBet.status }})</span>
+        <GameLayout :slots="slots">
+            <div class="md:px-5 container flex flex-col mx-auto w-full">
+                <div class="flex flex-col rounded-2xl">
+                    <div class="max-md:flex-col-reverse flex items-stretch">
+                        <div class="min-h-[650px] bg-dice flex flex-col gap-4 justify-center items-center pt-14 w-full rounded-t-xl">
+                            <div class="chart-container relative p-4 w-full h-full rounded-xl">
+                                <div class="absolute top-0 left-1/2 z-10 text-white -translate-x-1/2">
+                                    <div class="flex flex-col gap-2 justify-center items-center">
+                                        <p class="text-primary font-extrabold uppercase mix-blend-overlay">
+                                            multiplier
+                                        </p>
+                                        <span class="text-[56px] leading-none gradient-text font-bold">
+                                            {{ crashStore.currentMultiplier.toFixed(2) }}×
+                                        </span>
+                                        <div class="text-sm text-gray-400">
+                                            Статус: {{ crashStore.gameState }}
+                                            <span v-if="crashStore.userBet"> | Ставка: {{ crashStore.userBet.bet_amount }} ({{ crashStore.userBet.status }})</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="flex absolute bottom-10 max-w-[650px] w-full left-1/2 z-[100] text-white -translate-x-1/2">
-                                <div class="bg-secondary-bg/80 z-[100] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border">
-                                    <div class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1">
-                                        <input
-                                            v-model="betAmount"
-                                            type="number"
-                                            placeholder="Сумма ставки"
-                                            step="0.01"
-                                            min="0.01"
-                                        />
-                                        <div
-                                            @click="setBetHalf"
-                                            class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg transition-colors cursor-pointer"
-                                        >
-                                            1/2
+                                <div class="flex absolute bottom-10 max-w-[650px] w-full left-1/2 z-[100] text-white -translate-x-1/2">
+                                    <div class="bg-secondary-bg/80 z-[100] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border">
+                                        <div class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1">
+                                            <input v-model="betAmount" type="number" placeholder="Bet amount" step="0.01" min="0.01" />
+                                            <div @click="setBetHalf" class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg transition-colors cursor-pointer">
+                                                1/2
+                                            </div>
+                                            <div @click="setBetDouble" class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg transition-colors cursor-pointer">
+                                                2X
+                                            </div>
                                         </div>
-                                        <div
-                                            @click="setBetDouble"
-                                            class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg transition-colors cursor-pointer"
-                                        >
-                                            2X
+
+                                        <div class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative">
+                                            <div class="text-secondary-light/50">
+                                                Auto cash out
+                                            </div>
+                                            <input v-model="autoCashOut" type="number" step="0.01" min="1.01" class="float-end w-full" />
                                         </div>
+
+                                        <button v-if="!crashStore.isBetActive" @click="handlePlaceBet" :disabled="isPlacingBet || crashStore.gameState !== 'waiting'" class="btn btn-primary w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10">
+                                            {{
+                                                isPlacingBet ? 'Placing...' :
+                                                    crashStore.gameState === 'waiting' ? 'Bet' :
+                                                        crashStore.gameState === 'playing' ? 'Game in progress' :
+                                                            'Waiting...'
+                                            }}
+                                        </button>
+
+                                        <button v-else @click="handleCashOut" :disabled="isCashingOut || crashStore.gameState !== 'playing'" class="btn btn-success w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10">
+                                            {{
+                                                isCashingOut ? 'Withdraw...' :
+                                                    crashStore.gameState === 'playing' ? `Collect ${crashStore.currentMultiplier.toFixed(2)}x` :
+                                                        'Bet placed'
+                                            }}
+                                        </button>
                                     </div>
-
-                                    <div class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative">
-                                        <div class="text-secondary-light/50 font-bold">
-                                            Авто-вывод
-                                        </div>
-                                        <input
-                                            v-model="autoCashOut"
-                                            type="number"
-                                            placeholder="Авто-вывод"
-                                            step="0.01"
-                                            min="1.01"
-                                            class="float-end w-full"
-                                        />
-                                    </div>
-
-                                                                                                            <button
-                                        v-if="!crashStore.isBetActive"
-                                        @click="handlePlaceBet"
-                                        :disabled="isPlacingBet || crashStore.gameState !== 'waiting'"
-                                        class="btn btn-primary w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10"
-                                    >
-                                        {{
-                                            isPlacingBet ? 'Размещение...' :
-                                            crashStore.gameState === 'waiting' ? 'Ставка' :
-                                            crashStore.gameState === 'playing' ? 'Игра идет' :
-                                            'Ожидание...'
-                                        }}
-                                    </button>
-
-                                    <button
-                                        v-else
-                                        @click="handleCashOut"
-                                        :disabled="isCashingOut || crashStore.gameState !== 'playing'"
-                                        class="btn btn-success w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10"
-                                    >
-                                        {{
-                                            isCashingOut ? 'Вывод...' :
-                                            crashStore.gameState === 'playing' ? `Забрать ${crashStore.currentMultiplier.toFixed(2)}x` :
-                                            'Ставка размещена'
-                                        }}
-                                    </button>
                                 </div>
-                            </div>
 
-                            <apexchart
-                                ref="chartRef"
-                                type="area"
-                                height="100%"
-                                width="100%"
-                                :options="chartOptions"
-                                :series="series"
-                            />
+                                <apexchart ref="chartRef" type="area" height="100%" width="100%" :options="chartOptions" :series="series" />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="bg-secondary-sidebar-dark border-blue_dark flex justify-between items-center p-6 rounded-b-xl border-t">
-                    <div class="flex gap-1 items-center font-extrabold uppercase">
-                        <span class="text-dark-text-2">Crash</span>
-                        <span class="text-dark-text-3">Original Game</span>
-                    </div>
-                    <div class="bg-blue_light/5 flex gap-2 items-center py-1 pr-4 pl-1 rounded-full">
-                        <img
-                            src="/assets/images/header/default_avatar.png"
-                            alt="avatar"
-                            class="w-7 h-7 rounded-full"
-                        />
-                        <span class="text-blue_dark_2">{{ userStore.user?.name || "Guest" }}</span>
-                        <span
-                            class="text-blue_light font-bold transition-all duration-300"
-                            :class="{
+                    <div class="bg-secondary-sidebar-dark border-blue_dark flex justify-between items-center p-6 rounded-b-xl border-t">
+                        <div class="flex gap-1 items-center font-extrabold uppercase">
+                            <span class="text-dark-text-2">Crash</span>
+                            <span class="text-dark-text-3">Original Game</span>
+                        </div>
+                        <div class="bg-blue_light/5 flex gap-2 items-center py-1 pr-4 pl-1 rounded-full">
+                            <img src="/assets/images/header/default_avatar.png" alt="avatar" class="w-7 h-7 rounded-full" />
+                            <span class="text-blue_dark_2">{{ userStore.user?.name || "Guest" }}</span>
+                            <span class="text-blue_light font-bold transition-all duration-300" :class="{
                                 'text-green-400': previousBalance !== userStore.user?.balance,
-                            }"
-                        >
-                            {{ userStore.user?.balance || "0.00" }}
-                        </span>
+                            }">
+                                {{ userStore.user?.balance || "0.00" }}
+                            </span>
+                        </div>
                     </div>
-                </div>
 
-                <div v-if="crashStore.gameHistory.length > 0" class="p-4 bg-gray-800">
-                    <h3 class="mb-4 text-lg font-bold text-white">История игр</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <div
-                            v-for="game in crashStore.gameHistory.slice(0, 10)"
-                            :key="game.id"
-                            class="px-3 py-1 text-sm rounded"
-                            :class="game.crash_point >= 2 ? 'bg-green text-white' : 'bg-red-600 text-white'"
-                        >
-                            {{ game.crash_point.toFixed(2) }}×
+                    <div v-if="crashStore.gameHistory.length > 0" class="p-4 bg-gray-800">
+                        <h3 class="mb-4 text-lg font-bold text-white">История игр</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <div v-for="game in crashStore.gameHistory.slice(0, 10)" :key="game.id" class="px-3 py-1 text-sm rounded" :class="game.crash_point >= 2 ? 'bg-green text-white' : 'bg-red-600 text-white'">
+                                {{ game.crash_point.toFixed(2) }}×
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </GameLayout>
     </MainLayout>
 </template>
 
