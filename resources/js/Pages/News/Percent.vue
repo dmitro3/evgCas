@@ -85,16 +85,16 @@ const terms_rows_2 = [
             <div class="flex flex-col gap-8 p-6 rounded-xl">
                 <div class="flex flex-col gap-2">
                     <h1 class="text-2xl font-bold">
-                        40M Users
+                        Daily Rakeback
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
-                        We are celebrating an incredible achievement - 24 million users! And together with our partners, we are launching an exciting promotion to celebrate this achievement! At Domain, we value every player and strive to make your experience unforgettable. Our Domain cryptocurrency casino is more than just games, it is an innovative platform where everyone can feel a part of a huge community. Join and see for yourself! Big winnings, unique bonuses and fair, transparent play guaranteed by the reliability of the blockchain await you. Get a welcome bonus and open a world of incredible opportunities with Domain!
+                        Domain offers the "Daily Rakeback" program – your chance to get some of your funds back every 24 hours! Play slots and original games and get a percentage of every bet back into your account. This significantly increases your profit! Regardless of whether you win or lose, you are guaranteed a return of 0.1% to 0.3% of your bets. The amount of the return directly depends on your VIP level – the higher your status, the more rakeback you will receive. With Domain, you not only enjoy exciting games but also get a tangible benefit, making every spin and every bet even more profitable
                     </p>
                 </div>
                 <div class="bg-secondary-sidebar flex gap-16 items-center p-4 rounded-xl">
                     <img src="/assets/images/news/content_banner/prize_pool.png" class="max-w-[350px] w-full" alt="">
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-3xl font-bold">Prize pool</h1>
+                        <h1 class="text-3xl font-bold">Split between 30 players</h1>
                         <p class="text-secondary-light/75">An incredible prize pool is divided among Moneycounter players who participate</p>
                     </div>
 
@@ -103,7 +103,7 @@ const terms_rows_2 = [
                     <h1 class="text-2xl font-bold">
                         How to Enter
                     </h1>
-                    <div class="max-lg:grid-cols-1 grid grid-cols-3 gap-4 items-stretch">
+                    <div class="max-lg:grid-cols-1 grid grid-cols-2 gap-4 items-stretch">
                         <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 w-full rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 1
@@ -116,12 +116,7 @@ const terms_rows_2 = [
                             </div>
                             <p class="text-secondary-light">Place bets on Original Games or Slots</p>
                         </div>
-                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 rounded-xl">
-                            <div class="counter_news px-4 py-2 text-lg font-bold">
-                                3
-                            </div>
-                            <p class="text-secondary-light">Find promo codes from our trusted partners, friends, or by following our promotions. Activate your promo code on the “Bonuses”</p>
-                        </div>
+
                     </div>
 
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rank;
 use App\Http\Service\System\Promo\ExistPromo;
 use App\Http\Service\User\Action\Deposit;
 use App\Models\User;
@@ -64,5 +65,11 @@ class SystemController extends Controller
             ->limit(15)
             ->get();
         return response()->json($wins);
+    }
+
+    public function ranks()
+    {
+        $ranks = Rank::orderBy('level', 'asc')->get();
+        return response()->json($ranks);
     }
 }

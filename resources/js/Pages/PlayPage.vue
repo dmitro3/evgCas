@@ -5,6 +5,7 @@ import { Link } from "@inertiajs/vue3";
 import GameCard from "../Components/Main/Games/GameCard.vue";
 import { ref, computed } from "vue";
 import LastetsBets from "@/Components/Main/MainPage/LastetsBets.vue";
+import { getDomainName } from "@/utils/text";
 
 const props = defineProps({
     slots: Array,
@@ -28,7 +29,7 @@ const slotsToShow = computed(() =>
         <div class="flex flex-col gap-12">
             <div class="flex flex-col gap-2.5">
                 <div
-                    class="2xl:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full"
+                    class="lg:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full"
                 >
                     <div class="bg-main-container-1 p-6 rounded-2xl">
                         <div
@@ -100,10 +101,10 @@ const slotsToShow = computed(() =>
                     v-if="originalGames.length > 0"
                     class="flex justify-between items-center"
                 >
-                    <h2 class="text-lg font-bold text-white">Original games</h2>
+                    <h2 class="text-lg font-bold text-white">{{ getDomainName() }} games</h2>
                 </div>
                 <div
-                    class="xl:grid-cols-4 md:grid-cols-3 2xl:grid-cols-6 grid grid-cols-2 gap-2.5"
+                    class="max-lg:grid-cols-4 md:grid-cols-3 lg:grid-cols-6 grid grid-cols-2 gap-2.5"
                 >
                     <GameCard
                         v-for="game in originalGames"

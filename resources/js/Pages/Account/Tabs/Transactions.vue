@@ -22,11 +22,11 @@ onMounted(() => {
         <div class="flex flex-col gap-8">
             <div class="bg-secondary-sidebar-dark w-fit flex gap-2 items-center p-2 rounded-xl">
                 <button :class="{'active border-[#1F2A4F]': activeTabTransactions === 'deposit'}"
-                        @click="activeTabTransactions = 'deposit'" class="btn btn-sidebar px-5 py-4 font-bold border border-transparent">
+                        @click="activeTabTransactions = 'deposit'" class="btn btn-sidebar px-5 py-4 font-bold uppercase border border-transparent">
                     Deposits
                 </button>
                 <button :class="{'active border-[#1F2A4F]': activeTabTransactions === 'withdraw'}"
-                        @click="activeTabTransactions = 'withdraw'" class="btn btn-sidebar px-5 py-4 font-bold border border-transparent">
+                        @click="activeTabTransactions = 'withdraw'" class="btn btn-sidebar px-5 py-4 font-bold uppercase border border-transparent">
                     Withdraws
                 </button>
             </div>

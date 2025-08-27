@@ -30,7 +30,7 @@ import Comment from "@/Components/Main/Global/Review/Comment.vue";
                     <Comment v-for="i in 9" :key="i" />
                 </div>
                 <button
-                    class="bg-secondary-sidebar flex gap-2 justify-center items-center py-4 w-full font-bold rounded-lg"
+                    class="bg-secondary-sidebar flex gap-4 justify-center items-center py-4 w-full font-bold rounded-lg"
                 >
                     <span>SHOW MORE</span>
                     <div class="aside-item-icon-container">

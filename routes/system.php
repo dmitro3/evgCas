@@ -9,4 +9,5 @@ Route::group(['prefix' => 'system'], function () {
     Route::get('/check-promo', [SystemController::class, 'checkPromo']);
     Route::post('/west/ipn', [SystemController::class, 'westWalletIpn'])->withoutMiddleware(VerifyCsrfToken::class);
     Route::post('/last_wins', [SystemController::class, 'lastWins']);
+    Route::get('/ranks/get', [SystemController::class, 'ranks']);
 });

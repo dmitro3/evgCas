@@ -93,20 +93,20 @@ const faqItems = [
                     <InfoCard title="Highest RTP" description="Play with the best odds and with a RTP up to 99.5%" image="/assets/images/main/container3.png" link="/" />
                 </div>
             </div>
-            <div class="max-md:flex-wrap container flex justify-between items-center mx-auto">
+            <div class="max-md:flex-wrap logos container flex justify-between items-center py-5 mx-auto">
                 <img src="/assets/images/footer/huobi.svg" alt="huobi" srcset="" />
                 <img src="/assets/images/footer/nba.svg" alt="nba" srcset="" />
                 <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="" />
                 <img src="/assets/images/footer/nascar.svg" alt="nascar" srcset="" />
                 <img src="/assets/images/footer/blockchain.svg" alt="nascar" srcset="" />
-                <img src="/assets/images/partner/fc_bayern_logo.png" alt="fc_bayern" class="w-10 h-[34px]" srcset="" />
+                <img src="/assets/images/partner/fc_bayern_logo.png" alt="fc_bayern" class="w-10" srcset="" />
             </div>
             <LiveWin />
             <div class="container flex flex-col gap-6 mx-auto">
                 <div class="max-md:grid-cols-1 grid grid-cols-3">
-                    <StatisticCard :description="'Total players online on ' + getDomainName()" amount="64,000" icon="/assets/images/icons/people.svg" />
-                    <StatisticCard description="Total paid to players for all time" amount="$24M+" icon="/assets/images/icons/money.svg" top />
-                    <StatisticCard description="Total registered players for all time" amount="48M+" icon="/assets/images/icons/graph.svg" />
+                    <StatisticCard description="Total players online" amount="64,000" icon="/assets/images/icons/people.svg" />
+                    <StatisticCard description="Total paid to players" amount="$24M+" icon="/assets/images/icons/money.svg" top />
+                    <StatisticCard description="Total registered players" amount="48M+" icon="/assets/images/icons/graph.svg" />
                 </div>
             </div>
 
@@ -117,12 +117,12 @@ const faqItems = [
                             <p class="text-secondary-light/50 font-semibold uppercase">
                                 Secure deposit
                             </p>
-                            <p class="text-[22px] font-bold text-white">
+                            <p class="text-[22px] max-w-[300px] font-bold text-white">
                                 Reliable deposit of crypto and local currencies
                             </p>
                             <p class="text-secondary-light/50">
-                                Fast, secure cryptocurrency deposits and
-                                withdrawals - your comfort and privacy
+                                Fast, secure cryptocurrency <br> deposits and
+                                withdrawals - your <br> comfort and privacy
                             </p>
                             <Link class="btn btn-primary w-fit z-50 px-6" href="/account/wallet">
                             Deposit
@@ -137,11 +137,11 @@ const faqItems = [
                             <p class="text-secondary-light/50 font-semibold uppercase">
                                 support
                             </p>
-                            <p class="max-md:text-center text-[22px] font-bold text-white">
+                            <p class="max-md:text-center text-[22px] max-w-[250px] font-bold text-white">
                                 Get 24/7 online help from our support team
                             </p>
                             <p class="text-secondary-light/50 max-md:text-center">
-                                Ask a question in a language that is convenient
+                                Ask a question in a <br> language that is convenient
                                 for you
                             </p>
                             <Link class="btn btn-primary w-fit z-50 px-6" href="/account/wallet">
@@ -163,11 +163,11 @@ const faqItems = [
                             original games
                         </p>
                         <p class="max-md:text-center text-[22px] font-bold text-white">
-                            Enjoy the original games from {{getDomainName()}}
+                            Enjoy the original <br> games from {{getDomainName()}}
                         </p>
                         <p class="max-md:text-center text-secondary-light/50">
                             Unique gameplay and exciting features only in
-                            exclusive {{getDomainName()}} Originals games
+                            exclusive {{getDomainName()}} Originals <br> games
                         </p>
                         <TakeBonus></TakeBonus>
                     </div>
@@ -187,12 +187,12 @@ const faqItems = [
                 </div>
                 <div class="flex flex-col gap-3">
                     <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />
-                    <div class="bg-primary/10 flex justify-between items-center px-4 py-3 rounded-3xl">
+                    <div class="bg-primary/15 flex justify-between items-center px-4 py-3 rounded-3xl">
                         <div class="flex flex-col">
                             <p class="font-bold">Any questions left?</p>
                             <p class="text-[#81BAFF]">Our team of professionals is ready to help you 24/7 - write to us</p>
                         </div>
-                        <button class="btn btn-primary before:hidden w-fit z-50 px-6 shadow-none">
+                        <button class="btn btn-primary before:hidden w-fit z-50 px-4 rounded-2xl shadow-none">
                             <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.3916 14.2372L15.7166 16.8706C15.7999 17.5622 15.0582 18.0456 14.4666 17.6872L11.5832 15.9706C11.3832 15.8539 11.3332 15.6039 11.4416 15.4039C11.8582 14.6372 12.0832 13.7706 12.0832 12.9039C12.0832 9.85391 9.46658 7.37057 6.24991 7.37057C5.59158 7.37057 4.94991 7.47057 4.34991 7.67057C4.04158 7.77057 3.74158 7.48724 3.81658 7.17057C4.57491 4.13724 7.49158 1.87891 10.9749 1.87891C15.0416 1.87891 18.3332 4.95391 18.3332 8.74557C18.3332 10.9956 17.1749 12.9872 15.3916 14.2372Z" fill="#E8EDFF" />
                                 <path d="M10.8334 12.9034C10.8334 13.8951 10.4667 14.8118 9.85008 15.5368C9.02508 16.5368 7.71675 17.1785 6.25008 17.1785L4.07508 18.4701C3.70841 18.6951 3.24175 18.3868 3.29175 17.9618L3.50008 16.3201C2.38341 15.5451 1.66675 14.3034 1.66675 12.9034C1.66675 11.4368 2.45008 10.1451 3.65008 9.37845C4.39175 8.89512 5.28341 8.62012 6.25008 8.62012C8.78341 8.62012 10.8334 10.5368 10.8334 12.9034Z" fill="#E8EDFF" />

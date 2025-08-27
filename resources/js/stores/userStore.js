@@ -7,6 +7,7 @@ export const useUserStore = defineStore("user", {
         user: null,
         loading: false,
         errors: null,
+        ranks: [],
     }),
 
     getters: {
@@ -18,6 +19,19 @@ export const useUserStore = defineStore("user", {
     actions: {
         setUser(user) {
             this.user = user;
+        },
+        getRank(xp) {
+            if (xp === undefined || xp === null) {
+                return null;
+            }
+            if (!this.ranks || this.ranks.length === 0) {
+                return null;
+            }
+            const userXp = xp;
+            const currentRank = this.ranks.find(
+                (rank) => userXp >= rank.xp_min && userXp < rank.xp_max
+            );
+            return currentRank || this.ranks[0];
         },
 
         clearUser() {
@@ -43,6 +57,20 @@ export const useUserStore = defineStore("user", {
             } finally {
                 this.loading = false;
             }
+        },
+
+        async getRanks() {
+            const response = await axiosClient.get("/system/ranks/get");
+            return response.data;
+        },
+
+        async loadRanks() {
+            if (this.ranks && this.ranks.length > 0) {
+                return this.ranks;
+            }
+            const ranks = await this.getRanks();
+            this.ranks = ranks;
+            return this.ranks;
         },
 
         updateUserData(userData) {

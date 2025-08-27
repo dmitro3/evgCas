@@ -9,8 +9,22 @@ import Sponsor from "@/icons/Aside/Sponsor.vue";
 import { Link } from "@inertiajs/vue3";
 import Feedback from "@/icons/Aside/Feedback.vue";
 import Licenses from "@/icons/Aside/Licenses.vue";
-import { ref } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { getDomainName } from "@/utils/text";
+import { useUserStore } from "@/stores/userStore";
+import VipRank from "./Global/VipRank.vue";
+
+const userStore = useUserStore();
+
+onMounted(() => {
+    userStore.loadRanks().catch(() => {});
+});
+
+const userRankName = computed(() => {
+    const rank = userStore.getRank(userStore.user.xp);
+    return rank;
+});
+
 const categories = ref([
     {
         name: "Casino",
@@ -97,12 +111,19 @@ const toggleCategory = (category) => {
                 </div>
             </div>
             <div class="flex flex-col gap-8 py-5">
-                <div class="aside-info-container">
+                <div v-if="!userStore.user" class="aside-info-container">
                     <img
                         src="/assets/images/aside/info-image1.png"
                         height="160"
                         alt="info-image"
                     />
+                </div>
+                <div v-else class="relative px-1">
+                    <img :src="`/assets/images/account/vip/characters/${userRankName?.type}.png`" alt="rank" srcset="">
+                    <div class="flex absolute -bottom-5 right-1/2 flex-col items-center translate-x-1/2">
+                        <p class="text-base font-extrabold text-center text-white">VIP STATUS {{ userRankName?.name.toUpperCase() }}</p>
+                        <VipRank :rank="userRankName?.level" :type="userRankName?.type" />
+                    </div>
                 </div>
                 <div
                     class="aside-items-container max-h-[calc(100vh-300px)] overflow-y-auto"

@@ -29,19 +29,19 @@ const news = [
         link: "/news/crown"
     },
     {
-        title: "Weekly Rakeback",
+        title: "Star Path Originals",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news5.png",
-        link: "/news/darts"
+        link: "/news/star"
     },
     {
         title: "Lucky shot - $9,000",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news6.png",
-        link: "/news/ball"
+        link: "/news/darts"
     },
     {
-        title: "Weekly giveaway from Domain",
+        title: "Ticket of Fortune",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news7.png",
         link: "/news/promo"

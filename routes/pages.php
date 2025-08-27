@@ -11,6 +11,13 @@ Route::get('/more/about', function() {
 });
 
 
+
+Route::get('/more/rules/{type}', function($type = 'privacy') {
+    return Inertia::render('Landing/Rules', [
+        'type' => $type
+    ]);
+});
+
 Route::get('/more/licenses', function() {
     return Inertia::render('Landing/Licenses');
 } );

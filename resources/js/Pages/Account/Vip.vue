@@ -142,14 +142,13 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
             </div>
 
             <div class="container flex flex-col gap-6 pt-10 mx-auto">
-                <h2 class="text-lg font-bold">Characters</h2>
                 <div class="charters max-md:hidden max-xl:grid-cols-2 max-md:grid-cols-1 grid grid-cols-4 gap-2.5 items-stretch">
                     <div :class="currentRank === 'silver'
                         ? 'active_rank_bg'
                         : 'opacity-20'
                         " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]">
                         <div class="flex flex-col gap-6 h-full">
-                            <img src="/assets/images/account/vip/characters/silver.png" alt="character" class="w-full ] flex-shrink-0 character" />
+                            <img src="/assets/images/account/vip/characters/silver.png" alt="character" class="character flex-shrink-0 w-full" />
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-3 items-center text-xl font-extrabold uppercase">
                                     <VipRank :rank="5" type="silver" />

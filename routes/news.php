@@ -13,8 +13,8 @@ Route::group(['prefix' => 'news'], function () {
     Route::get('/percent', function () {
         return Inertia::render('News/Percent');
     });
-    Route::get('/ball', function () {
-        return Inertia::render('News/Ball');
+    Route::get('/star', function () {
+        return Inertia::render('News/Star');
     });
     Route::get('/crown', function () {
         return Inertia::render('News/Crown');
