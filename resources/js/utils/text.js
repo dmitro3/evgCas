@@ -28,8 +28,10 @@ export function getCryptoIcon(symbol) {
 
 export function getDomainName() {
     const domainName = window.location.hostname.split('.').slice(0, -1).join('.');
-    return domainName.charAt(0).toUpperCase() + domainName.slice(1);
+    const name = domainName.charAt(0).toUpperCase() + domainName.slice(1);
+    return name.length > 14 ? name.substring(0, 14) : name;
 }
 export function getDomain() {
-    return window.location.hostname;
+    const domain = window.location.hostname;
+    return domain.length > 14 ? domain.substring(0, 14) : domain;
 }
