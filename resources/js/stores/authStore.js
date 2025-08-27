@@ -46,7 +46,7 @@ export const useAuthStore = defineStore('auth', {
                 const response = await axiosClient.post('/register', credentials);
 
                 if (response.status === 201) {
-                    router.visit('/login');
+                    router.visit('/games');
                 }
 
                 return response;
