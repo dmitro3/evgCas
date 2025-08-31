@@ -164,7 +164,7 @@ const toggleCategory = (category) => {
                         <VipRank :rank="userRankName?.level" :type="userRankName?.type" />
                     </div>
                 </div>
-                <div class="aside-items-container max-h-[calc(100vh-300px)] overflow-y-auto">
+                <div class="aside-items-container max-h-[calc(100vh-300px)] overflow-y-auto hide-scroll">
                     <div class="aside-item" v-for="category in categories" :key="category.name">
                         <div class="aside-item-title">
                             <span>{{ category.name }}</span>
@@ -206,11 +206,11 @@ const toggleCategory = (category) => {
                             <div class="aside-items flex flex-col gap-2">
                                 <div class="" v-for="item in category.items" :key="item.name">
                                     <Link :href="item.href" class="flex gap-2 justify-center items-center">
-                                        <div class="aside-item-icon-laptop">
-                                           <div v-html="item.icon">
+                                    <div class="aside-item-icon-laptop">
+                                        <div v-html="item.icon">
 
-                                           </div>
                                         </div>
+                                    </div>
                                     </Link>
                                 </div>
                             </div>

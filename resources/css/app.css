@@ -1,10 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @font-face {
-	font-family: 'SuisseIntl';
-	src: url('/assets/fonts/suisseintl.woff2') format('woff2');
+    font-family: 'SuisseIntl';
+    src: url('/assets/fonts/suisseintl.woff2') format('woff2');
 }
+
 :root {
     --swiper-pagination-bottom: 0px;
 
@@ -215,23 +217,30 @@ input[type="number"] {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.btn-swiper svg{
+
+.btn-swiper svg {
     @apply transition-all duration-300;
 }
-.btn-swiper:hover svg, .btn-swiper.active svg{
+
+.btn-swiper:hover svg,
+.btn-swiper.active svg {
     @apply fill-primary text-primary opacity-100;
 }
-.btn-swiper.active{
-    @apply bg-secondary-sidebar font-bold !text-white ;
+
+.btn-swiper.active {
+    @apply bg-secondary-sidebar font-bold !text-white;
 }
-.logos img{
+
+.logos img {
     flex-shrink: 0;
 }
-.btn-swiper{
+
+.btn-swiper {
     color: #C7D3FF80 !important;
-    @apply hover:!text-white before:hidden hover:bg-secondary-sidebar px-3 transition-all duration-300;
+    @apply !text-white before:hidden hover:bg-secondary-sidebar px-3 transition-all duration-300;
 
 }
+
 .btn:before {
     content: "";
     position: absolute;
@@ -325,16 +334,16 @@ header .border_angle {
     border-radius: 5px;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox-box {
+.custom-checkbox input[type="checkbox"]:checked+.custom-checkbox-box {
     background-color: transparent;
     border: 1.5px solid #E8EDFF;
 }
 
-.custom-checkbox input[type="checkbox"]:focus + .custom-checkbox-box {
+.custom-checkbox input[type="checkbox"]:focus+.custom-checkbox-box {
     @apply ring-primary/20 ring-2;
 }
 
-.custom-checkbox input[type="checkbox"]:hover + .custom-checkbox-box {
+.custom-checkbox input[type="checkbox"]:hover+.custom-checkbox-box {
     border: 1.5px solid #E8EDFF;
     opacity: 0.8;
 }
@@ -344,7 +353,7 @@ header .border_angle {
     transition: opacity 0.2s ease;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox-box .custom-checkbox-checkmark {
+.custom-checkbox input[type="checkbox"]:checked+.custom-checkbox-box .custom-checkbox-checkmark {
     @apply opacity-100;
 }
 
@@ -352,26 +361,26 @@ header .border_angle {
     @apply ml-2 text-white cursor-pointer select-none;
 }
 
-.custom-checkbox input[type="checkbox"]:disabled + .custom-checkbox-box {
+.custom-checkbox input[type="checkbox"]:disabled+.custom-checkbox-box {
     border: 1.5px solid #E8EDFF;
     opacity: 0.3;
     cursor: not-allowed;
 }
 
-.custom-checkbox input[type="checkbox"]:disabled ~ .custom-checkbox-label {
+.custom-checkbox input[type="checkbox"]:disabled~.custom-checkbox-label {
     @apply opacity-50 cursor-not-allowed;
 }
 
 /* Дополнительные варианты чекбокса */
-.custom-checkbox-success input[type="checkbox"]:checked + .custom-checkbox-box {
+.custom-checkbox-success input[type="checkbox"]:checked+.custom-checkbox-box {
     @apply border-green bg-green;
 }
 
-.custom-checkbox-warning input[type="checkbox"]:checked + .custom-checkbox-box {
+.custom-checkbox-warning input[type="checkbox"]:checked+.custom-checkbox-box {
     @apply border-orange bg-orange;
 }
 
-.custom-checkbox-danger input[type="checkbox"]:checked + .custom-checkbox-box {
+.custom-checkbox-danger input[type="checkbox"]:checked+.custom-checkbox-box {
     @apply border-red-primary bg-red-primary;
 }
 
@@ -380,21 +389,23 @@ header .border_angle {
     @apply transition-all duration-300 ease-in-out;
 }
 
-.custom-checkbox-animated input[type="checkbox"]:checked + .custom-checkbox-box {
+.custom-checkbox-animated input[type="checkbox"]:checked+.custom-checkbox-box {
     @apply scale-110;
     animation: checkboxPulse 0.3s ease-in-out;
 }
 
 @keyframes checkboxPulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1.1);
-  }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
 }
 
 /* Круглый чекбокс */
@@ -416,11 +427,11 @@ header .border_angle {
     @apply absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-all duration-200;
 }
 
-.custom-checkbox-toggle input[type="checkbox"]:checked + .custom-checkbox-box {
+.custom-checkbox-toggle input[type="checkbox"]:checked+.custom-checkbox-box {
     @apply bg-white;
 }
 
-.custom-checkbox-toggle input[type="checkbox"]:checked + .custom-checkbox-box::after {
+.custom-checkbox-toggle input[type="checkbox"]:checked+.custom-checkbox-box::after {
     @apply bg-black transform translate-x-5;
 }
 
@@ -533,8 +544,8 @@ header .border_angle {
 }
 
 .tag-success {
-    @apply text-green flex gap-1 items-center font-bold leading-none rounded-full;
-    padding: 8px 12px;
+    @apply text-green flex gap-1 items-center !font-normal !leading-none rounded-full;
+    padding: 4px 4px !important;
     border: 1px solid var(--5, rgba(199, 211, 255, 0.05));
     background: var(--10, rgba(93, 223, 89, 0.1));
 }
@@ -700,7 +711,7 @@ a {
 }
 
 .aside-item-icon-laptop {
-    @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300  cursor-pointer;
+    @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300 cursor-pointer;
 }
 
 .nav-element {
@@ -814,9 +825,9 @@ aside {
     @apply text-secondary-light/50 flex justify-between items-center px-5 font-bold uppercase cursor-pointer;
 }
 
-.counter_news{
+.counter_news {
     border-radius: 8px;
-background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 0%, rgba(41, 134, 255, 0.00) 100%), rgba(105, 111, 156, 0.11);
+    background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 0%, rgba(41, 134, 255, 0.00) 100%), rgba(105, 111, 156, 0.11);
 }
 
 .aside-item-icon-container:before {

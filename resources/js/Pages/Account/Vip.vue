@@ -107,7 +107,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                         }">
                             <div class="flex flex-col gap-3 items-center">
                                 <VipRank :rank="rank.level" :type="rank.type" />
-                                <div class="flex flex-col gap-1 items-center">
+                                <div class="flex flex-col gap-2 items-center">
                                     <p class="text-nowrap font-bold leading-none text-center text-white uppercase">
                                         {{ rank.name }}
                                     </p>
@@ -141,13 +141,13 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                 </div>
             </div>
 
-            <div class="container flex flex-col gap-6 pt-10 mx-auto">
+            <div class="container flex flex-col gap-6 pt-20 mx-auto">
                 <div class="charters max-md:hidden max-xl:grid-cols-2 max-md:grid-cols-1 grid grid-cols-4 gap-2.5 items-stretch">
                     <div :class="currentRank === 'silver'
                         ? 'active_rank_bg'
                         : 'opacity-20'
-                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]">
-                        <div class="flex flex-col gap-6 h-full">
+                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 max-2xl:px-5 h-full rounded-2xl md:min-h-[670px]">
+                        <div class="flex flex-col gap-4 h-full">
                             <img src="/assets/images/account/vip/characters/silver.png" alt="character" class="character flex-shrink-0 w-full" />
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-3 items-center text-xl font-extrabold uppercase">
@@ -162,7 +162,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             COMMON STOCKS
                                         </p>
                                     </div>
@@ -170,7 +170,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             DAILY RAKEBACK 0.1%
                                         </p>
                                     </div>
@@ -178,7 +178,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             LEVEL-UP BONUS
                                         </p>
                                     </div>
@@ -190,8 +190,8 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                     <div :class="currentRank === 'cooper'
                         ? 'active_rank_bg'
                         : 'opacity-20'
-                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]">
-                        <div class="flex flex-col gap-6 h-full">
+                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 max-2xl:px-5 h-full rounded-2xl md:min-h-[670px]">
+                        <div class="flex flex-col gap-4 h-full">
                             <img src="/assets/images/account/vip/characters/copper.png" alt="character" class="character flex-shrink-0 w-full" />
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-3 items-center text-xl font-extrabold uppercase">
@@ -206,7 +206,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             GENERAL PROMOTIONS
                                         </p>
                                     </div>
@@ -214,7 +214,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             DAILY RAKEBACK 0.2%
                                         </p>
                                     </div>
@@ -222,7 +222,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             MONTHLY BONUSES
                                         </p>
                                     </div>
@@ -230,7 +230,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             LEVEL-UP BONUS
                                         </p>
                                     </div>
@@ -238,7 +238,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             BONUS GROWTH
                                         </p>
                                     </div>
@@ -250,8 +250,8 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                     <div :class="currentRank === 'magican'
                         ? 'active_rank_bg'
                         : 'opacity-20'
-                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]">
-                        <div class="flex flex-col gap-6 h-full">
+                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 max-2xl:px-5 h-full rounded-2xl md:min-h-[670px]">
+                        <div class="flex flex-col gap-4 h-full">
                             <img src="/assets/images/account/vip/characters/magican.png" alt="character" class="character flex-shrink-0 w-full" />
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-3 items-center text-xl font-extrabold uppercase">
@@ -266,7 +266,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             GENERAL PROMOTIONS
                                         </p>
                                     </div>
@@ -274,7 +274,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             DAILY RAKEBACK 0.25%
                                         </p>
                                     </div>
@@ -282,7 +282,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             MONTHLY BONUSES
                                         </p>
                                     </div>
@@ -290,7 +290,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             LEVEL-UP BONUS
                                         </p>
                                     </div>
@@ -298,7 +298,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             BONUS GROWTH
                                         </p>
                                     </div>
@@ -310,8 +310,8 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                     <div :class="currentRank === 'zues'
                         ? 'active_rank_bg'
                         : 'opacity-20'
-                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 h-full rounded-2xl md:min-h-[670px]">
-                        <div class="flex flex-col gap-6 h-full">
+                        " class="bg-secondary-sidebar flex flex-col justify-between gap-4 !pt-0 p-4 max-2xl:px-5 h-full rounded-2xl md:min-h-[670px]">
+                        <div class="flex flex-col gap-4 h-full">
                             <img src="/assets/images/account/vip/characters/zues.png" alt="character" class="character flex-shrink-0 w-full" />
                             <div class="flex justify-between items-center">
                                 <div class="flex gap-3 items-center text-xl font-extrabold uppercase">
@@ -326,7 +326,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             VIP PROMOTIONS (LEVEL V)
                                         </p>
                                     </div>
@@ -334,7 +334,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             WEEKLY BONUSES (LEVEL V)
                                         </p>
                                     </div>
@@ -342,7 +342,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             DAILY RAKEBACK 0.3%
                                         </p>
                                     </div>
@@ -350,7 +350,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             MONTHLY BONUSES
                                         </p>
                                     </div>
@@ -358,7 +358,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             LEVEL-UP BONUS
                                         </p>
                                     </div>
@@ -366,7 +366,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-extrabold leading-none">
+                                        <p class="font-medium leading-none">
                                             BONUS GROWTH
                                         </p>
                                     </div>
