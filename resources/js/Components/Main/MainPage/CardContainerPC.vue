@@ -3,7 +3,7 @@ import { getDomainName } from "@/utils/text";
 </script>
 
 <template>
-    <div class="md:flex hidden absolute top-0 left-10 z-40 flex-1 flex-shrink-0 justify-end items-center pt-5 w-full h-full">
+    <div class="md:flex hidden absolute top-0 left-6 z-40 flex-1 flex-shrink-0 justify-end items-center pt-5 w-full h-full">
 
         <div class=" w-full flex min-h-[150px] justify-end h-full  ">
             <div class="relative h-full min-h-[150px] z-20 w-full right-0 flex-shrink-0 max-w-[175px]">

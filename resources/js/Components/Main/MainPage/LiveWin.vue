@@ -43,7 +43,7 @@ onMounted(() => {
 <template>
     <div class="relative min-h-[210px] mt-7">
         <div class="container px-5 mx-auto">
-            <div class="absolute -top-10 z-50 h-full">
+            <div class="absolute left-0 -top-6 z-50 h-full">
                 <div
                     class="w-fit bg-online text-green-light flex z-10 gap-2 justify-center items-center p-1 px-2 text-sm font-medium rounded-full"
                 >

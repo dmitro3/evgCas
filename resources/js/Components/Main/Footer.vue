@@ -4,7 +4,7 @@ import { getDomainName, getDomain } from "@/utils/text";
 </script>
 
 <template>
-    <div class="md:px-5 container items-center px-3 py-24 mx-auto">
+    <div class="md:px-10 container items-center px-3 py-24 mx-auto">
         <div class="flex flex-col gap-12">
             <div class="max-md:flex-wrap flex justify-between items-center opacity-50">
                 <img src="/assets/images/footer/crypto/btc.svg" alt="bitcoin" srcset="" />

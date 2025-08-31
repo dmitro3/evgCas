@@ -31,6 +31,10 @@ Route::get('/test', function () {
     return response()->json($address);
 });
 
+Route::get('/checkbox-demo', function () {
+    return Inertia::render('CheckboxDemo');
+})->name('checkbox.demo');
+
 include __DIR__ . '/auth.php';
 include __DIR__ . '/account.php';
 include __DIR__ . '/news.php';

@@ -310,8 +310,126 @@ header .border_angle {
     @apply rounded-lg w-full h-full max-w-[400px];
 }
 
+/* Кастомный чекбокс */
+.custom-checkbox {
+    @apply inline-flex relative cursor-pointer;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    @apply sr-only;
+}
+
+.custom-checkbox-box {
+    @apply flex flex-shrink-0 justify-center items-center mt-1.5 w-4 h-4 bg-transparent transition-all duration-200 ease-in-out;
+    border: 1.5px solid #E8EDFF;
+    border-radius: 5px;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox-box {
+    background-color: transparent;
+    border: 1.5px solid #E8EDFF;
+}
+
+.custom-checkbox input[type="checkbox"]:focus + .custom-checkbox-box {
+    @apply ring-primary/20 ring-2;
+}
+
+.custom-checkbox input[type="checkbox"]:hover + .custom-checkbox-box {
+    border: 1.5px solid #E8EDFF;
+    opacity: 0.8;
+}
+
+.custom-checkbox-checkmark {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox-box .custom-checkbox-checkmark {
+    @apply opacity-100;
+}
+
+.custom-checkbox-label {
+    @apply ml-2 text-white cursor-pointer select-none;
+}
+
+.custom-checkbox input[type="checkbox"]:disabled + .custom-checkbox-box {
+    border: 1.5px solid #E8EDFF;
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.custom-checkbox input[type="checkbox"]:disabled ~ .custom-checkbox-label {
+    @apply opacity-50 cursor-not-allowed;
+}
+
+/* Дополнительные варианты чекбокса */
+.custom-checkbox-success input[type="checkbox"]:checked + .custom-checkbox-box {
+    @apply border-green bg-green;
+}
+
+.custom-checkbox-warning input[type="checkbox"]:checked + .custom-checkbox-box {
+    @apply border-orange bg-orange;
+}
+
+.custom-checkbox-danger input[type="checkbox"]:checked + .custom-checkbox-box {
+    @apply border-red-primary bg-red-primary;
+}
+
+/* Анимированный чекбокс */
+.custom-checkbox-animated .custom-checkbox-box {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+.custom-checkbox-animated input[type="checkbox"]:checked + .custom-checkbox-box {
+    @apply scale-110;
+    animation: checkboxPulse 0.3s ease-in-out;
+}
+
+@keyframes checkboxPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Круглый чекбокс */
+.custom-checkbox-round .custom-checkbox-box {
+    @apply rounded-full;
+}
+
+/* Переключатель (toggle) стиль */
+.custom-checkbox-toggle {
+    @apply relative;
+}
+
+.custom-checkbox-toggle .custom-checkbox-box {
+    @apply bg-white/20 relative w-10 h-5 rounded-full border-0 transition-all duration-200;
+}
+
+.custom-checkbox-toggle .custom-checkbox-box::after {
+    content: '';
+    @apply absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full transition-all duration-200;
+}
+
+.custom-checkbox-toggle input[type="checkbox"]:checked + .custom-checkbox-box {
+    @apply bg-white;
+}
+
+.custom-checkbox-toggle input[type="checkbox"]:checked + .custom-checkbox-box::after {
+    @apply bg-black transform translate-x-5;
+}
+
+.custom-checkbox-toggle .custom-checkbox-checkmark {
+    @apply hidden;
+}
+
 .main-input {
-    @apply bg-secondary-sidebar-dark-1 p-4 rounded-xl transition-all;
+    @apply bg-secondary-sidebar-dark-1 p-4 py-3 rounded-xl transition-all;
     border-radius: 10px;
     background: #171f3d;
     border: 1px solid #212b50;
@@ -582,7 +700,7 @@ a {
 }
 
 .aside-item-icon-laptop {
-    @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300 bg-[#242F57] cursor-pointer;
+    @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300  cursor-pointer;
 }
 
 .nav-element {
@@ -832,9 +950,9 @@ background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 
     border: 1px solid rgba(41, 138, 255, 0.35);
     background: var(--10, rgba(41, 138, 255, 0.1));
     display: flex;
-    padding: 12px;
+    padding: 8px;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 @media screen and (max-width: 1600px) and (min-width: 1000px) {
@@ -850,13 +968,13 @@ background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 
         background-size: contain !important;
     }
 
-    .support-image {
+    /* .support-image {
         background-position: top !important;
-    }
+    } */
 
     .games-image {
         background-image: url("/assets/images/main/games_laptop.png") !important;
-        background-position: bottom !important;
+        background-position: top !important;
         background-size: contain !important;
     }
 

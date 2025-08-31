@@ -11,7 +11,7 @@ const props = defineProps({
 <template>
     <div
         :style="{ backgroundImage: `url(${image})` }"
-        class="bg-card flex flex-col p-6 bg-center bg-cover rounded-2xl"
+        class="bg-card flex flex-col p-6 bg-center bg-no-repeat bg-cover rounded-2xl"
     >
         <div
             class="max-md:gap-3 flex flex-col gap-16 justify-between items-start"

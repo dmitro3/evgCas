@@ -5,6 +5,7 @@ import { useAuthStore } from "@/stores/authStore";
 import { ref, onUnmounted } from "vue";
 import { getDomainName, getDomain } from "@/utils/text";
 import FormError from '@/Components/Main/Global/FormError.vue';
+import Checkbox from '@/Components/Main/Global/Checkbox.vue';
 import { router } from '@inertiajs/vue3';
 import { existPromo } from '@/utils/api';
 
@@ -13,7 +14,9 @@ const form = ref({
     email: '',
     password: '',
     password_confirmation: '',
-    promocode: ''
+    promocode: '',
+    terms_accepted: false,
+    newsletter: false
 });
 const exist = ref(null);
 const handleCheckPromo = async () => {
@@ -26,6 +29,13 @@ const handleRegister = async () => {
         if (!form.value.email || !form.value.password || !form.value.password_confirmation) {
             authStore.errors = {
                 message: 'Please fill in all required fields'
+            };
+            return;
+        }
+
+        if (!form.value.terms_accepted) {
+            authStore.errors = {
+                message: 'You must accept the terms and conditions'
             };
             return;
         }
@@ -44,76 +54,88 @@ onUnmounted(() => {
     <MainLayout>
         <section class="max-lg:container lg:max-w-[700px] overflow-hidden rounded-2xl max-md:container mx-auto border_angle bg-secondary-sidebar relative">
             <div class="flex gap-6 p-6">
-                <div class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full max-w-[310px] rounded-3xl">
-                    <div class="flex gap-2.5 items-center text-xl font-extrabold">
+                <div class="bg-secondary-sidebar-dark-1 max-md:hidden bg-login-card relative flex flex-col p-6 min-h-[600px] w-full lg:max-w-[280px] 2xl:max-w-[310px] rounded-3xl">
+                    <div class="flex gap-2.5 items-center text-xl font-extrabold uppercase">
                         <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
                         {{ getDomainName() }}
                     </div>
                     <div class="flex absolute left-0 bottom-6 justify-center w-full text-center">
                         <h1 class="text-2xl font-extrabold text-white">
                             WELCOME TO
-                            <span class="text-primary"> {{ getDomainName() }} </span>
+                            <span class="text-primary uppercase"> {{ getDomainName() }} </span>
                         </h1>
                     </div>
                 </div>
                 <form @submit.prevent="handleRegister" class="w-full">
-                    <div class="flex flex-col gap-6 py-8 w-full">
+                    <div class="flex flex-col gap-6 py-5 w-full">
 
 
                         <div class="flex flex-col gap-2">
-                            <h2 class="text-2xl font-bold">Registration</h2>
+                            <h2 class="text-[22px] font-bold">Registration</h2>
                             <p class="text-secondary-light/50">
                                 Discover the world of gaming and conquer its heights!
                             </p>
                         </div>
-                        <div class="flex flex-col gap-2">
-                            <label for="email" class="text-sm font-bold">EMAIL</label>
-                            <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.email }">
-                                <input type="email" class="w-full" placeholder="Email" v-model="form.email" />
+                        <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-2">
+                                <label for="email" class="text-sm font-bold">EMAIL</label>
+                                <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.email }">
+                                    <input type="email" class="w-full" placeholder="Email" v-model="form.email" />
+                                </div>
+                                <FormError :error="authStore?.errors?.email" />
                             </div>
-                            <FormError :error="authStore?.errors?.email" />
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <label for="password" class="text-sm font-bold">PASSWORD</label>
+                                </div>
+                                <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.password }">
+                                    <input type="password" autocomplete="password" class="w-full" placeholder="Password" v-model="form.password" />
+                                </div>
+                                <FormError :error="authStore?.errors?.password" />
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <label for="password_confirmation" class="text-sm font-bold">REPEAT PASSWORD</label>
+                                </div>
+                                <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.password_confirmation }">
+                                    <input type="password" autocomplete="password_confirmation" class="w-full" placeholder="Repeat password" v-model="form.password_confirmation" />
+                                </div>
+                                <FormError :error="authStore?.errors?.password_confirmation" />
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <label for="promocode" class="text-sm font-bold">
+                                        PROMO CODE <span class="text-secondary-light/50">(OPTIONAL)</span>
+                                    </label>
+                                </div>
+                                <div style="padding: 12px;" class="main-input flex gap-2" :class="{ 'border-red-primary': authStore?.errors?.promocode }">
+                                    <input type="text" class="w-full" placeholder="Promocode" v-model="form.promocode" />
+                                    <button type="button" @click="handleCheckPromo" :class="exist === null ? 'bg-primary' : exist ? 'btn-success' : 'btn-danger shake'" class="btn flex justify-center items-center px-0 py-0 w-8 h-7">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 12C5.24819 12 4.63873 11.3905 4.63873 10.6387V1.36127C4.63873 0.609462 5.24819 0 6 0C6.75181 0 7.36127 0.609462 7.36127 1.36127V10.6387C7.36127 11.3905 6.75181 12 6 12ZM1.36127 7.36127C0.609462 7.36127 0 6.75181 0 6C0 5.24819 0.609462 4.63873 1.36127 4.63873H10.6387C11.3905 4.63873 12 5.24819 12 6C12 6.75181 11.3905 7.36127 10.6387 7.36127H1.36127Z" fill="#E8EDFF" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <FormError :error="authStore?.errors?.promocode" />
+                            </div>
                         </div>
-                        <div class="flex flex-col gap-2">
-                            <div class="flex justify-between items-center">
-                                <label for="password" class="text-sm font-bold">PASSWORD</label>
-                            </div>
-                            <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.password }">
-                                <input type="password" autocomplete="password" class="w-full" placeholder="Password" v-model="form.password" />
-                            </div>
-                            <FormError :error="authStore?.errors?.password" />
+
+                        <!-- Чекбоксы -->
+                        <div class="flex flex-col gap-3">
+                            <Checkbox
+                                v-model="form.terms_accepted"
+                                label="I agree to the User Agreement &<br> confirm I am at least 18 years old"
+                            />
+
                         </div>
-                        <div class="flex flex-col gap-2">
-                            <div class="flex justify-between items-center">
-                                <label for="password_confirmation" class="text-sm font-bold">REPEAT PASSWORD</label>
-                            </div>
-                            <div class="main-input" :class="{ 'border-red-primary': authStore?.errors?.password_confirmation }">
-                                <input type="password" autocomplete="password_confirmation" class="w-full" placeholder="Repeat password" v-model="form.password_confirmation" />
-                            </div>
-                            <FormError :error="authStore?.errors?.password_confirmation" />
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <div class="flex justify-between items-center">
-                                <label for="promocode" class="text-sm font-bold">
-                                    PROMO code <span class="text-secondary-light/50">(OPTIONAL)</span>
-                                </label>
-                            </div>
-                            <div style="padding: 12px;" class="main-input flex gap-2" :class="{ 'border-red-primary': authStore?.errors?.promocode }">
-                                <input type="text" class="w-full" placeholder="Promocode" v-model="form.promocode" />
-                                <button type="button" @click="handleCheckPromo" :class="exist === null ? 'bg-primary' : exist ? 'btn-success' : 'btn-danger shake'" class="btn flex justify-center items-center px-0 py-0 w-8 h-7">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M6 12C5.24819 12 4.63873 11.3905 4.63873 10.6387V1.36127C4.63873 0.609462 5.24819 0 6 0C6.75181 0 7.36127 0.609462 7.36127 1.36127V10.6387C7.36127 11.3905 6.75181 12 6 12ZM1.36127 7.36127C0.609462 7.36127 0 6.75181 0 6C0 5.24819 0.609462 4.63873 1.36127 4.63873H10.6387C11.3905 4.63873 12 5.24819 12 6C12 6.75181 11.3905 7.36127 10.6387 7.36127H1.36127Z" fill="#E8EDFF" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <FormError :error="authStore?.errors?.promocode" />
-                        </div>
-                        <button type="submit" :disabled="authStore.loading" class="btn btn-primary flex justify-center">
+
+                        <button type="submit" :disabled="authStore.loading || !form.terms_accepted" class="btn btn-primary flex justify-center">
                             {{ authStore.loading ? 'Signing up...' : 'Sign up!' }}
                         </button>
                     </div>
                     <div class="text-secondary-light/50 flex gap-2.5 justify-center items-center">
-                        <span>Already have an account?</span>
-                        <Link href="/login" class="text-primary">Sign in</Link>
+                        <span>Don't have an account?</span>
+                        <Link href="/login" class="text-primary">Sign up</Link>
                     </div>
                     <FormError v-if="authStore.errors && !authStore.errors.email && !authStore.errors.password && !authStore.errors.password_confirmation" :error="authStore.errors.message || 'An error occurred'" />
                 </form>

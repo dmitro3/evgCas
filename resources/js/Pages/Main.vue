@@ -41,18 +41,18 @@ const faqItems = [
                     <div class="bg-main-container-1 bg-card md:container flex-col flex-1 px-6 py-3.5 mx-auto w-full rounded-2xl">
                         <div class="flex flex-col gap-14">
                             <div class="flex flex-col gap-2">
-                                <h1 class="md:text-3xl text-xl md:max-w-[190px] leading-normal font-bold text-white">
-                                    Welcome to {{getDomainName()}}
+                                <h1 class="md:text-3xl text-xl font-bold leading-normal text-white">
+                                    Welcome<br></br> to {{getDomainName()}}
                                 </h1>
                                 <p class="text-secondary-light/50 text-base">
-                                    Get a generous welcome bonus from our
+                                    Get a generous welcome bonus <br> from our
                                     partners and us
                                 </p>
                             </div>
                             <TakeBonus background="bg-secondary-sidebar-light" />
                         </div>
                     </div>
-                    <div class="bg-main-container-4 w-full max-w-[550px] bg-card md:container flex-col p-6 py-3.5 mx-auto rounded-2xl">
+                    <div class="bg-main-container-4 w-full max-w-[500px] bg-card md:container flex-col p-6 py-3.5 mx-auto rounded-2xl">
                         <div class="flex flex-col gap-7">
                             <div class="flex flex-col max-w-[230px] gap-3">
                                 <h2 class="text-[22px] font-bold">
@@ -93,7 +93,7 @@ const faqItems = [
                     <InfoCard title="Highest RTP" description="Play with the best odds and with a RTP up to 99.5%" image="/assets/images/main/container3.png" link="/" />
                 </div>
             </div>
-            <div class="max-md:flex-wrap logos container flex justify-between items-center py-5 mx-auto">
+            <div class="max-md:flex-wrap logos container flex justify-between items-center px-12 mx-auto">
                 <img src="/assets/images/footer/huobi.svg" alt="huobi" srcset="" />
                 <img src="/assets/images/footer/nba.svg" alt="nba" srcset="" />
                 <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="" />
@@ -133,18 +133,18 @@ const faqItems = [
                         <div class="shadow_card"></div>
                     </div>
                     <div class="bg-secondary-sidebar support-image overflow-hidden relative p-6 w-full rounded-2xl">
-                        <div class="flex flex-col  max-md:justify-center max-md:items-center gap-4 max-w-[320px]">
+                        <div class="flex flex-col h-full  max-md:justify-center max-md:items-center gap-4 max-w-[320px]">
                             <p class="text-secondary-light/50 font-semibold uppercase">
                                 support
                             </p>
                             <p class="max-md:text-center text-[22px] max-w-[250px] font-bold text-white">
                                 Get 24/7 online help from our support team
                             </p>
-                            <p class="text-secondary-light/50 max-md:text-center">
+                            <p class="text-secondary-light/50 max-md:text-center h-full">
                                 Ask a question in a <br> language that is convenient
                                 for you
                             </p>
-                            <Link class="btn btn-primary w-fit z-50 px-6" href="/account/wallet">
+                            <Link class="btn btn-primary w-fit z-50 flex-shrink-0 px-6" href="/account/wallet">
                             <svg class="!opacity-100" width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.3913 14.7372L15.7163 17.3706C15.7997 18.0622 15.058 18.5456 14.4663 18.1872L11.583 16.4706C11.383 16.3539 11.333 16.1039 11.4413 15.9039C11.858 15.1372 12.083 14.2706 12.083 13.4039C12.083 10.3539 9.46633 7.87057 6.24967 7.87057C5.59133 7.87057 4.94967 7.97057 4.34967 8.17057C4.04133 8.27057 3.74133 7.98724 3.81633 7.67057C4.57467 4.63724 7.49133 2.37891 10.9747 2.37891C15.0413 2.37891 18.333 5.45391 18.333 9.24557C18.333 11.4956 17.1747 13.4872 15.3913 14.7372Z" fill="#E8EDFF" />
                                 <path d="M10.8332 13.4034C10.8332 14.3951 10.4665 15.3118 9.84984 16.0368C9.02484 17.0368 7.7165 17.6785 6.24984 17.6785L4.07484 18.9701C3.70817 19.1951 3.2415 18.8868 3.2915 18.4618L3.49984 16.8201C2.38317 16.0451 1.6665 14.8034 1.6665 13.4034C1.6665 11.9368 2.44984 10.6451 3.64984 9.87845C4.3915 9.39512 5.28317 9.12012 6.24984 9.12012C8.78317 9.12012 10.8332 11.0368 10.8332 13.4034Z" fill="#E8EDFF" />
@@ -158,7 +158,7 @@ const faqItems = [
                     </div>
                 </div>
                 <div class="bg-secondary-sidebar games-image overflow-hidden relative p-6 w-full rounded-2xl">
-                    <div class="flex z-50 flex-col max-md:justify-center max-md:items-center gap-4 max-w-[320px]">
+                    <div class="max-md:justify-center max-md:items-center  flex z-50 flex-col gap-4">
                         <p class="text-secondary-light/50 max-md:text-center font-semibold uppercase">
                             original games
                         </p>
@@ -218,7 +218,7 @@ const faqItems = [
 
 .support-image {
     background-image: url("/assets/images/main/support.png");
-    background-size: contain;
+    background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
 }

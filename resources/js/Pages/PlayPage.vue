@@ -117,10 +117,10 @@ const slotsToShow = computed(() =>
             </div>
             <div
                 v-if="slots.length > 0"
-                class="md:px-5 container flex flex-col gap-6 mx-auto"
+                class="md:px-5 container flex flex-col gap-2 mx-auto"
             >
                 <div class="flex justify-between items-center">
-                    <h2 class="text-lg font-bold text-white">Slots</h2>
+                    <h2 class="mb-3 text-lg font-bold text-white">Slots</h2>
                 </div>
                 <div
                     class="xl:grid-cols-7 md:grid-cols-3 2xl:grid-cols-7 grid grid-cols-2 gap-2.5"

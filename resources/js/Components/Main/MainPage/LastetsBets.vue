@@ -5,6 +5,19 @@ import axios from "axios";
 
 const lastWins = ref([]);
 
+const originalIconsGame = ref({
+    crash: "/assets/images/games/table/crash.png",
+    tower: "/assets/images/games/table/tower.png",
+    mines: "/assets/images/games/table/mines.png",
+    coinflip: "/assets/images/games/table/coinflip.png",
+    dice: "/assets/images/games/table/dice.png",
+    plinko: "/assets/images/games/table/plinko.png",
+});
+
+const getIcon = (game) => {
+    return originalIconsGame.value[game.id_game.toLowerCase()] || game.image;
+};
+
 onMounted(() => {
     axios.post("/system/last_wins").then((res) => {
         lastWins.value = res.data.map((win) => ({
@@ -12,7 +25,8 @@ onMounted(() => {
             username: win.random_username,
             title: win.game.name,
             amount: win.amount,
-            image: win.game.image,
+            type: win.game.type,
+            image: getIcon(win.game),
             bet_amount: win.bet_amount,
         })).slice(0, 7);
     });
@@ -23,14 +37,13 @@ onMounted(() => {
             username: e.win.random_username,
             title: e.win.game.name,
             amount: e.win.amount,
-            image: e.win.game.image,
+            type: e.win.game.type,
+            image: getIcon(e.win.game),
             bet_amount: e.win.bet_amount,
         };
 
-        // Добавляем в начало массива для анимации сверху
         lastWins.value.unshift(newWin);
 
-        // Ограничиваем количество элементов
         if (lastWins.value.length > 7) {
             lastWins.value = lastWins.value.slice(0, 7);
         }
@@ -78,25 +91,29 @@ onMounted(() => {
         <table class="overflow-hidden rounded-2xl">
             <thead class="">
                 <tr class="text-secondary-light/50 px-5">
-                    <th class="pb-3 pl-5 text-left">USERNAME</th>
-                    <th class="pb-3 text-left">BET AMOUNT</th>
-                    <th class="pb-3 text-left">GAME</th>
-                    <th class="pr-5 pb-3 text-right">PROFIT</th>
+                    <th class="pb-3 pl-5 text-left !font-normal">USERNAME</th>
+                    <th class="pb-3 text-left !font-normal">BET AMOUNT</th>
+                    <th class="pb-3 text-left !font-normal">GAME</th>
+                    <th class="pr-5 pb-3 text-right !font-normal">PROFIT</th>
                 </tr>
             </thead>
 
             <tbody class="bg-secondary-sidebar bottom-shadow overflow-hidden relative">
                 <tr v-for="(item, i) in lastWins" :key="item.id" class="border-t-secondary-sidebar-light border-t" :class="{ 'first-row border-t-0': i === 0 }">
-                    <td class="text-white/80 p-6 font-semibold" :class="{ 'rounded-tl-xl': i === 0 }">
+                    <td class="text-white/80 p-6 py-4 font-semibold" :class="{ 'rounded-tl-xl': i === 0 }">
                         {{ item.username || 'Guest' }}
                     </td>
-                    <td class="text-white/80 py-6 font-extrabold text-left">
+                    <td class="text-white/80 py-4 font-bold text-left">
                         ${{ Number(item.bet_amount || 0).toLocaleString() }}
                     </td>
-                    <td class="text-white/80 py-5 font-extrabold text-left">
-                        {{ item.title }}
+                    <td class="text-white/80 py-4 font-bold text-left">
+                        <div class="flex gap-2 items-center">
+                            <img v-if="item.type === 'original_game'" :src="item.image" class="w-6 h-6 rounded-md" alt="" srcset="">
+                            <img v-else :src="item.image" class="w-7 h-8 rounded-md" alt="" srcset="">
+                            {{ item.title }}
+                        </div>
                     </td>
-                    <td class="!text-green p-6 font-extrabold text-right" :class="{ 'rounded-tr-xl': i === 0 }">
+                    <td class="!text-green p-6 py-4 font-bold text-right" :class="{ 'rounded-tr-xl': i === 0 }">
                         ${{ Number(item.amount || 0).toLocaleString() }}
                     </td>
                 </tr>

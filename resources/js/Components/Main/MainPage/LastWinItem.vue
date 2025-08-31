@@ -7,7 +7,7 @@ const props = defineProps({
 });
 </script>
 <template>
-    <div class="flex flex-col gap-2 max-w-[95px] flex-shrink-0 w-full">
+    <div class="flex flex-col gap-1 max-w-[95px] flex-shrink-0 w-full">
         <div class="relative flex-shrink-0 w-full rounded-2xl">
             <img
                 :src="image"
@@ -19,9 +19,9 @@ const props = defineProps({
         >
             {{ title }}
         </p>
-        <div class="bg-online w-fit h-fit left-1.5 px-3 py-1.5 leading-none">
-            <p class="text-green-light text-sm font-bold leading-none">
-                $ {{ formatNumber(amount) }}
+        <div class="bg-online w-fit h-fit left-1.5 px-1.5 py-1 leading-none">
+            <p class="text-green-light text-sm leading-none">
+                ${{ formatNumber(amount) }}
             </p>
         </div>
     </div>

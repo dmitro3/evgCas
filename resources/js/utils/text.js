@@ -27,7 +27,7 @@ export function getCryptoIcon(symbol) {
 };
 
 export function getDomainName() {
-    const domainName = window.location.hostname.split('.').slice(0, -1).join('.');
+    const domainName = "Casino.ndstudiotestdomain" //window.location.hostname.split('.').slice(0, -1).join('.');
     const name = domainName.charAt(0).toUpperCase() + domainName.slice(1);
     return name.length > 14 ? name.substring(0, 14) : name;
 }
