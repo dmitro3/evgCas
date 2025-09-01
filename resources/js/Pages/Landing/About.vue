@@ -142,21 +142,21 @@ const certificates = [
             <div class="flex relative justify-between items-center">
                 <div class="flex flex-col gap-4 max-w-[780px]">
                     <p class="text-[22px] font-bold">
-                        Domain - The Foremost Crypto Casino in the Industry
+                        {{ getDomainName() }} - The Foremost Crypto Casino in the Industry
                     </p>
-                    <p class="text-white/75">
-                        As of 2019, Domain provides a cutting-edge online casino
+                    <p class="text-white/75 max-w-[760px]">
+                        As of 2019, {{ getDomainName() }} provides a cutting-edge online casino
                         gaming experience, supporting both fiat currencies and a
                         wide range of cryptocurrencies, including Bitcoin.
                         Celebrating 6 years of success, we continue to improve
-                        Domain to offer you even more exciting winnings and an
+                        {{ getDomainName() }} to offer you even more exciting winnings and an
                         unrivaled gaming experience. We are constantly updating
                         our platform, making betting on the best online games at
-                        Domain even more accessible and exciting!
+                        {{ getDomainName() }} even more accessible and exciting!
                     </p>
                 </div>
                 <div class="flex absolute right-0 -top-20 justify-end w-full">
-                    <img src="/assets/images/info/games.png" alt="about" class="max-h-[572px] max-w-[500px] object-cover w-full h-full" />
+                    <img src="/assets/images/info/games.png" alt="about" class="max-h-[520px] max-w-[450px] object-cover w-full h-full" />
                 </div>
             </div>
             <div class="flex flex-col gap-4">
@@ -213,7 +213,7 @@ const certificates = [
                             </p>
                             <div class="grid grid-cols-3 gap-3">
                                 <div v-for="certificate in certificates" class="bg-secondary flex gap-4 items-center p-4 rounded-xl">
-                                    <div class="bg-primary/10 flex justify-center items-center w-14 h-14 rounded-xl">
+                                    <div class="bg-primary/10 flex flex-shrink-0 justify-center items-center w-14 h-14 rounded-xl">
                                         <div v-html="certificate.icon"></div>
                                     </div>
                                     <div class="flex flex-col gap-2">
@@ -230,13 +230,13 @@ const certificates = [
                             <div class="flex flex-col gap-2">
                                 <p class="font-bold leading-none text-white">David Lopez</p>
                                 <p class="text-white/50 font-medium uppercase">
-                                    One of the founders of Domain
+                                    One of the founders of {{ getDomainName() }}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <img src="/assets/images/license/license.png" class="max-w-[310px]">
+                <img src="/assets/images/license/license.png" class="max-w-[310px] rounded-2xl">
             </div>
             <div class="flex flex-col gap-3">
                 <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">

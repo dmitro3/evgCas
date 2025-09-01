@@ -114,7 +114,7 @@ watch(selected, generateQRCode, { immediate: true });
             </div>
 
             <div class="flex flex-col gap-2">
-                <span class="uppercase">
+                <span class="font-bold uppercase">
                     Deposit address
                 </span>
                 <div

@@ -1,9 +1,16 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 const props = defineProps({
-    background: String,
+    background: {
+        type: String,
+        default: "bg-take",
+    },
+    button: {
+        type: Boolean,
+        default: false,
+    }
 });
-let background = "bg-take" || props.background;
+let background = props.background;
 </script>
 
 <template>
@@ -18,7 +25,7 @@ let background = "bg-take" || props.background;
                     class="absolute -right-1.5 -top-2.5 flex-shrink-0 w-12 max-w-none h-14"
                 />
             </div>
-            <div class="flex gap-12 items-center py-2">
+            <div :class="button ? 'gap-4' : 'gap-12'" class="flex items-center py-2">
                 <div class="flex flex-col">
                     <p
                         style="color: rgba(199, 211, 255, 0.5)"
@@ -33,7 +40,7 @@ let background = "bg-take" || props.background;
                     </p>
                 </div>
                 <div class="py-3">
-                    <Link
+                    <Link v-if="!button"
                         href="/account/bonus"
                         class="bg-[#43548E40] hover:bg-[#43548E60] transition-all duration-300 mr-1 flex items-center justify-center p-2.5 cursor-pointer rounded-lg"
                     >
@@ -53,6 +60,12 @@ let background = "bg-take" || props.background;
                                 stroke-linejoin="round"
                             />
                         </svg>
+                    </Link>
+                    <Link v-else
+                        href="/account/bonus"
+                        class="btn btn-orange px-3"
+                    >
+                    Claim!
                     </Link>
                 </div>
             </div>

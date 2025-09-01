@@ -89,13 +89,13 @@ const displayResult = () => {
             <div class="md:px-5 container flex flex-col mx-auto w-full">
                 <div class="flex flex-col rounded-2xl">
                     <div class="max-md:flex-col-reverse flex items-stretch">
-                        <div class="bg-coinflip flex flex-col gap-4 justify-center items-center py-14 pb-5 w-full rounded-t-xl">
-                            <div class="flex flex-col gap-16">
+                        <div class="bg-coinflip flex flex-col gap-4 justify-center items-center py-5 w-full rounded-t-xl">
+                            <div class="flex flex-col gap-20">
                                 <div class="flex flex-col gap-2 items-center">
-                                    <div class="text-2xl font-bold text-white uppercase mix-blend-overlay">
+                                    <div class="font-bold text-white uppercase mix-blend-overlay">
                                         Multiplier
                                     </div>
-                                    <div class="coof_text font-bold">{{ coinFlipStore.currentMultiplier.toFixed(2) }}×</div>
+                                    <div class="coof_text font-bold leading-none">{{ coinFlipStore.currentMultiplier.toFixed(2) }}×</div>
                                 </div>
                                 <div class="max-w-[200px] max-h-[200px] w-full h-full coin-container" :class="{ 'flipping': coinFlipStore.flipAnimation === 'flipping' }">
                                     <div class="coin-flip-wrapper" :style="{
@@ -107,7 +107,7 @@ const displayResult = () => {
                                         <img src="/assets/images/OriginalGames/Flip/tails.png" class="w-[200px] h-[200px] coin-side coin-tails" alt="Tails" />
                                     </div>
                                 </div>
-                                <div class="text-secondary-light/50 mx-auto text-2xl font-bold">
+                                <div class="text-secondary-light/50 mx-auto text-2xl font-bold uppercase">
                                     Series: {{ coinFlipStore.currentSeries }}
                                 </div>
                             </div>

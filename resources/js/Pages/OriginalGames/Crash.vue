@@ -485,7 +485,7 @@ onBeforeUnmount(() => {
             <div class="md:px-5 container flex flex-col mx-auto w-full">
                 <div class="flex flex-col rounded-2xl">
                     <div class="max-md:flex-col-reverse flex items-stretch">
-                        <div class="min-h-[650px] bg-dice flex flex-col gap-4 justify-center items-center pt-14 w-full rounded-t-xl">
+                        <div class="min-h-[650px] bg-dice flex flex-col gap-4 justify-center relative items-center pt-5 w-full rounded-t-xl">
                             <div class="chart-container relative p-4 w-full h-full rounded-xl">
                                 <div class="absolute top-0 left-1/2 z-10 text-white -translate-x-1/2">
                                     <div class="flex flex-col gap-2 justify-center items-center">
@@ -540,6 +540,21 @@ onBeforeUnmount(() => {
                                 </div>
 
                                 <apexchart ref="chartRef" type="area" height="100%" width="100%" :options="chartOptions" :series="series" />
+                            </div>
+                            <div class="border-y bg-secondary-sidebar border-white/5 flex overflow-hidden gap-3 items-center px-6 py-3 w-full">
+                                <div v-for="i in 10" class="bg-primary/10 w-fit flex gap-2 items-center px-3 py-2 text-sm font-bold text-white rounded-xl">
+                                    <div class="text-primary bg-primary/10 px-2 py-1 text-sm rounded-lg">
+                                        X2.1
+                                    </div>
+                                    $514.54
+                                </div>
+                            </div>
+                            <div class="w-fit bg-online text-green-light flex absolute top-5 left-5 z-10 gap-2 justify-center items-center p-0.5 px-2 text-sm font-bold rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                    <circle cx="8.5" cy="9.5" r="8" fill="#5DDF59" fill-opacity="0.1" />
+                                    <circle cx="8.5" cy="9.5" r="4" fill="#47F260" />
+                                </svg>
+                                3,492 Players
                             </div>
                         </div>
                     </div>

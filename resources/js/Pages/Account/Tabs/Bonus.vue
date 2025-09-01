@@ -64,7 +64,7 @@ const handleActivatePromo = async () => {
         <div class="flex flex-col gap-6">
             <div class="xl:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full">
                 <div class="bg-secondary-sidebar bonus-bg md:items-center md:justify-center bonus-bg-mobile flex w-full rounded-2xl">
-                    <div class="flex flex-col gap-5 p-6 h-full max-w-[230px] w-full">
+                    <div class="flex flex-col gap-5 pl-6 py-6 h-full max-w-[250px] w-full">
                         <div class="flex flex-col gap-4 h-full">
                             <div class="w-fit bg-primary/10 flex gap-2 items-center px-3 py-2 text-sm font-extrabold uppercase rounded-lg">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,17 +88,15 @@ const handleActivatePromo = async () => {
                     <div class="max-md:hidden w-full h-full rounded-r-2xl"></div>
                 </div>
                 <div class="bg-secondary-sidebar bonus-bg-container2 max-md:gap-4 max-md:flex-col flex justify-between items-center p-6 rounded-2xl">
-                    <div class="flex flex-col md:max-w-[290px] gap-10">
+                    <div class="flex flex-col md:max-w-[290px] gap-8">
                         <div class="flex flex-col gap-2">
-                            <h2 class="text-xl font-bold">Rakeback</h2>
+                            <h2 class="text-xl font-bold leading-none">Rakeback</h2>
                             <p class="text-secondary-light/50">
-                                Take your rakeback for placing bets and gambling
+                                Play and get a part of your money back with each bet
                             </p>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <label class="text-sm font-bold">
-                                Available to claim
-                            </label>
+
                             <div class="flex gap-2 items-center">
                                 <div class="main-input-small flex gap-2 items-center">
                                     <input type="text" class="w-full" value="$3,500.01" />
@@ -114,7 +112,7 @@ const handleActivatePromo = async () => {
                             <label class="text-sm font-bold">
                                 Bets in 24h
                             </label>
-                            <div class="flex gap-2 items-center w-full">
+                            <div class="flex relative gap-2 items-center w-full">
                                 <div class="rakeback-static flex gap-2 items-center p-3 w-full">
                                     $3,500.01
                                 </div>
@@ -144,7 +142,7 @@ const handleActivatePromo = async () => {
 
                 <h2 class="text-lg font-bold">Active bonuses</h2>
             </div>
-            <div class="2xl:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full">
+            <div class="xl:grid-cols-2 container grid grid-cols-1 gap-2.5 mx-auto w-full">
                 <div class="bg-secondary-sidebar max-md:flex-col md:items-center flex gap-6 p-4 rounded-2xl">
                     <div class="max-w-[160px] w-full ticket-bg py-4 min-h-[208px] flex items-start justify-center h-full">
                         <p class="text-lg font-bold">$3,500</p>
@@ -153,11 +151,7 @@ const handleActivatePromo = async () => {
                         <div class="flex flex-col gap-2">
                             <p class="text-xl font-bold">Special Promocode</p>
                             <p class="text-secondary-light/50">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                                ullamco
+                                You must wager $100,000 in original games or slots. The promo amount and potential winnings will become available for withdrawal after wagering is completed.
                             </p>
                         </div>
                         <div class="flex flex-col gap-2 uppercase">
@@ -185,13 +179,13 @@ const handleActivatePromo = async () => {
                         'bg-secondary-sidebar text-white':
                             faqTab === 'main',
                     }" class="aside-item-content before:hidden after:hidden ml-0">
-                        <div class="flex gap-2 items-center">Overview</div>
+                        <div class="flex gap-2 items-center uppercase">Overview</div>
                     </div>
                     <div @click="faqTab = 'privileges'" :class="{
                         'bg-secondary-sidebar text-white':
                             faqTab === 'privileges',
                     }" class="aside-item-content before:hidden after:hidden ml-0">
-                        <div class="flex gap-2 items-center">
+                        <div class="flex gap-2 items-center uppercase">
                             Reffered users
                         </div>
                     </div>
@@ -257,7 +251,7 @@ const handleActivatePromo = async () => {
                             </div>
                         </div>
 
-                        <div class="affiliate-table-row grid grid-cols-3 gap-4 p-6">
+                        <div v-for="i in 4" class="affiliate-table-row grid grid-cols-3 gap-4 p-6 py-3">
                             <div class="text-white">gidedesign@gmail.com</div>
                             <div class="text-center text-white">26.03.2025</div>
                             <div class="font-bold text-right text-white">
@@ -265,29 +259,7 @@ const handleActivatePromo = async () => {
                             </div>
                         </div>
 
-                        <div class="affiliate-table-row grid grid-cols-3 gap-4 p-6">
-                            <div class="text-white">gidedesign@gmail.com</div>
-                            <div class="text-center text-white">26.03.2025</div>
-                            <div class="font-bold text-right text-white">
-                                $514.54
-                            </div>
-                        </div>
 
-                        <div class="affiliate-table-row grid grid-cols-3 gap-4 p-6">
-                            <div class="text-white">gidedesign@gmail.com</div>
-                            <div class="text-center text-white">26.03.2025</div>
-                            <div class="font-bold text-right text-white">
-                                $514.54
-                            </div>
-                        </div>
-
-                        <div class="affiliate-table-row grid grid-cols-3 gap-4 p-6">
-                            <div class="text-white">gidedesign@gmail.com</div>
-                            <div class="text-center text-white">26.03.2025</div>
-                            <div class="font-bold text-right text-white">
-                                $514.54
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Description -->
@@ -346,7 +318,7 @@ const handleActivatePromo = async () => {
                         <p class="font-bold">Any questions left?</p>
                         <p class="text-[#81BAFF]">Our team of professionals is ready to help you 24/7 - write to us</p>
                     </div>
-                    <button class="btn btn-primary before:hidden w-fit z-50 px-6 shadow-none"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <button class="btn btn-primary before:hidden w-fit z-50 px-6 rounded-2xl shadow-none"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.3916 14.2372L15.7166 16.8706C15.7999 17.5622 15.0582 18.0456 14.4666 17.6872L11.5832 15.9706C11.3832 15.8539 11.3332 15.6039 11.4416 15.4039C11.8582 14.6372 12.0832 13.7706 12.0832 12.9039C12.0832 9.85391 9.46658 7.37057 6.24991 7.37057C5.59158 7.37057 4.94991 7.47057 4.34991 7.67057C4.04158 7.77057 3.74158 7.48724 3.81658 7.17057C4.57491 4.13724 7.49158 1.87891 10.9749 1.87891C15.0416 1.87891 18.3332 4.95391 18.3332 8.74557C18.3332 10.9956 17.1749 12.9872 15.3916 14.2372Z" fill="#E8EDFF"></path>
                             <path d="M10.8334 12.9034C10.8334 13.8951 10.4667 14.8118 9.85008 15.5368C9.02508 16.5368 7.71675 17.1785 6.25008 17.1785L4.07508 18.4701C3.70841 18.6951 3.24175 18.3868 3.29175 17.9618L3.50008 16.3201C2.38341 15.5451 1.66675 14.3034 1.66675 12.9034C1.66675 11.4368 2.45008 10.1451 3.65008 9.37845C4.39175 8.89512 5.28341 8.62012 6.25008 8.62012C8.78341 8.62012 10.8334 10.5368 10.8334 12.9034Z" fill="#E8EDFF"></path>
                         </svg> Chat with support </button>
@@ -371,13 +343,26 @@ const handleActivatePromo = async () => {
     background-repeat: no-repeat;
 }
 
+.rakeback-static-border::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 101%;
+    z-index: -1;
+    height: 101%;
+}
+
 .rakeback-static {
     border-radius: 10px;
-    border: 1px solid rgba(41, 138, 255, 0);
-    background: linear-gradient(180deg,
-            rgba(41, 138, 255, 0.03) 0%,
-            rgba(41, 138, 255, 0.1) 100%);
-    box-shadow: 0px -4px 10px 0px rgba(41, 138, 255, 0.15) inset;
+    border: 1px solid rgba(41, 138, 255, 0.00);
+    position: relative;
+
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(41, 138, 255, 0.03) 0%, rgba(41, 138, 255, 0.10) 100%);
+    box-shadow: 0 -4px 10px 0 rgba(41, 138, 255, 0.15) inset;
+    @apply leading-none;
 }
 
 .ticket-bg {

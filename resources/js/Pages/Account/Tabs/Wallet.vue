@@ -117,10 +117,10 @@ onMounted(() => {
                 class="bg-secondary-sidebar flex flex-col flex-1 gap-6 p-6 w-full rounded-2xl"
             >
                 <div class="flex justify-between items-center">
-                    <h2 class="max-2xl:text-lg text-xl font-bold">Deposit</h2>
+                    <h2 class="max-2xl:text-lg text-xl font-bold">{{ activeTabDeposit === 'deposit' ? 'Deposit' : 'Withdraw' }}</h2>
                     <Link
                         href="/account/transactions"
-                        class="flex gap-2 items-center text-lg font-normal"
+                        class="flex gap-2 items-center font-normal"
                     >
                         <svg
                             width="20"
@@ -171,7 +171,7 @@ onMounted(() => {
 
 <style>
 .method-pay {
-    @apply flex flex-col gap-5 items-center justify-center font-extrabold py-3 hover:bg-secondary transition-all duration-300  cursor-pointer rounded-xl;
+    @apply flex flex-col gap-4 items-center justify-center font-extrabold py-3 hover:bg-secondary transition-all duration-300  cursor-pointer rounded-xl;
 }
 .method-pay.active {
     @apply bg-secondary;

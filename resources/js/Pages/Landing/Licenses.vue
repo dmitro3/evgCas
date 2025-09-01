@@ -7,48 +7,56 @@ const licenses = [
         description:
             "Domain is owned and operated by Medium Rare N.V., registration number: 151486, registered address: Korporaalweg 10, Willemstad, Curaçao. Payment agent company is Medium Rare Limited with address 7-9 Riga Feraiou, LIZANTIA COURT, Office 310, Agioi Omologites, 1087 Nicosia, Cyprus and Registration number: HE 410775",
         image: "/assets/images/license/gcb.png",
+        size: "max-h-[47px]",
     },
     {
         title: "SSL Secured",
         description:
             "Domain, a leading cryptocasino, has partnered with SSL Secured to ensure maximum protection of user data. SSL Secured's advanced SSL encryption technology will securely protect transactions and players' personal information. This partnership will reinforce Domain's reputation as a secure platform that meets high industry standards. Domain is committed to providing users with a comfortable and secure gaming environment",
         image: "/assets/images/license/ssl.png",
+        size: "max-h-[60px]",
     },
     {
         title: "GDPR",
         description:
             "Domain enhances platform reliability by ensuring GDPR compliance with GDPR Compliance Solutions. GDPR Compliance Solutions' expert support ensures user data protection and compliance. This partnership reaffirms Domain's commitment to security and transparency in the handling of personal information",
         image: "/assets/images/license/gdpr.png",
+        size: "max-h-[48px]",
     },
     {
         title: "UKGC",
         description:
             "Domain complies with strict UKGC requirements demonstrating a commitment to a fair and safe gaming environment for UK users",
         image: "/assets/images/license/ujgc.png",
+        size: "max-h-[38px]",
     },
     {
         title: "Blockchain",
         description:
             "Domain has partnered with Blockchain.com to integrate advanced blockchain solutions that provide enhanced security and transparency in financial transactions. This partnership allows Domain to offer users more secure and convenient ways to manage crypto assets, demonstrating an innovative approach to crypto gambling",
         image: "/assets/images/license/blockchain.png",
+        size: "max-h-[64px]",
     },
     {
         title: "Sumsub",
         description:
             "Domain, a recognized cryptocasino, increases the reliability of the platform by partnering with Sumsub, an expert in KYC/AML. Sumsub's automated verification will speed up the process for Domain users, providing fast and convenient access to the platform. This will ensure a secure and transparent gaming environment through a comprehensive approach to risk assessment and transaction monitoring. Domain is committed to creating the most comfortable and secure environment possible, building trust and competitiveness",
         image: "/assets/images/license/sumsub.png",
+        size: "max-h-[56px]",
     },
     {
         title: "FinCEN",
         description:
             "Domain, strictly complies with FinCEN requirements by implementing rigorous customer identification and verification procedures, and implements comprehensive measures to prevent illegal financial transactions. This approach guarantees users a safe and secure gaming environment",
         image: "/assets/images/license/fincen.png",
+        size: "max-h-[72px]",
     },
     {
         title: "Crypto Gambling",
         description:
             "Domain and Crypto Gambling are teaming up to revolutionize crypto gambling! The integration of Crypto Gambling's crypto technology will provide Domain with instant transactions, enhanced security and an expanded selection of games. This partnership will strengthen Domain's market leadership, attract new players and increase player loyalty. The joint goal of the companies is to create a reliable and innovative platform for cryptocurrency gambling",
         image: "/assets/images/license/gambling.png",
+        size: "max-h-[46px]",
     },
 ];
 </script>
@@ -75,7 +83,7 @@ const licenses = [
             </div>
             <div class="lg:grid-cols-3 2xl:grid-cols-4 max-md:grid-cols-1 grid grid-cols-2 gap-2.5">
                 <div v-for="license in licenses" :key="license.title" class="bg-secondary-sidebar flex flex-col gap-4 items-center p-6 rounded-2xl">
-                    <div class="min-h-[84px] max-h-[84px] flex items-center justify-center">
+                    <div :class="license.size" class="flex justify-center items-center">
                         <img :src="license.image" :alt="license.title" class="object-contain w-full h-full" />
                     </div>
                     <div class="flex flex-col gap-4 items-center text-center">
@@ -87,8 +95,8 @@ const licenses = [
                         </p>
                     </div>
                 </div>
-                <div class="bg-primary/15 2xl:hidden max-2xl:flex flex-col gap-6 justify-center items-center p-6 w-full h-full rounded-2xl">
-                    <div class="flex flex-col gap-6 items-center p-4 w-full rounded-2xl">
+                <div class="bg-primary/15 2xl:hidden max-2xl:flex flex-col gap-6 items-center p-6 w-full h-full rounded-2xl">
+                    <div class="lg:justify-center flex flex-col gap-6 items-center p-4 w-full h-full text-center rounded-2xl">
                         <div class="bg-primary/10 w-fit flex justify-center items-center p-6 rounded-2xl">
                             <svg width="57" height="56" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.35" d="M24.9974 4.66602C14.0447 4.66602 5.16406 13.5467 5.16406 24.4993C5.16406 27.6564 5.92006 30.629 7.23373 33.2797L5.24106 41.2504C4.78606 43.0657 6.43106 44.7107 8.2464 44.2557L16.2171 42.263C18.8677 43.5767 21.8404 44.3327 24.9974 44.3327C35.9501 44.3327 44.8307 35.452 44.8307 24.4993C44.8307 13.5467 35.9501 4.66602 24.9974 4.66602Z" fill="#81BAFF" />
@@ -118,7 +126,7 @@ const licenses = [
                 </div>
             </div>
             <div class="bg-primary/15 2xl:flex hidden flex-col gap-6 justify-center items-center p-6 w-full rounded-2xl">
-                <div class="flex flex-col gap-6 items-center p-4 w-full rounded-2xl">
+                <div class="xl:items-center flex flex-col gap-6 p-4 w-full rounded-2xl">
                     <div class="bg-primary/10 w-fit flex justify-center items-center p-6 rounded-2xl">
                         <svg width="57" height="56" viewBox="0 0 57 56" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.35" d="M24.9974 4.66602C14.0447 4.66602 5.16406 13.5467 5.16406 24.4993C5.16406 27.6564 5.92006 30.629 7.23373 33.2797L5.24106 41.2504C4.78606 43.0657 6.43106 44.7107 8.2464 44.2557L16.2171 42.263C18.8677 43.5767 21.8404 44.3327 24.9974 44.3327C35.9501 44.3327 44.8307 35.452 44.8307 24.4993C44.8307 13.5467 35.9501 4.66602 24.9974 4.66602Z" fill="#81BAFF" />

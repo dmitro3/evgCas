@@ -458,7 +458,7 @@ function createBallTexture(radius) {
 
 <template>
     <MainLayout>
-        <div class="bg-mines container flex flex-col mx-auto rounded-xl">
+        <div class="bg-plinko container flex flex-col mx-auto rounded-xl">
             <div class="plinko-game">
                 <div class="flex flex-col">
                     <div class="canvas-container">
@@ -480,10 +480,10 @@ function createBallTexture(radius) {
                 </div>
 
                 <div
-                    class="bg-secondary-bg/80 mx-auto max-w-[850px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border mt-6"
+                    class="bg-secondary-bg/80 mx-auto max-w-[900px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border mt-6"
                 >
                     <div
-                        class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1"
+                        class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1 min-w-[250px]"
                     >
                         <input
                             :value="betAmount"
@@ -511,6 +511,45 @@ function createBallTexture(radius) {
                         </div>
                     </div>
 
+
+                    <div
+                        class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
+                    >
+                        <span class="text-gray">Risk</span>
+                        <div
+                            class="flex gap-1 items-center capitalize cursor-pointer"
+                            @click="showRiskDropdown = !showRiskDropdown"
+                        >
+                            {{ risk }}
+                            <svg
+                                width="12"
+                                height="7"
+                                viewBox="0 0 12 7"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    opacity="0.5"
+                                    d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z"
+                                    fill="#CAD9FF"
+                                />
+                            </svg>
+                        </div>
+
+                        <div
+                            v-if="showRiskDropdown"
+                            class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border"
+                        >
+                            <div
+                                v-for="option in riskOptions"
+                                :key="option"
+                                class="hover:bg-secondary-bg px-3 py-2 capitalize cursor-pointer"
+                                @click="changeRisk(option)"
+                            >
+                                {{ option }}
+                            </div>
+                        </div>
+                    </div>
                     <div
                         class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
                     >
@@ -542,46 +581,8 @@ function createBallTexture(radius) {
                             <div
                                 v-for="option in rowsOptions"
                                 :key="option"
-                                class="hover:bg-secondary-bg px-3 py-2 cursor-pointer"
+                                class="hover:bg-secondary-bg px-3 py-2 uppercase cursor-pointer"
                                 @click="changeRows(option)"
-                            >
-                                {{ option }}
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
-                    >
-                        <span class="text-gray">Risk</span>
-                        <div
-                            class="flex gap-1 items-center cursor-pointer"
-                            @click="showRiskDropdown = !showRiskDropdown"
-                        >
-                            {{ risk }}
-                            <svg
-                                width="12"
-                                height="7"
-                                viewBox="0 0 12 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    opacity="0.5"
-                                    d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z"
-                                    fill="#CAD9FF"
-                                />
-                            </svg>
-                        </div>
-
-                        <div
-                            v-if="showRiskDropdown"
-                            class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border"
-                        >
-                            <div
-                                v-for="option in riskOptions"
-                                :key="option"
-                                class="hover:bg-secondary-bg px-3 py-2 capitalize cursor-pointer"
-                                @click="changeRisk(option)"
                             >
                                 {{ option }}
                             </div>

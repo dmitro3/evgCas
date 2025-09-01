@@ -56,7 +56,7 @@ import { getDomainName, getDomain } from "@/utils/text";
                     <p class="text-lg font-bold uppercase">More</p>
                     <div class="flex flex-col gap-4">
                         <Link href="/account/settings">Settings</Link>
-                        <Link href="/sponsorships">Sponsorships</Link>
+                        <Link href="/partner/huobi">Sponsorships</Link>
                         <Link href="/feedback">Feedback about us</Link>
                     </div>
                 </div>

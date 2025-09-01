@@ -598,15 +598,17 @@ header .border_angle {
 }
 
 .btn-sidebar.active {
-    @apply bg-secondary-sidebar text-white;
+    @apply bg-secondary-sidebar font-bold text-white;
 }
 
 .btn-sidebar.active svg {
     @apply fill-primary;
 }
-
+.completed {
+    @apply text-green;
+}
 .btn-sidebar {
-    @apply text-secondary-light/50 hover:text-white hover:bg-secondary-sidebar fill-secondary-light/50 hover:fill-primary px-3 font-extrabold transition-all;
+    @apply text-secondary-light/50 hover:text-white hover:bg-secondary-sidebar fill-secondary-light/50 hover:fill-primary px-3 font-medium transition-all;
 }
 
 .tag {
@@ -786,7 +788,7 @@ header {
 }
 
 aside {
-    @apply bg-secondary-sidebar lg:max-w-[90px] 2xl:max-w-[220px] w-full flex flex-col h-screen;
+    @apply bg-secondary-sidebar md:max-w-[90px] 2xl:max-w-[220px] w-full flex flex-col h-screen;
 }
 
 .aside {
@@ -949,6 +951,12 @@ aside {
     background-position: center;
     background-repeat: no-repeat;
 }
+.bg-plinko {
+    background: url("/assets/images/OriginalGames/Plinko/bg_plinko.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .bg-online {
     border-radius: 1111px;
@@ -1074,4 +1082,48 @@ aside {
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
+}
+
+.selector_item svg {
+    @apply opacity-50;
+}
+
+.selector_item:hover svg {
+    @apply fill-primary text-primary opacity-100;
+}
+
+.selector_item:hover:after, .selector_item.active:after {
+    width: 40px;
+    height: 30px;
+    content: "";
+    transform: rotate(90deg);
+    position: absolute;
+    left: -17px;
+    top: 8px;
+    background: radial-gradient(50% 50% at 50% 50%,
+            #298aff 0%,
+            rgba(41, 138, 255, 0) 100%);
+    opacity: 0.2;
+}
+
+.selector_item:hover {
+    @apply text-white;
+    background: linear-gradient(90deg, rgba(41, 138, 255, 0.10) 0%, rgba(41, 138, 255, 0.00) 100%);
+}
+
+.selector_item:hover:before, .selector_item.active:before {
+    @apply content-[''] absolute top-1/2 -translate-y-1/2 -left-0.5 h-full  bg-primary w-1;
+}
+
+.selector_item {
+    @apply text-secondary-light/50 fill-primary overflow-hidden relative px-3 py-3 font-semibold border-l-2 border-transparent transition-all duration-300 cursor-pointer;
+}
+
+.selector_item.active {
+    @apply text-white;
+    background: linear-gradient(90deg, rgba(41, 138, 255, 0.10) 0%, rgba(41, 138, 255, 0.00) 100%);
+}
+
+.selector_item.active svg {
+    @apply fill-primary text-primary opacity-100;
 }

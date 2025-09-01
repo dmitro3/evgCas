@@ -45,8 +45,8 @@ const activeTab = ref(props.activeTab);
     <MainLayout>
         <div class="container flex flex-col gap-6 mx-auto">
             <ProfileBanner v-if="activeTab !== 'bonus'" />
-            <div v-else class="bonus_banner bg-secondary-sidebar max-md:min-h-[525px] container flex-col mx-auto p-7 rounded-2xl">
-                <div class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px]">
+            <div v-else class="bonus_banner bg-secondary-sidebar/5 max-md:min-h-[525px] container flex-col mx-auto p-7 rounded-2xl">
+                <div class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px] w-full">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-2xl md:text-3xl  max-w-[270px] font-bold text-white">
@@ -57,7 +57,7 @@ const activeTab = ref(props.activeTab);
                             Get a generous welcome bonus from our partners and us
                         </p>
                     </div>
-                    <TakeBonus background="bg-secondary-sidebar-light" />
+                    <TakeBonus background="!bg-primary/10 !border-none h-[60px] px-2" button="true" />
                 </div>
             </div>
             <div class="flex justify-between items-center">

@@ -271,7 +271,7 @@ onMounted(async () => {
             <div class="md:px-5 container flex flex-col mx-auto w-full">
                 <div class="flex flex-col rounded-2xl">
                     <div class="max-md:flex-col-reverse flex items-stretch">
-                        <div class="bg-mines flex flex-col gap-4 justify-center items-center py-14 pb-4 w-full rounded-t-xl">
+                        <div class="bg-mines flex flex-col gap-4 justify-center items-center py-4 pb-4 w-full rounded-t-xl">
                             <div class="flex items-stretch max-md:flex-col-reverse gap-4 max-w-[850px] w-full mx-auto">
                                 <div class="flex justify-center items-center h-full">
                                     <div class="md:flex-col flex relative gap-2 h-full">
@@ -399,14 +399,14 @@ onMounted(async () => {
                                 </div>
 
                                 <div class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative">
-                                    <span class="text-gray">Mines</span>
-                                    <div class="flex gap-1 items-center cursor-pointer" @click="showMinesDropdown = !showMinesDropdown; playClickSound()" v-if="!mineStore.isGameActive">
+                                    <span class="text-white/50">Mines</span>
+                                    <div class="flex gap-2 items-center cursor-pointer" @click="showMinesDropdown = !showMinesDropdown; playClickSound()" v-if="!mineStore.isGameActive">
                                         {{ selectedMinesCount }}
                                         <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path opacity="0.5" d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z" fill="#CAD9FF" />
                                         </svg>
                                     </div>
-                                    <div v-else class="flex gap-1 items-center">
+                                    <div v-else class="flex gap-2 items-center">
                                         {{ selectedMinesCount }}
                                     </div>
 

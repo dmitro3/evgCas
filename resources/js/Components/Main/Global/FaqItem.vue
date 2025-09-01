@@ -12,7 +12,7 @@ const props = defineProps({
     },
     class: {
         type: String,
-        default: "",
+        default: "bg-secondary-sidebar",
         required: false,
     },
 });
@@ -28,7 +28,7 @@ function toggleOpen() {
     <div class="faq-item">
         <div
             :class="class"
-            class="bg-secondary-sidebar px-4 py-2 rounded-3xl"
+            class="px-4 py-2 rounded-3xl"
             @click="toggleOpen"
         >
             <div class="faq-item__question">

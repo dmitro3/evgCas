@@ -5,25 +5,25 @@ import NewsCard from "@/Components/Main/News/NewsCard.vue";
 
 const news = [
     {
-        title: "24M Users!",
+        title: "40M Users!",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news1.png",
         link: "/news/football"
     },
     {
-        title: "Weekly Rakeback",
+        title: "Daily Rakeback",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news2.png",
         link: "/news/percent"
     },
     {
-        title: "Conquer the Casino!",
+        title: "Battle of the Multipliers",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news3.png",
         link: "/news/up"
     },
     {
-        title: "Pragmatic Reel Rumble!",
+        title: "Gold Fever",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news4.png",
         link: "/news/crown"
@@ -35,7 +35,7 @@ const news = [
         link: "/news/star"
     },
     {
-        title: "Lucky shot - $9,000",
+        title: "Spins Arena",
         description: "13 dec - 16 dec",
         image: "/assets/images/news/news6.png",
         link: "/news/darts"
@@ -58,11 +58,11 @@ const news = [
 <template>
 
     <MainLayout>
-        <div class="flex flex-col gap-12 px-5">
+        <div class="flex flex-col gap-12">
             <div class="bonus_banner_news  container min-h-[250px] flex-col p-6 mx-auto rounded-2xl">
                 <div class="flex flex-col gap-6">
 
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-4 h-full">
                         <h1 class="text-3xl max-w-[280px] font-bold text-white">
                             Best Promotions For You!
                         </h1>
@@ -70,7 +70,7 @@ const news = [
                             Get a generous welcome bonus from our partners and us
                         </p>
                     </div>
-                    <TakeBonus background="bg-secondary-sidebar-light" />
+                    <TakeBonus background="bg-primary/10 px-2 !border-none !h-[60px]" button />
                 </div>
             </div>
             <div class="container flex flex-col gap-8 mx-auto">
@@ -81,7 +81,7 @@ const news = [
 
                     <div class="max-md:flex-col flex gap-2.5">
                         <div class="grid grid-cols-2 md:flex  md:flex-col  md:max-w-[230px] w-full">
-                            <div class="aside-item-content active">
+                            <div class="selector_item active">
                                 <div class="flex gap-2 items-center">
                                     <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@ const news = [
                                     Current
                                 </div>
                             </div>
-                            <div class="aside-item-content">
+                            <div class="selector_item">
                                 <div class="flex gap-2 items-center">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">

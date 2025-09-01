@@ -3,6 +3,30 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 import Domain from "@/Components/Main/Global/Domain.vue";
 import Review from "@/Components/Main/Global/Review/Review.vue";
 import Comment from "@/Components/Main/Global/Review/Comment.vue";
+
+import { ref, onMounted } from 'vue';
+
+const count_reviews = ref(9);
+
+// Определяем количество отзывов в зависимости от размера экрана
+onMounted(() => {
+    const handleResize = () => {
+        count_reviews.value = window.innerWidth < 1440 ? 8 : 9;
+    };
+
+    // Вызываем функцию при монтировании компонента
+    handleResize();
+
+    // Добавляем слушатель события изменения размера окна
+    window.addEventListener('resize', handleResize);
+
+    // Удаляем слушатель при размонтировании компонента
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+});
+
+
 </script>
 
 <template>
@@ -27,12 +51,12 @@ import Comment from "@/Components/Main/Global/Review/Comment.vue";
             <div class="flex flex-col gap-6">
                 <p class="text-xl font-bold">Last reviews</p>
                 <div class="max-md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 grid gap-2.5">
-                    <Comment v-for="i in 9" :key="i" />
+                    <Comment v-for="i in count_reviews" :key="i" />
                 </div>
                 <button
                     class="bg-secondary-sidebar flex gap-4 justify-center items-center py-4 w-full font-bold rounded-lg"
                 >
-                    <span>SHOW MORE</span>
+                    <span>Show more</span>
                     <div class="aside-item-icon-container">
                         <img
                             src="/assets/images/icons/arrow.svg"
