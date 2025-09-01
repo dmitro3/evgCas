@@ -124,8 +124,8 @@ const certificates = [
     <MainLayout>
         <div class="container flex flex-col gap-12 mx-auto">
             <div class="bg-secondary-sidebar about_bg flex justify-between items-center p-6 w-full rounded-2xl">
-                <div class="flex flex-col gap-12">
-                    <Domain />
+                <div class="max-md:text-center flex flex-col gap-3">
+                    <Domain class="max-md:justify-center" />
                     <div class="flex flex-col gap-4">
                         <h1 class="text-3xl font-bold text-white">
                             About us
@@ -139,7 +139,7 @@ const certificates = [
                     </div>
                 </div>
             </div>
-            <div class="flex relative justify-between items-center">
+            <div class="max-md:flex-col flex relative justify-between items-center">
                 <div class="flex flex-col gap-4 max-w-[780px]">
                     <p class="text-[22px] font-bold">
                         {{ getDomainName() }} - The Foremost Crypto Casino in the Industry
@@ -155,13 +155,13 @@ const certificates = [
                         {{ getDomainName() }} even more accessible and exciting!
                     </p>
                 </div>
-                <div class="flex absolute right-0 -top-20 justify-end w-full">
+                <div class="md:absolute flex right-0 -top-20 justify-end w-full">
                     <img src="/assets/images/info/games.png" alt="about" class="max-h-[520px] max-w-[450px] object-cover w-full h-full" />
                 </div>
             </div>
             <div class="flex flex-col gap-4">
                 <p class="text-[22px] font-bold text-white">Why Choose Medium?</p>
-                <div class="max-lg:grid-cols-2 max-md:grid-rows-1 grid grid-cols-4 gap-5 items-center">
+                <div class="max-lg:grid-cols-2 max-md:grid-cols-1 grid grid-cols-4 gap-5 items-center">
                     <div v-for="card in cards" :key="card.title" class="card_about">
                         <div class="flex flex-col gap-4">
                             <div class="bg-primary/10 flex justify-center items-center w-12 h-12 rounded-xl">
@@ -175,7 +175,7 @@ const certificates = [
                     </div>
                 </div>
             </div>
-            <div class="flex gap-12 items-center">
+            <div class="max-md:flex-col flex gap-12 items-center">
                 <div class="overflow-hidden max-w-[520px]">
                     <img src="/assets/images/info/coins.png" alt="about" class="object-cover w-full h-full" />
                 </div>
@@ -193,7 +193,7 @@ const certificates = [
                     </p>
                 </div>
             </div>
-            <div class="bg-secondary-sidebar flex gap-8 p-8 rounded-xl">
+            <div class="bg-secondary-sidebar max-md:flex-col flex gap-8 p-8 rounded-xl">
                 <div class="flex flex-col gap-10">
                     <div class="flex flex-col gap-8">
                         <div class="flex flex-col gap-3">
@@ -211,7 +211,7 @@ const certificates = [
                             <p class="font-bold text-[22px]">
                                 GPL license provides
                             </p>
-                            <div class="grid grid-cols-3 gap-3">
+                            <div class="max-md:grid-cols-1 grid grid-cols-3 gap-3">
                                 <div v-for="certificate in certificates" class="bg-secondary flex gap-4 items-center p-4 rounded-xl">
                                     <div class="bg-primary/10 flex flex-shrink-0 justify-center items-center w-14 h-14 rounded-xl">
                                         <div v-html="certificate.icon"></div>
@@ -249,12 +249,12 @@ const certificates = [
                     </p>
                 </div>
                 <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />
-                <div class="bg-primary/10 flex justify-between items-center px-4 py-3 rounded-3xl">
+                <div class="bg-primary/10 max-md:justify-center max-md:flex-col max-md:gap-4 flex justify-between items-center px-4 py-3 rounded-3xl">
                     <div class="flex flex-col">
                         <p class="font-bold">Any questions left?</p>
                         <p class="text-[#81BAFF]">Our team of professionals is ready to help you 24/7 - write to us</p>
                     </div>
-                    <button class="btn btn-primary before:hidden w-fit z-50 px-6 shadow-none">
+                    <button class="btn btn-primary before:hidden max-md:w-full max-md:justify-center w-fit z-50 px-6 shadow-none">
                         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.3916 14.2372L15.7166 16.8706C15.7999 17.5622 15.0582 18.0456 14.4666 17.6872L11.5832 15.9706C11.3832 15.8539 11.3332 15.6039 11.4416 15.4039C11.8582 14.6372 12.0832 13.7706 12.0832 12.9039C12.0832 9.85391 9.46658 7.37057 6.24991 7.37057C5.59158 7.37057 4.94991 7.47057 4.34991 7.67057C4.04158 7.77057 3.74158 7.48724 3.81658 7.17057C4.57491 4.13724 7.49158 1.87891 10.9749 1.87891C15.0416 1.87891 18.3332 4.95391 18.3332 8.74557C18.3332 10.9956 17.1749 12.9872 15.3916 14.2372Z" fill="#E8EDFF" />
                             <path d="M10.8334 12.9034C10.8334 13.8951 10.4667 14.8118 9.85008 15.5368C9.02508 16.5368 7.71675 17.1785 6.25008 17.1785L4.07508 18.4701C3.70841 18.6951 3.24175 18.3868 3.29175 17.9618L3.50008 16.3201C2.38341 15.5451 1.66675 14.3034 1.66675 12.9034C1.66675 11.4368 2.45008 10.1451 3.65008 9.37845C4.39175 8.89512 5.28341 8.62012 6.25008 8.62012C8.78341 8.62012 10.8334 10.5368 10.8334 12.9034Z" fill="#E8EDFF" />

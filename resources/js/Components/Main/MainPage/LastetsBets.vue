@@ -54,8 +54,19 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="relative flex flex-col px-6 gap-6 min-h-[210px] mt-7">
-        <p class="text-lg font-bold text-white">Latest Bets</p>
+    <div class="relative flex flex-col  gap-6 min-h-[210px] mt-7">
+        <div class="flex justify-between items-center">
+            <p class="text-lg font-bold text-white">Latest Bets</p>
+            <div class="w-fit bg-online text-green-light md:hidden flex z-10 gap-2 justify-center items-center p-2 py-1 text-sm font-medium rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                    <circle cx="8.5" cy="9.5" r="8" fill="#5DDF59" fill-opacity="0.1" />
+                    <circle cx="8.5" cy="9.5" r="4" fill="#47F260" />
+                </svg>
+                54,399 players online
+            </div>
+
+        </div>
+
         <div class="flex justify-between items-center w-full">
             <div class="flex gap-2 items-center">
                 <div class="btn btn-swiper active uppercase">
@@ -80,7 +91,7 @@ onMounted(() => {
 
 
             </div>
-            <div class="w-fit bg-online text-green-light flex z-10 gap-2 justify-center items-center p-2 py-1 text-sm font-medium rounded-full">
+            <div class="w-fit bg-online text-green-light max-md:hidden flex z-10 gap-2 justify-center items-center p-2 py-1 text-sm font-medium rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
                     <circle cx="8.5" cy="9.5" r="8" fill="#5DDF59" fill-opacity="0.1" />
                     <circle cx="8.5" cy="9.5" r="4" fill="#47F260" />
@@ -92,7 +103,7 @@ onMounted(() => {
             <thead class="">
                 <tr class="text-secondary-light/50 px-5">
                     <th class="pb-3 pl-5 text-left !font-normal">USERNAME</th>
-                    <th class="pb-3 text-left !font-normal">BET AMOUNT</th>
+                    <th class="pb-3 max-md:hidden text-left !font-normal">BET AMOUNT</th>
                     <th class="pb-3 text-left !font-normal">GAME</th>
                     <th class="pr-5 pb-3 text-right !font-normal">PROFIT</th>
                 </tr>
@@ -103,7 +114,7 @@ onMounted(() => {
                     <td class="text-white/80 p-6 py-4 font-semibold" :class="{ 'rounded-tl-xl': i === 0 }">
                         {{ item.username || 'Guest' }}
                     </td>
-                    <td class="text-white/80 py-4 font-bold text-left">
+                    <td class="text-white/80 max-md:hidden py-4 font-bold text-left">
                         ${{ Number(item.bet_amount || 0).toLocaleString() }}
                     </td>
                     <td class="text-white/80 py-4 font-bold text-left">

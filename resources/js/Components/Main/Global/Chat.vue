@@ -92,12 +92,12 @@ const isMessageFromSupport = (msg) => {
 
 <template>
     <div
-        class="max-md:mx-2 z-[1000] md:right-10 lg:right-8 flex fixed right-0 bottom-12 justify-end"
+        class="md:mx-2 z-[1000] lg:right-8 flex fixed max-md:left-0 right-0 max-md:bottom-0 bottom-12 justify-end "
     >
         <Transition name="fade">
             <div
                 v-if="!isOpen && userStore.isAuth"
-                class="flex absolute bottom-0 gap-2 items-center"
+                class="max-md:bottom-5 max-md:right-5 flex absolute gap-2 items-center"
             >
                 <div
                     class="bg_live_msg text-nowrap px-4 py-3 text-lg font-semibold leading-none rounded-lg"
@@ -127,7 +127,7 @@ const isMessageFromSupport = (msg) => {
         <Transition name="slide-fade">
             <div
                 v-if="isOpen"
-                class="rounded-3xl bg-[#131B35] border border-white/10 overflow-hidden z-50 min-w-[470px] md:min-h-[720px] w-full"
+                class="md:rounded-3xl bg-[#131B35] border border-white/10 overflow-hidden z-50 md:min-w-[470px] max-md:bottom-0 md:min-h-[720px] w-full max-md:min-h-screen"
             >
                 <div class="flex flex-col gap-6 h-full">
                     <div class="bg-secondary-sidebar">
@@ -177,7 +177,7 @@ const isMessageFromSupport = (msg) => {
                     <div class="flex flex-col gap-4 h-full">
                         <div
                             ref="chatContainer"
-                            class="messages-container hide-scroll px-4"
+                            class="messages-container max-md:max-h-none hide-scroll px-4"
                         >
                             <Message
                                 v-for="message in chatStore.messages.value"

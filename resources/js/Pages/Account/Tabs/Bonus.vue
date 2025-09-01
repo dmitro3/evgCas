@@ -239,11 +239,11 @@ const handleActivatePromo = async () => {
 
                     <!-- Affiliate table -->
                     <div class="bg-secondary-sidebar-light-3 overflow-hidden rounded-xl">
-                        <div class="grid grid-cols-3 gap-4 p-6">
+                        <div class="max-md:grid-cols-2 grid grid-cols-3 gap-4 p-6">
                             <div class="text-secondary-light/50 text-sm font-bold uppercase">
                                 EMAIL
                             </div>
-                            <div class="text-secondary-light/50 text-sm font-bold text-center uppercase">
+                            <div class="text-secondary-light/50 max-md:hidden text-sm font-bold text-center uppercase">
                                 ACTIVATION DATE
                             </div>
                             <div class="text-secondary-light/50 text-sm font-bold text-right uppercase">
@@ -251,9 +251,9 @@ const handleActivatePromo = async () => {
                             </div>
                         </div>
 
-                        <div v-for="i in 4" class="affiliate-table-row grid grid-cols-3 gap-4 p-6 py-3">
-                            <div class="text-white">gidedesign@gmail.com</div>
-                            <div class="text-center text-white">26.03.2025</div>
+                        <div v-for="i in 4" class="affiliate-table-row max-md:grid-cols-2 grid grid-cols-3 gap-4 p-6 py-3">
+                            <div class="text-ellipsis overflow-hidden text-white">gidedesign@gmail.com</div>
+                            <div class="max-md:hidden text-center text-white">26.03.2025</div>
                             <div class="font-bold text-right text-white">
                                 $514.54
                             </div>
@@ -299,11 +299,11 @@ const handleActivatePromo = async () => {
 
                         <div class="flex flex-col gap-2">
                             <span class="text-secondary-light/50 text-sm">Your personal code</span>
-                            <div class="flex gap-3 items-center">
-                                <div class="bg-[#111931] px-4 py-3 rounded-lg">
+                            <div class="max-md:flex-col flex gap-3 items-center w-full">
+                                <div class="w-full bg-[#111931] px-4 py-3 rounded-lg">
                                     <span class="font-mono text-white">8GSF6D-BF5GJN</span>
                                 </div>
-                                <button class="btn btn-primary flex gap-2 items-center px-6 py-3">
+                                <button class="btn btn-primary max-md:justify-center flex gap-2 items-center px-6 py-3 w-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path d="M8.79922 1.6001C7.91522 1.6001 7.19922 2.3161 7.19922 3.2001V16.0001C7.19922 16.8841 7.91522 17.6001 8.79922 17.6001H19.1992C20.0832 17.6001 20.7992 16.8841 20.7992 16.0001V6.8001C20.7992 6.5881 20.7152 6.38487 20.5648 6.23447L16.1648 1.83447C16.0144 1.68407 15.8112 1.6001 15.5992 1.6001H8.79922ZM15.1992 3.12354L19.2758 7.2001H15.9992C15.5576 7.2001 15.1992 6.8417 15.1992 6.4001V3.12354ZM4.79922 5.6001C3.91522 5.6001 3.19922 6.3161 3.19922 7.2001V20.0001C3.19922 20.8841 3.91522 21.6001 4.79922 21.6001H15.1992C16.0832 21.6001 16.7992 20.8841 16.7992 20.0001V19.2001H8.79922C7.03442 19.2001 5.59922 17.7649 5.59922 16.0001V5.6001H4.79922Z" fill="#E8EDFF" />
                                     </svg>
@@ -313,12 +313,12 @@ const handleActivatePromo = async () => {
                         </div>
                     </div>
                 </div>
-                <div class="bg-primary/10 flex justify-between items-center px-4 py-3 rounded-xl">
+                <div class="bg-primary/10 max-md:flex-col max-md:gap-4 max-md:text-center flex justify-between items-center px-4 py-3 rounded-xl">
                     <div class="flex flex-col">
                         <p class="font-bold">Any questions left?</p>
                         <p class="text-[#81BAFF]">Our team of professionals is ready to help you 24/7 - write to us</p>
                     </div>
-                    <button class="btn btn-primary before:hidden w-fit z-50 px-6 rounded-2xl shadow-none"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <button class="btn btn-primary before:hidden max-md:w-full max-md:justify-center md:w-fit z-50 px-6 rounded-2xl shadow-none"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M15.3916 14.2372L15.7166 16.8706C15.7999 17.5622 15.0582 18.0456 14.4666 17.6872L11.5832 15.9706C11.3832 15.8539 11.3332 15.6039 11.4416 15.4039C11.8582 14.6372 12.0832 13.7706 12.0832 12.9039C12.0832 9.85391 9.46658 7.37057 6.24991 7.37057C5.59158 7.37057 4.94991 7.47057 4.34991 7.67057C4.04158 7.77057 3.74158 7.48724 3.81658 7.17057C4.57491 4.13724 7.49158 1.87891 10.9749 1.87891C15.0416 1.87891 18.3332 4.95391 18.3332 8.74557C18.3332 10.9956 17.1749 12.9872 15.3916 14.2372Z" fill="#E8EDFF"></path>
                             <path d="M10.8334 12.9034C10.8334 13.8951 10.4667 14.8118 9.85008 15.5368C9.02508 16.5368 7.71675 17.1785 6.25008 17.1785L4.07508 18.4701C3.70841 18.6951 3.24175 18.3868 3.29175 17.9618L3.50008 16.3201C2.38341 15.5451 1.66675 14.3034 1.66675 12.9034C1.66675 11.4368 2.45008 10.1451 3.65008 9.37845C4.39175 8.89512 5.28341 8.62012 6.25008 8.62012C8.78341 8.62012 10.8334 10.5368 10.8334 12.9034Z" fill="#E8EDFF"></path>
                         </svg> Chat with support </button>

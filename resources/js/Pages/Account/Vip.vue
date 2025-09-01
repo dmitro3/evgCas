@@ -1,20 +1,19 @@
 <script setup>
 import MainLayout from "../../Layouts/MainLayout.vue";
 import { Link } from "@inertiajs/vue3";
-import { ref, onMounted } from "vue";
 import FaqItem from "../../Components/Main/Global/FaqItem.vue";
 import ProgressBar from "../../Components/Main/Global/ProgressBar.vue";
 import SupportBanner from "../../Components/Main/Global/SupportBanner.vue";
 import CharactersSlider from "../../Components/Sliders/CharactersSlider.vue";
 import VipRank from "../../Components/Main/Global/VipRank.vue";
 import { usePage } from "@inertiajs/vue3";
+import { defineProps, ref, onMounted } from "vue";
 const user = usePage().props.auth.user;
 const props = defineProps({
     ranks: Array,
     userXp: Number,
     vipProgress: Number,
 });
-
 function checkMyLvl(userXp, rank) {
     if (userXp >= rank.xp_min && userXp < rank.xp_max) {
         return true;
@@ -64,6 +63,7 @@ const faqItems = {
 
 const progress = ref(props.vipProgress || 0);
 const currentRank = ref(user.current_ranks[0]?.type || "silver");
+
 </script>
 
 <template>
@@ -92,10 +92,10 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                 </div>
             </div>
 
-            <div class="container flex flex-col gap-6 mx-auto">
+            <div class="container flex overflow-x-auto min-h-[200px] flex-col gap-6 mx-auto">
                 <h2 class="text-xl font-bold">Your Progress</h2>
-                <div class="relative min-h-[40px]">
-                    <div class="absolute top-0 left-0 z-[100] w-full h-full">
+                <div class="relative min-h-[40px]  w-full min-w-[600px]">
+                    <div class="absolute top-0  left-0 z-[100] w-full h-full">
                         <div v-for="(rank, index) in ranks" :key="rank.id" class="absolute" :style="{
                             left: `${(index / 4) * 100}%`,
                             transform:
@@ -330,14 +330,6 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <p class="font-medium leading-none">
-                                            GENERAL PROMOTIONS
-                                        </p>
-                                    </div>
-                                    <div class="flex gap-2.5 items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
-                                            <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <p class="font-medium leading-none">
                                             VIP PROMOTIONS (LEVEL V)
                                         </p>
                                     </div>
@@ -346,23 +338,15 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                         <p class="font-medium leading-none">
-                                            DAILY RAKEBACK 0.3%
-                                        </p>
-                                    </div>
-                                    <div class="flex gap-2.5 items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
-                                            <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <p class="font-medium leading-none">
-                                            DAILY BONUSES/RELOAD
-                                        </p>
-                                    </div>
-                                    <div class="flex gap-2.5 items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
-                                            <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <p class="font-medium leading-none">
                                             WEEKLY BONUSES (LEVEL V)
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                                            <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <p class="font-medium leading-none">
+                                            DAILY RAKEBACK 0.3%
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">

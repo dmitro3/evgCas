@@ -183,13 +183,13 @@ onMounted(async () => {
                         class="bg-tower flex flex-col gap-4 justify-center items-center py-14 pb-5 w-full rounded-t-xl"
                     >
                         <div
-                            class="flex items-stretch relative max-md:flex-col-reverse gap-4 max-w-[440px] w-full mx-auto p-3.5 rounded-xl bg-background"
+                            class="flex items-stretch relative scale-[0.95] max-md:flex-col-reverse gap-4 max-w-[440px] w-full mx-auto p-3.5 rounded-xl bg-background"
                         >
                             <div class="-z-10 absolute -top-10 -left-24">
                                 <img
                                     src="/assets/images/OriginalGames/Tower/cards.png"
                                     alt="bg_tower"
-                                    class="max-w-[170px]"
+                                    class="max-w-[170px] max-md:hidden"
                                 />
                             </div>
                             <div class="grid flex-1 grid-cols-4 gap-2">
@@ -214,7 +214,7 @@ onMounted(async () => {
                         </div>
 
                         <div
-                            class="bg-secondary-bg/80 max-w-[850px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
+                            class="md:bg-secondary-bg/80 max-w-[850px] max-md:flex-col border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
                         >
                             <div
                                 class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1"
@@ -289,7 +289,7 @@ onMounted(async () => {
                                 v-if="towerStore.isGameIdle"
                                 @click="startGame"
                                 :disabled="!canStartGame || towerStore.loading"
-                                class="btn btn-primary w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10"
+                                class="btn btn-primary max-md:w-full w-fit disabled:opacity-50 disabled:cursor-not-allowed flex flex-shrink-0 justify-center items-center px-10"
                             >
                                 {{ towerStore.loading ? 'Loading...' : 'Bet' }}
                             </button>
@@ -314,7 +314,7 @@ onMounted(async () => {
                             <button
                                 @click="toggleSound"
                                 :class="[
-                                    'btn before:hidden flex flex-shrink-0 justify-center items-center w-11 h-11 rounded-xl transition-all',
+                                    'btn before:hidden max-md:hidden flex flex-shrink-0 justify-center items-center w-11 h-11 rounded-xl transition-all',
                                     soundEnabled ? 'bg-primary/20 text-primary' : 'bg-white/10 text-white/50'
                                 ]"
                             >
@@ -332,13 +332,13 @@ onMounted(async () => {
                     </div>
                 </div>
                 <div
-                    class="bg-secondary-sidebar-dark border-blue_dark flex justify-between items-center p-6 rounded-b-xl border-t"
+                    class="bg-secondary-sidebar-dark max-md:gap-5 border-blue_dark max-md:overflow-hidden flex justify-between items-center p-6 rounded-b-xl border-t"
                 >
                     <div
                         class="flex gap-1 items-center font-extrabold uppercase"
                     >
                         <span class="text-dark-text-2">Tower</span>
-                        <span class="text-dark-text-3">Original Game</span>
+                        <span class="text-dark-text-3 max-md:hidden">Original Game</span>
                     </div>
                     <div
                         class="bg-blue_light/5 flex gap-2 items-center py-1 pr-4 pl-1 rounded-full"
@@ -348,7 +348,7 @@ onMounted(async () => {
                             alt="avatar"
                             class="w-7 h-7 rounded-full"
                         />
-                        <span class="text-blue_dark_2">{{ userStore.user?.email || 'Guest' }}</span>
+                        <span class="text-blue_dark_2 text-ellipsis overflow-hidden whitespace-nowrap">{{ userStore.user?.email || 'Guest' }}</span>
                         <span
                             class="text-blue_light font-bold transition-all duration-300"
                             :class="{ 'text-green-400': previousBalance !== userStore.user?.balance }"

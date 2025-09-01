@@ -272,11 +272,11 @@ onMounted(async () => {
                 <div class="flex flex-col rounded-2xl">
                     <div class="max-md:flex-col-reverse flex items-stretch">
                         <div class="bg-mines flex flex-col gap-4 justify-center items-center py-4 pb-4 w-full rounded-t-xl">
-                            <div class="flex items-stretch max-md:flex-col-reverse gap-4 max-w-[850px] w-full mx-auto">
-                                <div class="flex justify-center items-center h-full">
+                            <div class="flex items-stretch max-md:flex-col-reverse gap-4 max-w-[850px] w-full mx-auto max-md:overflow-hidden">
+                                <div class="max-md:items-start max-md:justify-start flex justify-center items-center h-full">
                                     <div class="md:flex-col flex relative gap-2 h-full">
 
-                                        <div v-if="canScrollUp" @click="scrollMultipliersUp" class="text-white/70 hover:text-white absolute top-0 left-1/2 z-20 p-1 rounded-full transition-colors transform -translate-x-1/2 cursor-pointer">
+                                        <div v-if="canScrollUp" @click="scrollMultipliersUp" class="text-white/70 hover:text-white max-md:hidden absolute top-0 left-1/2 z-20 p-1 rounded-full transition-colors transform -translate-x-1/2 cursor-pointer">
                                             <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M9.37388 5.53418C9.62415 5.53418 9.83762 5.63133 10.029 5.83311L15.6455 11.6622C15.8074 11.8191 15.8884 12.0284 15.8884 12.2675C15.8884 12.7533 15.5203 13.1344 15.0345 13.1344C14.7989 13.1344 14.5855 13.0373 14.4235 12.8729L9.37388 7.6192L4.32422 12.8729C4.15491 13.0373 3.94144 13.1344 3.70589 13.1344C3.22743 13.1344 2.85938 12.7533 2.85938 12.2675C2.85938 12.0284 2.94035 11.8191 3.10229 11.6622L8.71875 5.83311C8.91013 5.63133 9.1236 5.54165 9.37388 5.53418Z" fill="#C7D3FF" fill-opacity="0.5" />
                                             </svg>
@@ -359,7 +359,7 @@ onMounted(async () => {
                                             </g>
                                         </svg>
                                         <div class="flex flex-col gap-1 justify-center items-center">
-                                            <p class="text-xl font-extrabold uppercase">Gems</p>
+                                            <p class="md:text-xl font-extrabold uppercase">Gems</p>
                                             <p class="text-secondary-light/50 text-xl font-bold">{{ gemsLeft }}</p>
                                         </div>
                                     </div>
@@ -376,7 +376,7 @@ onMounted(async () => {
                                             </defs>
                                         </svg>
                                         <div class="flex flex-col gap-1 justify-center items-center">
-                                            <p class="text-xl font-extrabold uppercase">Mines</p>
+                                            <p class="md:text-xl font-extrabold uppercase">Mines</p>
                                             <p class="text-secondary-light/50 text-xl font-bold">{{ mineStore.isGameActive ? mineStore.minesCount : selectedMinesCount }}</p>
                                         </div>
                                     </div>
@@ -387,7 +387,7 @@ onMounted(async () => {
                                 {{ mineStore.error }}
                             </div>
 
-                            <div class="bg-secondary-bg/80 max-w-[850px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border">
+                            <div class="bg-secondary-bg/80 max-w-[850px] max-md:flex-col border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border">
                                 <div class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1">
                                     <input v-model="betAmount" type="number" placeholder="Bet amount" :disabled="mineStore.isGameActive" step="0.01" min="0.01" />
                                     <div class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg cursor-pointer" @click="setBetHalf" v-if="!mineStore.isGameActive">
@@ -515,7 +515,7 @@ onMounted(async () => {
 }
 
 .counter-container {
-    @apply px-7 flex flex-col gap-4 h-full items-center justify-center bg-secondary-sidebar rounded-xl relative overflow-hidden;
+    @apply px-7 flex md:flex-col gap-4 h-full items-center justify-center bg-secondary-sidebar rounded-xl relative overflow-hidden;
 }
 
 
@@ -564,6 +564,6 @@ onMounted(async () => {
 }
 
 .field {
-    @apply bg-secondary border border-transparent max-w-[100px] w-full h-full max-h-[100px] rounded-xl transition-all duration-300 relative overflow-hidden;
+    @apply bg-secondary border border-transparent max-w-[100px] w-full h-full max-h-[100px] rounded-xl transition-all duration-300 relative overflow-hidden max-md:min-h-[60px];
 }
 </style>

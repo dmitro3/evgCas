@@ -1032,7 +1032,7 @@ aside {
         background-repeat: no-repeat;
     }
 
-    .about-bg {
+    .about_bg {
         background-image: url("/assets/images/info/about_bg_mobile.png") !important;
         min-height: 512px;
         align-items: start !important;

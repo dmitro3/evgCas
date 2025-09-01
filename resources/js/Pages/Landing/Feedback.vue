@@ -33,7 +33,7 @@ onMounted(() => {
     <MainLayout>
         <div class="container flex flex-col gap-12 mx-auto">
             <div
-                class="md:bg-secondary-sidebar max-md:flex-col max-md:gap-6 feedback-bg md:px-11 flex justify-between items-center px-4 py-8 w-full rounded-2xl"
+                class="md:bg-secondary-sidebar max-md:flex-col max-md:gap-6 feedback-bg md:px-11 flex justify-between items-center py-8 w-full rounded-2xl"
             >
                 <div class="max-md:bg-secondary-sidebar max-md:rounded-2xl max-md:p-6 max-md:text-center max-md:items-center flex flex-col flex-shrink-0 gap-8">
                     <Domain />

@@ -6,7 +6,7 @@ import { getDomainName, getDomain } from "@/utils/text";
 <template>
     <div class="md:px-10 container items-center px-3 py-24 mx-auto">
         <div class="flex flex-col gap-12">
-            <div class="max-md:flex-wrap flex justify-between items-center opacity-50">
+            <div class="max-md:flex-wrap max-md:grid max-md:grid-cols-3 max-md:gap-5 flex justify-between items-center opacity-50">
                 <img src="/assets/images/footer/crypto/btc.svg" alt="bitcoin" srcset="" />
                 <img src="/assets/images/footer/crypto/eth.svg" alt="ethereum" srcset="" />
                 <img src="/assets/images/footer/crypto/tether.svg" alt="tether" srcset="" />
@@ -16,7 +16,7 @@ import { getDomainName, getDomain } from "@/utils/text";
                 <img src="/assets/images/footer/crypto/tron.svg" alt="tron" srcset="" />
             </div>
             <div class="line"></div>
-            <div class="md:grid-cols-5 grid grid-cols-2 gap-3 items-start">
+            <div class="md:grid-cols-5 max-md:gap-5 grid grid-cols-2 gap-3 items-start">
                 <div class="flex flex-col gap-6">
                     <p class="text-lg font-bold uppercase">Casino</p>
                     <div class="flex flex-col gap-4">
@@ -57,14 +57,14 @@ import { getDomainName, getDomain } from "@/utils/text";
                     <div class="flex flex-col gap-4">
                         <Link href="/account/settings">Settings</Link>
                         <Link href="/partner/huobi">Sponsorships</Link>
-                        <Link href="/feedback">Feedback about us</Link>
+                        <Link href="/more/feedback">Feedback about us</Link>
                     </div>
                 </div>
             </div>
 
             <div class="line"></div>
 
-            <div class="max-md:flex-col flex justify-between items-center w-full">
+            <div class="max-md:flex-col-reverse max-md:gap-12 md:items-center flex justify-between items-start w-full">
                 <div class="flex flex-col flex-shrink-0 gap-4">
                     <div class="flex gap-2.5 justify-start items-center text-2xl font-extrabold leading-none uppercase">
                         <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
@@ -75,7 +75,7 @@ import { getDomainName, getDomain } from "@/utils/text";
                     </p>
                 </div>
                 <div class="max-md:flex-col max-md:items-start max-md:gap-10 flex justify-between items-center">
-                    <div class="max-md:flex-col flex gap-8 items-center">
+                    <div class="max-md:flex-col max-md:gap-4 md:items-center flex gap-8">
                         <div class="flex flex-col gap-5">
                             <p class="text-lg font-bold text-white uppercase">
                                 support

@@ -3,7 +3,7 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 import Domain from "@/Components/Main/Global/Domain.vue";
 import FaqItem from "@/Components/Main/Global/FaqItem.vue";
 import { getDomainName } from "@/utils/text";
-import { defineProps } from "vue";
+import { defineProps, ref, onMounted } from "vue";
 import { Link } from "@inertiajs/vue3";
 const props = defineProps({
     type: {
@@ -11,6 +11,19 @@ const props = defineProps({
         default: 'privacy'
     }
 })
+const isMobile = ref(false);
+
+onMounted(() => {
+    isMobile.value = window.innerWidth < 768;
+});
+
+const getImage = () => {
+    if (isMobile.value) {
+        return `/assets/images/rules/${props.type}_mobile.png`;
+    }
+    return `/assets/images/rules/${props.type}.png`;
+}
+
 
 const getTitle = () => {
     switch (props.type) {
@@ -119,7 +132,7 @@ const getContent = () => {
 <template>
     <MainLayout>
         <div class="container flex flex-col gap-12 mx-auto">
-            <div :style="`background-image: url('/assets/images/rules/${props.type}.png')`" class="bg-secondary-sidebar min-h-[250px] rules_bg flex justify-between items-center p-6 w-full rounded-2xl">
+            <div :style="`background-image: url('${getImage()}')`" class="bg-secondary-sidebar bg-bottom md:min-h-[250px] min-h-[330px] rules_bg flex max-md:flex-col justify-between items-center p-6 w-full rounded-2xl">
                 <div class="3 flex flex-col">
                     <Domain />
                     <div class="flex flex-col gap-4">
@@ -130,22 +143,22 @@ const getContent = () => {
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col gap-2.5">
-                <div class="flex gap-4 items-center">
-                    <Link href="/more/rules/privacy" :class="{ 'active': type === 'privacy' }" class="btn btn-swiper">
+            <div class="flex flex-col gap-2.5 w-full">
+                <div class="max-md:flex-col max-md:items-start flex gap-4 items-center w-full">
+                    <Link href="/more/rules/privacy" :class="{ 'active': type === 'privacy' }" class="btn btn-swiper max-md:w-full">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.9599 1.66797H8.04326C7.17659 1.66797 6.46826 2.36797 6.46826 3.23464V4.01797C6.46826 4.88464 7.16826 5.58464 8.03493 5.58464H11.9599C12.8266 5.58464 13.5266 4.88464 13.5266 4.01797V3.23464C13.5349 2.36797 12.8266 1.66797 11.9599 1.66797Z" fill="currentColor" />
                         <path d="M14.3657 4.01689C14.3657 5.34189 13.2824 6.42523 11.9574 6.42523H8.04072C6.71572 6.42523 5.63239 5.34189 5.63239 4.01689C5.63239 3.55023 5.13239 3.25856 4.71572 3.47523C3.54072 4.10023 2.74072 5.34189 2.74072 6.76689V14.6086C2.74072 16.6586 4.41572 18.3336 6.46572 18.3336H13.5324C15.5824 18.3336 17.2574 16.6586 17.2574 14.6086V6.76689C17.2574 5.34189 16.4574 4.10023 15.2824 3.47523C14.8657 3.25856 14.3657 3.55023 14.3657 4.01689ZM10.3157 14.1252H6.66572C6.32406 14.1252 6.04072 13.8419 6.04072 13.5002C6.04072 13.1586 6.32406 12.8752 6.66572 12.8752H10.3157C10.6574 12.8752 10.9407 13.1586 10.9407 13.5002C10.9407 13.8419 10.6574 14.1252 10.3157 14.1252ZM12.4991 10.7919H6.66572C6.32406 10.7919 6.04072 10.5086 6.04072 10.1669C6.04072 9.82523 6.32406 9.54189 6.66572 9.54189H12.4991C12.8407 9.54189 13.1241 9.82523 13.1241 10.1669C13.1241 10.5086 12.8407 10.7919 12.4991 10.7919Z" fill="currentColor" />
                     </svg>
                     Privacy policy
                     </Link>
-                    <Link href="/more/rules/terms" :class="{ 'active': type === 'terms' }" class="btn btn-swiper">
+                    <Link href="/more/rules/terms" :class="{ 'active': type === 'terms' }" class="btn btn-swiper max-md:w-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
                         <path d="M11.3333 0.667969H4.66667C1.75 0.667969 0.5 2.33464 0.5 4.83464V13.168C0.5 15.668 1.75 17.3346 4.66667 17.3346H11.3333C14.25 17.3346 15.5 15.668 15.5 13.168V4.83464C15.5 2.33464 14.25 0.667969 11.3333 0.667969ZM4.66667 9.20963H8C8.34167 9.20963 8.625 9.49297 8.625 9.83463C8.625 10.1763 8.34167 10.4596 8 10.4596H4.66667C4.325 10.4596 4.04167 10.1763 4.04167 9.83463C4.04167 9.49297 4.325 9.20963 4.66667 9.20963ZM11.3333 13.793H4.66667C4.325 13.793 4.04167 13.5096 4.04167 13.168C4.04167 12.8263 4.325 12.543 4.66667 12.543H11.3333C11.675 12.543 11.9583 12.8263 11.9583 13.168C11.9583 13.5096 11.675 13.793 11.3333 13.793ZM13.4167 6.70964H11.75C10.4833 6.70964 9.45833 5.68464 9.45833 4.41797V2.7513C9.45833 2.40964 9.74167 2.1263 10.0833 2.1263C10.425 2.1263 10.7083 2.40964 10.7083 2.7513V4.41797C10.7083 4.99297 11.175 5.45964 11.75 5.45964H13.4167C13.7583 5.45964 14.0417 5.74297 14.0417 6.08464C14.0417 6.4263 13.7583 6.70964 13.4167 6.70964Z" fill="currentColor" />
                     </svg>
                     Terms of Service
                     </Link>
-                    <Link href="/more/rules/aml" :class="{ 'active': type === 'aml' }" class="btn btn-swiper">
+                    <Link href="/more/rules/aml" :class="{ 'active': type === 'aml' }" class="btn btn-swiper max-md:w-full">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <path d="M12.4762 10.625H11.8345H7.94287V12.9833H9.03454H12.4762C13.2679 12.9833 13.9179 12.45 13.9179 11.8C13.9179 11.15 13.2679 10.625 12.4762 10.625Z" fill="currentColor" />
                         <path d="M9.99984 1.66797C5.39984 1.66797 1.6665 5.4013 1.6665 10.0013C1.6665 14.6013 5.39984 18.3346 9.99984 18.3346C14.5998 18.3346 18.3332 14.6013 18.3332 10.0013C18.3332 5.4013 14.5998 1.66797 9.99984 1.66797ZM12.4748 14.2346H11.0998V15.418C11.0998 15.7596 10.8165 16.043 10.4748 16.043C10.1332 16.043 9.84984 15.7596 9.84984 15.418V14.2346H9.03317H8.8415V15.418C8.8415 15.7596 8.55817 16.043 8.2165 16.043C7.87484 16.043 7.5915 15.7596 7.5915 15.418V14.2346H7.3165H5.87484C5.53317 14.2346 5.24984 13.9513 5.24984 13.6096C5.24984 13.268 5.53317 12.9846 5.87484 12.9846H6.6915V10.0013V7.01797H5.87484C5.53317 7.01797 5.24984 6.73464 5.24984 6.39297C5.24984 6.0513 5.53317 5.76797 5.87484 5.76797H7.3165H7.5915V4.58464C7.5915 4.24297 7.87484 3.95964 8.2165 3.95964C8.55817 3.95964 8.8415 4.24297 8.8415 4.58464V5.76797H9.03317H9.84984V4.58464C9.84984 4.24297 10.1332 3.95964 10.4748 3.95964C10.8165 3.95964 11.0998 4.24297 11.0998 4.58464V5.76797H11.8332C13.1248 5.76797 14.2665 6.9013 14.2665 8.2013C14.2665 8.75964 14.0665 9.26797 13.7498 9.68464C14.5915 10.093 15.1665 10.893 15.1665 11.818C15.1665 13.143 13.9582 14.2346 12.4748 14.2346Z" fill="currentColor" />
@@ -193,5 +206,8 @@ const getContent = () => {
     background-size: cover;
     background-repeat: no-repeat;
 
+
 }
+
+
 </style>
