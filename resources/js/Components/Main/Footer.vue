@@ -1,12 +1,16 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import { getDomainName, getDomain } from "@/utils/text";
+import { computed } from "vue";
+import { useUserStore } from "@/stores/userStore";
+const userStore = useUserStore();
+const user = computed(() => userStore.user);
 </script>
 
 <template>
     <div class="md:px-10 container items-center px-3 py-24 mx-auto">
         <div class="flex flex-col gap-12">
-            <div class="max-md:flex-wrap max-md:grid max-md:grid-cols-3 max-md:gap-5 flex justify-between items-center opacity-50">
+            <div v-if="!user" class="max-md:flex-wrap max-md:grid max-md:grid-cols-3 max-md:gap-5 flex justify-between items-center opacity-50">
                 <img src="/assets/images/footer/crypto/btc.svg" alt="bitcoin" srcset="" />
                 <img src="/assets/images/footer/crypto/eth.svg" alt="ethereum" srcset="" />
                 <img src="/assets/images/footer/crypto/tether.svg" alt="tether" srcset="" />
@@ -14,6 +18,14 @@ import { getDomainName, getDomain } from "@/utils/text";
                 <img src="/assets/images/footer/crypto/binance.svg" alt="binance" srcset="" />
                 <img src="/assets/images/footer/crypto/sol.svg" alt="solana" srcset="" />
                 <img src="/assets/images/footer/crypto/tron.svg" alt="tron" srcset="" />
+            </div>
+            <div v-else class="max-md:flex-wrap footer-logos max-md:grid max-md:grid-cols-3 max-md:gap-5 flex justify-between items-center opacity-50">
+                <img src="/assets/images/footer/huobi.svg" alt="huobi" srcset="" />
+                <img src="/assets/images/footer/nba_dark.svg" alt="nba dark" srcset="" />
+                <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="" />
+                <img src="/assets/images/footer/nascar.svg" alt="nascar" srcset="" />
+                <img src="/assets/images/footer/blockchain_full.svg" alt="blockchain" srcset="" />
+                <img src="/assets/images/footer/fc_bayern.png" alt="fc bayern" srcset="" />
             </div>
             <div class="line"></div>
             <div class="md:grid-cols-5 max-md:gap-5 grid grid-cols-2 gap-3 items-start">
@@ -23,7 +35,7 @@ import { getDomainName, getDomain } from "@/utils/text";
                         <Link href="/games?type=original_game">Originals</Link>
                         <Link href="/games?type=slots">Slots</Link>
                         <Link href="/more/about">About us</Link>
-                        <Link href="/more/about">Promotions</Link>
+                        <Link href="/news">Promotions</Link>
                     </div>
                 </div>
                 <div class="flex flex-col gap-6">

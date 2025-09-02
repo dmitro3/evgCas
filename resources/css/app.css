@@ -711,9 +711,20 @@ a {
 .aside-item-icon-laptop:hover::before {
     opacity: 1;
 }
-
+.aside-item-icon-laptop svg{
+    @apply  transition-all duration-200;
+}
 .aside-item-icon-laptop {
     @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300 cursor-pointer;
+}
+.aside-item-icon-laptop.active svg {
+    opacity: 1;
+}
+.aside-item-icon-laptop.active::before {
+    opacity: 1;
+}
+.aside-item-icon-laptop.active {
+    @apply text-primary fill-primary bg-primary/15 flex relative gap-2 justify-center items-center w-10 h-10 rounded-xl transition-all duration-300 cursor-pointer;
 }
 
 .nav-element {
@@ -877,9 +888,19 @@ aside {
     background: #6A759E29;
 }
 
+.footer-logos img{
+    max-height: 40px;
+    @apply mx-auto
+}
 .aside-item-icon-container-faq.active {}
 
 .aside-item-content:hover {
+    @apply bg-primary/15 text-white;
+}
+.aside-item-content.active svg {
+    @apply fill-primary text-primary opacity-100;
+}
+.aside-item-content.active {
     @apply bg-primary/15 text-white;
 }
 
@@ -912,7 +933,9 @@ aside {
 .aside-item-content:hover:before {
     @apply content-[''] absolute top-1/2 -translate-y-1/2 -left-0.5 h-5 rounded-lg bg-primary w-1;
 }
-
+.aside-item-content.active:before {
+    @apply content-[''] absolute top-1/2 -translate-y-1/2 -left-0.5 h-5 rounded-lg bg-primary w-1;
+}
 .aside-item-content {
     @apply text-secondary-light/50 fill-primary overflow-hidden relative px-3 py-3 font-semibold rounded-xl border-l-2 border-transparent transition-all cursor-pointer;
 }
@@ -929,14 +952,26 @@ aside {
     background-image: url("/assets/images/main/container1.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: right;
 }
 
 .bg-main-container-4 {
     background-image: url("/assets/images/main/container4.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: right;
+}
+.bg-main-container-2 {
+    background-image: url("/assets/images/main/container2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+.bg-main-container-3 {
+    background-image: url("/assets/images/main/container3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
 }
 
 .bg-dice {
@@ -994,7 +1029,8 @@ aside {
     .games-image {
         background-image: url("/assets/images/main/games_laptop.png") !important;
         background-position: top !important;
-        background-size: contain !important;
+        background-size: 115% !important;
+        background-position-x: -181px !important;
     }
 
     .character {
@@ -1009,16 +1045,40 @@ aside {
     .bonus_banner {
         background-image: url("/assets/images/account/bg/bonus_banner_laptop.png") !important;
         background-size: cover !important;
-        background-position: top !important;
+        background-position: right !important;
     }
 }
 
 @media screen and (max-width: 760px) {
     .bg-main-container-1 {
         background-image: url("/assets/images/main/container1_mobile.png");
-        min-height: 600px;
+        min-height: 500px;
+        background-size: cover;
+        background-position: bottom;
+    }
+    .logos img{
+        @apply mx-auto
+    }
+    .bg-main-container-2 {
+        background-image: url("/assets/images/main/container2_mobile.png") !important;
+        background-repeat: no-repeat;
         background-size: contain;
         background-position: bottom;
+        min-height: 350px;
+    }
+    .bg-main-container-3 {
+        background-image: url("/assets/images/main/container3_mobile.png") !important;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+        min-height: 350px;
+    }
+    .bg-main-container-4 {
+        background-image: url("/assets/images/main/container4_mobile.png") !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        min-height: 460px;
     }
 
     .licenses-bg {
@@ -1126,4 +1186,32 @@ aside {
 
 .selector_item.active svg {
     @apply fill-primary text-primary opacity-100;
+}
+
+@media screen and (max-width: 1025px) {
+
+
+    .bg-main-container-4 {
+        background-image: url("/assets/images/main/container4_tablet.png");
+    }
+    .bg-main-container-2 {
+        background-image: url("/assets/images/main/container2_tablet.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+    }
+    .bg-main-container-3 {
+        background-image: url("/assets/images/main/container3_tablet.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+    }
+    .games-image{
+        background-position: top !important;
+        background-size: cover !important;
+        background-position-x: -421px !important;
+    }
+    .support-image{
+        background-image: url("/assets/images/main/support_tablet.png") !important;
+    }
 }

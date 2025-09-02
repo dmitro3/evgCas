@@ -40,7 +40,7 @@ onUnmounted(() => {
                         </h1>
                     </div>
                 </div>
-                <form @submit.prevent="handleLogin" class="flex flex-col gap-6 py-8 w-full">
+                <form @submit.prevent="handleLogin" class="flex flex-col gap-5 py-8 w-full">
                     <div class="flex flex-col gap-2">
                         <h2 class="text-[22px] font-bold">Login</h2>
                         <p class="text-secondary-light/50">

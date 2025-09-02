@@ -106,7 +106,7 @@ const terms_rows_2 = [
             </div>
             <div class="flex flex-col gap-8 p-6 rounded-xl">
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         40M Users
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
@@ -122,7 +122,7 @@ const terms_rows_2 = [
 
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         How to Enter
                     </h1>
                     <div class="max-lg:grid-cols-1 grid grid-cols-3 gap-4 items-stretch">
@@ -138,7 +138,7 @@ const terms_rows_2 = [
                             </div>
                             <p class="text-secondary-light">Place bets on Original Games or Slots</p>
                         </div>
-                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 rounded-xl">
+                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 3
                             </div>
@@ -147,31 +147,35 @@ const terms_rows_2 = [
                     </div>
 
                 </div>
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-3xl font-bold">
-                        Terms and Conditions
-                    </h1>
-                    <div class="flex flex-col gap-4">
-                        <div class="grid grid-cols-4 gap-4">
-                            <div v-for="term in terms_rows_1" class="bg-secondary-sidebar flex flex-col gap-4 p-4 rounded-xl">
-                                <div class="counter_news w-fit px-3 py-2 text-lg font-bold">
-                                    <div v-html="term.icon"></div>
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-3xl font-bold">
+                            Terms and Conditions
+                        </h1>
+                        <div class="flex flex-col gap-4">
+                            <div class="grid grid-cols-4 gap-4">
+                                <div v-for="term in terms_rows_1" class="bg-secondary-sidebar flex flex-col gap-4 p-4 rounded-xl">
+                                    <div class="counter_news w-fit px-3 py-2 text-lg font-bold">
+                                        <div v-html="term.icon"></div>
+                                    </div>
+                                    <p class="text-secondary-light">{{ term.title }}</p>
                                 </div>
-                                <p class="text-secondary-light">{{ term.title }}</p>
+                            </div>
+                            <div class="grid grid-cols-5 gap-4">
+                                <div v-for="term in terms_rows_2" class="bg-secondary-sidebar flex flex-col gap-4 p-4 rounded-xl">
+                                    <div class="counter_news w-fit px-3 py-2 text-lg font-bold">
+                                        <div v-html="term.icon"></div>
+                                    </div>
+                                    <p class="text-secondary-light">{{ term.title }}</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-5 gap-4">
-                            <div v-for="term in terms_rows_2" class="bg-secondary-sidebar flex flex-col gap-4 p-4 rounded-xl">
-                                <div class="counter_news w-fit px-3 py-2 text-lg font-bold">
-                                    <div v-html="term.icon"></div>
-                                </div>
-                                <p class="text-secondary-light">{{ term.title }}</p>
-                            </div>
-                        </div>
-                    </div>
 
+                    </div>
+                    <button class="btn btn-primary flex justify-center">Bonuses page</button>
                 </div>
-                <button class="btn btn-primary flex justify-center">Bonuses page</button>
+
+
             </div>
         </div>
     </MainLayout>

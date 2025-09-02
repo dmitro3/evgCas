@@ -97,7 +97,7 @@ const isMessageFromSupport = (msg) => {
         <Transition name="fade">
             <div
                 v-if="!isOpen && userStore.isAuth"
-                class="max-md:bottom-5 max-md:right-5 flex absolute gap-2 items-center"
+                class="max-md:bottom-5 max-md:right-5 flex absolute bottom-0 right-4 gap-2 items-center"
             >
                 <div
                     class="bg_live_msg text-nowrap px-4 py-3 text-lg font-semibold leading-none rounded-lg"

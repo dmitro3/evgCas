@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import { computed } from "vue";
+import { useFaqStore } from "../../../stores/faqStore.js";
 
 const props = defineProps({
     question: {
@@ -15,12 +16,26 @@ const props = defineProps({
         default: "bg-secondary-sidebar",
         required: false,
     },
+    faqId: {
+        type: [String, Number],
+        required: true,
+    },
 });
 
-const isOpen = ref(false);
+const faqStore = useFaqStore();
+
+// Генерируем уникальный ID для FAQ элемента на основе вопроса и ответа
+const uniqueId = computed(() => {
+    return props.faqId || `${props.question.slice(0, 20)}_${props.answer.slice(0, 20)}`.replace(/\s+/g, '_');
+});
+
+// Проверяем, открыт ли этот FAQ элемент
+const isOpen = computed(() => {
+    return faqStore.isFaqOpen(uniqueId.value);
+});
 
 function toggleOpen() {
-    isOpen.value = !isOpen.value;
+    faqStore.toggleFaq(uniqueId.value);
 }
 </script>
 
@@ -31,7 +46,7 @@ function toggleOpen() {
             class="px-4 py-2 rounded-3xl"
             @click="toggleOpen"
         >
-            <div class="faq-item__question">
+            <div :class="['faq-item__question', {'pb-2': isOpen}]">
                 <h3 class="font-bold">{{ question }}</h3>
                 <div class="aside-item-icon-container-faq" :class="{ 'active': isOpen }">
                     <svg

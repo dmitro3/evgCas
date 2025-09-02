@@ -90,7 +90,7 @@ watch(
 
                     Slots
                 </Link>
-                <Link href="/account/bonuses" class="nav-element">
+                <Link href="/account/bonus" class="nav-element">
                     <svg
                         width="24"
                         height="24"

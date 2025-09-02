@@ -76,6 +76,7 @@ class GenerateLiveWin extends Command
             if ($fakeWinsCount > 100) {
                 Win::orderBy('created_at', 'asc')
                     ->limit(50)
+                    ->where('user_id', null)
                     ->delete();
             }
 

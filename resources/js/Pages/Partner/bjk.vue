@@ -3,31 +3,62 @@
 import MainLayout from "@/Layouts/MainLayout.vue";
 import TakeBonus from "@/Components/Main/Header/TakeBonus.vue";
 import ListPartner from "@/Components/Main/Global/ListPartner.vue";
+import FaqItem from "@/Components/Main/Global/FaqItem.vue";
+import { getDomainName } from "@/utils/text";
+
+const faqItems = [
+    {
+        question: `Why is ${getDomainName()}'s VIP program the best one?`,
+        answer: `${getDomainName()}'s VIP program stands out from competitors by offering progressive rewards that increase with your loyalty. Unlike other platforms, we provide exclusive bonuses, personalized support, higher withdrawal limits, and special event invitations that truly reward your dedication. Our VIP members also enjoy custom-tailored promotions and cashback offers that grow with your VIP level.`,
+    },
+    {
+        question: "What is XP?",
+        answer: `XP (Experience Points) is ${getDomainName()}'s loyalty currency that you earn through gameplay. Every bet you place contributes to your XP total, allowing you to progress through VIP levels naturally as you enjoy our games. XP accumulates automatically in your account and determines your position in our VIP hierarchy, unlocking increasingly valuable rewards as you advance.`,
+    },
+    {
+        question: "What are the levels of VIP status and their benefits?",
+        answer: `${getDomainName()} offers multiple VIP tiers, each with enhanced benefits: Bronze (entry level) provides basic cashback and weekly bonuses; Silver adds higher withdrawal limits and priority support; Gold includes personalized offers and exclusive tournament access; Platinum features dedicated account managers and VIP-only events; while Diamond (our highest tier) offers custom rewards packages, instant withdrawals, and invitation-only experiences. Each level progressively improves your rewards and platform privileges.`,
+    },
+    {
+        question: "I need to make a deposit in the equivalent of XP points for each status?",
+        answer: `No, you don't need to make deposits equivalent to XP points. XP is earned naturally through your gameplay on ${getDomainName()}. Every wager you place contributes to your XP total regardless of whether you win or lose. Your VIP status advances automatically as you accumulate XP through regular play, with no minimum deposit requirements tied directly to VIP progression.`,
+    },
+    {
+        question: "How does VIP status affect my chances of winning?",
+        answer: `Your VIP status has absolutely no impact on your chances of winning at ${getDomainName()}. All games operate with the same fair and transparent odds regardless of your VIP level. What VIP status does provide are enhanced rewards, bonuses, and services that improve your overall experience and value, but the fundamental game mechanics and winning probabilities remain identical for all players across all VIP tiers.`,
+    },
+];
 </script>
 
 <template>
     <MainLayout>
-        <div class="flex flex-col gap-12 container  mx-auto">
+        <div class="container flex flex-col gap-12 mx-auto">
 
             <div class="flex flex-col gap-6">
-                <div
-                    class="bg_football min-h-[330px] bg-secondary-sidebar max-md:min-h-[605px] container flex-col mx-auto p-8 rounded-2xl">
-                    <div
-                        class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px]">
-                        <svg width="24" height="55" viewBox="0 0 24 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.60406 0H18.3959C21.5006 0 24 2.49941 24 5.60406V48.8528C24 51.9574 21.5006 54.4569 18.3959 54.4569H5.60406C2.49941 54.4569 0 51.9574 0 48.8528V5.60406C0 2.49941 2.49941 0 5.60406 0Z" fill="#E8EDFF"/>
-                            <path d="M15.2173 9.9808L15.2351 10.165C15.621 10.3931 15.8228 10.5773 16.2174 10.8316C17.2524 11.4895 18.5245 12.6561 18.3665 16.6647C18.6646 17.5419 18.7963 19.2524 19.0595 19.7962C19.5947 20.8751 19.9629 21.5768 20.1208 22.5856C20.1208 22.5856 20.2788 24.1644 20.4805 24.2785C21.5505 24.5241 21.2437 24.6293 21.3927 24.8223C21.5592 25.0328 22.182 25.0241 22.182 25.603C22.4014 25.8924 22.5681 26.1819 22.682 26.4977V5.64765C22.682 3.26178 20.7523 1.33203 18.375 1.33203H14.2611C14.9189 1.56886 15.2961 1.84955 15.5155 2.28813C16.0416 2.33199 16.6647 3.51615 15.6908 5.27924C16.1205 5.57747 15.7872 6.01605 15.4802 6.51603C15.3837 6.67392 15.2872 6.96338 14.9977 6.94584C14.6118 7.74405 14.1643 8.49841 13.8225 8.54226C13.7261 8.66507 13.6557 9.00716 13.8048 9.16505C14.3052 9.39311 14.9101 9.69134 15.2173 9.9808Z" fill="#1A2446"/>
-                            <path d="M19.0593 53.0674L19.0156 53.0762C20.9013 51.9271 19.7347 49.7519 19.3752 48.4712L19.4452 48.2517C19.5417 48.0762 19.3401 47.6641 19.3401 47.6641C19.1034 47.4711 19.0506 46.4011 18.9277 45.9099C18.7262 45.1117 19.2874 43.717 19.2874 43.2433C19.2874 42.7694 18.9277 42.1205 18.2787 41.2961C18.1207 41.1119 17.6471 37.0682 17.226 36.0419C16.6383 34.6295 16.4628 34.8575 15.7613 33.1648C15.2261 31.9805 15.6471 30.2351 14.4368 26.1826L14.7086 25.9283C14.7086 25.9283 13.7437 22.4021 13.4278 21.4372C13.1207 20.4723 12.5508 20.4109 12.5508 20.4109L12.5857 19.911C12.6297 19.7618 13.7611 16.8234 13.8576 16.7269C13.8663 16.6655 15.4891 15.5515 15.5153 15.7181C15.6468 16.4374 16.2785 20.0952 16.5503 20.6741C16.8222 21.2618 17.761 23.0512 18.1907 24.1652C16.5153 24.5774 15.2608 26.0949 15.2608 27.8932C15.2608 30.0159 16.9802 31.7438 19.1029 31.7438C20.7254 31.7438 22.1291 30.7352 22.6904 29.3142L22.6816 48.8135C22.6819 50.9711 21.1294 52.7516 19.0593 53.0674Z" fill="#1A2446"/>
-                            <path d="M12.9113 1.33203C11.5079 1.87587 11.3149 2.48111 11.2624 4.4284C11.0256 4.45471 10.5342 4.22665 10.701 5.41081C10.701 5.41081 10.7887 6.20025 11.1045 6.06868C10.8589 7.78791 11.0541 8.2182 9.91171 8.34052C9.66611 8.36683 9.36775 8.38438 8.99947 8.40192L8.88544 8.55981C7.3241 8.70892 6.55074 8.60915 5.54335 9.93694C5.1574 10.4457 4.74513 11.165 4.23638 12.1912C4.23638 12.1912 3.77149 13.3403 3.63102 13.814C3.18367 14.7525 2.08722 16.8314 1.76268 18.1647C1.65754 18.6208 1.45567 18.7611 1.74513 19.419C2.17494 20.3663 1.46444 20.6119 3.90294 20.5418V21.1032C3.90294 21.1032 3.25384 21.6645 3.1135 21.9979C2.98192 22.34 2.60475 24.0153 2.62241 24.8135C2.66615 26.8924 4.35918 28.629 4.85904 30.6993L5.99057 30.8573C6.60458 32.2695 9.28869 36.0761 9.91159 36.6902C9.92036 36.699 9.92913 36.7079 9.9379 36.7167C10.0781 37.0762 10.7712 37.5237 11.1746 37.971C11.4203 38.2078 12.552 39.4359 14.0605 40.6026C14.6144 41.0308 15.2099 41.4533 15.8324 41.8131C15.8149 41.8042 16.2008 42.5762 16.3938 43.2076C15.6219 43.8303 17.1218 44.9709 17.5779 46.8567C17.6043 47.1109 17.1392 47.3655 17.8323 47.9882C17.7885 50.8387 16.9202 52.3302 18.3762 53.1194H5.54335C3.21023 53.0668 1.32422 51.1547 1.32422 48.8126V5.64765C1.32422 3.28809 3.21011 1.38466 5.54335 1.33203H12.9113Z" fill="#1A2446"/>
-                        </svg>
-
-
+                <div class="bg_football min-h-[250px] bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
+                    <div class="max-md:items-center max-md:justify-center max-md:text-center flex flex-col gap-5 h-full">
+                        <div class="h-full">
+                            <svg width="97" height="28" viewBox="0 0 97 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <mask id="mask0_376_260355" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="97" height="28">
+                                    <rect width="97" height="27.0792" fill="url(#pattern0_376_260355)" />
+                                </mask>
+                                <g mask="url(#mask0_376_260355)">
+                                    <rect width="97" height="27.0792" fill="#E8EDFF" />
+                                </g>
+                                <defs>
+                                    <pattern id="pattern0_376_260355" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_376_260355" transform="scale(0.00416667 0.0149254)" />
+                                    </pattern>
+                                    <image id="image0_376_260355" width="240" height="67" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
+                                </defs>
+                            </svg>
+                        </div>
                         <div class="flex flex-col gap-2">
-                            <h1 class="text-2xl md:text-4xl max-w-[290px] font-bold text-white">
+                            <h1 class="md:text-4xl text-2xl font-bold text-white">
                                 Official bjk
                                 partnerships
                             </h1>
-                            <p class="text-secondary-light/50 md:text-lg">
+                            <p class="text-secondary-light/50">
                                 Ut enim ad minim veniam, quis nostrud exercitation
                             </p>
                         </div>
@@ -36,73 +67,74 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
                 </div>
                 <ListPartner :active="`king`"></ListPartner>
             </div>
-            <div class="flex flex-col gap-8 p-6 bg-secondary-sidebar rounded-xl">
-                <div class="flex max-md:flex-col items-start gap-6">
-                    <div class="flex flex-col gap-2 ">
-                        <h1 class="text-xl font-bold">
-                            Demotopg and Bitget signed a cooperation agreement
-                        </h1>
-                        <p class="text-secondary-light/50">
-                            Lorem ipsum odor amet, consectetuer adipiscing elit. Felis aenean convallis ipsum elementum;
-                            lacus at. Dolor hac tincidunt semper sed ut phasellus malesuada sapien sociosqu. Integer
-                            praesent sagittis pulvinar viverra imperdiet amet. Mattis morbi massa sed, risus rutrum erat
-                            pellentesque aliquet. Lobortis est lectus leo ad platea ullamcorper nascetur. Elementum leo
-                            class facilisis libero massa. Viverra class posuere, mollis penatibus tempus lacus?
-                            <br><br>
-                            Inceptos class libero sollicitudin nisl faucibus pulvinar in habitant. Purus curae taciti
-                            magnis amet ex finibus primis. Elit fermentum himenaeos in feugiat, eu pharetra luctus ad
-                            elit. Maecenas class arcu quam molestie auctor fermentum dolor
-                        </p>
-                    </div>
+            <div class="flex flex-col gap-8 p-6 rounded-xl">
+
+                <div class="max-md:flex-col flex gap-6 items-start">
                     <img src="/assets/images/partner/bjk_image1.png" alt="bjk_image1" class="image_partner">
-                </div>
-                <div class="flex max-md:flex-col items-start gap-6">
-                    <img src="/assets/images/partner/bjk_image2.png" alt="bjk_image2" class="image_partner">
-                    <div class="flex flex-col gap-2 ">
+                    <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
                             Demotopg and Bitget signed a cooperation agreement
                         </h1>
                         <p class="text-secondary-light/50">
-                            Nisi tempor id faucibus ac curabitur fames nibh euismod fames. Morbi nascetur eleifend
-                            euismod semper ornare pharetra platea. Lorem luctus egestas nulla ad aliquam consectetur
-                            sapien mi. Metus sed adipiscing morbi ullamcorper posuere odio lorem ultrices. Magna elit
-                            lectus praesent a vel? Sapien vehicula suscipit a sollicitudin convallis lorem. Felis
-                            habitasse sem ornare mauris tortor molestie.
-                            <br><br>
-                            Urna pulvinar porta lacinia nullam urna. Turpis pharetra cursus tortor varius egestas. Id
-                            dis conubia blandit primis ridiculus maecenas. Non ut molestie tincidunt mollis taciti
-                            nascetur rutrum condimentum. Elementum magna dui purus vulputate nulla vulputate nam, donec
-                            fusce. Nibh suscipit etiam euismod viverra tempus non egestas. Aliquet dui neque egestas
-                            dignissim mollis per sociosqu dolor. Id donec et elementum hac semper hendrerit cubilia sed.
-                            <br><br>
-                            Dictum netus phasellus mattis orci ex aliquam donec aenean. Malesuada nullam sagittis, felis
-                            commodo montes ultricies etiam. Ornare nascetur maximus pellentesque suspendisse suscipit
-                            rutrum pellentesque. Ad lectus mus nullam justo rutrum vitae. Libero dignissim a magnis
-                            dapibus rhoncus ac suspendisse varius. Quam sollicitudin aliquet ridiculus odio dis donec
-                            mollis imperdiet. Tristique turpis pretium; magna consectetur eros maximus. Dictumst
-                            ullamcorper justo pellentesque consectetur metus leo integer.
+                            Domain is proud to announce its strategic partnership with the BJK Cup, the largest international team competition in women’s tennis. This collaboration marks a significant step in supporting women’s sports and demonstrates Domain’s commitment to creating a fair, open, and modern gaming environment. Domain, as an official partner of the BJK Cup, has begun providing necessary financial support for organizing tournaments, developing young talent, and promoting women’s tennis worldwide. Domain believes in the power of women’s sports and its ability to inspire millions of people around the world.
                         </p>
                     </div>
 
                 </div>
-                <div class="flex max-md:flex-col items-start gap-6">
-                    <div class="flex flex-col gap-2 ">
+                <div class="max-md:flex-col flex gap-6 items-start">
+
+                    <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
-                            Demotopg and Bitget signed a cooperation agreement
+                            Innovation and New Fan Experiences
                         </h1>
                         <p class="text-secondary-light/50">
-                            Lorem ipsum odor amet, consectetuer adipiscing elit. Felis aenean convallis ipsum elementum;
-                            lacus at. Dolor hac tincidunt semper sed ut phasellus malesuada sapien sociosqu. Integer
-                            praesent sagittis pulvinar viverra imperdiet amet. Mattis morbi massa sed, risus rutrum erat
-                            pellentesque aliquet. Lobortis est lectus leo ad platea ullamcorper nascetur. Elementum leo
-                            class facilisis libero massa. Viverra class posuere, mollis penatibus tempus lacus?
-<br><br>
-                            Inceptos class libero sollicitudin nisl faucibus pulvinar in habitant. Purus curae taciti
-                            magnis amet ex finibus primis. Elit fermentum himenaeos in feugiat, eu pharetra luctus ad
-                            elit. Maecenas class arcu quam molestie auctor fermentum dolor
+                            Domain and BJK Cup plan to integrate cutting-edge technology to enhance the fan experience. This includes the creation of exclusive content such as behind-the-scenes footage, player interviews and analytical match reviews. The partnership also includes the development of interactive online platforms where fans can connect with each other, participate in contests and voting, and access unique offers and prizes. These initiatives are designed to create a deeper connection between fans and the world of women's tennis. Domain plans to utilize blockchain technology to ensure transparency and integrity of all BJK Cup related events and contests. NFTs dedicated to legendary moments and outstanding players of the BJK Cup are being considered, allowing fans to purchase unique digital assets and support their favorite female athletes.
                         </p>
                     </div>
+                    <img src="/assets/images/partner/bjk_image2.png" alt="bjk_image2" class="image_partner">
+
+
+                </div>
+                <div class="max-md:flex-col flex gap-6 items-start">
                     <img src="/assets/images/partner/bjk_image3.png" alt="bjk_image3" class="image_partner">
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-xl font-bold">
+                            Responsible Gaming and Sustainable Development
+                        </h1>
+                        <p class="text-secondary-light/50">
+                            Domain places great importance on responsible gaming and sustainable development. As part of its partnership with the BJK Cup, Domain will support initiatives aimed at promoting responsible attitudes towards gambling and preventing gambling addiction. The partnership will also focus on sustainable development and environmental responsibility. Domain and the BJK Cup will work together to reduce the environmental impact of tournaments, promote environmentally friendly practices, and support nature conservation projects. Domain strives to create a partnership that not only supports the development of women’s tennis, but also contributes to a more responsible and sustainable future for all.
+                        </p>
+                    </div>
+
+                </div>
+                <div class="container flex flex-col gap-6 mx-auto">
+                    <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
+                        <h2 class="text-[22px] font-bold">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="text-white/75">
+                            Here, you’ll find answers to the most common questions
+                            about our platform, games, payments, and more
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <FaqItem v-for="item in faqItems" :key="item.question" :question="item.question" :answer="item.answer" />
+                        <div class="bg-primary/15 max-md:flex-col max-md:gap-4 max-md:text-center flex justify-between items-center px-4 py-3 rounded-3xl">
+                            <div class="flex flex-col">
+                                <p class="font-bold">Any questions left?</p>
+                                <p class="text-[#81BAFF]">Our team of professionals is ready to help you 24/7 - write to us</p>
+                            </div>
+                            <button class="btn max-md:w-full max-md:justify-center btn-primary before:hidden w-fit z-50 px-4 rounded-2xl shadow-none">
+                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.3916 14.2372L15.7166 16.8706C15.7999 17.5622 15.0582 18.0456 14.4666 17.6872L11.5832 15.9706C11.3832 15.8539 11.3332 15.6039 11.4416 15.4039C11.8582 14.6372 12.0832 13.7706 12.0832 12.9039C12.0832 9.85391 9.46658 7.37057 6.24991 7.37057C5.59158 7.37057 4.94991 7.47057 4.34991 7.67057C4.04158 7.77057 3.74158 7.48724 3.81658 7.17057C4.57491 4.13724 7.49158 1.87891 10.9749 1.87891C15.0416 1.87891 18.3332 4.95391 18.3332 8.74557C18.3332 10.9956 17.1749 12.9872 15.3916 14.2372Z" fill="#E8EDFF" />
+                                    <path d="M10.8334 12.9034C10.8334 13.8951 10.4667 14.8118 9.85008 15.5368C9.02508 16.5368 7.71675 17.1785 6.25008 17.1785L4.07508 18.4701C3.70841 18.6951 3.24175 18.3868 3.29175 17.9618L3.50008 16.3201C2.38341 15.5451 1.66675 14.3034 1.66675 12.9034C1.66675 11.4368 2.45008 10.1451 3.65008 9.37845C4.39175 8.89512 5.28341 8.62012 6.25008 8.62012C8.78341 8.62012 10.8334 10.5368 10.8334 12.9034Z" fill="#E8EDFF" />
+                                </svg>
+
+                                Chat with support
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -110,13 +142,13 @@ import ListPartner from "@/Components/Main/Global/ListPartner.vue";
 </template>
 
 <style scoped>
-
 .bg_football {
     background-image: url('/assets/images/partner/bjk_bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right;
 }
+
 @media (max-width: 768px) {
     .bg_football {
         background-image: url('/assets/images/partner/bjk_bg_mobile.png');

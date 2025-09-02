@@ -47,15 +47,15 @@ const faqItems = {
 
     privileges: [
         {
-            question: "Who is Domain?1",
+            question: "Who is Domain?",
             answer: `Since 2019, Domen has been a leader in the online gambling industry, offering players around the world a wide range of original games and slots. Our platform, characterized by reliability, security and a decentralized structure, provides unique opportunities for betting on cryptocurrency in online slots and exclusive Domain Originals games. We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club. Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets. `,
         },
         {
-            question: "What promotions and bonuses does Domain offer?1",
+            question: "What promotions and bonuses does Domain offer?",
             answer: "We regularly hold promotions and bonus programs for our users, as well as offer a unique experience of participating in the VIP club.",
         },
         {
-            question: "What makes Domain's platform secure and fair?1",
+            question: "What makes Domain's platform secure and fair?",
             answer: "Our licensed platform provides a simple and convenient deposit process, absolute transparency of gaming coefficients and a decentralized structure, which guarantees fair play, fast withdrawals and full protection of our clients' data and assets.",
         },
     ],
@@ -73,7 +73,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                 <div class="container grid grid-cols-1 gap-2.5 mx-auto w-full">
                     <div class="bg-main-container-2 p-6 rounded-xl min-h-[250px]">
                         <div class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[500px] gap-2.5 max-w-[380px]">
-                            <div class="flex flex-col gap-2">
+                            <div class="flex flex-col gap-2 h-full">
                                 <h1 class="md:text-3xl text-xl font-bold text-white">
                                     Play Domain Casino and win
                                     <span class="text-primary">Lamborghini Urus</span>
@@ -141,7 +141,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                 </div>
             </div>
 
-            <div class="container flex flex-col gap-6 pt-20 mx-auto">
+            <div class="container flex flex-col gap-6 mx-auto">
                 <div class="charters max-md:hidden max-xl:grid-cols-2 max-md:grid-cols-1 grid grid-cols-4 gap-2.5 items-stretch">
                     <div :class="currentRank === 'silver'
                         ? 'active_rank_bg'
@@ -162,24 +162,24 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            COMMON STOCKS
+                                        <p class="font-bold leading-none">
+                                            Common Stocks
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            DAILY RAKEBACK 0.1%
+                                        <p class="font-bold leading-none">
+                                            Daily Rakeback 0.1%
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            LEVEL-UP BONUS
+                                        <p class="font-bold leading-none">
+                                            Level-Up Bonus
                                         </p>
                                     </div>
                                 </div>
@@ -209,40 +209,40 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            GENERAL PROMOTIONS
+                                        <p class="font-bold leading-none">
+                                            General Promotions
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            DAILY RAKEBACK 0.2%
+                                        <p class="font-bold leading-none">
+                                            Daily Rakeback 0.2%
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            MONTHLY BONUSES
+                                        <p class="font-bold leading-none">
+                                            Monthly Bonuses
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            LEVEL-UP BONUS
+                                        <p class="font-bold leading-none">
+                                            Level-Up Bonus
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            BONUS GROWTH
+                                        <p class="font-bold leading-none">
+                                            Bonus Growth
                                         </p>
                                     </div>
                                 </div>
@@ -269,40 +269,40 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            GENERAL PROMOTIONS
+                                        <p class="font-bold leading-none">
+                                            General Promotions
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            DAILY RAKEBACK 0.25%
+                                        <p class="font-bold leading-none">
+                                            Daily Rakeback 0.25%
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            MONTHLY BONUSES
+                                        <p class="font-bold leading-none">
+                                            Monthly Bonuses
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            LEVEL-UP BONUS
+                                        <p class="font-bold leading-none">
+                                            Level-Up Bonus
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            BONUS GROWTH
+                                        <p class="font-bold leading-none">
+                                            Bonus Growth
                                         </p>
                                     </div>
                                 </div>
@@ -329,48 +329,64 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            VIP PROMOTIONS (LEVEL V)
+                                        <p class="font-bold leading-none">
+                                            General Promotions
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            WEEKLY BONUSES (LEVEL V)
+                                        <p class="font-bold leading-none">
+                                            VIP Promotions (Level V)
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            DAILY RAKEBACK 0.3%
+                                        <p class="font-bold leading-none">
+                                            Daily Rakeback 0.3%
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            MONTHLY BONUSES
+                                        <p class="font-bold leading-none">
+                                            Daily Bonuses/Reload
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            LEVEL-UP BONUS
+                                        <p class="font-bold leading-none">
+                                            Weekly Bonuses (Level V)
                                         </p>
                                     </div>
                                     <div class="flex gap-2.5 items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
                                             <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-                                        <p class="font-medium leading-none">
-                                            BONUS GROWTH
+                                        <p class="font-bold leading-none">
+                                            Monthly Bonuses
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                                            <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <p class="font-bold leading-none">
+                                            Level-Up Bonus
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2.5 items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                                            <path d="M14 1.37109L6.5 9.94252L2 6.04642" stroke="#298AFF" stroke-width="2.14286" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <p class="font-bold leading-none">
+                                            Bonus Growth
                                         </p>
                                     </div>
                                 </div>
@@ -384,7 +400,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
 
             <div class="container flex flex-col gap-6 mx-auto w-full">
                 <div class="max-md:flex-col flex gap-2.5">
-                    <div class="md:flex grid bg-secondary-sidebar rounded-xl h-fit grid-cols-2 md:flex-col md:max-w-[230px] p-4 w-full gap-2">
+                    <div class="md:flex grid uppercase bg-secondary-sidebar rounded-xl h-fit grid-cols-2 md:flex-col md:max-w-[230px] p-4 w-full gap-2">
                         <div @click="faqTab = 'main'" :class="{ '!bg-secondary text-white active ': faqTab === 'main' }" class="aside-item-content before:hidden after:hidden">
                             <div class="flex gap-2 items-center">
                                 <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -396,10 +412,10 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                         <div @click="faqTab = 'privileges'" :class="{ '!bg-secondary text-white active': faqTab === 'privileges' }" class="aside-item-content before:hidden after:hidden">
                             <div class="flex gap-2 items-center">
                                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.3329 5.42068V13.404C18.3329 15.704 16.4663 17.5707 14.1663 17.5707H5.83294C5.44961 17.5707 5.08294 17.5207 4.72461 17.4207C4.20794 17.279 4.04128 16.6207 4.42461 16.2374L13.2829 7.37902C13.4663 7.19568 13.7413 7.15402 13.9996 7.20402C14.2663 7.25402 14.5579 7.17902 14.7663 6.97902L16.9079 4.82902C17.6913 4.04568 18.3329 4.30402 18.3329 5.42068Z" fill="currentColor"  />
-                                    <path d="M12.2013 6.7957L3.4763 15.5207C3.0763 15.9207 2.40964 15.8207 2.14297 15.3207C1.83464 14.754 1.66797 14.0957 1.66797 13.404V5.4207C1.66797 4.30404 2.30964 4.0457 3.09297 4.82904L5.24297 6.98737C5.56797 7.30404 6.1013 7.30404 6.4263 6.98737L9.40964 3.9957C9.73464 3.6707 10.268 3.6707 10.593 3.9957L12.2096 5.61237C12.5263 5.93737 12.5263 6.4707 12.2013 6.7957Z" fill="currentColor"  />
+                                    <path d="M18.3329 5.42068V13.404C18.3329 15.704 16.4663 17.5707 14.1663 17.5707H5.83294C5.44961 17.5707 5.08294 17.5207 4.72461 17.4207C4.20794 17.279 4.04128 16.6207 4.42461 16.2374L13.2829 7.37902C13.4663 7.19568 13.7413 7.15402 13.9996 7.20402C14.2663 7.25402 14.5579 7.17902 14.7663 6.97902L16.9079 4.82902C17.6913 4.04568 18.3329 4.30402 18.3329 5.42068Z" fill="#FF9429"  />
+                                    <path d="M12.2013 6.7957L3.4763 15.5207C3.0763 15.9207 2.40964 15.8207 2.14297 15.3207C1.83464 14.754 1.66797 14.0957 1.66797 13.404V5.4207C1.66797 4.30404 2.30964 4.0457 3.09297 4.82904L5.24297 6.98737C5.56797 7.30404 6.1013 7.30404 6.4263 6.98737L9.40964 3.9957C9.73464 3.6707 10.268 3.6707 10.593 3.9957L12.2096 5.61237C12.5263 5.93737 12.5263 6.4707 12.2013 6.7957Z" fill="#FF9429"  />
                                 </svg>
-                                Privileges
+                                VIP BENEFITS
                             </div>
                         </div>
                     </div>
@@ -409,8 +425,8 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                             <p class="text-white/75">Here, you’ll find answers to the most common questions about our platform, games, payments, and more</p>
                         </div>
                         <div class="flex flex-col gap-3">
-                            <FaqItem class="!bg-[#212E5A]" v-for="item in faqItems.main" v-if="faqTab === 'main'" :key="item.id" :question="item.question" :answer="item.answer" />
-                            <FaqItem class="!bg-[#212E5A]" v-for="item in faqItems.privileges" v-if="faqTab === 'privileges'" :key="item.id" :question="item.question" :answer="item.answer" />
+                            <FaqItem class="!bg-[#212E5A]" v-for="(item, index) in faqItems.main" v-if="faqTab === 'main'" :key="`main_${index}`" :faq-id="`main_${index}`" :question="item.question" :answer="item.answer" />
+                            <FaqItem class="!bg-[#212E5A]" v-for="(item, index) in faqItems.privileges" v-if="faqTab === 'privileges'" :key="`privileges_${index}`" :faq-id="`privileges_${index}`" :question="item.question" :answer="item.answer" />
                             <div class="bg-primary/10 flex justify-between items-center px-4 py-3 rounded-3xl">
                                 <div class="flex flex-col">
                                     <p class="font-bold">Any questions left?</p>
@@ -468,7 +484,7 @@ p {
 }
 
 .character {
-    @apply rounded-2xl min-h-[174px];
+    @apply rounded-2xl min-h-[160px] max-h-[160px];
 }
 
 @media (max-width: 760px) {

@@ -14,4 +14,5 @@ Route::group(['prefix' => 'account', 'middleware' => 'auth'], function () {
     Route::post('/promo/activate', [AccountController::class, 'activatePromo'])->name('account.promo.activate');
     Route::get('/notifications/get', [AccountController::class, 'getNotifications'])->name('account.notifications');
     Route::post('/notifications/read', [AccountController::class, 'readNotifications'])->name('account.notifications.read');
+    Route::get('/wins/get', [AccountController::class, 'getWins'])->name('account.wins.get');
 });

@@ -6,17 +6,17 @@ const props = defineProps({
     image: String,
     image_mobile: String,
     link: String,
+    class: String,
 });
 </script>
 <template>
     <div
-        :style="{ backgroundImage: `url(${image})` }"
-        class="bg-card flex flex-col p-6 bg-center bg-no-repeat bg-cover rounded-2xl"
+        class="bg-card flex flex-col p-6 bg-right bg-no-repeat bg-cover rounded-2xl" :class="class"
     >
         <div
-            class="max-md:gap-3 flex flex-col gap-16 justify-between items-start"
+            class="max-md:gap-3 max-md:justify-center max-md:items-center max-md:text-center flex flex-col gap-16 justify-between items-start"
         >
-            <div class="flex max-w-[170px] flex-col gap-2">
+            <div class="flex md:max-w-[170px] flex-col gap-2">
                 <h2 class="text-[22px] font-bold">{{ title }}</h2>
                 <p class="text-secondary-light/50">{{ description }}</p>
             </div>

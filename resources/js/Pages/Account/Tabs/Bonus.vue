@@ -4,6 +4,7 @@ import { ref } from "vue";
 import SupportBanner from "@/Components/Main/Global/SupportBanner.vue";
 import FaqItem from "@/Components/Main/Global/FaqItem.vue";
 import { useUserStore } from "@/stores/userStore";
+import { Link } from "@inertiajs/vue3";
 const openAffiliateTab = ref(false);
 const promoCode = ref("");
 const faqTab = ref("main");
@@ -152,10 +153,11 @@ const handleActivatePromo = async () => {
                             <p class="text-xl font-bold">Special Promocode</p>
                             <p class="text-secondary-light/50">
                                 You must wager $100,000 in original games or slots. The promo amount and potential winnings will become available for withdrawal after wagering is completed.
+                                <Link href="/" class="text-primary">Read more</Link>
                             </p>
                         </div>
                         <div class="flex flex-col gap-2 uppercase">
-                            <div class="flex justify-between items-center w-full text-sm font-extrabold">
+                            <div class="flex justify-between items-center w-full text-sm font-bold">
                                 <p>$1,000</p>
                                 <p>$10,000</p>
                             </div>
@@ -238,7 +240,7 @@ const handleActivatePromo = async () => {
                     </div>
 
                     <!-- Affiliate table -->
-                    <div class="bg-secondary-sidebar-light-3 overflow-hidden rounded-xl">
+                    <div class="overflow-hidden rounded-xl">
                         <div class="max-md:grid-cols-2 grid grid-cols-3 gap-4 p-6">
                             <div class="text-secondary-light/50 text-sm font-bold uppercase">
                                 EMAIL
@@ -251,11 +253,13 @@ const handleActivatePromo = async () => {
                             </div>
                         </div>
 
-                        <div v-for="i in 4" class="affiliate-table-row max-md:grid-cols-2 grid grid-cols-3 gap-4 p-6 py-3">
-                            <div class="text-ellipsis overflow-hidden text-white">gidedesign@gmail.com</div>
-                            <div class="max-md:hidden text-center text-white">26.03.2025</div>
-                            <div class="font-bold text-right text-white">
-                                $514.54
+                        <div class="flex flex-col">
+                            <div v-for="i in 4" class="affiliate-table-row bg-secondary-sidebar-light-3 max-md:grid-cols-2 grid overflow-hidden grid-cols-3 gap-4 p-6 py-3">
+                                <div class="text-ellipsis overflow-hidden text-white">gidedesign@gmail.com</div>
+                                <div class="max-md:hidden text-center text-white">26.03.2025</div>
+                                <div class="font-bold text-right text-white">
+                                    $514.54
+                                </div>
                             </div>
                         </div>
 
@@ -299,11 +303,11 @@ const handleActivatePromo = async () => {
 
                         <div class="flex flex-col gap-2">
                             <span class="text-secondary-light/50 text-sm">Your personal code</span>
-                            <div class="max-md:flex-col flex gap-3 items-center w-full">
+                            <div class="max-md:flex-col w-fit max-lg:w-full flex gap-3 items-center">
                                 <div class="w-full bg-[#111931] px-4 py-3 rounded-lg">
                                     <span class="font-mono text-white">8GSF6D-BF5GJN</span>
                                 </div>
-                                <button class="btn btn-primary max-md:justify-center flex gap-2 items-center px-6 py-3 w-full">
+                                <button class="btn btn-primary max-md:justify-center lg:w-fit flex gap-2 items-center px-6 py-3 w-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path d="M8.79922 1.6001C7.91522 1.6001 7.19922 2.3161 7.19922 3.2001V16.0001C7.19922 16.8841 7.91522 17.6001 8.79922 17.6001H19.1992C20.0832 17.6001 20.7992 16.8841 20.7992 16.0001V6.8001C20.7992 6.5881 20.7152 6.38487 20.5648 6.23447L16.1648 1.83447C16.0144 1.68407 15.8112 1.6001 15.5992 1.6001H8.79922ZM15.1992 3.12354L19.2758 7.2001H15.9992C15.5576 7.2001 15.1992 6.8417 15.1992 6.4001V3.12354ZM4.79922 5.6001C3.91522 5.6001 3.19922 6.3161 3.19922 7.2001V20.0001C3.19922 20.8841 3.91522 21.6001 4.79922 21.6001H15.1992C16.0832 21.6001 16.7992 20.8841 16.7992 20.0001V19.2001H8.79922C7.03442 19.2001 5.59922 17.7649 5.59922 16.0001V5.6001H4.79922Z" fill="#E8EDFF" />
                                     </svg>
@@ -370,6 +374,10 @@ const handleActivatePromo = async () => {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.affiliate-table-row:first-child {
+    @apply rounded-t-2xl
 }
 
 .affiliate-table-row {

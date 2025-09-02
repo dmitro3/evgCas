@@ -6,7 +6,12 @@ const props = defineProps({
     slots: Array,
 });
 
-const slots = ref(props.slots);
+const slots = ref(props.slots.map(slot => {
+    if(slot.type === 'original_game') {
+        return null;
+    }
+    return slot;
+}).filter(slot => slot !== null));
 
 const isExpanded = ref(false);
 const showAll = () => {
@@ -21,7 +26,7 @@ const slotsToShow = computed(() => {
 <template>
     <div
         v-if="slots.length > 0"
-        class="md:px-5 container flex flex-col gap-6 mx-auto"
+        class="lg:px-5 container flex flex-col gap-6 mx-auto"
     >
         <div class="flex justify-between items-center">
             <h2 class="text-lg font-bold text-white">Recommended games</h2>

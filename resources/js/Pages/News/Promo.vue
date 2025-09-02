@@ -84,7 +84,7 @@ const terms_rows_2 = [
             </div>
             <div class="flex flex-col gap-8 p-6 rounded-xl">
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         Ticket of Fortune
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
@@ -100,7 +100,7 @@ const terms_rows_2 = [
 
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         How to Enter
                     </h1>
                     <div class="max-lg:grid-cols-1 grid grid-cols-2 gap-4 items-stretch">

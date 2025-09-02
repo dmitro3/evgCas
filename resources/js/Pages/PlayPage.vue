@@ -95,7 +95,7 @@ const slotsToShow = computed(() =>
             <LiveWin />
             <div
                 v-if="originalGames.length > 0"
-                class="md:px-5 container flex flex-col gap-6 mx-auto"
+                class="container flex flex-col gap-6 mx-auto"
             >
                 <div
                     v-if="originalGames.length > 0"
@@ -117,7 +117,7 @@ const slotsToShow = computed(() =>
             </div>
             <div
                 v-if="slots.length > 0"
-                class="md:px-5 container flex flex-col gap-2 mx-auto"
+                class="container flex flex-col gap-2 mx-auto"
             >
                 <div class="flex justify-between items-center">
                     <h2 class="mb-3 text-lg font-bold text-white">Slots</h2>

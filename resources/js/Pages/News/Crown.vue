@@ -84,13 +84,13 @@ const terms_rows_2 = [
             </div>
             <div class="flex flex-col gap-8 p-6 rounded-xl">
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         Gold Fever
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
                         Ready to embark on an exciting adventure and conquer Domain Casino? We invite you to "Gold Fever" - an exclusive challenge from Domain and Pragmatic Play! Embark on an epic expedition where you will overcome five stages, completing tasks with multipliers in thrilling Pragmatic Play games. Conquer all levels and unlock the opportunity to win a share of the $50,000 prize pool!
                     </p>
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         Your goal is to complete all five levels by achieving the specified multipliers in the following games
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
@@ -106,7 +106,7 @@ const terms_rows_2 = [
 
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         How to Enter
                     </h1>
                     <div class="max-lg:grid-cols-1 grid grid-cols-2 gap-4 items-stretch">

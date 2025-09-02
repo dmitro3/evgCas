@@ -59,7 +59,7 @@ const news = [
 
     <MainLayout>
         <div class="flex flex-col gap-12">
-            <div class="bonus_banner_news  container min-h-[250px] flex-col p-6 mx-auto rounded-2xl">
+            <div class="bonus_banner_news  container min-h-[250px] flex-col p-6 pb-3 mx-auto rounded-2xl">
                 <div class="flex flex-col gap-6">
 
                     <div class="flex flex-col gap-4 h-full">

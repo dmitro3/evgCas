@@ -10,6 +10,7 @@ use App\Http\Service\User\Action\Withdraw as CreateWithdrawAction;
 use App\Http\Requests\WithdrawRequest;
 use App\Http\Service\User\Action\UpdatePassword;
 use App\Http\Service\User\Get\GetUser;
+use App\Models\Win;
 use App\Http\Service\User\Action\GetNotifications;
 use App\Http\Service\User\Action\ReadNotifications;
 use App\Models\Panel\PaymentMethod;
@@ -153,5 +154,11 @@ class AccountController extends Controller
         return response()->json([
             'success' => (new CreateWithdrawAction($user))->create($request->all()),
         ]);
+    }
+
+    public function getWins()
+    {
+        $wins = Win::where('user_id', auth()->user()->id)->get();
+        return response()->json($wins);
     }
 }

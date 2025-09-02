@@ -1,20 +1,15 @@
 <script setup>
-import Games from "@/icons/Aside/Games.vue";
-import Slots from "@/icons/Aside/Slots.vue";
-import Account from "@/icons/Aside/Account.vue";
-import Vip from "@/icons/Aside/Vip.vue";
-import About from "@/icons/Aside/About.vue";
-import Promo from "@/icons/Aside/Promo.vue";
-import Sponsor from "@/icons/Aside/Sponsor.vue";
+
 import { Link } from "@inertiajs/vue3";
-import Feedback from "@/icons/Aside/Feedback.vue";
-import Licenses from "@/icons/Aside/Licenses.vue";
+import { usePage } from "@inertiajs/vue3";
+
 import { ref, onMounted, computed } from "vue";
 import { getDomainName } from "@/utils/text";
 import { useUserStore } from "@/stores/userStore";
 import VipRank from "./Global/VipRank.vue";
 
 const userStore = useUserStore();
+const page = usePage();
 
 onMounted(() => {
     userStore.loadRanks().catch(() => { });
@@ -25,11 +20,43 @@ const userRankName = computed(() => {
     return rank;
 });
 
+// Функция для проверки активности пункта меню
+const isActive = (href) => {
+    const currentUrl = page.url;
+    const currentPath = new URL(currentUrl, window.location.origin).pathname;
+    const currentSearch = new URL(currentUrl, window.location.origin).search;
+
+    // Обработка URL с параметрами
+    const itemUrl = new URL(href, window.location.origin);
+    const itemPath = itemUrl.pathname;
+    const itemSearch = itemUrl.search;
+
+    // Точное совпадение для главной страницы
+    if (href === '/' || itemPath === '/') {
+        return currentPath === '/';
+    }
+
+    // Для URL с параметрами (например, /games?type=original_game)
+    if (itemSearch) {
+        return currentPath === itemPath && currentSearch === itemSearch;
+    }
+
+    // Для остальных маршрутов проверяем начало пути
+    return currentPath.startsWith(itemPath) && currentPath !== '/';
+};
+
 const categories = ref([
     {
         name: "Casino",
         isOpen: true,
         items: [
+//             {
+//                 name: "Home",
+//                 icon: `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+// <path d="M10.7071 2.29289C10.3166 1.90237 9.68342 1.90237 9.29289 2.29289L2.29289 9.29289C1.90237 9.68342 1.90237 10.3166 2.29289 10.7071C2.68342 11.0976 3.31658 11.0976 3.70711 10.7071L4 10.4142V17C4 17.5523 4.44772 18 5 18H7C7.55228 18 8 17.5523 8 17V14C8 13.4477 8.44772 13 9 13H11C11.5523 13 12 13.4477 12 14V17C12 17.5523 12.4477 18 13 18H15C15.5523 18 16 17.5523 16 17V10.4142L16.2929 10.7071C16.6834 11.0976 17.3166 11.0976 17.7071 10.7071C18.0976 10.3166 18.0976 9.68342 17.7071 9.29289L10.7071 2.29289Z" fill="#C7D3FF"/>
+// </svg>`,
+//                 href: "/",
+//             },
             {
                 name: "Originals",
                 icon: `<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +198,7 @@ const toggleCategory = (category) => {
                         </div>
                         <transition name="slide">
                             <div class="aside-items" v-show="category.isOpen">
-                                <Link :href="item.href" class="aside-item-content" v-for="item in category.items" :key="item.name">
+                                <Link :href="item.href" :class="{ 'active': isActive(item.href) }" class="aside-item-content" v-for="item in category.items" :key="item.name">
                                 <div class="flex gap-2 items-center">
                                     <div v-html="item.icon">
 
@@ -194,9 +221,19 @@ const toggleCategory = (category) => {
                 </div>
             </div>
             <div class="flex flex-col gap-8 py-5">
-                <!-- <div class="aside-info-container">
-                    <img src="/assets/images/aside/info-image1.png" height="160" alt="info-image">
-                </div> -->
+                <div v-if="!userStore.user" class="aside-info-container">
+                    <img src="/assets/images/aside/vip_reward_mobile.png" height="160" alt="info-image">
+                </div>
+                <div v-else class="px-1.5">
+                    <div :style="{ backgroundImage: `url('/assets/images/aside/ranks/${userRankName?.type}_bg.png')` }" class="aside-info-container justify-start py-3 items-center bg-contain bg-center bg-no-repeat h-[128px] flex relative flex-col gap-2">
+                        <VipRank :rank="userRankName?.level" :type="userRankName?.type" />
+                        <div class="px-0.5 w-full">
+                            <div class="bg-secondary-light/25 overflow-hidden relative w-full h-1 rounded-full">
+                                <div class="bg-secondary-light absolute top-0 left-0 h-full rounded-full" :style="{ width: 50 + '%' }"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="aside-items-container hide-scroll max-h-[calc(100vh-180px)] overflow-y-auto">
                     <div class="aside-item" v-for="category in categories" :key="category.name">
                         <div class="aside-item-title justify-center text-center" @click="toggleCategory(category)">
@@ -206,7 +243,7 @@ const toggleCategory = (category) => {
                             <div class="aside-items flex flex-col gap-2">
                                 <div class="" v-for="item in category.items" :key="item.name">
                                     <Link :href="item.href" class="flex gap-2 justify-center items-center">
-                                    <div class="aside-item-icon-laptop">
+                                    <div :class="{ 'active': isActive(item.href) }" class="aside-item-icon-laptop">
                                         <div v-html="item.icon">
 
                                         </div>

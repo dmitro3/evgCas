@@ -549,7 +549,7 @@ onBeforeUnmount(() => {
                                     $514.54
                                 </div>
                             </div>
-                            <div class="w-fit bg-online text-green-light flex absolute top-5 left-5 z-10 gap-2 justify-center items-center p-0.5 px-2 text-sm font-bold rounded-full">
+                            <div class="w-fit bg-online text-green-light flex absolute top-5 left-5 z-10 gap-2 justify-center items-center p-0.5 px-2 text-sm font-bold uppercase rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
                                     <circle cx="8.5" cy="9.5" r="8" fill="#5DDF59" fill-opacity="0.1" />
                                     <circle cx="8.5" cy="9.5" r="4" fill="#47F260" />
