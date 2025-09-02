@@ -1215,3 +1215,16 @@ aside {
         background-image: url("/assets/images/main/support_tablet.png") !important;
     }
 }
+
+/* tippy theme for aside */
+.tippy-box[data-theme~='aside'] {
+    background-color: #212E5A;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 12px;
+    padding: 4px 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.tippy-box[data-theme~='aside'] .tippy-arrow {
+    color: #212E5A;
+}

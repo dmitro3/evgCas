@@ -11,6 +11,7 @@ import VueApexCharts from "vue3-apexcharts";
 
 import "vue3-toastify/dist/index.css";
 import './echo';
+import { vTippy } from './directives/tippy';
 
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
@@ -35,6 +36,7 @@ createInertiaApp({
             .use(createPinia());
 
         app.component('apexchart', VueApexCharts);
+        app.directive('tippy', vTippy);
 
         return app.mount(el);
     },

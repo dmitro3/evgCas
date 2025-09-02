@@ -243,7 +243,7 @@ const toggleCategory = (category) => {
                             <div class="aside-items flex flex-col gap-2">
                                 <div class="" v-for="item in category.items" :key="item.name">
                                     <Link :href="item.href" class="flex gap-2 justify-center items-center">
-                                    <div :class="{ 'active': isActive(item.href) }" class="aside-item-icon-laptop">
+                                    <div v-tippy="{ content: item.name, placement: 'right' }" :class="{ 'active': isActive(item.href) }" class="aside-item-icon-laptop">
                                         <div v-html="item.icon">
 
                                         </div>
