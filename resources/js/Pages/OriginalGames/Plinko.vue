@@ -466,197 +466,94 @@ function createBallTexture(radius) {
                     </div>
 
                     <div class="notes">
-                        <div
-                            v-for="(mult, index) in multipliers"
-                            :key="index"
-                            type="button"
-                            class="note"
-                            :style="getNoteStyle(index)"
-                            :id="`note-${index}`"
-                        >
+                        <div v-for="(mult, index) in multipliers" :key="index" type="button" class="note" :style="getNoteStyle(index)" :id="`note-${index}`">
                             {{ mult }}
                         </div>
                     </div>
                 </div>
 
-                <div
-                    class="bg-secondary-bg/80 mx-auto max-w-[900px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border mt-6"
-                >
-                    <div
-                        class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1 min-w-[250px]"
-                    >
-                        <input
-                            :value="betAmount"
-                            @input="
-                                store.setBetAmount(
-                                    parseFloat($event.target.value) || 0.01
-                                )
-                            "
-                            type="number"
-                            placeholder="Bet amount"
-                            step="0.01"
-                            min="0.01"
-                        />
-                        <div
-                            class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg cursor-pointer"
-                            @click="setBetHalf"
-                        >
+                <div class="bg-secondary-bg/80 mx-auto max-w-[900px] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border mt-6">
+                    <div class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1 min-w-[250px]">
+                        <input :value="betAmount" @input="
+                            store.setBetAmount(
+                                parseFloat($event.target.value) || 0.01
+                            )
+                            " type="number" placeholder="Bet amount" step="0.01" min="0.01" />
+                        <div class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg cursor-pointer" @click="setBetHalf">
                             1/2
                         </div>
-                        <div
-                            class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg cursor-pointer"
-                            @click="setBetDouble"
-                        >
+                        <div class="bg-primary/10 text-primary hover:bg-primary/20 px-2 py-1.5 text-sm leading-none rounded-lg cursor-pointer" @click="setBetDouble">
                             2X
                         </div>
                     </div>
 
 
-                    <div
-                        class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
-                    >
-                        <span class="text-gray">Risk</span>
-                        <div
-                            class="flex gap-1 items-center capitalize cursor-pointer"
-                            @click="showRiskDropdown = !showRiskDropdown"
-                        >
-                            {{ risk }}
-                            <svg
-                                width="12"
-                                height="7"
-                                viewBox="0 0 12 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    opacity="0.5"
-                                    d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z"
-                                    fill="#CAD9FF"
-                                />
-                            </svg>
-                        </div>
+                    <div  @click="showRiskDropdown = !showRiskDropdown" class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative">
+                        <div class="flex gap-1 items-center">
 
-                        <div
-                            v-if="showRiskDropdown"
-                            class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border"
-                        >
-                            <div
-                                v-for="option in riskOptions"
-                                :key="option"
-                                class="hover:bg-secondary-bg px-3 py-2 capitalize cursor-pointer"
-                                @click="changeRisk(option)"
-                            >
+                            <div class="flex gap-1 items-center capitalize cursor-pointer">
+                                {{ risk }}
+
+                            </div>
+                            <span class="text-gray">risk</span>
+                        </div>
+                        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.5" d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z" fill="#CAD9FF" />
+                        </svg>
+                        <div v-if="showRiskDropdown" class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border">
+                            <div v-for="option in riskOptions" :key="option" class="hover:bg-secondary-bg px-3 py-2 capitalize cursor-pointer" @click="changeRisk(option)">
                                 {{ option }}
                             </div>
                         </div>
                     </div>
-                    <div
-                        class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative"
-                    >
-                        <span class="text-gray">Rows</span>
-                        <div
-                            class="flex gap-1 items-center cursor-pointer"
-                            @click="showRowsDropdown = !showRowsDropdown"
-                        >
-                            {{ rows }}
-                            <svg
-                                width="12"
-                                height="7"
-                                viewBox="0 0 12 7"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    opacity="0.5"
-                                    d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z"
-                                    fill="#CAD9FF"
-                                />
-                            </svg>
+                    <div @click="showRowsDropdown = !showRowsDropdown" class="main-input-small justify-between !bg-secondary-sidebar-dark/50 flex gap-1 relative">
+                        <div class="flex gap-1 items-center">
+                            <div class="flex gap-1 items-center capitalize cursor-pointer">
+                                {{ rows }}
+                            </div>
+                            <span class="text-gray">rows</span>
                         </div>
-
-                        <div
-                            v-if="showRowsDropdown"
-                            class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border"
-                        >
-                            <div
-                                v-for="option in rowsOptions"
-                                :key="option"
-                                class="hover:bg-secondary-bg px-3 py-2 uppercase cursor-pointer"
-                                @click="changeRows(option)"
-                            >
+                        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.5" d="M6 7C6.23051 7 6.42712 6.91052 6.60339 6.72468L11.7763 1.35595C11.9254 1.21141 12 1.01868 12 0.798427C12 0.351032 11.661 0 11.2136 0C10.9966 0 10.8 0.089479 10.6508 0.240905L6 5.07965L1.34915 0.240905C1.19322 0.089479 0.99661 0 0.779661 0C0.338983 0 0 0.351032 0 0.798427C0 1.01868 0.0745763 1.21141 0.223729 1.35595L5.39661 6.72468C5.57288 6.91052 5.76949 6.99312 6 7Z" fill="#CAD9FF" />
+                        </svg>
+                        <div v-if="showRowsDropdown" class="bg-secondary-sidebar border-secondary-bg overflow-y-auto absolute right-0 left-0 top-full z-10 mt-1 max-h-40 rounded-lg border">
+                            <div v-for="option in rowsOptions" :key="option" class="hover:bg-secondary-bg px-3 py-2 capitalize cursor-pointer" @click="changeRows(option)">
                                 {{ option }}
                             </div>
                         </div>
                     </div>
-                    <button
-                        @click="bet"
-                        class="btn btn-primary flex-shrink-0 px-8"
-                    >
+                    <button @click="bet" class="btn btn-primary flex-shrink-0 px-8">
                         Bet
                     </button>
-                    <button
-                        @click="toggleSound"
-                        :class="[
-                            'btn before:hidden flex flex-shrink-0 justify-center items-center w-11 h-11 rounded-xl transition-all',
-                            soundEnabled
-                                ? 'bg-primary/20 text-primary'
-                                : 'bg-white/10 text-white/50',
-                        ]"
-                    >
-                        <svg
-                            v-if="soundEnabled"
-                            width="18"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"
-                                fill="currentColor"
-                            />
+                    <button @click="toggleSound" :class="[
+                        'btn before:hidden flex flex-shrink-0 justify-center items-center w-11 h-11 rounded-xl transition-all',
+                        soundEnabled
+                            ? 'bg-primary/20 text-primary'
+                            : 'bg-white/10 text-white/50',
+                    ]">
+                        <svg v-if="soundEnabled" width="18" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="currentColor" />
                         </svg>
-                        <svg
-                            v-else
-                            width="18"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"
-                                fill="currentColor"
-                            />
+                        <svg v-else width="18" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" fill="currentColor" />
                         </svg>
                     </button>
                 </div>
             </div>
-            <div
-                class="bg-secondary-sidebar-dark border-blue_dark flex justify-between items-center p-6 rounded-b-xl border-t"
-            >
+            <div class="bg-secondary-sidebar-dark border-blue_dark flex justify-between items-center p-6 rounded-b-xl border-t">
                 <div class="flex gap-1 items-center font-extrabold uppercase">
                     <span class="text-dark-text-2">Mines</span>
                     <span class="text-dark-text-3">Original Game</span>
                 </div>
-                <div
-                    class="bg-blue_light/5 flex gap-2 items-center py-1 pr-4 pl-1 rounded-full"
-                >
-                    <img
-                        src="/assets/images/header/default_avatar.png"
-                        alt="avatar"
-                        class="w-7 h-7 rounded-full"
-                    />
+                <div class="bg-blue_light/5 flex gap-2 items-center py-1 pr-4 pl-1 rounded-full">
+                    <img src="/assets/images/header/default_avatar.png" alt="avatar" class="w-7 h-7 rounded-full" />
                     <span class="text-blue_dark_2">{{
                         userStore.user?.name || "Guest"
                     }}</span>
-                    <span
-                        class="text-blue_light font-bold transition-all duration-300"
-                        :class="{
-                            'text-green-400':
-                                previousBalance !== userStore.user?.balance,
-                        }"
-                    >
+                    <span class="text-blue_light font-bold transition-all duration-300" :class="{
+                        'text-green-400':
+                            previousBalance !== userStore.user?.balance,
+                    }">
                         {{ userStore.user?.balance || "0.00" }}
                     </span>
                 </div>
@@ -745,6 +642,7 @@ function createBallTexture(radius) {
     margin-top: 3em;
     gap: 1em;
 }
+
 .controls .drop-container {
     display: flex;
     justify-content: center;
@@ -793,19 +691,23 @@ function createBallTexture(radius) {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
+
     100% {
         transform: scale(1);
     }
 }
 
 @keyframes blink {
+
     0%,
     100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.6;
     }
@@ -819,6 +721,7 @@ function createBallTexture(radius) {
     margin-right: auto;
     color: rgba(255, 255, 255, 0.2);
 }
+
 #balls:before,
 #multiplier:before {
     content: "-";
@@ -835,6 +738,7 @@ function createBallTexture(radius) {
 #multiplier {
     text-align: right;
 }
+
 #multiplier:before {
     content: "Drop";
     right: 0;
@@ -845,6 +749,7 @@ function createBallTexture(radius) {
     align-items: center;
     justify-content: center;
 }
+
 .canvas-container canvas {
     display: block;
     margin: auto;
@@ -857,6 +762,7 @@ function createBallTexture(radius) {
     gap: 5px;
     margin-top: 10px;
 }
+
 .note::before {
     content: '';
     position: absolute;
@@ -872,6 +778,7 @@ function createBallTexture(radius) {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
 .notes .note {
     display: flex;
     align-items: center;
@@ -887,20 +794,25 @@ function createBallTexture(radius) {
     font-weight: 600;
     filter: drop-shadow(0px 3.77px 0px rgba(41, 138, 255, 0.25)) drop-shadow(0px 7.54px 7.54px rgba(41, 138, 255, 0.25));
 }
+
 .notes .note[data-pressed="true"] {
     animation: press 0.5s;
 }
+
 @keyframes press {
     0% {
         scale: 1;
     }
+
     50% {
         scale: 0.95;
     }
+
     100% {
         scale: 1;
     }
 }
+
 /* Dynamic colors are applied via classes: bg-red-primary, bg-orange, bg-primary */
 
 .main-input-small {

@@ -72,6 +72,9 @@ defineProps({
 </template>
 
 <style scoped>
+.list_partner svg{
+    transition: all 0.3s ease;
+}
 .list_partner.active svg{
     @apply opacity-100
 }
@@ -79,6 +82,6 @@ defineProps({
     @apply  bg-primary/10 text-[#81BAFF] ;
 }
 .list_partner{
-    @apply  flex gap-2 items-center rounded-full text-secondary-light/50 uppercase px-4 py-3 leading-none hover:bg-secondary-sidebar  font-extrabold;
+    @apply  flex gap-2 items-center rounded-full text-secondary-light/50 uppercase px-4 py-3 leading-none bg-secondary-sidebar  font-bold;
 }
 </style>

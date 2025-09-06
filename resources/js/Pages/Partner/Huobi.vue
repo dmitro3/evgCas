@@ -42,8 +42,8 @@ const faqItems = [
                             <path d="M26.419 20.5043C26.3777 20.4492 26.3088 20.4354 26.2536 20.463C26.2399 20.4768 26.2261 20.4906 26.2123 20.5043C25.3027 23.7843 23.7592 26.8713 21.6645 29.5587C13.3543 41.3693 18.1089 47.0609 20.7687 50.0377C22.2984 51.8155 20.7687 50.0377 24.6412 48.2186C29.2993 45.6139 32.4001 40.9145 32.9514 35.6087C33.3786 29.8067 30.9393 24.1702 26.419 20.5043Z" fill="#E8EDFF" />
                         </svg>
 
-                        <div class="flex flex-col gap-2">
-                            <h1 class="md:text-4xl text-2xl font-bold text-white">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official Huobi
                                 partnerships
                             </h1>
@@ -56,8 +56,8 @@ const faqItems = [
                 </div>
                 <ListPartner :active="`huobi`"></ListPartner>
             </div>
-            <div class="flex flex-col gap-8 rounded-xl">
-                <div class="max-md:flex-col flex gap-6 items-start">
+            <div class="partner_content flex flex-col gap-12 rounded-xl">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/huobi_image1.png" alt="huobi_image1" class="image_partner">
 
                     <div class="flex flex-col gap-2">
@@ -69,7 +69,7 @@ const faqItems = [
                         </p>
                     </div>
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -81,7 +81,7 @@ const faqItems = [
                     </div>
                     <img src="/assets/images/partner/huobi_image2.png" alt="huobi_image2" class="image_partner">
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/huobi_image3.png" alt="huobi_image3" class="image_partner">
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -93,7 +93,7 @@ const faqItems = [
                     </div>
 
                 </div>
-                <div class="container flex flex-col gap-6 mx-auto">
+                <div class="container flex flex-col gap-6 mx-auto pt-10">
                 <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
                     <h2 class="text-[22px] font-bold">
                         Frequently Asked Questions

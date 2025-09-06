@@ -7,6 +7,10 @@
     src: url('/assets/fonts/suisseintl.woff2') format('woff2');
 }
 
+.partner_content img{
+    @apply md:max-w-[520px] md:max-h-[230px] max-md:w-full
+}
+
 :root {
     --swiper-pagination-bottom: 0px;
 
@@ -237,8 +241,7 @@ input[type="number"] {
 
 .btn-swiper {
     color: #C7D3FF80 !important;
-    @apply !text-white before:hidden hover:bg-secondary-sidebar px-3 transition-all duration-300;
-
+    @apply before:hidden hover:bg-secondary-sidebar px-3 text-white transition-all duration-300;
 }
 
 .btn:before {
@@ -815,7 +818,7 @@ aside {
 }
 
 .aside-info-container {
-    @apply px-3;
+    @apply px-1.5;
 }
 
 .aside-items-container {
@@ -888,6 +891,12 @@ aside {
     background: #6A759E29;
 }
 
+.footer-logos img:first-child{
+    @apply ml-0;
+}
+.footer-logos img:last-child{
+    @apply mr-0;
+}
 .footer-logos img{
     max-height: 40px;
     @apply mx-auto
@@ -907,7 +916,9 @@ aside {
 .aside-item-content svg {
     @apply opacity-50;
 }
-
+.aside-item-content.crown:hover svg {
+    @apply fill-orange text-orange opacity-100;
+}
 .aside-item-content:hover svg {
     @apply fill-primary text-primary opacity-100;
 }
@@ -937,13 +948,15 @@ aside {
     @apply content-[''] absolute top-1/2 -translate-y-1/2 -left-0.5 h-5 rounded-lg bg-primary w-1;
 }
 .aside-item-content {
-    @apply text-secondary-light/50 fill-primary overflow-hidden relative px-3 py-3 font-semibold rounded-xl border-l-2 border-transparent transition-all cursor-pointer;
+    @apply text-secondary-light/50 fill-primary overflow-hidden relative px-3 py-3 font-bold rounded-xl border-l-2 border-transparent transition-all cursor-pointer;
 }
 
 .aside-item-content.active {
     @apply text-white;
 }
-
+.aside-item-content.active.crown svg {
+    @apply fill-orange text-orange hover:fill-orange hover:text-orange opacity-100;
+}
 .aside-item-content.active svg {
     @apply fill-primary text-primary opacity-100;
 }
@@ -1056,6 +1069,12 @@ aside {
         background-size: cover;
         background-position: bottom;
     }
+    .footer-logos img:first-child{
+        @apply mx-auto;
+    }
+    .footer-logos img:last-child{
+        @apply mx-auto;
+    }
     .logos img{
         @apply mx-auto
     }
@@ -1079,6 +1098,7 @@ aside {
         background-size: cover;
         background-position: bottom;
         min-height: 460px;
+
     }
 
     .licenses-bg {
@@ -1193,6 +1213,7 @@ aside {
 
     .bg-main-container-4 {
         background-image: url("/assets/images/main/container4_tablet.png");
+
     }
     .bg-main-container-2 {
         background-image: url("/assets/images/main/container2_tablet.png");
@@ -1218,13 +1239,26 @@ aside {
 
 /* tippy theme for aside */
 .tippy-box[data-theme~='aside'] {
-    background-color: #212E5A;
-    color: #fff;
+
+    background-color: #242F57;
+    color: #E8EDFFCC;
     font-weight: 700;
     border-radius: 12px;
     padding: 4px 10px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 .tippy-box[data-theme~='aside'] .tippy-arrow {
+    color: #242F57;
+}
+
+/* tippy theme for active aside */
+.tippy-box[data-theme~='aside-active'] {
+    background-color: #298AFF1F;
+    color: #298AFF;
+    font-weight: 800;
+    border-radius: 12px;
+    padding: 4px 10px;
+}
+.tippy-box[data-theme~='aside-active'] .tippy-arrow {
     color: #212E5A;
 }

@@ -18,6 +18,10 @@ const showAll = () => {
     isExpanded.value = true;
 };
 
+const showLess = () => {
+    isExpanded.value = false;
+};
+
 const slotsToShow = computed(() => {
     return isExpanded.value ? slots.value : slots.value.slice(0, 14);
 });
@@ -53,7 +57,28 @@ const slotsToShow = computed(() => {
                     @click="showAll"
                     class="bg-secondary-sidebar flex gap-2 justify-center items-center py-5 w-full font-bold rounded-lg"
                 >
-                    <span>Show all</span>
+                    <span>Show more</span>
+                    <div class="aside-item-icon-container">
+                        <img
+                            src="/assets/images/icons/arrow.svg"
+                            :class="[
+                                'transition-transform duration-300',
+                                { 'rotate-180': slotsToShow.length > 14 },
+                            ]"
+                            alt="arrow"
+                        />
+                    </div>
+                </button>
+            </div>
+            <div
+                v-else-if="isExpanded && slots.length > 14"
+                class="flex justify-center w-full"
+            >
+                <button
+                    @click="showLess"
+                    class="bg-secondary-sidebar flex gap-2 justify-center items-center py-5 w-full font-bold rounded-lg"
+                >
+                    <span>Show less</span>
                     <div class="aside-item-icon-container">
                         <img
                             src="/assets/images/icons/arrow.svg"

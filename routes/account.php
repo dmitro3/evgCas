@@ -6,6 +6,7 @@ use App\Http\Controllers\AccountController;
 Route::group(['prefix' => 'account', 'middleware' => 'auth'], function () {
     Route::get('/', [AccountController::class, 'index']);
     Route::get('/{tab}', [AccountController::class, 'showTab']);
+    Route::get('/wallet/{subtab}', [AccountController::class, 'showSubTab']);
 
     Route::post('/withdraw/create', [AccountController::class, 'createWithdraw'])->name('account.withdraw.create');
     Route::get('/profile/get', [AccountController::class, 'getProfile'])->name('account.profile.get');

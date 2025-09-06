@@ -1,6 +1,7 @@
 <script setup>
 
 import MainLayout from "@/Layouts/MainLayout.vue";
+import PrizePool from "@/Components/Main/Global/PrizePool.vue";
 
 const terms_rows_1 = [
     {
@@ -85,16 +86,16 @@ const terms_rows_2 = [
             <div class="flex flex-col gap-8 p-6 rounded-xl">
                 <div class="flex flex-col gap-2">
                     <h1 class="text-[22px] font-bold">
-                        Daily Rakeback
+                        Battle of the Multipliers
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
-                        Domain offers the "Daily Rakeback" program – your chance to get some of your funds back every 24 hours! Play slots and original games and get a percentage of every bet back into your account. This significantly increases your profit! Regardless of whether you win or lose, you are guaranteed a return of 0.1% to 0.3% of your bets. The amount of the return directly depends on your VIP level – the higher your status, the more rakeback you will receive. With Domain, you not only enjoy exciting games but also get a tangible benefit, making every spin and every bet even more profitable
+                        Dominate the daily “Battle of the Multipliers” at Domain! Each day, the 50 top players who achieve the highest multipliers across all original Domain games and slots will split a $30,000 prize pool. Refine your strategies, maximize your multipliers, and claim your share of the daily winnings!
                     </p>
                 </div>
                 <div class="bg-secondary-sidebar flex gap-16 items-center p-4 rounded-xl">
-                    <img src="/assets/images/news/content_banner/prize_pool.png" class="max-w-[350px] w-full" alt="">
+                    <PrizePool win_amount="$30,000" />
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-3xl font-bold">Split between 30 players</h1>
+                        <h1 class="text-[22px] font-bold">Split between 50 players</h1>
                         <p class="text-secondary-light/75">An incredible prize pool is divided among Moneycounter players who participate</p>
                     </div>
 
@@ -104,13 +105,13 @@ const terms_rows_2 = [
                         How to Enter
                     </h1>
                     <div class="max-lg:grid-cols-1 grid grid-cols-2 gap-4 items-stretch">
-                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 w-full rounded-xl">
+                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 w-full rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 1
                             </div>
                             <p class="text-secondary-light">Be a registered member of Domain</p>
                         </div>
-                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 w-full rounded-xl">
+                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 w-full rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 2
                             </div>
@@ -121,7 +122,7 @@ const terms_rows_2 = [
 
                 </div>
                 <div class="flex flex-col gap-2">
-                    <h1 class="text-3xl font-bold">
+                    <h1 class="text-[22px] font-bold">
                         Terms and Conditions
                     </h1>
                     <div class="flex flex-col gap-4">
@@ -143,8 +144,8 @@ const terms_rows_2 = [
                         </div>
                     </div>
 
+                    <button class="btn btn-primary flex justify-center">Bonuses page</button>
                 </div>
-                <button class="btn btn-primary flex justify-center">Bonuses page</button>
             </div>
         </div>
     </MainLayout>

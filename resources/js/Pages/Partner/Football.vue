@@ -37,11 +37,11 @@ const faqItems = [
                 <div class="bg_football min-h-[250px] bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
                     <div class="max-md:items-center max-md:justify-center max-md:text-center max-w-[525px] flex flex-col gap-5">
                         <img src="/assets/images/partner/fc_bayern_logo.png" alt="football" class="w-12 h-12">
-                        <div class="flex flex-col gap-2">
-                            <h1 class="md:text-4xl text-2xl font-bold text-white">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official football partnerships
                             </h1>
-                            <p class="text-secondary-light/50 ">
+                            <p class="text-secondary-light/50">
                                 Domain is the official sponsor of FC Bayern München, providing a path to new achievements!
                             </p>
                         </div>
@@ -50,7 +50,7 @@ const faqItems = [
                 </div>
                 <ListPartner :active="`football`"></ListPartner>
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
+            <div class="flex flex-col gap-12 rounded-xl partner_content">
                 <div class="max-md:flex-col flex gap-11 items-start">
                     <img src="/assets/images/partner/football_image1.png" alt="football_image1" class="image_partner">
                     <div class="flex flex-col gap-2">
@@ -86,7 +86,7 @@ const faqItems = [
                         </p>
                     </div>
                 </div>
-                <div class="container flex flex-col gap-6 mx-auto">
+                <div class="container flex flex-col gap-6 mx-auto pt-10">
                     <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
                         <h2 class="text-[22px] font-bold">
                             Frequently Asked Questions

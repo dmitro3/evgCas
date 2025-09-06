@@ -63,7 +63,11 @@ const faqItems = {
 
 const progress = ref(props.vipProgress || 0);
 const currentRank = ref(user.current_ranks[0]?.type || "silver");
+const isMobile = ref(false);
 
+onMounted(() => {
+    isMobile.value = window.innerWidth < 768;
+});
 </script>
 
 <template>
@@ -71,11 +75,11 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
         <section class="md: flex flex-col gap-12">
             <div class="flex flex-col gap-2.5">
                 <div class="container grid grid-cols-1 gap-2.5 mx-auto w-full">
-                    <div class="bg-main-container-2 p-6 rounded-xl min-h-[250px]">
-                        <div class="flex flex-col h-full max-md:items-center max-md:text-center max-md:min-h-[500px] gap-2.5 max-w-[380px]">
+                    <div class="bg-vip-container-2 p-6 h-full rounded-xl min-h-[250px] max-md:min-h-[512px]">
+                        <div class="flex flex-col h-full max-md:items-center max-md:text-center  gap-2.5 max-w-[380px]">
                             <div class="flex flex-col gap-2 h-full">
-                                <h1 class="md:text-3xl text-xl font-bold text-white">
-                                    Play Domain Casino and win
+                                <h1 class="text-3xl font-bold text-white">
+                                    Play Domain <br v-if="isMobile"> Casino and win
                                     <span class="text-primary">Lamborghini Urus</span>
                                 </h1>
                                 <p class="text-secondary-light/50 md:text-base">
@@ -84,7 +88,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                     partners
                                 </p>
                             </div>
-                            <button class="btn btn-primary max-md:mt-2 w-fit px-5">
+                            <button class="btn btn-primary max-md:mt-2 w-fit px-6 py-3">
                                 Deposit
                             </button>
                         </div>
@@ -92,7 +96,7 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                 </div>
             </div>
 
-            <div class="container flex overflow-x-auto min-h-[200px] flex-col gap-6 mx-auto">
+            <div class="container flex overflow-x-auto min-h-[180px] flex-col gap-6 mx-auto">
                 <h2 class="text-xl font-bold">Your Progress</h2>
                 <div class="relative min-h-[40px]  w-full min-w-[600px]">
                     <div class="absolute top-0  left-0 z-[100] w-full h-full">
@@ -409,11 +413,11 @@ const currentRank = ref(user.current_ranks[0]?.type || "silver");
                                 General
                             </div>
                         </div>
-                        <div @click="faqTab = 'privileges'" :class="{ '!bg-secondary text-white active': faqTab === 'privileges' }" class="aside-item-content before:hidden after:hidden">
+                        <div @click="faqTab = 'privileges'" :class="{ '!bg-secondary text-white active': faqTab === 'privileges' }" class="aside-item-content before:hidden after:hidden crown">
                             <div class="flex gap-2 items-center">
                                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.3329 5.42068V13.404C18.3329 15.704 16.4663 17.5707 14.1663 17.5707H5.83294C5.44961 17.5707 5.08294 17.5207 4.72461 17.4207C4.20794 17.279 4.04128 16.6207 4.42461 16.2374L13.2829 7.37902C13.4663 7.19568 13.7413 7.15402 13.9996 7.20402C14.2663 7.25402 14.5579 7.17902 14.7663 6.97902L16.9079 4.82902C17.6913 4.04568 18.3329 4.30402 18.3329 5.42068Z" fill="#FF9429"  />
-                                    <path d="M12.2013 6.7957L3.4763 15.5207C3.0763 15.9207 2.40964 15.8207 2.14297 15.3207C1.83464 14.754 1.66797 14.0957 1.66797 13.404V5.4207C1.66797 4.30404 2.30964 4.0457 3.09297 4.82904L5.24297 6.98737C5.56797 7.30404 6.1013 7.30404 6.4263 6.98737L9.40964 3.9957C9.73464 3.6707 10.268 3.6707 10.593 3.9957L12.2096 5.61237C12.5263 5.93737 12.5263 6.4707 12.2013 6.7957Z" fill="#FF9429"  />
+                                    <path d="M18.3329 5.42068V13.404C18.3329 15.704 16.4663 17.5707 14.1663 17.5707H5.83294C5.44961 17.5707 5.08294 17.5207 4.72461 17.4207C4.20794 17.279 4.04128 16.6207 4.42461 16.2374L13.2829 7.37902C13.4663 7.19568 13.7413 7.15402 13.9996 7.20402C14.2663 7.25402 14.5579 7.17902 14.7663 6.97902L16.9079 4.82902C17.6913 4.04568 18.3329 4.30402 18.3329 5.42068Z" fill="currentColor"  />
+                                    <path d="M12.2013 6.7957L3.4763 15.5207C3.0763 15.9207 2.40964 15.8207 2.14297 15.3207C1.83464 14.754 1.66797 14.0957 1.66797 13.404V5.4207C1.66797 4.30404 2.30964 4.0457 3.09297 4.82904L5.24297 6.98737C5.56797 7.30404 6.1013 7.30404 6.4263 6.98737L9.40964 3.9957C9.73464 3.6707 10.268 3.6707 10.593 3.9957L12.2096 5.61237C12.5263 5.93737 12.5263 6.4707 12.2013 6.7957Z" fill="currentColor"  />
                                 </svg>
                                 VIP BENEFITS
                             </div>
@@ -477,7 +481,7 @@ p {
     background-position: top;
 }
 
-.bg-main-container-2 {
+.bg-vip-container-2 {
     background-image: url("/assets/images/account/vip/bg_container2.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -494,10 +498,11 @@ p {
         background-position: bottom;
     }
 
-    .bg-main-container-2 {
+    .bg-vip-container-2 {
         background-image: url("/assets/images/account/vip/bg_container2_mobile.png");
-        background-size: contain;
+        background-size: cover;
         background-position: top;
+        max-height: 512px;
     }
 }
 </style>

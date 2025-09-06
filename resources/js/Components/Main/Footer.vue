@@ -76,7 +76,7 @@ const user = computed(() => userStore.user);
 
             <div class="line"></div>
 
-            <div class="max-md:flex-col-reverse max-md:gap-12 md:items-center flex justify-between items-start w-full">
+            <div v-if="!user" class="max-md:flex-col-reverse max-md:gap-12 md:items-center flex justify-between items-start w-full">
                 <div class="flex flex-col flex-shrink-0 gap-4">
                     <div class="flex gap-2.5 justify-start items-center text-2xl font-extrabold leading-none uppercase">
                         <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
@@ -115,6 +115,55 @@ const user = computed(() => userStore.user);
                     </div>
                 </div>
             </div>
+            <div class="flex flex-col gap-12">
+                <div class="flex justify-between items-center">
+                    <div class="max-md:flex-col-reverse max-md:gap-12 md:items-center flex justify-between items-start w-full">
+
+                        <div class="max-md:flex-col max-md:items-start max-md:gap-10 flex justify-between items-center">
+                            <div class="max-md:flex-col max-md:gap-4 md:items-center flex gap-8">
+                                <div class="flex flex-col gap-5">
+                                    <p class="text-lg font-bold text-white uppercase">
+                                        support
+                                    </p>
+                                    <p class="text-secondary-light/50 text-base font-medium">
+                                        support@{{ getDomain() }}
+                                    </p>
+                                </div>
+                                <div class="flex flex-col gap-5">
+                                    <p class="text-lg font-bold text-white uppercase">
+                                        press
+                                    </p>
+                                    <p class="text-secondary-light/50 text-base font-medium">
+                                        press@{{ getDomain() }}
+                                    </p>
+                                </div>
+                                <div class="flex flex-col gap-5">
+                                    <p class="text-lg font-bold text-white uppercase">
+                                        partners
+                                    </p>
+                                    <p class="text-secondary-light/50 text-base font-medium">
+                                        partners@{{ getDomain() }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-secondary-light/50 text-base font-medium max-w-[520px]">
+                            Domain.com is owned and operated by SSC Entertainment N.V., registration number: 151486, registered address: Korporaalweg 10, Willemstad, Curaçao. Payment agent company is Trustcore Limited with address 7-9 Riga Feraiou, LIZANTIA COURT, Office 310, Agioi Omologites, 1087 Nicosia, Cyprus and Registration number: HE 410775
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="max-md:flex-col max-md:items-start flex flex-shrink-0 gap-4 justify-between items-center">
+                    <div class="flex gap-2.5 justify-start items-center text-2xl font-extrabold leading-none uppercase">
+                        <img height="30" width="30" alt="logo" src="/assets/images/aside/test-logo.svg" />
+                        {{ getDomainName() }}
+                    </div>
+                    <p class="text-secondary-light/50 leading-none">
+                        © 2025 {{ getDomain() }} | All Right Are Reserved
+                    </p>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>

@@ -42,10 +42,10 @@ onBeforeUnmount(() => {
     <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-8">
             <div class="bg-secondary-sidebar-dark w-fit flex gap-2 items-center p-2 rounded-xl">
-                <button :class="{ 'active border-[#1F2A4F] !font-bold': activeTabTransactions === 'deposit' }" @click="activeTabTransactions = 'deposit'" class="btn btn-sidebar px-5 py-3 font-medium uppercase border border-transparent">
+                <button :class="{ 'active border-[#1F2A4F] !font-bold': activeTabTransactions === 'deposit', 'font-medium': activeTabTransactions !== 'deposit' }" @click="activeTabTransactions = 'deposit'" class="btn btn-sidebar px-5 py-3 uppercase border border-transparent">
                     Deposits
                 </button>
-                <button :class="{ 'active border-[#1F2A4F] !font-bold': activeTabTransactions === 'withdraw' }" @click="activeTabTransactions = 'withdraw'" class="btn btn-sidebar px-5 py-3 font-medium uppercase border border-transparent">
+                <button :class="{ 'active border-[#1F2A4F] !font-bold': activeTabTransactions === 'withdraw', 'font-medium': activeTabTransactions !== 'withdraw' }" @click="activeTabTransactions = 'withdraw'" class="btn btn-sidebar px-5 py-3 uppercase border border-transparent">
                     Withdraws
                 </button>
             </div>

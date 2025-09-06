@@ -180,7 +180,7 @@ onMounted(async () => {
             <div class="flex flex-col rounded-2xl">
                 <div class="max-md:flex-col-reverse flex items-stretch">
                     <div
-                        class="bg-tower flex flex-col gap-4 justify-center items-center py-11 w-full rounded-t-xl"
+                        class="bg-tower flex flex-col gap-4 justify-center items-center py-11 pb-4 w-full rounded-t-xl"
                     >
                         <div
                             class="flex items-stretch relative max-md:scale-[0.95] max-md:flex-col-reverse gap-4 max-w-[440px] w-full mx-auto p-3.5 rounded-xl bg-background"
@@ -214,7 +214,7 @@ onMounted(async () => {
                         </div>
 
                         <div
-                            class="md:bg-secondary-bg/80 max-w-[750px] max-md:flex-col border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
+                            class="md:bg-secondary-bg/80  max-w-[700px] max-md:flex-col border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border"
                         >
                             <div
                                 class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1"

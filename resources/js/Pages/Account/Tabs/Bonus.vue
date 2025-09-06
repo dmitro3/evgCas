@@ -67,7 +67,7 @@ const handleActivatePromo = async () => {
                 <div class="bg-secondary-sidebar bonus-bg md:items-center md:justify-center bonus-bg-mobile flex w-full rounded-2xl">
                     <div class="flex flex-col gap-5 pl-6 py-6 h-full max-w-[250px] w-full">
                         <div class="flex flex-col gap-4 h-full">
-                            <div class="w-fit bg-primary/10 flex gap-2 items-center px-3 py-2 text-sm font-extrabold uppercase rounded-lg">
+                            <div class="w-fit bg-primary/10 flex gap-2 items-center px-3 py-2 text-sm font-bold uppercase rounded-lg">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.4884 2.89551H7.43344V5.16051C7.43344 5.45301 7.19344 5.68551 6.90844 5.68551C6.62344 5.68551 6.38344 5.45301 6.38344 5.16051V2.89551H5.51344C2.55094 2.89551 1.57594 3.78051 1.50844 6.54801C1.50094 6.68301 1.56094 6.82551 1.65844 6.92301C1.75594 7.02801 1.88344 7.08051 2.03344 7.08051C3.08344 7.08051 3.94594 7.95051 3.94594 9.00051C3.94594 10.0505 3.08344 10.9205 2.03344 10.9205C1.89094 10.9205 1.75594 10.973 1.65844 11.078C1.56094 11.1755 1.50094 11.318 1.50844 11.453C1.57594 14.2205 2.55094 15.1055 5.51344 15.1055H6.38344V12.8405C6.38344 12.548 6.62344 12.3155 6.90844 12.3155C7.19344 12.3155 7.43344 12.548 7.43344 12.8405V15.1055H12.4884C15.5634 15.1055 16.5009 14.168 16.5009 11.093V6.90801C16.5009 3.83301 15.5634 2.89551 12.4884 2.89551ZM13.8534 8.92551L13.1559 9.60051C13.1259 9.62301 13.1184 9.66801 13.1259 9.70551L13.2909 10.658C13.3209 10.8305 13.2534 11.0105 13.1034 11.1155C12.9609 11.2205 12.7734 11.2355 12.6159 11.153L11.7534 10.703C11.7234 10.688 11.6784 10.688 11.6484 10.703L10.7859 11.153C10.7184 11.1905 10.6434 11.2055 10.5684 11.2055C10.4709 11.2055 10.3809 11.1755 10.2984 11.1155C10.1559 11.0105 10.0809 10.838 10.1109 10.658L10.2759 9.70551C10.2834 9.66801 10.2684 9.63051 10.2459 9.60051L9.54844 8.92551C9.42094 8.80551 9.37594 8.61801 9.42844 8.45301C9.48094 8.28051 9.62344 8.16051 9.80344 8.13801L10.7634 7.99551C10.8009 7.98801 10.8309 7.96551 10.8534 7.93551L11.2809 7.06551C11.3634 6.90801 11.5209 6.81051 11.7009 6.81051C11.8809 6.81051 12.0384 6.90801 12.1134 7.06551L12.5409 7.93551C12.5559 7.97301 12.5859 7.99551 12.6234 7.99551L13.5834 8.13801C13.7634 8.16051 13.9059 8.28801 13.9584 8.45301C14.0259 8.61801 13.9809 8.79801 13.8534 8.92551Z" fill="#298AFF" />
                                 </svg>
@@ -199,7 +199,7 @@ const handleActivatePromo = async () => {
 
                     <div class="md:grid-cols-3 grid grid-cols-1 gap-4">
                         <div class="bg-secondary-sidebar-light-3 p-4 rounded-xl">
-                            <div class="flex gap-3 items-center mb-2">
+                            <div class="flex gap-3 items-center mb-1">
                                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.35" d="M13.9987 25.6668C20.442 25.6668 25.6654 20.4434 25.6654 14.0001C25.6654 7.55678 20.442 2.33344 13.9987 2.33344C7.55538 2.33344 2.33203 7.55678 2.33203 14.0001C2.33203 20.4434 7.55538 25.6668 13.9987 25.6668Z" fill="#E8EDFF" fill-opacity="0.5" />
                                     <path d="M17.6441 16.582C17.6441 12.613 13.2632 13.1555 13.2632 11.087C13.2632 9.86898 14.2211 9.74064 14.5524 9.74064C14.8791 9.74064 15.1684 9.81881 15.4134 9.92848C15.9897 10.1886 16.6722 9.94714 17.0374 9.43147C17.5052 8.76997 17.2637 7.84014 16.5252 7.50648C16.1204 7.32448 15.6152 7.17748 15.0027 7.11914V6.54281C15.0027 6.01197 14.5722 5.58264 14.0426 5.58264C13.5129 5.58264 13.0824 6.01314 13.0824 6.54281V7.32214C11.4736 7.85764 10.4282 9.32881 10.4282 11.2118C10.4282 15.3768 14.7554 14.6243 14.7554 16.7896C14.7554 17.2061 14.5582 18.115 13.4849 18.115C13.0077 18.115 12.5959 17.9808 12.2611 17.8046C11.6917 17.5071 10.9859 17.7265 10.6231 18.2573L10.5846 18.3133C10.1657 18.9258 10.3349 19.7845 10.9801 20.1508C11.5226 20.4588 12.1864 20.698 12.9867 20.782V21.4563C12.9867 21.9871 13.4172 22.4165 13.9469 22.4165C14.4777 22.4165 14.9071 21.986 14.9071 21.4563V20.6093C16.6851 20.0656 17.6441 18.444 17.6441 16.582Z" fill="#E8EDFF" fill-opacity="0.5" />
@@ -207,33 +207,33 @@ const handleActivatePromo = async () => {
 
                                 <span class="text-secondary-light/50">Earnings of all time</span>
                             </div>
-                            <div class="ext-lg font-bold text-white">
+                            <div class="ext-lg font-semibold text-white">
                                 $15,000.99
                             </div>
                         </div>
 
                         <div class="bg-secondary-sidebar-light-3 p-4 rounded-xl">
-                            <div class="flex gap-3 items-center mb-2">
+                            <div class="flex gap-3 items-center mb-1">
                                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.35" d="M13.9987 25.6668C20.442 25.6668 25.6654 20.4434 25.6654 14.0001C25.6654 7.55678 20.442 2.33344 13.9987 2.33344C7.55538 2.33344 2.33203 7.55678 2.33203 14.0001C2.33203 20.4434 7.55538 25.6668 13.9987 25.6668Z" fill="#E8EDFF" fill-opacity="0.5" />
                                     <path d="M17.6441 16.582C17.6441 12.613 13.2632 13.1555 13.2632 11.087C13.2632 9.86898 14.2211 9.74064 14.5524 9.74064C14.8791 9.74064 15.1684 9.81881 15.4134 9.92848C15.9897 10.1886 16.6722 9.94714 17.0374 9.43147C17.5052 8.76997 17.2637 7.84014 16.5252 7.50648C16.1204 7.32448 15.6152 7.17748 15.0027 7.11914V6.54281C15.0027 6.01197 14.5722 5.58264 14.0426 5.58264C13.5129 5.58264 13.0824 6.01314 13.0824 6.54281V7.32214C11.4736 7.85764 10.4282 9.32881 10.4282 11.2118C10.4282 15.3768 14.7554 14.6243 14.7554 16.7896C14.7554 17.2061 14.5582 18.115 13.4849 18.115C13.0077 18.115 12.5959 17.9808 12.2611 17.8046C11.6917 17.5071 10.9859 17.7265 10.6231 18.2573L10.5846 18.3133C10.1657 18.9258 10.3349 19.7845 10.9801 20.1508C11.5226 20.4588 12.1864 20.698 12.9867 20.782V21.4563C12.9867 21.9871 13.4172 22.4165 13.9469 22.4165C14.4777 22.4165 14.9071 21.986 14.9071 21.4563V20.6093C16.6851 20.0656 17.6441 18.444 17.6441 16.582Z" fill="#E8EDFF" fill-opacity="0.5" />
                                 </svg>
                                 <span class="text-secondary-light/50">Earnings per week</span>
                             </div>
-                            <div class="ext-lg font-bold text-white">
+                            <div class="ext-lg font-semibold text-white">
                                 $3,000.99
                             </div>
                         </div>
 
                         <div class="bg-secondary-sidebar-light-3 p-4 rounded-xl">
-                            <div class="flex gap-3 items-center mb-2">
+                            <div class="flex gap-3 items-center mb-1">
                                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.35" d="M13.9987 25.6668C20.442 25.6668 25.6654 20.4434 25.6654 14.0001C25.6654 7.55678 20.442 2.33344 13.9987 2.33344C7.55538 2.33344 2.33203 7.55678 2.33203 14.0001C2.33203 20.4434 7.55538 25.6668 13.9987 25.6668Z" fill="#E8EDFF" fill-opacity="0.5" />
                                     <path d="M17.6441 16.582C17.6441 12.613 13.2632 13.1555 13.2632 11.087C13.2632 9.86898 14.2211 9.74064 14.5524 9.74064C14.8791 9.74064 15.1684 9.81881 15.4134 9.92848C15.9897 10.1886 16.6722 9.94714 17.0374 9.43147C17.5052 8.76997 17.2637 7.84014 16.5252 7.50648C16.1204 7.32448 15.6152 7.17748 15.0027 7.11914V6.54281C15.0027 6.01197 14.5722 5.58264 14.0426 5.58264C13.5129 5.58264 13.0824 6.01314 13.0824 6.54281V7.32214C11.4736 7.85764 10.4282 9.32881 10.4282 11.2118C10.4282 15.3768 14.7554 14.6243 14.7554 16.7896C14.7554 17.2061 14.5582 18.115 13.4849 18.115C13.0077 18.115 12.5959 17.9808 12.2611 17.8046C11.6917 17.5071 10.9859 17.7265 10.6231 18.2573L10.5846 18.3133C10.1657 18.9258 10.3349 19.7845 10.9801 20.1508C11.5226 20.4588 12.1864 20.698 12.9867 20.782V21.4563C12.9867 21.9871 13.4172 22.4165 13.9469 22.4165C14.4777 22.4165 14.9071 21.986 14.9071 21.4563V20.6093C16.6851 20.0656 17.6441 18.444 17.6441 16.582Z" fill="#E8EDFF" fill-opacity="0.5" />
                                 </svg>
                                 <span class="text-secondary-light/50">Earnings per month</span>
                             </div>
-                            <div class="text-lg font-bold text-white">
+                            <div class="text-lg font-semibold text-white">
                                 $6,000.99
                             </div>
                         </div>
@@ -241,14 +241,14 @@ const handleActivatePromo = async () => {
 
                     <!-- Affiliate table -->
                     <div class="overflow-hidden rounded-xl">
-                        <div class="max-md:grid-cols-2 grid grid-cols-3 gap-4 p-6">
-                            <div class="text-secondary-light/50 text-sm font-bold uppercase">
+                        <div class="max-md:grid-cols-2 grid grid-cols-3 gap-4 p-6 pt-0 pb-3">
+                            <div class="text-secondary-light/50 text-sm font-medium uppercase">
                                 EMAIL
                             </div>
-                            <div class="text-secondary-light/50 max-md:hidden text-sm font-bold text-center uppercase">
+                            <div class="text-secondary-light/50 max-md:hidden text-sm font-medium text-center uppercase">
                                 ACTIVATION DATE
                             </div>
-                            <div class="text-secondary-light/50 text-sm font-bold text-right uppercase">
+                            <div class="text-secondary-light/50 text-sm font-medium text-right uppercase">
                                 EARNINGS
                             </div>
                         </div>
@@ -303,12 +303,12 @@ const handleActivatePromo = async () => {
 
                         <div class="flex flex-col gap-2">
                             <span class="text-secondary-light/50 text-sm">Your personal code</span>
-                            <div class="max-md:flex-col w-fit max-lg:w-full flex gap-3 items-center">
-                                <div class="w-full bg-[#111931] px-4 py-3 rounded-lg">
+                            <div class="max-md:flex-col max-lg:w-full flex gap-3 items-center">
+                                <div class=" w-fit bg-[#111931] px-4 py-3 rounded-lg">
                                     <span class="font-mono text-white">8GSF6D-BF5GJN</span>
                                 </div>
-                                <button class="btn btn-primary max-md:justify-center lg:w-fit flex gap-2 items-center px-6 py-3 w-full">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <button class="btn btn-primary !font-medium max-md:justify-center lg:w-fit flex gap-2 items-center px-6 py-3 w-full">
+                                    <svg class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path d="M8.79922 1.6001C7.91522 1.6001 7.19922 2.3161 7.19922 3.2001V16.0001C7.19922 16.8841 7.91522 17.6001 8.79922 17.6001H19.1992C20.0832 17.6001 20.7992 16.8841 20.7992 16.0001V6.8001C20.7992 6.5881 20.7152 6.38487 20.5648 6.23447L16.1648 1.83447C16.0144 1.68407 15.8112 1.6001 15.5992 1.6001H8.79922ZM15.1992 3.12354L19.2758 7.2001H15.9992C15.5576 7.2001 15.1992 6.8417 15.1992 6.4001V3.12354ZM4.79922 5.6001C3.91522 5.6001 3.19922 6.3161 3.19922 7.2001V20.0001C3.19922 20.8841 3.91522 21.6001 4.79922 21.6001H15.1992C16.0832 21.6001 16.7992 20.8841 16.7992 20.0001V19.2001H8.79922C7.03442 19.2001 5.59922 17.7649 5.59922 16.0001V5.6001H4.79922Z" fill="#E8EDFF" />
                                     </svg>
                                     COPY

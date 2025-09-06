@@ -60,7 +60,7 @@ const news = [
     <MainLayout>
         <div class="flex flex-col gap-12">
             <div class="bonus_banner_news  container min-h-[250px] flex-col p-6 pb-3 mx-auto rounded-2xl">
-                <div class="flex flex-col gap-6">
+                <div class="md:gap-10 flex flex-col gap-6 h-full">
 
                     <div class="flex flex-col gap-4 h-full">
                         <h1 class="text-3xl max-w-[280px] font-bold text-white">
@@ -77,7 +77,7 @@ const news = [
                 <h1 class="text-lg font-bold text-white">
                     Promotions
                 </h1>
-                <div class="flex flex-col gap-6 w-full">
+                <div class="flex flex-col gap-6 w-full h-full">
 
                     <div class="max-md:flex-col flex gap-2.5">
                         <div class="grid grid-cols-2 md:flex  md:flex-col  md:max-w-[230px] w-full">

@@ -101,6 +101,38 @@ class AccountController extends Controller
         return Inertia::render('Account/Account', $data);
     }
 
+    public function showSubTab($tab)
+    {
+        $data = ['activeTab' => 'wallet', 'subtab' => $tab];
+
+        if ($tab === 'wallet') {
+            $data['fiat_merchants'] = PaymentMethod::where('is_active', true)->get()->map(function ($merchant) {
+                return [
+                    'id' => $merchant->id,
+                    'name' => $merchant->name,
+                    'domain' => $merchant->domain,
+                    'icon' => "/assets/images/icons/logos/" . strtolower($merchant->name) . ".svg",
+                ];
+            });
+            $data['wallets'] = UserWallet::with('currencies')
+                ->where('user_id', auth()->user()->id)
+                ->get()
+                ->map(function ($wallet) {
+                    return [
+                        'id' => $wallet->id,
+                        'symbol' => $wallet->currencies?->symbol ?? $wallet->currency,
+                        'name' => $wallet->currencies?->name ?? $wallet->currency,
+                        'address' => $wallet->address,
+                        'network' => $wallet->currencies?->network ?? null,
+                        'min_deposit' => $wallet->currencies?->min_deposit ?? 0,
+                        'rate' => $wallet->currencies?->rate ?? 0,
+                    ];
+                });
+
+        }
+
+        return Inertia::render('Account/Account', $data);
+    }
     public function getProfile()
     {
         return (new GetUser())->getUser();

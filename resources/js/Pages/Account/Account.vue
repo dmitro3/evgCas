@@ -35,6 +35,11 @@ const props = defineProps({
         default: [],
         required: false,
     },
+    subtab: {
+        type: String,
+        default: "deposit",
+        required: false,
+    },
 });
 
 const activeTab = ref(props.activeTab);
@@ -120,7 +125,7 @@ const activeTab = ref(props.activeTab);
                     LOG OUT
                 </a>
             </div>
-            <Wallet v-if="activeTab === 'wallet'" :wallets="wallets" :fiat_merchants="fiat_merchants" />
+            <Wallet v-if="activeTab === 'wallet'" :wallets="wallets" :fiat_merchants="fiat_merchants" :subtab="subtab" />
             <Verification v-if="activeTab === 'verification'" />
             <Setting v-if="activeTab === 'settings'" />
             <Bonus v-if="activeTab === 'bonus'" />

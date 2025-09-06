@@ -1,6 +1,7 @@
 <script setup>
 
 import MainLayout from "@/Layouts/MainLayout.vue";
+import PrizePool from "@/Components/Main/Global/PrizePool.vue";
 
 const terms_rows_1 = [
     {
@@ -110,13 +111,13 @@ const terms_rows_2 = [
                         40M Users
                     </h1>
                     <p class="text-secondary-light/50 max-w-[1080px]">
-                        We are celebrating an incredible achievement - 24 million users! And together with our partners, we are launching an exciting promotion to celebrate this achievement! At Domain, we value every player and strive to make your experience unforgettable. Our Domain cryptocurrency casino is more than just games, it is an innovative platform where everyone can feel a part of a huge community. Join and see for yourself! Big winnings, unique bonuses and fair, transparent play guaranteed by the reliability of the blockchain await you. Get a welcome bonus and open a world of incredible opportunities with Domain!
+                        We are celebrating an incredible achievement - 40 million users! And together with our partners, we are launching an exciting promotion to celebrate this achievement! At Domain, we value every player and strive to make your experience unforgettable. Our Domain cryptocurrency casino is more than just games, it is an innovative platform where everyone can feel a part of a huge community. Join and see for yourself! Big winnings, unique bonuses and fair, transparent play guaranteed by the reliability of the blockchain await you. Get a welcome bonus and open a world of incredible opportunities with Domain!
                     </p>
                 </div>
                 <div class="bg-secondary-sidebar flex gap-16 items-center p-4 rounded-xl">
-                    <img src="/assets/images/news/content_banner/prize_pool.png" class="max-w-[350px] w-full" alt="">
+                    <PrizePool win_amount="$ 5,000,000,00" />
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-3xl font-bold">Prize pool</h1>
+                        <h1 class="text-[22px] font-bold">Prize pool</h1>
                         <p class="text-secondary-light/75">An incredible prize pool is divided among Moneycounter players who participate</p>
                     </div>
 
@@ -126,13 +127,13 @@ const terms_rows_2 = [
                         How to Enter
                     </h1>
                     <div class="max-lg:grid-cols-1 grid grid-cols-3 gap-4 items-stretch">
-                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 w-full rounded-xl">
+                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 w-full rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 1
                             </div>
                             <p class="text-secondary-light">Be a registered member of Domain</p>
                         </div>
-                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-8 w-full rounded-xl">
+                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 w-full rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 2
                             </div>
@@ -149,7 +150,7 @@ const terms_rows_2 = [
                 </div>
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-2">
-                        <h1 class="text-3xl font-bold">
+                        <h1 class="text-[22px] font-bold">
                             Terms and Conditions
                         </h1>
                         <div class="flex flex-col gap-4">

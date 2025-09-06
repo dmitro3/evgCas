@@ -53,8 +53,8 @@ const faqItems = [
                                 </defs>
                             </svg>
                         </div>
-                        <div class="flex flex-col gap-2">
-                            <h1 class="md:text-4xl text-2xl font-bold text-white">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official bjk
                                 partnerships
                             </h1>
@@ -67,13 +67,13 @@ const faqItems = [
                 </div>
                 <ListPartner :active="`king`"></ListPartner>
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
+            <div class="partner_content flex flex-col gap-12 rounded-xl">
 
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/bjk_image1.png" alt="bjk_image1" class="image_partner">
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
-                            Demotopg and Bitget signed a cooperation agreement
+                            Investing in the Future of Women’s Sports
                         </h1>
                         <p class="text-secondary-light/50">
                             Domain is proud to announce its strategic partnership with the BJK Cup, the largest international team competition in women’s tennis. This collaboration marks a significant step in supporting women’s sports and demonstrates Domain’s commitment to creating a fair, open, and modern gaming environment. Domain, as an official partner of the BJK Cup, has begun providing necessary financial support for organizing tournaments, developing young talent, and promoting women’s tennis worldwide. Domain believes in the power of women’s sports and its ability to inspire millions of people around the world.
@@ -81,7 +81,7 @@ const faqItems = [
                     </div>
 
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -95,7 +95,7 @@ const faqItems = [
 
 
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/bjk_image3.png" alt="bjk_image3" class="image_partner">
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -107,7 +107,7 @@ const faqItems = [
                     </div>
 
                 </div>
-                <div class="container flex flex-col gap-6 mx-auto">
+                <div class="container flex flex-col gap-6 pt-10 mx-auto">
                     <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
                         <h2 class="text-[22px] font-bold">
                             Frequently Asked Questions

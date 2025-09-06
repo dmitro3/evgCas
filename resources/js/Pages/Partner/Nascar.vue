@@ -54,8 +54,8 @@ const faqItems = [
                         </div>
 
 
-                        <div class="flex flex-col gap-2">
-                            <h1 class="md:text-4xl text-2xl font-bold text-white">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official nascar
                                 partnerships
                             </h1>
@@ -68,8 +68,8 @@ const faqItems = [
                 </div>
                 <ListPartner :active="`nascar`"></ListPartner>
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
-                <div class="max-md:flex-col flex gap-6 items-start">
+            <div class="partner_content flex flex-col gap-12 rounded-xl">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nascar_image1.png" alt="nascar_image1" class="image_partner">
 
                     <div class="flex flex-col gap-2">
@@ -81,7 +81,7 @@ const faqItems = [
                         </p>
                     </div>
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -93,7 +93,7 @@ const faqItems = [
                     </div>
                     <img src="/assets/images/partner/nascar_image2.png" alt="nascar_image2" class="image_partner">
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nascar_image3.png" alt="nascar_image3" class="image_partner">
 
                     <div class="flex flex-col gap-2">
@@ -101,13 +101,19 @@ const faqItems = [
                             A partnership founded on shared values and innovation
                         </h1>
                         <p class="text-secondary-light/50">
-                            Lorem ipsum odor amet, consectetuer adipiscing elit. Felis aenean convallis ipsum elementum; lacus at. Dolor hac tincidunt semper sed ut phasellus malesuada sapien sociosqu. Integer praesent sagittis pulvinar viverra imperdiet amet. Mattis morbi massa sed, risus rutrum erat pellentesque aliquet. Lobortis est lectus leo ad platea ullamcorper nascetur. Elementum leo class facilisis libero massa. Viverra class posuere, mollis penatibus tempus lacus?
-                            <br><br>
-                            Inceptos class libero sollicitudin nisl faucibus pulvinar in habitant. Purus curae taciti magnis amet ex finibus primis. Elit fermentum himenaeos in feugiat, eu pharetra luctus ad elit. Maecenas class arcu quam molestie auctor fermentum dolor
+                            Principles of fair play, security, and transparency form the foundation of this
+                            collaboration. Domain Crypto Casino utilizes advanced blockchain technology to ensure the
+                            fairness of its games and protect against fraud, which aligns with the high standards upheld by
+                            NASCAR. The partnership with Domain underscores NASCAR’s commitment to innovation and
+                            its willingness to explore new avenues for fan engagement. Domain and NASCAR are confident
+                            that together they can create a unique and secure experience for all who enjoy the thrill of
+                            racing and the innovative world of cryptocurrencies. This partnership represents an investment
+                            in the future of entertainment, where security, transparency, and exciting thrills converge at
+                            NASCAR speed!
                         </p>
                     </div>
                 </div>
-                <div class="container flex flex-col gap-6 mx-auto">
+                <div class="container flex flex-col gap-6 pt-10 mx-auto">
                     <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
                         <h2 class="text-[22px] font-bold">
                             Frequently Asked Questions

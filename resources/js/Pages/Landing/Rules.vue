@@ -133,7 +133,7 @@ const getContent = () => {
     <MainLayout>
         <div class="container flex flex-col gap-12 mx-auto">
             <div :style="`background-image: url('${getImage()}')`" class="bg-secondary-sidebar bg-bottom md:min-h-[250px] min-h-[330px] rules_bg flex max-md:flex-col justify-between items-center p-6 w-full rounded-2xl">
-                <div class="3 flex flex-col">
+                <div class="flex flex-col gap-2">
                     <Domain />
                     <div class="flex flex-col gap-4">
                         <h1 class="text-3xl font-bold text-white">
@@ -144,7 +144,7 @@ const getContent = () => {
                 </div>
             </div>
             <div class="flex flex-col gap-2.5 w-full">
-                <div class="max-md:flex-col max-md:items-start flex gap-4 items-center w-full">
+                <div class="max-md:flex-col max-md:items-start flex gap-4 items-center w-full uppercase">
                     <Link href="/more/rules/privacy" :class="{ 'active': type === 'privacy' }" class="btn btn-swiper max-md:w-full">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.9599 1.66797H8.04326C7.17659 1.66797 6.46826 2.36797 6.46826 3.23464V4.01797C6.46826 4.88464 7.16826 5.58464 8.03493 5.58464H11.9599C12.8266 5.58464 13.5266 4.88464 13.5266 4.01797V3.23464C13.5349 2.36797 12.8266 1.66797 11.9599 1.66797Z" fill="currentColor" />

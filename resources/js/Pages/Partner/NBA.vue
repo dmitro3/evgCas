@@ -45,8 +45,8 @@ const faqItems = [
                         </svg>
 
 
-                        <div class="flex flex-col gap-2">
-                            <h1 class="md:text-4xl text-2xl font-bold text-white">
+                        <div class="flex flex-col gap-4">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official NBA
                                 partnerships
                             </h1>
@@ -59,8 +59,8 @@ const faqItems = [
                 </div>
                 <ListPartner :active="`nba`"></ListPartner>
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
-                <div class="max-md:flex-col flex gap-6 items-start">
+            <div class="partner_content flex flex-col gap-12 rounded-xl">
+                <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nba_image1.png" alt="nba_image1" class="image_partner">
 
                     <div class="flex flex-col gap-2">
@@ -72,7 +72,7 @@ const faqItems = [
                         </p>
                     </div>
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
+                <div class="max-md:flex-col flex gap-12 items-start">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -82,10 +82,10 @@ const faqItems = [
                             A key component of the partnership between crypto casino Domain and the NBA will be unprecedented access to basketball stars. Fans will have unique opportunities to interact with their idols both in the digital and real worlds. Domain will organize exclusive meet-and-greets and autograph sessions with NBA stars, and will offer the chance to win tickets to VIP boxes and the opportunity to chat with players before and after games. Domain and the NBA are also developing interactive online platforms where fans can communicate with stars, ask them questions, and participate in joint events. This partnership will usher in a new era in the relationship between fans and players, making basketball closer and more accessible than ever before. Fans will be able to participate in online tournaments where prizes will be memorabilia signed by players. Charity auctions will be organized featuring unique items related to NBA history. Domain will provide exclusive content, including interviews with stars and behind-the-scenes footage. This partnership will create unprecedented opportunities for fans to feel part of the NBA world.
                         </p>
                     </div>
-                    <img src="/assets/images/partner/nba_image2.png" alt="nba_image2" class="image_partner">
+                    <img src="/assets/images/partner/nba_image2.png" alt="nba_image2" class="image_partner max-h-[300px]">
                 </div>
-                <div class="max-md:flex-col flex gap-6 items-start">
-                    <img src="/assets/images/partner/nba_image1.png" alt="nba_image3" class="image_partner">
+                <div class="max-md:flex-col flex gap-12 items-start">
+                    <img src="/assets/images/partner/nba_image3.png" alt="nba_image3" class="image_partner">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold">
@@ -96,7 +96,7 @@ const faqItems = [
                         </p>
                     </div>
                 </div>
-                <div class="container flex flex-col gap-6 mx-auto">
+                <div class="container flex flex-col gap-6 pt-5 mx-auto">
                     <div class="flex z-50 flex-col gap-4 justify-center items-center text-center">
                         <h2 class="text-[22px] font-bold">
                             Frequently Asked Questions

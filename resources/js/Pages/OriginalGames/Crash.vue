@@ -482,10 +482,10 @@ onBeforeUnmount(() => {
 <template>
     <MainLayout>
         <GameLayout :slots="slots">
-            <div class="md:px-5 container flex flex-col mx-auto w-full">
+            <div class="md:px-5 max-lg:max-w-[800px] max-md:max-w-[390px] max-xl:max-w-[1000px] max-2xl:max-w-[1200px] flex flex-col mx-auto w-full">
                 <div class="flex flex-col rounded-2xl">
                     <div class="max-md:flex-col-reverse flex items-stretch">
-                        <div class="min-h-[650px] bg-dice flex flex-col gap-4 justify-center relative items-center pt-5 w-full rounded-t-xl">
+                        <div class="min-h-[650px] bg-dice h-full flex flex-col gap-4 justify-center relative items-center pt-5 w-full rounded-t-xl">
                             <div class="chart-container relative p-4 w-full h-full rounded-xl">
                                 <div class="absolute top-0 left-1/2 z-10 text-white -translate-x-1/2">
                                     <div class="flex flex-col gap-2 justify-center items-center">
@@ -539,7 +539,11 @@ onBeforeUnmount(() => {
                                     </div>
                                 </div>
 
-                                <apexchart ref="chartRef" type="area" height="100%" width="100%" :options="chartOptions" :series="series" />
+                                <div class="relative w-full pb-[40%]">
+                                    <div class="absolute inset-0">
+                                        <apexchart class="w-full h-full" ref="chartRef" type="area" height="100%" width="100%"  :options="chartOptions" :series="series" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="border-y bg-secondary-sidebar border-white/5 flex overflow-hidden gap-3 items-center px-6 py-3 w-full">
                                 <div v-for="i in 10" class="bg-primary/10 w-fit flex gap-2 items-center px-3 py-2 text-sm font-bold text-white rounded-xl">
@@ -633,4 +637,5 @@ onBeforeUnmount(() => {
 .btn-success {
     @apply bg-green hover:bg-green text-white;
 }
+
 </style>

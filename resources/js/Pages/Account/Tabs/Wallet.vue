@@ -12,9 +12,14 @@ const activeTabDepositType = ref("crypto");
 const props = defineProps({
     wallets: Array,
     fiat_merchants: Array,
+    subtab: {
+        type: String,
+        default: "deposit",
+        required: false,
+    },
 });
 onMounted(() => {
-    console.log("фиат", props.fiat_merchants);
+    activeTabDeposit.value = props.subtab;
 });
 </script>
 

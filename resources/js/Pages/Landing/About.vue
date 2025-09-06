@@ -142,7 +142,7 @@ const certificates = [
             <div class="max-md:flex-col flex relative justify-between items-center">
                 <div class="flex flex-col gap-4 max-w-[780px]">
                     <p class="text-[22px] font-bold">
-                        {{ getDomainName() }} - Who We Are?
+                        Who We Are?
                     </p>
                     <p class="text-white/75 max-w-[760px]">
                         As of 2019, {{ getDomainName() }} provides a cutting-edge online casino
@@ -202,7 +202,7 @@ const certificates = [
                             </p>
                             <p class="text-white/75">
                                 Domain Casino operates under a license issued by
-                                the Gaming Control Board (GCB), which confirms
+                                the Gaming Control Board (GCB),<br> which confirms
                                 our commitment to international standards of
                                 safety and fair play.
                             </p>
@@ -213,7 +213,7 @@ const certificates = [
                             </p>
                             <div class="max-md:grid-cols-1 grid grid-cols-3 gap-3">
                                 <div v-for="certificate in certificates" class="bg-secondary flex gap-4 items-center p-4 rounded-xl">
-                                    <div class="bg-primary/10 flex flex-shrink-0 justify-center items-center w-14 h-14 rounded-xl">
+                                    <div class="bg-primary/10 flex flex-shrink-0 justify-center items-center w-[52px] h-[52px] rounded-xl">
                                         <div v-html="certificate.icon"></div>
                                     </div>
                                     <div class="flex flex-col gap-2">
@@ -223,7 +223,7 @@ const certificates = [
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-white/75 max-w-[680px]">The license confirms our legitimate activities and guarantees users an honest, secure and controlled gaming experience, both in classic games and in the crypto environment.</p>
+                            <p class="text-white/75 max-w-[660px]">The license confirms our legitimate activities and guarantees users an honest, secure<br> and controlled gaming experience, both in classic games and in the crypto environment.</p>
                         </div>
                         <div class="flex gap-3 items-center">
                             <img src="/assets/images/info/david_img.png" alt="david" class="w-14 h-14 rounded-full">
