@@ -88,7 +88,7 @@ onMounted(() => {
                                     partners
                                 </p>
                             </div>
-                            <button class="btn btn-primary max-md:mt-2 w-fit px-6 py-3">
+                            <button class="btn btn-primary max-md:mt-2 w-fit !text-lg !font-bold px-6 py-3">
                                 Deposit
                             </button>
                         </div>

@@ -3,6 +3,11 @@ import LastWinItem from "./LastWinItem.vue";
 import { onMounted, ref } from "vue";
 import axios from "axios";
 
+
+const props = defineProps({
+    className: String,
+});
+
 const lastWins = ref([]);
 const myWins = ref([]);
 const activeTab = ref("recent");
@@ -71,7 +76,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="relative flex flex-col  gap-6 min-h-[210px] mt-7">
+    <div :class="className" class="relative flex flex-col gap-4 min-h-[210px] mt-6">
         <div class="flex justify-between items-center">
             <p class="text-lg font-bold text-white">Latest Bets</p>
             <div class="w-fit bg-online text-green-light md:hidden flex z-10 gap-2 justify-center items-center p-2 py-1 text-sm font-medium rounded-full">
@@ -116,7 +121,7 @@ onMounted(() => {
                 54,399 players online
             </div>
         </div>
-        <table v-if="activeTab === 'recent'" class="overflow-hidden rounded-2xl">
+        <table v-if="activeTab === 'recent'" class="overflow-hidden mt-2 rounded-2xl">
             <thead class="">
                 <tr class="text-secondary-light/50 px-5">
                     <th class="pb-3 pl-5 text-left !font-normal">USERNAME</th>
@@ -147,7 +152,7 @@ onMounted(() => {
                 </tr>
             </tbody>
         </table>
-        <table v-if="activeTab === 'my' && myWins.length > 0" class="overflow-hidden rounded-2xl">
+        <table v-if="activeTab === 'my' && myWins.length > 0" class="overflow-hidden mt-2 rounded-2xl">
             <thead class="">
                 <tr class="text-secondary-light/50 px-5">
                     <th class="pb-3 pl-5 text-left !font-normal">USERNAME</th>
@@ -177,7 +182,7 @@ onMounted(() => {
                 </tr>
             </tbody>
         </table>
-        <div v-if="activeTab === 'my' && myWins.length === 0" class="bg-secondary-sidebar rounded-xl min-h-[330px] h-full flex justify-center items-center">
+        <div v-if="activeTab === 'my' && myWins.length === 0" class="bg-secondary-sidebar mt-2 rounded-xl min-h-[330px] h-full flex justify-center items-center">
             <div class="flex flex-col gap-5 items-center">
                 <div class="bg-primary/10 rounded-2xl flex items-center justify-center h-[60px] w-[60px]">
                     <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg">

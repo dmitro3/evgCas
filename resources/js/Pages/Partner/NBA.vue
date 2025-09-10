@@ -36,7 +36,7 @@ const faqItems = [
 
             <div class="flex flex-col gap-6">
                 <div class="bg_football min-h-[250px] bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
-                    <div class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[520px]">
+                    <div class="flex flex-col gap-6 max-md:items-center max-md:justify-center max-md:text-center max-w-[520px]">
                         <svg width="24" height="55" viewBox="0 0 24 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.60406 0H18.3959C21.5006 0 24 2.49941 24 5.60406V48.8528C24 51.9574 21.5006 54.4569 18.3959 54.4569H5.60406C2.49941 54.4569 0 51.9574 0 48.8528V5.60406C0 2.49941 2.49941 0 5.60406 0Z" fill="#E8EDFF" />
                             <path d="M15.2173 9.9808L15.2351 10.165C15.621 10.3931 15.8228 10.5773 16.2174 10.8316C17.2524 11.4895 18.5245 12.6561 18.3665 16.6647C18.6646 17.5419 18.7963 19.2524 19.0595 19.7962C19.5947 20.8751 19.9629 21.5768 20.1208 22.5856C20.1208 22.5856 20.2788 24.1644 20.4805 24.2785C21.5505 24.5241 21.2437 24.6293 21.3927 24.8223C21.5592 25.0328 22.182 25.0241 22.182 25.603C22.4014 25.8924 22.5681 26.1819 22.682 26.4977V5.64765C22.682 3.26178 20.7523 1.33203 18.375 1.33203H14.2611C14.9189 1.56886 15.2961 1.84955 15.5155 2.28813C16.0416 2.33199 16.6647 3.51615 15.6908 5.27924C16.1205 5.57747 15.7872 6.01605 15.4802 6.51603C15.3837 6.67392 15.2872 6.96338 14.9977 6.94584C14.6118 7.74405 14.1643 8.49841 13.8225 8.54226C13.7261 8.66507 13.6557 9.00716 13.8048 9.16505C14.3052 9.39311 14.9101 9.69134 15.2173 9.9808Z" fill="#1A2446" />
@@ -46,7 +46,7 @@ const faqItems = [
 
 
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-3xl text-2xl font-bold text-white">
+                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
                                 Official NBA
                                 partnerships
                             </h1>
@@ -63,8 +63,8 @@ const faqItems = [
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nba_image1.png" alt="nba_image1" class="image_partner">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Innovative Solutions for NBA Fans
                         </h1>
                         <p class="text-secondary-light/50">
@@ -74,8 +74,8 @@ const faqItems = [
                 </div>
                 <div class="max-md:flex-col flex gap-12 items-start">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             NBA Stars Closer Than Ever with Domain
                         </h1>
                         <p class="text-secondary-light/50">
@@ -87,8 +87,8 @@ const faqItems = [
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nba_image3.png" alt="nba_image3" class="image_partner">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Using blockchain in the NBA for transparency and data security
                         </h1>
                         <p class="text-secondary-light/50">

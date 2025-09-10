@@ -51,7 +51,7 @@ const activeTab = ref(props.activeTab);
         <div class="container flex flex-col gap-6 mx-auto">
             <ProfileBanner v-if="activeTab !== 'bonus'" />
             <div v-else class="bonus_banner bg-secondary-sidebar/5 max-md:min-h-[525px] container flex-col mx-auto p-6 rounded-2xl">
-                <div class="flex flex-col gap-2.5 max-md:items-center max-md:justify-center max-md:text-center max-w-[290px] w-full">
+                <div class="flex flex-col gap-2.5 max-md:items-center max-md:justify-center max-md:text-center max-w-[320px] w-full">
 
                     <div class="flex flex-col gap-2">
                         <h1 class="text-2xl md:text-3xl  max-w-[270px] font-bold text-white">
@@ -59,7 +59,8 @@ const activeTab = ref(props.activeTab);
                             Bonus For Free!
                         </h1>
                         <p class="text-secondary-light/50">
-                            Get a generous welcome bonus from our partners and us
+                            Enjoy a wide range of generous bonuses
+                            from Domain and our partners
                         </p>
                     </div>
                     <TakeBonus background="!bg-primary/10 !border-none h-[60px] px-2" button="true" />

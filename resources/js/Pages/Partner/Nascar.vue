@@ -36,7 +36,7 @@ const faqItems = [
 
             <div class="flex flex-col gap-6">
                 <div class="bg_football min-h-[250px] bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
-                    <div class="max-md:items-center max-md:justify-center max-md:text-center flex flex-col gap-5 h-full max-w-[525px]">
+                    <div class="max-md:items-center max-md:justify-center max-md:text-center flex flex-col lg:gap-16 h-full max-w-[525px]">
                         <div class="h-full">
                             <svg width="121" height="21" viewBox="0 0 121 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M67.492 0.000209808L63.8392 2.78533L62.075 9.07471L64.1195 11.9689H70.0383L68.8348 16.3161H63.9459L64.5208 14.2498H60.6369L59.8125 17.2817L61.9135 20.1494H68.781L72.4489 17.3201L74.1939 10.9731L72.1302 8.10373H66.2198L67.4134 3.81092H72.2766L71.6963 5.89949H75.5936L76.4757 2.78533L74.4469 0.000209808H67.492Z" fill="#E8EDFF" />
@@ -55,11 +55,11 @@ const faqItems = [
 
 
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-3xl text-2xl font-bold text-white">
+                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
                                 Official nascar
                                 partnerships
                             </h1>
-                            <p class="text-secondary-light/50">
+                            <p class="text-secondary-light/50 max-w-[525px]">
                                 Domain takes to the race track, becoming an official sponsor of NASCAR
                             </p>
                         </div>
@@ -72,8 +72,8 @@ const faqItems = [
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nascar_image1.png" alt="nascar_image1" class="image_partner">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             NASCAR reaches new heights through partnership with Domain
                         </h1>
                         <p class="text-secondary-light/50">
@@ -83,8 +83,8 @@ const faqItems = [
                 </div>
                 <div class="max-md:flex-col flex gap-12 items-start">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Benefits for true motorsport enthusiasts
                         </h1>
                         <p class="text-secondary-light/50">
@@ -96,8 +96,8 @@ const faqItems = [
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/nascar_image3.png" alt="nascar_image3" class="image_partner">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             A partnership founded on shared values and innovation
                         </h1>
                         <p class="text-secondary-light/50">

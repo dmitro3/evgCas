@@ -57,8 +57,8 @@ const news = [
 
 <template>
 
-    <MainLayout>
-        <div class="flex flex-col gap-12">
+    <MainLayout :classNames="'!pb-5'">
+        <div class="flex flex-col gap-8">
             <div class="bonus_banner_news  container min-h-[250px] flex-col p-6 pb-3 mx-auto rounded-2xl">
                 <div class="md:gap-10 flex flex-col gap-6 h-full">
 

@@ -160,7 +160,7 @@ const certificates = [
                 </div>
             </div>
             <div class="flex flex-col gap-4">
-                <p class="text-[22px] font-bold text-white">Why Choose Medium?</p>
+                <p class="text-[22px] font-bold text-white">Why Choose SSC Entertainment?</p>
                 <div class="max-lg:grid-cols-2 max-md:grid-cols-1 grid grid-cols-4 gap-5 items-stretch">
                     <div v-for="card in cards" :key="card.title" class="card_about">
                         <div class="flex flex-col gap-4">

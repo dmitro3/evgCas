@@ -178,15 +178,19 @@ const handleActivatePromo = async () => {
             <div class="flex flex-col gap-2.5">
                 <div class="md:flex grid grid-cols-2 gap-2 w-full">
                     <div @click="faqTab = 'main'" :class="{
-                        'bg-secondary-sidebar text-white':
+                        'bg-secondary-sidebar text-white !font-bold':
                             faqTab === 'main',
-                    }" class="aside-item-content before:hidden after:hidden ml-0">
+                        'font-medium':
+                            faqTab !== 'main',
+                    }" class="aside-item-content before:hidden after:hidden  ml-0">
                         <div class="flex gap-2 items-center uppercase">Overview</div>
                     </div>
                     <div @click="faqTab = 'privileges'" :class="{
-                        'bg-secondary-sidebar text-white':
+                        'bg-secondary-sidebar text-white !font-bold':
                             faqTab === 'privileges',
-                    }" class="aside-item-content before:hidden after:hidden ml-0">
+                        'font-medium':
+                            faqTab !== 'privileges',
+                    }" class="aside-item-content before:hidden after:hidden  ml-0">
                         <div class="flex gap-2 items-center uppercase">
                             Reffered users
                         </div>

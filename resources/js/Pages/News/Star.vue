@@ -79,11 +79,11 @@ const terms_rows_2 = [
 </script>
 
 <template>
-    <MainLayout>
+    <MainLayout :classNames="'!pb-5'">
         <div class="flex flex-col gap-4 mx-auto">
             <div class="rounded-xl w-full min-h-[230px] bg-container flex items-center justify-center">
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
+            <div class="flex flex-col gap-8 py-6 rounded-xl">
                 <div class="flex flex-col gap-2">
                     <h1 class="text-[22px] font-bold">
                         Star Path Originals
@@ -92,7 +92,7 @@ const terms_rows_2 = [
                         Embark on an exciting journey every week through the most popular games from the Domain Originals collection! Chart a course towards target multipliers, collect points, and advance along the Star Path to get your share of the $20,000 prize pool! The further you progress along the Star Path, the more points you’ll collect:
                     </p>
                 </div>
-                <div class="flex flex-col gap-12">
+                <div class="flex flex-col gap-8">
                     <div class="grid grid-cols-3 gap-4">
                         <div class="bg-secondary-sidebar flex flex-col gap-2 p-4 rounded-xl">
                             <p class="text-whit/75">Level 1</p>
@@ -108,12 +108,12 @@ const terms_rows_2 = [
                         </div>
                     </div>
 
-                    <p class="text-secondary-light/50 max-w-[835px]">Target multipliers are updated every week, accompanying the game of the week. Keep an eye on our star charts, don’t miss your chance, and collect points! Ready to set off on your journey? This week, “Star Path Originals” leads to the game: Flip the Fort by Rockstargames</p>
+                    <p class="text-secondary-light/50 max-w-[835px]">Target multipliers are updated every week, accompanying the game of the week. Keep an eye on our star charts, don’t miss your chance, and collect points! Ready to set off on your journey? This week, “Star Path Originals” leads to the game: <a href="https://www.rockstargames.com" target="_blank" class="text-primary">Flip the Fort by Rockstargames</a></p>
                 </div>
                 <div class="bg-secondary-sidebar flex gap-16 items-center p-4 rounded-xl">
                     <PrizePool win_amount="$20,000" />
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-[22px] font-bold">Split between 30 players</h1>
+                        <h1 class="text-3xl font-bold">Split between 50 players</h1>
                         <p class="text-secondary-light/75">An incredible prize pool is divided among Moneycounter players who participate</p>
                     </div>
 
@@ -122,7 +122,7 @@ const terms_rows_2 = [
                     <h1 class="text-[22px] font-bold">
                         How to Enter
                     </h1>
-                    <div class="max-lg:grid-cols-1 grid grid-cols-2 gap-4 items-stretch">
+                    <div class="max-lg:grid-cols-1 grid grid-cols-3 gap-4 items-stretch">
                         <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 w-full rounded-xl">
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 1
@@ -133,9 +133,14 @@ const terms_rows_2 = [
                             <div class="counter_news px-4 py-2 text-lg font-bold">
                                 2
                             </div>
-                            <p class="text-secondary-light">Place bets on Original Games or Slots</p>
+                            <p class="text-secondary-light">Place bets on the featured Original Game</p>
                         </div>
-
+                        <div class="bg-secondary-sidebar flex gap-4 items-center px-4 py-4 w-full rounded-xl">
+                            <div class="counter_news px-4 py-2 text-lg font-bold">
+                                3
+                            </div>
+                            <p class="text-secondary-light">Accumulate 3,000 points to pass the qualification</p>
+                        </div>
                     </div>
 
                 </div>

@@ -79,24 +79,29 @@ const terms_rows_2 = [
 </script>
 
 <template>
-    <MainLayout>
+    <MainLayout :classNames="'!pb-5'">
         <div class="flex flex-col gap-4 mx-auto">
             <div class="rounded-xl w-full min-h-[230px] bg-container flex items-center justify-center">
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
-                <div class="flex flex-col gap-2">
-                    <h1 class="text-[22px] font-bold">
-                        Gold Fever
-                    </h1>
-                    <p class="text-secondary-light/50 max-w-[1080px]">
-                        Ready to embark on an exciting adventure and conquer Domain Casino? We invite you to "Gold Fever" - an exclusive challenge from Domain and Pragmatic Play! Embark on an epic expedition where you will overcome five stages, completing tasks with multipliers in thrilling Pragmatic Play games. Conquer all levels and unlock the opportunity to win a share of the $50,000 prize pool!
-                    </p>
-                    <h1 class="text-[22px] font-bold">
-                        Your goal is to complete all five levels by achieving the specified multipliers in the following games
-                    </h1>
-                    <p class="text-secondary-light/50 max-w-[1080px]">
-                        Each level presents a new challenge, but we are confident that you will make it to the end!
-                    </p>
+            <div class="flex flex-col gap-8 py-6 rounded-xl">
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-[22px] font-bold">
+                            Gold Fever
+                        </h1>
+                        <p class="text-secondary-light/50 max-w-[1080px]">
+                            Ready to embark on an exciting adventure and conquer Domain Casino? We invite you to "Gold Fever" - an exclusive challenge from Domain and Pragmatic Play! Embark on an epic expedition where you will overcome five stages, completing tasks with multipliers in thrilling Pragmatic Play games. Conquer all levels and unlock the opportunity to win a share of the $50,000 prize pool!
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <h1 class="text-xl font-bold">
+                            Your goal is to complete all five levels by achieving the specified multipliers in the following games
+                        </h1>
+                        <p class="text-secondary-light/50 max-w-[1080px]">
+                            Each level presents a new challenge, but we are confident that you will make it to the end!
+                        </p>
+                    </div>
+
                     <div class="grid grid-cols-5 gap-4 items-center">
                         <div v-for="(item, index) in [
                             { multiplier: '40x', game: 'Buggin' },
@@ -117,7 +122,7 @@ const terms_rows_2 = [
                 <div class="bg-secondary-sidebar flex gap-16 items-center p-4 rounded-xl">
                     <PrizePool win_amount="$50,000" />
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-[22px] font-bold">Split between all qualifying players</h1>
+                        <h1 class="text-3xl font-bold">Split between all qualifying players</h1>
                         <p class="text-secondary-light/75">An incredible prize pool is divided among Moneycounter players who participate</p>
                     </div>
 
@@ -182,6 +187,6 @@ const terms_rows_2 = [
 }
 
 .x-bg {
-    background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 0%, rgba(41, 134, 255, 0.00) 100%), rgba(105, 111, 156, 0.11);
+    background: radial-gradient(58.33% 58.33% at 50% 100%, rgba(41, 130, 255, 0.22) 0%, rgba(41, 134, 255, 0.00) 100%), rgba(105, 111, 156,0.11);
 }
 </style>

@@ -38,7 +38,7 @@ const faqItems = [
         <section class="flex flex-col gap-12">
             <div class="container flex flex-col gap-2.5 mx-auto">
                 <div class="max-lg:flex-col flex gap-2.5 items-stretch">
-                    <div class="bg-main-container-1 bg-card md:container flex-col flex-1 p-6 mx-auto w-full rounded-2xl">
+                    <div class="bg-main-container-1 lg:min-h-[250px] bg-card md:container flex-col flex-1 p-6 mx-auto w-full rounded-2xl">
                         <div class="max-md:text-center max-md:items-center max-md:justify-center max-md:gap-6 flex flex-col gap-6">
                             <div class="flex flex-col gap-2">
                                 <h1 class="md:text-3xl text-xl font-bold leading-normal text-white">
@@ -52,7 +52,7 @@ const faqItems = [
                             <TakeBonus background="bg-secondary-sidebar-light" />
                         </div>
                     </div>
-                    <div class="bg-main-container-4 max-md:justify-center max-md:items-center max-lg:w-full w-full lg:max-w-[500px] bg-card md:container flex-col p-6  mx-auto rounded-2xl">
+                    <div class="bg-main-container-4 max-md:justify-center max-md:items-center max-lg:w-full w-full lg:max-w-[475px] bg-card md:container flex-col p-6  mx-auto rounded-2xl">
                         <div class="max-md:text-center max-md:items-center max-md:justify-center flex flex-col gap-6 h-full">
                             <div class="flex flex-col max-w-[230px] gap-3 h-full">
                                 <h2 class="text-[22px] font-bold">

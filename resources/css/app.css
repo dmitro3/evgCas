@@ -553,10 +553,13 @@ header .border_angle {
     background: var(--10, rgba(93, 223, 89, 0.1));
 }
 
+
 .btn-white {
-    border-radius: 10px;
-    border: 4px solid rgba(199, 211, 255, 0.5);
+    border-radius: 14px;
+    border: 4px solid #759DF0;
     background: #e8edff;
+    z-index: 5;
+    position: relative;
     color: #1c4f8c;
 }
 
@@ -711,14 +714,14 @@ a {
     transition: opacity 0.3s ease;
 }
 
-.aside-item-icon-laptop:hover::before {
+/* .aside-item-icon-laptop:hover::before {
     opacity: 1;
-}
+} */
 .aside-item-icon-laptop svg{
     @apply  transition-all duration-200;
 }
 .aside-item-icon-laptop {
-    @apply flex relative items-center hover:text-primary justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-primary/15 transition-all duration-300 cursor-pointer;
+    @apply flex relative items-center hover:text-[#E8EDFFCC] justify-center text-[#E8EDFF] fill-[#E8EDFF] gap-2 w-10 h-10 rounded-xl hover:bg-[#242F57] transition-all duration-300 cursor-pointer;
 }
 .aside-item-icon-laptop.active svg {
     opacity: 1;
@@ -1253,12 +1256,18 @@ aside {
 
 /* tippy theme for active aside */
 .tippy-box[data-theme~='aside-active'] {
-    background-color: #298AFF1F;
+    background-color: #2989ff72;
     color: #298AFF;
     font-weight: 800;
     border-radius: 12px;
     padding: 4px 10px;
 }
 .tippy-box[data-theme~='aside-active'] .tippy-arrow {
-    color: #212E5A;
+    color: #2989ff72;
+}
+.aside-item-content svg{
+    color: #C7D3FF;
+}
+.aside-item-content.active svg{
+    @apply text-primary fill-primary;
 }

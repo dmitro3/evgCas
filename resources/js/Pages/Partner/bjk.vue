@@ -36,7 +36,7 @@ const faqItems = [
 
             <div class="flex flex-col gap-6">
                 <div class="bg_football min-h-[250px] bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
-                    <div class="max-md:items-center max-md:justify-center max-md:text-center flex flex-col gap-5 h-full">
+                    <div class="max-md:items-center max-md:justify-center max-md:text-center flex flex-col gap-8 h-full">
                         <div class="h-full">
                             <svg width="97" height="28" viewBox="0 0 97 28" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <mask id="mask0_376_260355" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="97" height="28">
@@ -54,7 +54,7 @@ const faqItems = [
                             </svg>
                         </div>
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-3xl text-2xl font-bold text-white">
+                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
                                 Official bjk
                                 partnerships
                             </h1>
@@ -71,8 +71,8 @@ const faqItems = [
 
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/bjk_image1.png" alt="bjk_image1" class="image_partner">
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Investing in the Future of Women’s Sports
                         </h1>
                         <p class="text-secondary-light/50">
@@ -83,8 +83,8 @@ const faqItems = [
                 </div>
                 <div class="max-md:flex-col flex gap-12 items-start">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Innovation and New Fan Experiences
                         </h1>
                         <p class="text-secondary-light/50">
@@ -97,8 +97,8 @@ const faqItems = [
                 </div>
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/bjk_image3.png" alt="bjk_image3" class="image_partner">
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Responsible Gaming and Sustainable Development
                         </h1>
                         <p class="text-secondary-light/50">

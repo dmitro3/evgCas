@@ -68,9 +68,9 @@ const slotsToShow = computed(() =>
                             </div>
                             <Link
                                 href="/"
-                                class="text-primary flex gap-1 items-center"
+                                class="text-primary flex gap-1 items-center text-sm font-bold uppercase"
                             >
-                                Read more
+                                Learn more
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -151,7 +151,7 @@ const slotsToShow = computed(() =>
                     </div>
                 </button>
             </div>
-            <LastetsBets />
+            <LastetsBets className="!mt-0" />
         </div>
     </MainLayout>
 </template>

@@ -79,11 +79,11 @@ const terms_rows_2 = [
 </script>
 
 <template>
-    <MainLayout>
+    <MainLayout :classNames="'!pb-5'">
         <div class="flex flex-col gap-4 mx-auto">
             <div class="rounded-xl w-full min-h-[230px] bg-container flex items-center justify-center">
             </div>
-            <div class="flex flex-col gap-8 p-6 rounded-xl">
+            <div class="flex flex-col gap-8 py-6 rounded-xl">
                 <div class="flex flex-col gap-2">
                     <h1 class="text-[22px] font-bold">
                         Daily Rakeback
@@ -95,7 +95,7 @@ const terms_rows_2 = [
                 <!-- <div class="bg-secondary-sidebar flex gap-16 items-center p-4 rounded-xl">
                     <PrizePool win_amount="50,000" />
                     <div class="flex flex-col gap-4">
-                        <h1 class="text-[22px] font-bold">Split between 30 players</h1>
+                        <h1 class="text-3xl font-bold">Split between 30 players</h1>
                         <p class="text-secondary-light/75">An incredible prize pool is divided among Moneycounter players who participate</p>
                     </div>
 

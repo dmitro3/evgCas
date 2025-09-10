@@ -6,13 +6,18 @@ import { Link } from "@inertiajs/vue3";
 import Footer from "@/Components/Main/Footer.vue";
 import { useUserStore } from "@/stores/userStore";
 import { useAuthStore } from "@/stores/authStore";
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, defineProps } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 
 const authStore = useAuthStore();
 const userStore = useUserStore();
 
-
+const props = defineProps({
+    classNames: {
+        type: String,
+        default: '',
+    },
+});
 
 onMounted(() => {
     const user = computed(() => usePage().props.auth.user);
@@ -29,7 +34,7 @@ onMounted(() => {
         <Aside />
         <div class="flex flex-col flex-1">
             <Header />
-            <div class="max-md:px-3 lg:px-10 relative px-6 py-6">
+            <div class="max-md:px-3 lg:px-10 relative px-6 py-6" :class="classNames">
                 <div class="page-wrapper">
                     <slot />
                     <Chat />

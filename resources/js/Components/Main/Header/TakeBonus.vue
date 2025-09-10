@@ -17,7 +17,7 @@ let background = props.background;
     <div class="border-take w-fit flex gap-4 rounded-xl" :class="background">
         <div class="flex gap-2 items-center">
             <div
-                class="bg-orange flex relative justify-center items-center w-10 h-10 rounded-lg"
+                class="bg-orange flex relative justify-center items-center w-11 h-11 rounded-lg"
             >
                 <img
                     src="/assets/images/header/gift.png"
@@ -34,7 +34,7 @@ let background = props.background;
                         Take bonus
                     </p>
                     <p
-                        class="text-base font-semibold leading-normal text-white"
+                        class="text-base font-bold leading-normal text-white"
                     >
                         Free Bonus
                     </p>
@@ -63,7 +63,7 @@ let background = props.background;
                     </Link>
                     <Link v-else
                         href="/account/bonus"
-                        class="btn btn-orange px-3"
+                        class="btn btn-orange px-5"
                     >
                     Claim!
                     </Link>

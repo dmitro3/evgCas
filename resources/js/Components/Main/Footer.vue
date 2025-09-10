@@ -25,7 +25,7 @@ const user = computed(() => userStore.user);
                 <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="" />
                 <img src="/assets/images/footer/nascar.svg" alt="nascar" srcset="" />
                 <img src="/assets/images/footer/blockchain_full.svg" alt="blockchain" srcset="" />
-                <img src="/assets/images/footer/fc_bayern.png" alt="fc bayern" srcset="" />
+                <img src="/assets/images/footer/fc_bayern.png" alt="fc bayern" srcset="" class="max-h-none h-16" />
             </div>
             <div class="line"></div>
             <div class="md:grid-cols-5 max-md:gap-5 grid grid-cols-2 gap-3 items-start">
@@ -115,7 +115,7 @@ const user = computed(() => userStore.user);
                     </div>
                 </div>
             </div>
-            <div class="flex flex-col gap-12">
+            <div v-else class="flex flex-col gap-12">
                 <div class="flex justify-between items-center">
                     <div class="max-md:flex-col-reverse max-md:gap-12 md:items-center flex justify-between items-start w-full">
 

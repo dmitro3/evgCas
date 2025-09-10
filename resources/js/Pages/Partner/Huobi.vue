@@ -36,14 +36,14 @@ const faqItems = [
 
             <div class="flex flex-col gap-6">
                 <div class="bg_football min-h-[250px] bg-secondary-sidebar container flex-col mx-auto p-8 rounded-2xl">
-                    <div class="flex flex-col gap-5 max-md:items-center max-md:justify-center max-md:text-center max-w-[520px]">
+                    <div class="flex flex-col gap-8 max-md:items-center max-md:justify-center max-md:text-center max-w-[520px]">
                         <svg width="33" height="51" viewBox="0 0 33 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.6772 15.6531C21.6772 8.36282 18.1354 2.07853 15.4342 0.0251165C15.4342 0.0251165 15.2275 -0.0989154 15.2551 0.204274C15.007 14.3577 7.82694 18.12 3.87171 23.2604C-2.15073 30.6748 -1.02066 41.5482 6.37991 47.5569C8.0061 48.8799 9.86658 49.8997 11.8649 50.5474C16.7021 51.898 10.7348 48.1771 9.97683 40.3079C9.05348 30.7437 21.6772 23.5361 21.6772 15.6531Z" fill="#E8EDFF" />
                             <path d="M26.419 20.5043C26.3777 20.4492 26.3088 20.4354 26.2536 20.463C26.2399 20.4768 26.2261 20.4906 26.2123 20.5043C25.3027 23.7843 23.7592 26.8713 21.6645 29.5587C13.3543 41.3693 18.1089 47.0609 20.7687 50.0377C22.2984 51.8155 20.7687 50.0377 24.6412 48.2186C29.2993 45.6139 32.4001 40.9145 32.9514 35.6087C33.3786 29.8067 30.9393 24.1702 26.419 20.5043Z" fill="#E8EDFF" />
                         </svg>
 
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-3xl text-2xl font-bold text-white">
+                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
                                 Official Huobi
                                 partnerships
                             </h1>
@@ -60,8 +60,8 @@ const faqItems = [
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/huobi_image1.png" alt="huobi_image1" class="image_partner">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Domain and Huobi form a strategic alliance for Web3 users
                         </h1>
                         <p class="text-secondary-light/50">
@@ -71,8 +71,8 @@ const faqItems = [
                 </div>
                 <div class="max-md:flex-col flex gap-12 items-start">
 
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Building an accessible and secure decentralized ecosystem
                         </h1>
                         <p class="text-secondary-light/50">
@@ -83,8 +83,8 @@ const faqItems = [
                 </div>
                 <div class="max-md:flex-col flex gap-12 items-start">
                     <img src="/assets/images/partner/huobi_image3.png" alt="huobi_image3" class="image_partner">
-                    <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold">
+                    <div class="flex flex-col gap-4">
+                        <h1 class="text-[22px] font-bold">
                             Joint educational programs of Domain and Huobi
                         </h1>
                         <p class="text-secondary-light/50">

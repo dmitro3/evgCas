@@ -3,9 +3,12 @@ import MainLayout from "@/Layouts/MainLayout.vue";
 import { ref, onMounted, onUnmounted, computed } from "vue";
 import { usePlinkoStore } from "@/stores/PlinkoStore.js";
 import { useUserStore } from "@/stores/userStore.js";
-
+import GameLayout from "@/Layouts/GameLayout.vue";
+import { defineProps } from "vue";
 const store = usePlinkoStore();
-
+const props = defineProps({
+    slots: Array,
+});
 const canvas = ref(null);
 const showRowsDropdown = ref(false);
 const showRiskDropdown = ref(false);
@@ -458,6 +461,7 @@ function createBallTexture(radius) {
 
 <template>
     <MainLayout>
+        <GameLayout :slots="slots">
         <div class="bg-plinko container flex flex-col mx-auto rounded-xl">
             <div class="plinko-game">
                 <div class="flex flex-col">
@@ -542,7 +546,7 @@ function createBallTexture(radius) {
             </div>
             <div class="bg-secondary-sidebar-dark border-blue_dark flex justify-between items-center p-6 rounded-b-xl border-t">
                 <div class="flex gap-1 items-center font-extrabold uppercase">
-                    <span class="text-dark-text-2">Mines</span>
+                    <span class="text-dark-text-2">Plinko</span>
                     <span class="text-dark-text-3">Original Game</span>
                 </div>
                 <div class="bg-blue_light/5 flex gap-2 items-center py-1 pr-4 pl-1 rounded-full">
@@ -559,6 +563,7 @@ function createBallTexture(radius) {
                 </div>
             </div>
         </div>
+    </GameLayout>
     </MainLayout>
 </template>
 
