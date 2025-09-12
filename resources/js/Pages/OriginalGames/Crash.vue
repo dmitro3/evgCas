@@ -482,7 +482,7 @@ onBeforeUnmount(() => {
 <template>
     <MainLayout>
         <GameLayout :slots="slots">
-            <div class="max-lg:max-w-[800px] max-md:max-w-[390px] max-xl:max-w-[1000px] max-2xl:max-w-[1271px] flex flex-col mx-auto w-full">
+            <div class="max-lg:max-w-[800px] max-md:max-w-[390px] max-xl:max-w-[1000px] max-2xl:max-w-[1200px] flex flex-col mx-auto w-full">
                 <div class="flex flex-col rounded-2xl">
                     <div class="max-md:flex-col-reverse flex items-stretch h-full">
                         <div class="min-h-[650px]  bg-dice h-full flex flex-col gap-4 justify-between relative items-center pt-5 w-full rounded-t-xl">
@@ -501,7 +501,7 @@ onBeforeUnmount(() => {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex absolute bottom-10 max-w-[650px] w-full left-1/2 z-[100] text-white -translate-x-1/2">
+                                <div class="flex absolute bottom-0 max-w-[650px] w-full left-1/2 z-[100] text-white -translate-x-1/2">
                                     <div class="bg-secondary-bg/80 z-[100] border-secondary-bg/50 flex gap-3 items-center px-4 py-3 w-full rounded-2xl border">
                                         <div class="main-input-small !bg-secondary-sidebar-dark/50 flex gap-1">
                                             <input v-model="betAmount" type="number" placeholder="Bet amount" step="0.01" min="0.01" />

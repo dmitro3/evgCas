@@ -20,9 +20,9 @@ const user = computed(() => userStore.user);
                 <img src="/assets/images/footer/crypto/tron.svg" alt="tron" srcset="" />
             </div>
             <div v-else class="max-md:flex-wrap footer-logos max-md:grid max-md:grid-cols-3 max-md:gap-5 flex justify-between items-center opacity-50">
-                <img src="/assets/images/footer/huobi.svg" alt="huobi" srcset="" />
+                <img src="/assets/images/footer/huobi.svg" style="width: 133px;" alt="huobi" srcset="" />
                 <img src="/assets/images/footer/nba_dark.svg" alt="nba dark" srcset="" />
-                <img src="/assets/images/footer/bjk.svg" alt="bjk" srcset="" />
+                <img src="/assets/images/footer/bjk.png" alt="bjk" srcset="" />
                 <img src="/assets/images/footer/nascar.svg" alt="nascar" srcset="" />
                 <img src="/assets/images/footer/blockchain_full.svg" alt="blockchain" srcset="" />
                 <img src="/assets/images/footer/fc_bayern.png" alt="fc bayern" srcset="" class="max-h-none h-16" />

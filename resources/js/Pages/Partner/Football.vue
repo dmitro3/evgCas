@@ -38,7 +38,7 @@ const faqItems = [
                     <div class="max-md:items-center max-md:justify-center max-md:text-center max-w-[525px] flex flex-col gap-8">
                         <img src="/assets/images/partner/fc_bayern_logo.png" alt="football" class="w-12 h-12">
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official football partnerships
                             </h1>
                             <p class="text-secondary-light/50 lg:max-w-[425px]">

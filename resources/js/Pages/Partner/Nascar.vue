@@ -55,11 +55,11 @@ const faqItems = [
 
 
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official nascar
                                 partnerships
                             </h1>
-                            <p class="text-secondary-light/50 max-w-[525px]">
+                            <p class="text-secondary-light/50 max-w-[425px]">
                                 Domain takes to the race track, becoming an official sponsor of NASCAR
                             </p>
                         </div>

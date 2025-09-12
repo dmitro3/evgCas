@@ -133,13 +133,13 @@ const terms_rows_2 = [
 
                         <tbody class="bg-secondary-sidebar bottom-shadow overflow-hidden relative">
                             <tr v-for="(item, i) in 10" :key="i" class="border-t-secondary-sidebar-light border-t" :class="{ 'first-row border-t-0': i === 0 }">
-                                <td class="text-white/80 p-6 py-4 font-semibold" :class="{ 'rounded-tl-xl': i === 0 }">
+                                <td class="text-white/80 p-6 py-4 font-medium" :class="{ 'rounded-tl-xl': i === 0 }">
                                     #{{ i + 1 }}
                                 </td>
-                                <td class="text-white/80 max-md:hidden py-4 font-bold text-left">
+                                <td class="text-white/80 max-md:hidden py-4 font-medium text-left">
                                     Verylongname
                                 </td>
-                                <td class="text-white/80 py-4 font-bold text-left">
+                                <td class="text-white/80 py-4 font-medium text-left">
                                     $1,237,001.52
                                 </td>
                                 <td class="!text-green p-6 py-4 font-bold text-right" :class="{ 'rounded-tr-xl': i === 0 }">
@@ -152,21 +152,21 @@ const terms_rows_2 = [
                         <thead class="">
                             <tr class="text-secondary-light/50 px-5 uppercase">
                                 <th class="pb-3 pl-5 text-left !font-normal">Your rank</th>
-                                <th class="pb-3 max-md:hidden text-left !font-normal">Bet amount</th>
-                                <th class="pb-3 text-left !font-normal">Game</th>
+                                <th class="pb-3 max-md:hidden text-left !font-normal">PLAYER</th>
+                                <th class="pb-3 text-left !font-normal">BETS PLACED</th>
                                 <th class="pr-5 pb-3 text-right !font-normal">profit</th>
                             </tr>
                         </thead>
 
                         <tbody class="bg-secondary-sidebar bottom-shadow overflow-hidden relative">
                             <tr v-for="(item, i) in 1" :key="i" class="border-t-secondary-sidebar-light border-t" :class="{ 'first-row border-t-0': i === 0 }">
-                                <td class="text-white/80 p-6 py-4 font-semibold" :class="{ 'rounded-tl-xl': i === 0 }">
+                                <td class="text-white/80 p-6 py-4 font-medium" :class="{ 'rounded-tl-xl': i === 0 }">
                                     #1,000+
                                 </td>
-                                <td class="text-white/80 max-md:hidden py-4 font-bold text-left">
+                                <td class="text-white/80 max-md:hidden py-4 font-medium text-left">
                                     Verylongname
                                 </td>
-                                <td class="text-white/80 py-4 font-bold text-left">
+                                <td class="text-white/80 py-4 font-medium text-left">
                                     $1,237,001.52
                                 </td>
                                 <td class="!text-green p-6 py-4 font-bold text-right" :class="{ 'rounded-tr-xl': i === 0 }">

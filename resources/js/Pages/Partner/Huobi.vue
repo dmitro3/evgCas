@@ -43,7 +43,7 @@ const faqItems = [
                         </svg>
 
                         <div class="flex flex-col gap-4">
-                            <h1 class="md:text-[22px] text-2xl font-bold text-white">
+                            <h1 class="md:text-3xl text-2xl font-bold text-white">
                                 Official Huobi
                                 partnerships
                             </h1>

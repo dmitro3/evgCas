@@ -30,7 +30,7 @@ const slotsToShow = computed(() => {
 <template>
     <div
         v-if="slots.length > 0"
-        class="lg:px-5 container flex flex-col gap-6 mx-auto"
+        class="container flex flex-col gap-6 mx-auto"
     >
         <div class="flex justify-between items-center">
             <h2 class="text-lg font-bold text-white">Recommended games</h2>

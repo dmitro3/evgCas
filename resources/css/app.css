@@ -1256,14 +1256,14 @@ aside {
 
 /* tippy theme for active aside */
 .tippy-box[data-theme~='aside-active'] {
-    background-color: #2989ff72;
-    color: #298AFF;
+    background-color: #242F57;
+    color: #E8EDFFCC;
     font-weight: 800;
     border-radius: 12px;
     padding: 4px 10px;
 }
 .tippy-box[data-theme~='aside-active'] .tippy-arrow {
-    color: #2989ff72;
+    color: #242F57;
 }
 .aside-item-content svg{
     color: #C7D3FF;

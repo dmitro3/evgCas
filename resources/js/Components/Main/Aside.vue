@@ -16,7 +16,7 @@ onMounted(() => {
 });
 
 const userRankName = computed(() => {
-    const rank = userStore.getRank(userStore.user.xp);
+    const rank = userStore.getRank(userStore.user?.xp);
     return rank;
 });
 
@@ -102,6 +102,7 @@ const categories = ref([
 <path d="M6.80511 19.6347C8.92695 19.6347 10.5317 19.1407 11.5927 18.4053V18.6772C11.5927 20.3433 9.57806 21.5497 6.80511 21.5497C4.03217 21.5497 2.01758 20.3433 2.01758 18.6772V18.4053C3.0785 19.1407 4.68328 19.6347 6.80511 19.6347ZM6.80511 16.1877C8.92695 16.1877 10.5317 15.6936 11.5927 14.9583V15.8698C11.5927 16.7699 10.0721 18.1027 6.80511 18.1027C3.5381 18.1027 2.01758 16.7699 2.01758 15.8698V14.9583C3.0785 15.6936 4.68328 16.1877 6.80511 16.1877ZM6.80511 12.7407C8.92695 12.7407 10.5317 12.2466 11.5927 11.5112V12.4228C11.5927 13.3228 10.0721 14.6557 6.80511 14.6557C3.5381 14.6557 2.01758 13.3228 2.01758 12.4228V11.5112C3.0785 12.2466 4.68328 12.7407 6.80511 12.7407ZM6.80511 9.29366C8.92695 9.29366 10.5317 8.79958 11.5927 8.06422V8.97576C11.5927 9.87582 10.0721 11.2087 6.80511 11.2087C3.5381 11.2087 2.01758 9.87582 2.01758 8.97576V8.06422C3.0785 8.79958 4.68328 9.29366 6.80511 9.29366ZM11.5927 4.88912V5.52874C11.5927 6.42879 10.0721 7.76165 6.80511 7.76165C3.5381 7.76165 2.01758 6.42879 2.01758 5.52874V4.88912C2.01758 3.22306 4.03217 2.0166 6.80511 2.0166C9.57806 2.0166 11.5927 3.22306 11.5927 4.88912ZM17.5292 20.4007C19.651 20.4007 21.2558 19.9067 22.3167 19.1713V19.4432C22.3167 21.1093 20.3021 22.3158 17.5292 22.3158C14.7563 22.3158 12.7417 21.1093 12.7417 19.4432V19.1713C13.8026 19.9067 15.4074 20.4007 17.5292 20.4007ZM17.5292 16.9537C19.651 16.9537 21.2558 16.4596 22.3167 15.7243V16.6358C22.3167 17.5359 20.7962 18.8687 17.5292 18.8687C14.2622 18.8687 12.7417 17.5359 12.7417 16.6358V15.7243C13.8026 16.4596 15.4074 16.9537 17.5292 16.9537ZM22.3167 12.5492V13.1888C22.3167 14.0889 20.7962 15.4217 17.5292 15.4217C14.2622 15.4217 12.7417 14.0889 12.7417 13.1888V12.5492C12.7417 10.8831 14.7563 9.67666 17.5292 9.67666C20.3021 9.67666 22.3167 10.8831 22.3167 12.5492Z" fill="currentColor" />
 </svg>`,
                 href: "/account/wallet/deposit",
+                onlyAuth: true,
             },
             {
                 name: "Withdraw",
@@ -113,6 +114,7 @@ const categories = ref([
 
 `,
                 href: "/account/wallet/withdraw",
+                onlyAuth: true,
             }
         ],
     },
@@ -187,7 +189,7 @@ const toggleCategory = (category) => {
                 <div v-else class="relative px-1">
                     <img :src="`/assets/images/account/vip/characters/${userRankName?.type}.png`" alt="rank" srcset="">
                     <div class="flex absolute -bottom-5 right-1/2 flex-col items-center translate-x-1/2">
-                        <p class="text-base font-extrabold text-center text-white">VIP STATUS {{ userRankName?.name.toUpperCase() }}</p>
+                        <p class="text-base font-extrabold text-center text-white">VIP STATUS {{ userRankName?.name?.toUpperCase() }}</p>
                         <VipRank :rank="userRankName?.level" :type="userRankName?.type" />
                     </div>
                 </div>
@@ -198,14 +200,16 @@ const toggleCategory = (category) => {
                         </div>
                         <transition name="slide">
                             <div class="aside-items" v-show="category.isOpen">
-                                <Link :href="item.href" :class="{ 'active': isActive(item.href) }" class="aside-item-content" v-for="item in category.items" :key="item.name">
-                                <div class="flex gap-2 items-center">
-                                    <div v-html="item.icon">
+                                <template v-for="item in category.items">
+                                    <Link v-if="!item?.onlyAuth || (item?.onlyAuth && userStore.user)" :key="item.name" :href="item.href" :class="{ 'active': isActive(item.href) }" class="aside-item-content">
+                                        <div class="flex gap-2 items-center">
+                                            <div v-html="item.icon">
 
-                                    </div>
-                                    {{ item.name }}
-                                </div>
-                                </Link>
+                                            </div>
+                                            {{ item.name }}
+                                        </div>
+                                    </Link>
+                                </template>
                             </div>
                         </transition>
                     </div>
@@ -241,15 +245,17 @@ const toggleCategory = (category) => {
                         </div>
                         <transition name="slide">
                             <div class="aside-items flex flex-col gap-2">
-                                <div class="" v-for="item in category.items" :key="item.name">
-                                    <Link :href="item.href" class="flex gap-2 justify-center items-center">
-                                    <div v-tippy="{ content: item.name, placement: 'right', theme: isActive(item.href) ? 'aside-active' : 'aside' }" :class="{ 'active': isActive(item.href) }" class="aside-item-icon-laptop">
-                                        <div v-html="item.icon">
+                                <template v-for="item in category.items">
+                                    <div v-if="!item?.onlyAuth || (item?.onlyAuth && userStore.user)" class="" :key="item.name">
+                                        <Link :href="item.href" class="flex gap-2 justify-center items-center">
+                                            <div v-tippy="{ content: item.name, placement: 'right', theme: isActive(item.href) ? 'aside-active' : 'aside' }" :class="{ 'active': isActive(item.href) }" class="aside-item-icon-laptop">
+                                                <div v-html="item.icon">
 
-                                        </div>
+                                                </div>
+                                            </div>
+                                        </Link>
                                     </div>
-                                    </Link>
-                                </div>
+                                </template>
                             </div>
                         </transition>
                     </div>

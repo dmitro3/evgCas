@@ -151,7 +151,7 @@ const slotsToShow = computed(() =>
                     </div>
                 </button>
             </div>
-            <LastetsBets className="!mt-0" />
+            <LastetsBets mt="!mt-4" />
         </div>
     </MainLayout>
 </template>

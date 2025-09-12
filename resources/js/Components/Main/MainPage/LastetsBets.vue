@@ -5,7 +5,11 @@ import axios from "axios";
 
 
 const props = defineProps({
-    className: String,
+
+    mt: {
+        type: String,
+        default: 'mt-6',
+    },
 });
 
 const lastWins = ref([]);
@@ -76,7 +80,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div :class="className" class="relative flex flex-col gap-4 min-h-[210px] mt-6">
+    <div :class="mt" class="relative flex flex-col gap-4 min-h-[210px] mt-6">
         <div class="flex justify-between items-center">
             <p class="text-lg font-bold text-white">Latest Bets</p>
             <div class="w-fit bg-online text-green-light md:hidden flex z-10 gap-2 justify-center items-center p-2 py-1 text-sm font-medium rounded-full">
